@@ -19,5 +19,6 @@
             <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
 
         </div>
+        <asp:Label ID="lbl" runat="server" Text="HELOO" Class="text-center h3 m-2"></asp:Label>
     </div>
 </asp:Content>
