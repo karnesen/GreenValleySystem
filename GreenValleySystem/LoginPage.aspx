@@ -20,5 +20,7 @@
 
         </div>
         <asp:Label ID="lbl" runat="server" Text="HELOO" Class="text-center h3 m-2"></asp:Label>
+
+        <asp:Image ID="tonyStank" runat="server" ImageUrl="/images/tonyStark.jpg" />
     </div>
 </asp:Content>
