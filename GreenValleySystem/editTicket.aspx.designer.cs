@@ -51,13 +51,31 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.SqlDataSource srcServices;
 
         /// <summary>
-        /// lblGrid control.
+        /// navMove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navMove;
+
+        /// <summary>
+        /// navAuction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navAuction;
+
+        /// <summary>
+        /// navLookAt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navLookAt;
 
         /// <summary>
         /// dvMove control.
@@ -78,6 +96,24 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.SqlDataSource srcMoveData;
 
         /// <summary>
+        /// gvMoveAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvMoveAddress;
+
+        /// <summary>
+        /// srcMoveDataDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcMoveDataDetails;
+
+        /// <summary>
         /// dvAuction control.
         /// </summary>
         /// <remarks>
@@ -87,13 +123,31 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.DetailsView dvAuction;
 
         /// <summary>
-        /// srcAuction control.
+        /// srcAuctionData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource srcAuction;
+        protected global::System.Web.UI.WebControls.SqlDataSource srcAuctionData;
+
+        /// <summary>
+        /// gvAuctionDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAuctionDetails;
+
+        /// <summary>
+        /// srcAuctionDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcAuctionDetails;
 
         /// <summary>
         /// lblInventory control.

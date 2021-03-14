@@ -49,8 +49,8 @@
                                     <div class="tab-pane fade show active" id="Auction" role="tabpanel" aria-labelledby="auction-tab">
                                         <div class="form-group">
                                             <asp:TextBox ID="txtAuctionAddress" runat="server" Placeholder="Service Address" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server"
-                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceAddress"
+                                            <asp:RequiredFieldValidator ID="rfvAuctionAddress" runat="server"
+                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionAddress"
                                                 Text="Please Enter An Address." ValidationGroup="CreateCustomer">
                                             </asp:RequiredFieldValidator>
                                         </div>
@@ -58,24 +58,24 @@
                                         <div class="row form-group">
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="txtAuctionCity" runat="server" Placeholder="Service City" class="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
-                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceCity"
+                                                <asp:RequiredFieldValidator ID="rfvAuctionCity" runat="server"
+                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionCity"
                                                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                                                 </asp:RequiredFieldValidator>
                                             </div>
 
                                             <div class="col-md-2">
                                                 <asp:DropDownList ID="ddlAuctionState" runat="server" class="form-control"></asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server"
-                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlServiceState"
+                                                <asp:RequiredFieldValidator ID="rfvAuctionState" runat="server"
+                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlAuctionState"
                                                     Text="Please Select A State." ValidationGroup="CreateCustomer">
                                                 </asp:RequiredFieldValidator>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <asp:TextBox ID="txtAuctionZip" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server"
-                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceZip"
+                                                <asp:RequiredFieldValidator ID="rfvAuctionZip" runat="server"
+                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionZip"
                                                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                                                 </asp:RequiredFieldValidator>
                                             </div>
@@ -96,8 +96,8 @@
                                             <div class="form-group col-5">
                                                 <asp:Label ID="lblAuctionEndDate" runat="server" Text="End Date" for="txtEndDate"></asp:Label>
                                                 <asp:TextBox ID="txtAuctionEndDate" runat="server" Placeholder="End Date" class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
-                                                <asp:CustomValidator ID="CustomValidator1" runat="server" Text="Start Date Must Be Before End Date" ErrorMessage="CustomValidator"
-                                                    OnServerValidate="dateValidation_ServerValidate" ValidationGroup="CreateCustomer"></asp:CustomValidator>
+                                                <asp:CustomValidator ID="auctionDateValidate" runat="server" Text="Start Date Must Be Before End Date" ErrorMessage="CustomValidator"
+                                                    OnServerValidate="auctionDateValidate_ServerValidate" ValidationGroup="CreateCustomer"></asp:CustomValidator>
                                             </div>
                                         </div>
 
@@ -105,7 +105,7 @@
                                     <div class="tab-pane fade" id="Move" role="tabpanel" aria-labelledby="move-tab">
                                         <div class="form-group">
                                             <asp:TextBox ID="txtServiceAddress" runat="server" Placeholder="Service Address" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                                            <asp:RequiredFieldValidator ID="rfvServiceAddress" runat="server"
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceAddress"
                                                 Text="Please Enter An Address." ValidationGroup="CreateCustomer">
                                             </asp:RequiredFieldValidator>
@@ -114,7 +114,7 @@
                                         <div class="row form-group">
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="txtServiceCity" runat="server" Placeholder="Service City" class="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                                                <asp:RequiredFieldValidator ID="rfvServiceCity" runat="server"
                                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceCity"
                                                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                                                 </asp:RequiredFieldValidator>
@@ -122,7 +122,7 @@
 
                                             <div class="col-md-2">
                                                 <asp:DropDownList ID="ddlServiceState" runat="server" class="form-control"></asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                                                <asp:RequiredFieldValidator ID="rfvServiceState" runat="server"
                                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlServiceState"
                                                     Text="Please Select A State." ValidationGroup="CreateCustomer">
                                                 </asp:RequiredFieldValidator>
@@ -130,7 +130,7 @@
 
                                             <div class="col-md-4">
                                                 <asp:TextBox ID="txtServiceZip" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                                                <asp:RequiredFieldValidator ID="rfvServiceZip" runat="server"
                                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceZip"
                                                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                                                 </asp:RequiredFieldValidator>

@@ -16,7 +16,8 @@
                     DataKeyNames="serviceTicketID"
                     OnRowDataBound="gvWork_RowDataBound"
                     OnSelectedIndexChanged="gvWork_SelectedIndexChanged"
-                    AutoGenerateColumns="false">
+                    AutoGenerateColumns="false"
+                    class="table table-bordered table-condensed">
                     <Columns>
                         <asp:BoundField DataField="Note" HeaderText="Assignment Note" />
                         <asp:BoundField DataField="Assigned On:" HeaderText="Assigned On" />
@@ -34,7 +35,8 @@
                     DataKeyNames="userID"
                     OnRowDataBound="gvNewCustomers_RowDataBound"
                     OnSelectedIndexChanged="gvNewCustomers_SelectedIndexChanged"
-                    AutoGenerateColumns="false">
+                    AutoGenerateColumns="false"
+                    class="table table-bordered table-condensed">
                     <Columns>
                         <asp:BoundField DataField="Name" HeaderText="Customer" />
                         <asp:BoundField DataField="serviceType" HeaderText="Service Type" />

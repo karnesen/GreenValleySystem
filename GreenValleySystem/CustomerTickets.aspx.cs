@@ -23,7 +23,7 @@ namespace Lab3
         {
             String customerID = Session["SelectedCustomer"].ToString();
             DataTable dt = new DataTable();
-            String sqlQuery = "SELECT SERVICE.serviceType, SERVICE.serviceID, serviceTICKET.ticketStatus, serviceTICKET.ticketOpenDate " +
+            String sqlQuery = "SELECT SERVICE.serviceID, serviceTICKET.ticketStatus, serviceTICKET.ticketOpenDate " +
                 " FROM CUSTOMER INNER JOIN SERVICE ON CUSTOMER.customerID = SERVICE.customerID INNER JOIN serviceTICKET ON SERVICE.serviceID = serviceTICKET.serviceID" +
                 " WHERE CUSTOMER.customerID = " + customerID;
             // Define the connection to the Database:

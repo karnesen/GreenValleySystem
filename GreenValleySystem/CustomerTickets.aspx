@@ -18,7 +18,7 @@
                     OnSelectedIndexChanged="gvCustomerTicket_SelectedIndexChanged"
                     class="table table-striped table-borderless">
                     <Columns>
-                        <asp:BoundField DataField="serviceType" HeaderText="Service Type" />
+
                         <asp:BoundField DataField="ticketOpenDate" HeaderText="Open Date" />
                         <asp:BoundField DataField="ticketStatus" HeaderText="Status" />
                     </Columns>

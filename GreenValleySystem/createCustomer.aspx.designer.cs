@@ -87,13 +87,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtAuctionAddress;
 
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// rfvAuctionAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionAddress;
 
         /// <summary>
         /// txtAuctionCity control.
@@ -105,13 +105,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtAuctionCity;
 
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// rfvAuctionCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionCity;
 
         /// <summary>
         /// ddlAuctionState control.
@@ -123,13 +123,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.DropDownList ddlAuctionState;
 
         /// <summary>
-        /// RequiredFieldValidator9 control.
+        /// rfvAuctionState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionState;
 
         /// <summary>
         /// txtAuctionZip control.
@@ -141,13 +141,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtAuctionZip;
 
         /// <summary>
-        /// RequiredFieldValidator10 control.
+        /// rfvAuctionZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionZip;
 
         /// <summary>
         /// Label1 control.
@@ -204,13 +204,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtAuctionEndDate;
 
         /// <summary>
-        /// CustomValidator1 control.
+        /// auctionDateValidate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        protected global::System.Web.UI.WebControls.CustomValidator auctionDateValidate;
 
         /// <summary>
         /// txtServiceAddress control.
@@ -222,13 +222,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtServiceAddress;
 
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// rfvServiceAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceAddress;
 
         /// <summary>
         /// txtServiceCity control.
@@ -240,13 +240,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtServiceCity;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// rfvServiceCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceCity;
 
         /// <summary>
         /// ddlServiceState control.
@@ -258,13 +258,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.DropDownList ddlServiceState;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// rfvServiceState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceState;
 
         /// <summary>
         /// txtServiceZip control.
@@ -276,13 +276,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtServiceZip;
 
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// rfvServiceZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceZip;
 
         /// <summary>
         /// txtDestinationAddress control.

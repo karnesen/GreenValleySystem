@@ -24,6 +24,8 @@ namespace Lab1
 
             if (!IsPostBack)
             {
+                disableAuction();
+                disableMove();
                 fillStates();
                 if (Session["selectedCustomer"] != null)
                 {
@@ -41,6 +43,7 @@ namespace Lab1
                 ddlState.Items.Add(new ListItem(i));
                 ddlServiceState.Items.Add(new ListItem(i));
                 ddlDestinationState.Items.Add(new ListItem(i));
+                ddlAuctionState.Items.Add(new ListItem(i));
             }
 
         }
@@ -97,43 +100,45 @@ namespace Lab1
                 int customerID = (int)sqlCommand.ExecuteScalar();
                 sqlConnect.Close();
 
-                DateTime serviceStartDate = DateTime.Parse(txtStartDate.Text);
-                DateTime serviceCompletionDate;
-                String completionDate;
+   
 
-                if (String.IsNullOrEmpty(txtEndDate.Text))
-                {
-                    completionDate = "";
-                }
-                else
-                {
-                    serviceCompletionDate = DateTime.Parse(txtEndDate.Text);
-                    completionDate = serviceCompletionDate.ToString("MM/dd/yyyy HH:mm:ss");
-                }
-
-                sqlQuery = "INSERT INTO SERVICE VALUES('" +
-                    "', '" + 
-                    serviceStartDate.ToString("MM/dd/yyyy HH:mm:ss") + "', '" +
-                    completionDate + "', '', ''," + 0 + ", " +
+                sqlQuery = "INSERT INTO SERVICE(serviceCost, customerID) VALUES('', " +
                     customerID + ")  SELECT CAST(scope_identity() AS int)";
 
                 sqlCommand.CommandText = sqlQuery;
                 sqlConnect.Open();
                 int serviceID = (int)sqlCommand.ExecuteScalar();
                 sqlConnect.Close();
-
-                String ServiceAddress = txtServiceAddress.Text;
-                String ServiceCity = txtServiceCity.Text;
-                String ServiceState = ddlServiceState.SelectedValue;
-                String ServiceZip = txtServiceZip.Text;
-
+                
                 if (cbService.Items[1].Selected)
                 {
+                    String ServiceAddress = txtServiceAddress.Text;
+                    String ServiceCity = txtServiceCity.Text;
+                    String ServiceState = ddlServiceState.SelectedValue;
+                    String ServiceZip = txtServiceZip.Text;
+
                     String destAddress = txtDestinationAddress.Text;
                     String destCity = txtDestinationCity.Text;
                     String destState = ddlDestinationState.SelectedValue;
                     String destZip = txtDestinationZip.Text;
-                    sqlQuery = "INSERT INTO MOVE VALUES(" + serviceID + ", @serviceAddress, @servicecity, @serviceState, @servicezip, @destAddress, @destcity, @destState, @destzip,'')";
+
+                    String serviceStartDate = DateTime.Parse(txtStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+                    DateTime serviceCompletionDate;
+                    String completionDate;
+                    if (String.IsNullOrEmpty(txtEndDate.Text))
+                    {
+                        completionDate = "";
+                    }
+                    else
+                    {
+                        serviceCompletionDate = DateTime.Parse(txtEndDate.Text);
+                        completionDate = serviceCompletionDate.ToString("MM/dd/yyyy HH:mm:ss");
+                    }
+                    sqlQuery = "INSERT INTO MOVE(serviceID, serviceDeadlineStart, serviceDeadlineEnd) VALUES(" + serviceID + ", '" + serviceStartDate + "', '" + completionDate + "')";
+
+                    sqlQuery += " INSERT INTO ADDRESSES VALUES(@serviceAddress, @serviceCity, @serviceState, @serviceState, 'mP'," + serviceID + ")";
+                    sqlQuery += " INSERT INTO ADDRESSES VALUES(@destAddress, @destCity, @destState, @destState, 'mD'," + serviceID + ")";
+
                     sqlCommand.Parameters.Add(new SqlParameter("@serviceAddress", ServiceAddress));
                     sqlCommand.Parameters.Add(new SqlParameter("@servicecity", ServiceCity));
                     sqlCommand.Parameters.Add(new SqlParameter("@serviceState", ServiceState));
@@ -143,25 +148,52 @@ namespace Lab1
                     sqlCommand.Parameters.Add(new SqlParameter("@destcity", destCity));
                     sqlCommand.Parameters.Add(new SqlParameter("@destState", destState));
                     sqlCommand.Parameters.Add(new SqlParameter("@destzip", destZip));
+                    sqlCommand.CommandText = sqlQuery;
+                    sqlConnect.Open();
+                    sqlCommand.ExecuteReader();
+                    sqlConnect.Close();
 
                 }
                 else if (cbService.Items[0].Selected)
                 {
-                    sqlQuery = "INSERT INTO AUCTION VALUES (" + serviceID + ",  @AserviceAddress, @Aservicecity, @AserviceState, @Aservicezip, '')";
-                    sqlCommand.Parameters.Add(new SqlParameter("@AserviceAddress", ServiceAddress));
-                    sqlCommand.Parameters.Add(new SqlParameter("@Aservicecity", ServiceCity));
-                    sqlCommand.Parameters.Add(new SqlParameter("@AserviceState", ServiceState));
-                    sqlCommand.Parameters.Add(new SqlParameter("@Aservicezip", ServiceZip));
+                    String ServiceAddressA = txtAuctionAddress.Text;
+                    String ServiceCityA = txtAuctionCity.Text;
+                    String ServiceStateA = ddlDestinationState.SelectedValue;
+                    String ServiceZipA = txtAuctionZip.Text;
+
+                    String serviceStartDate = DateTime.Parse(txtAuctionStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+                    DateTime serviceCompletionDate;
+                    String completionDate;
+                    if (String.IsNullOrEmpty(txtAuctionEndDate.Text))
+                    {
+                        completionDate = "";
+                    }
+                    else
+                    {
+                        serviceCompletionDate = DateTime.Parse(txtAuctionEndDate.Text);
+                        completionDate = serviceCompletionDate.ToString("MM/dd/yyyy HH:mm:ss");
+                    }
+
+                    sqlQuery = "INSERT INTO Auction(serviceID, serviceDeadlineStart, serviceDeadlineEnd) VALUES(" + serviceID + ", '" + serviceStartDate + "', '" + completionDate + "')";
+                    sqlQuery += " INSERT INTO ADDRESSES VALUES(@AserviceAddress, @AserviceCity, @AserviceState, @AserviceState, 'aP'," + serviceID + ")";
+                    sqlCommand.Parameters.Add(new SqlParameter("@AserviceAddress", ServiceAddressA));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Aservicecity", ServiceCityA));
+                    sqlCommand.Parameters.Add(new SqlParameter("@AserviceState", ServiceStateA));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Aservicezip", ServiceZipA));
+                    sqlCommand.CommandText = sqlQuery;
+                    sqlConnect.Open();
+                    sqlCommand.ExecuteReader();
+                    sqlConnect.Close();
                 }
 
-                sqlQuery += " INSERT INTO SERVICETICKET VALUES(" + Session["EmployeeID"].ToString() + ", " + serviceID + ", '" +  DateTime.Now + "'," + 1 + ")";
+                sqlQuery = " INSERT INTO SERVICETICKET VALUES(" + Session["EmployeeID"].ToString() + ", " + serviceID + ", '" +  DateTime.Now + "'," + 1 + ")";
 
                 sqlCommand.CommandText = sqlQuery;
                 sqlConnect.Open();
                 sqlCommand.ExecuteReader();
                 sqlConnect.Close();
 
-                sqlQuery += "INSERT INTO NOTES VALUES('" + DateTime.Now + ", " + serviceID + ", " + Session["EmployeeID"] + ", 'Initial Contact', @notes";
+                sqlQuery += "INSERT INTO TICKETNOTE VALUES('" + DateTime.Now + "', " + serviceID + ", " + Session["EmployeeID"] + ", 'Initial Contact', @notes)";
                 sqlCommand.Parameters.Add(new SqlParameter("@notes", txtNotes.Text));
 
                 sqlCommand.CommandText = sqlQuery;
@@ -249,6 +281,18 @@ namespace Lab1
             txtStartDate.Text = "";
             txtEndDate.Text = "";
             rfvOther.Enabled = false;
+            txtAuctionAddress.Text = "";
+            txtAuctionCity.Text = "";
+            ddlAuctionState.SelectedValue = null;
+            txtAuctionZip.Text = "";
+            txtAuctionStartDate.Text = "";
+            txtAuctionEndDate.Text = "";
+            disableAuction();
+            disableMove();
+            cbService.Items[0].Selected = false;
+            cbService.Items[1].Selected = false;
+            panelService.Visible = false;
+
         }
 
       
@@ -324,6 +368,10 @@ namespace Lab1
                 HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
                 this.navAuction.Attributes.Add("style", "visibility:visible");
                 this.navMove.Attributes.Add("style", "visibility:visible");
+                enableAuction();
+                enableMove();
+
+
             }
             else if(cbService.Items[0].Selected)
             {
@@ -332,6 +380,8 @@ namespace Lab1
                 HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
                 this.navAuction.Attributes.Add("style", "visibility:visible");
                 this.navMove.Attributes.Add("style", "visibility:hidden");
+                enableAuction();
+                disableMove();
             }
             else if(cbService.Items[1].Selected)
             {
@@ -340,6 +390,8 @@ namespace Lab1
                 HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
                 this.navAuction.Attributes.Add("style", "visibility:hidden");
                 this.navMove.Attributes.Add("style", "visibility:visible");
+                disableAuction();
+                enableMove();
             }
             else
             {
@@ -348,7 +400,67 @@ namespace Lab1
                 HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
                 this.navAuction.Attributes.Add("style", "visibility:hidden");
                 this.navMove.Attributes.Add("style", "visibility:hidden");
+                disableMove();
+                disableAuction();
             }
+        }
+
+        protected void enableAuction()
+        {
+            rfvAuctionAddress.Enabled = true;
+            rfvAuctionCity.Enabled = true;
+            rfvAuctionState.Enabled = true;
+            rfvAuctionZip.Enabled = true;
+            rfvStartDateAuction.Enabled = true;
+            auctionDateValidate.Enabled = true;
+        }
+
+        protected void disableAuction()
+        {
+            rfvAuctionAddress.Enabled = false;
+            rfvAuctionCity.Enabled = false;
+            rfvAuctionState.Enabled = false;
+            rfvAuctionZip.Enabled = false;
+            rfvStartDateAuction.Enabled = false;
+            auctionDateValidate.Enabled = false;
+        }
+
+        protected void disableMove()
+        {
+            rfvServiceAddress.Enabled = false;
+            rfvServiceCity.Enabled = false;
+            rfvServiceState.Enabled = false;
+            rfvServiceZip.Enabled = false;
+            rfvStartDate.Enabled = false;
+
+            rfvDestAddress.Enabled = false;
+            rfvDestinationCity.Enabled = false;
+            rfvDestinationState.Enabled = false;
+            rfvDestinationZip.Enabled = false;
+            dateValidation.Enabled = false;
+        }
+
+        protected void enableMove()
+        {
+            rfvAddress.Enabled = true;
+            rfvServiceCity.Enabled = true;
+            rfvServiceState.Enabled = true;
+            rfvServiceZip.Enabled = true;
+            rfvStartDate.Enabled = true;
+
+            rfvDestAddress.Enabled = true;
+            rfvDestinationCity.Enabled = true;
+            rfvDestinationState.Enabled = true;
+            rfvDestinationZip.Enabled = true;
+            dateValidation.Enabled = true;
+        }
+
+        protected void auctionDateValidate_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (String.IsNullOrEmpty(txtAuctionEndDate.Text))
+                args.IsValid = true;
+            else
+                args.IsValid = Convert.ToDateTime(txtAuctionStartDate.Text) <= Convert.ToDateTime(txtAuctionEndDate.Text);
         }
     }
 }
