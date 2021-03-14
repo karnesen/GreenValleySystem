@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.HtmlControls;
 using System.Web.Configuration;
 
 namespace Lab1
@@ -96,11 +97,6 @@ namespace Lab1
                 int customerID = (int)sqlCommand.ExecuteScalar();
                 sqlConnect.Close();
 
-                char serviceType;
-                if (ddlServiceType.SelectedIndex == 0)
-                    serviceType = 'M';
-                else
-                    serviceType = 'A';
                 DateTime serviceStartDate = DateTime.Parse(txtStartDate.Text);
                 DateTime serviceCompletionDate;
                 String completionDate;
@@ -116,7 +112,7 @@ namespace Lab1
                 }
 
                 sqlQuery = "INSERT INTO SERVICE VALUES('" +
-                    serviceType + "', '" + 
+                    "', '" + 
                     serviceStartDate.ToString("MM/dd/yyyy HH:mm:ss") + "', '" +
                     completionDate + "', '', ''," + 0 + ", " +
                     customerID + ")  SELECT CAST(scope_identity() AS int)";
@@ -131,7 +127,7 @@ namespace Lab1
                 String ServiceState = ddlServiceState.SelectedValue;
                 String ServiceZip = txtServiceZip.Text;
 
-                if (serviceType == 'M')
+                if (cbService.Items[1].Selected)
                 {
                     String destAddress = txtDestinationAddress.Text;
                     String destCity = txtDestinationCity.Text;
@@ -149,7 +145,7 @@ namespace Lab1
                     sqlCommand.Parameters.Add(new SqlParameter("@destzip", destZip));
 
                 }
-                else
+                else if (cbService.Items[0].Selected)
                 {
                     sqlQuery = "INSERT INTO AUCTION VALUES (" + serviceID + ",  @AserviceAddress, @Aservicecity, @AserviceState, @Aservicezip, '')";
                     sqlCommand.Parameters.Add(new SqlParameter("@AserviceAddress", ServiceAddress));
@@ -159,6 +155,14 @@ namespace Lab1
                 }
 
                 sqlQuery += " INSERT INTO SERVICETICKET VALUES(" + Session["EmployeeID"].ToString() + ", " + serviceID + ", '" +  DateTime.Now + "'," + 1 + ")";
+
+                sqlCommand.CommandText = sqlQuery;
+                sqlConnect.Open();
+                sqlCommand.ExecuteReader();
+                sqlConnect.Close();
+
+                sqlQuery += "INSERT INTO NOTES VALUES('" + DateTime.Now + ", " + serviceID + ", " + Session["EmployeeID"] + ", 'Initial Contact', @notes";
+                sqlCommand.Parameters.Add(new SqlParameter("@notes", txtNotes.Text));
 
                 sqlCommand.CommandText = sqlQuery;
                 sqlConnect.Open();
@@ -183,7 +187,6 @@ namespace Lab1
             txtZipCode.Text = "22801";
             rdoContact.SelectedIndex = 1;
             txtHear.Text = "Online Advertisment";
-            ddlServiceType.SelectedIndex = 0;
             txtServiceAddress.Text = "235 Rose Court";
             txtServiceCity.Text = "Harrisonburg";
             txtServiceZip.Text = "23405";
@@ -235,7 +238,6 @@ namespace Lab1
             rdoContact.SelectedIndex = -1;
             txtOther.Text = "";
             txtHear.Text = "";
-            ddlServiceType.SelectedIndex = -1;
             txtServiceAddress.Text = "";
             txtServiceCity.Text = "";
             ddlServiceState.SelectedIndex = -1;
@@ -249,34 +251,7 @@ namespace Lab1
             rfvOther.Enabled = false;
         }
 
-        protected void ddlServiceType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(ddlServiceType.SelectedIndex == 0)
-            {
-                txtDestinationAddress.Enabled = true;
-                txtDestinationCity.Enabled = true;
-                ddlDestinationState.Enabled = true;
-                txtDestinationZip.Enabled = true;
-
-                rfvDestAddress.Enabled = true;
-                rfvDestinationCity.Enabled = true;
-                rfvDestinationState.Enabled = true;
-                rfvDestinationZip.Enabled = true;
-
-            }
-            else if(ddlServiceType.SelectedIndex == 1)
-            {
-                txtDestinationAddress.Enabled = false;
-                txtDestinationCity.Enabled = false;
-                ddlDestinationState.Enabled = false;
-                txtDestinationZip.Enabled = false;
-
-                rfvDestAddress.Enabled = false;
-                rfvDestinationCity.Enabled = false;
-                rfvDestinationState.Enabled = false;
-                rfvDestinationZip.Enabled = false;
-            }
-        }
+      
 
         protected void dateValidation_ServerValidate(object source, ServerValidateEventArgs args)
         {
@@ -321,7 +296,6 @@ namespace Lab1
                 ddlState.SelectedValue = queryResults["state"].ToString();
                 txtZipCode.Text = queryResults["zipcode"].ToString();
 
-                ddlServiceType.SelectedValue = queryResults["serviceType"].ToString();
                 DateTime start = DateTime.Parse(queryResults["serviceDeadlineStart"].ToString());
                 DateTime end = DateTime.Parse(queryResults["serviceDeadlineEnd"].ToString());
                 txtStartDate.Text = start.ToString("yyyy-MM-ddTHH:mm");
@@ -339,6 +313,42 @@ namespace Lab1
             sqlConnect.Close();
 
             
+        }
+
+        protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbService.Items[0].Selected && cbService.Items[1].Selected)
+            {
+                panelService.Visible = true;
+                HtmlGenericControl listItem = this.navAuction as HtmlGenericControl;
+                HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
+                this.navAuction.Attributes.Add("style", "visibility:visible");
+                this.navMove.Attributes.Add("style", "visibility:visible");
+            }
+            else if(cbService.Items[0].Selected)
+            {
+                panelService.Visible = true;
+                HtmlGenericControl listItem = this.navAuction as HtmlGenericControl;
+                HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
+                this.navAuction.Attributes.Add("style", "visibility:visible");
+                this.navMove.Attributes.Add("style", "visibility:hidden");
+            }
+            else if(cbService.Items[1].Selected)
+            {
+                panelService.Visible = true;
+                HtmlGenericControl listItem = this.navAuction as HtmlGenericControl;
+                HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
+                this.navAuction.Attributes.Add("style", "visibility:hidden");
+                this.navMove.Attributes.Add("style", "visibility:visible");
+            }
+            else
+            {
+                panelService.Visible = false;
+                HtmlGenericControl listItem = this.navAuction as HtmlGenericControl;
+                HtmlGenericControl listItem2 = this.navMove as HtmlGenericControl;
+                this.navAuction.Attributes.Add("style", "visibility:hidden");
+                this.navMove.Attributes.Add("style", "visibility:hidden");
+            }
         }
     }
 }
