@@ -29,8 +29,9 @@ namespace Lab2
             if (IsPostBack)
             {
                 setCurrent();
-
             }
+            
+
         }
 
 
@@ -119,6 +120,7 @@ namespace Lab2
                 Session.Remove("selectedService");
             }
             setCurrent();
+            setLookOut();
         }
 
         protected void btnAddInventory_Click(object sender, EventArgs e)
@@ -134,36 +136,64 @@ namespace Lab2
             Response.Redirect("InventoryAuction.aspx");
         }
 
-        //protected void fillMove()
-        //{
-        //    String sqlQuery = "SELECT ADDRESSES.city, ADDRESSES.streetAddress, ADDRESSES.state, Addresses.addressType, ADDRESSES.zipcode, MOVE.serviceDeadlineStart, MOVE.serviceDeadlineEnd, dates.d, dates.description "
-        //            + " FROM ADDRESSES INNER JOIN SERVICE ON ADDRESSES.serviceID = SERVICE.serviceID FULL OUTER JOIN "
-        //            + " MOVE ON SERVICE.serviceID = MOVE.serviceID AND ADDRESSES.serviceID = MOVE.serviceID LEFT OUTER JOIN "
-        //            + " dates ON SERVICE.serviceID = dates.serviceID WHERE(SERVICE.serviceID = " + Session["selectedService"].ToString();
-        //    // Define the connection to the Database:
-        //    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
-        //    // Create the SQL Command object which will send the query:
-        //    SqlCommand sqlCommand = new SqlCommand();
-        //    sqlCommand.Connection = sqlConnect;
-        //    sqlCommand.CommandType = CommandType.Text;
-        //    sqlCommand.CommandText = sqlQuery;
-        //    // Open your connection, send the query, retrieve the results:
-        //    sqlConnect.Open();
-        //    SqlDataReader queryResults = sqlCommand.ExecuteReader();
-        //    if (!queryResults.HasRows)
-        //    {
-        //        HtmlGenericControl listItem = this.navMove as HtmlGenericControl;
-        //        this.navMove.Attributes.Add("style", "visibility:hidden");
-        //    }
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (btnEdit.Text == "Cancel")
+            {
+                txtLookAtDate.ReadOnly = true;
+                btnEdit.Text = "Edit";
+                btnSave.Visible = false;
+                setLookOut();
+            }
+            else
+            {
+                txtLookAtDate.ReadOnly = false;
+                btnEdit.Text = "Cancel";
+                btnSave.Visible = true;
+            }
+        }
 
-        //    else {
-        //        while (queryResults.Read())
-        //        {
-        //            if(queryResults[)
-        //        }
-        //    }
-        //    sqlConnect.Close();
+        protected void setLookOut()
+        {
+            String sqlQuery = "Select lookAtDate from Service where serviceID=" + Int32.Parse(ddlServices.SelectedValue) + " AND lookAtDate IS NOT NULL"; 
+            // Define the connection to the Database:
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            // Create the SQL Command object which will send the query:
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+            // Open your connection, send the query, retrieve the results:
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
 
-        //}
+            while (queryResults.Read())
+            {
+                    DateTime date = DateTime.Parse(queryResults["lookAtDate"].ToString());
+                    txtLookAtDate.Text = date.ToString("yyyy-MM-ddTHH:mm");
+                
+            }
+
+            sqlConnect.Close();
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            String sqlQuery = "UPDATE SERVICE SET lookAtDate = '" + DateTime.Parse(txtLookAtDate.Text).ToString("MM/dd/yyyy HH:mm:s") + "' where serviceID = " + Int32.Parse(ddlServices.SelectedValue);
+            // Define the connection to the Database:
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            // Create the SQL Command object which will send the query:
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+            // Open your connection, send the query, retrieve the results:
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+            sqlConnect.Close();
+            btnEdit.Text = "Edit";
+        }
+
+
     }
 }

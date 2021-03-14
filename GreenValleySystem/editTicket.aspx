@@ -38,7 +38,7 @@
                             <a class="nav-link" id="auction-tab" data-toggle="tab" href="#auctionDetails" role="tab" aria-controls="auctionDetails" aria-selected="false">Auction</a>
                         </li>
                         <li class="nav-item" runat="Server" id="navLookAt">
-                            <a class="nav-link" id="lookAt-tab" data-toggle="tab" href="#lookAt" role="tab" aria-controls="lookAt" aria-selected="false">Auction</a>
+                            <a class="nav-link" id="lookAt-tab" data-toggle="tab" href="#lookAt" role="tab" aria-controls="lookAt" aria-selected="false">Look At</a>
                         </li>
                     </ul>
                 </div>
@@ -87,7 +87,7 @@
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "mp") ? "Pick Up Location" : "Drop Off Location" %>'></asp:Label>
+                                            <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "mP") ? "Pick Up Location" : "Drop Off Location" %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:BoundField DataField="streetAddress" HeaderText="Street Address" />
@@ -179,8 +179,10 @@
                             </asp:SqlDataSource>
                         </div>
                         <div class="tab-pane fade" id="lookAt" role="tabpanel" aria-labelledby="lookAt-tab">
-                            <div class="form-group">
-
+                            <div class="form-group row">
+                                <asp:TextBox ID="txtLookAtDate" runat="server" ReadOnly="true" TextMode="DateTimeLocal"></asp:TextBox>
+                                <a href="#lookAt" ><asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click"  Class="btn btn-outline-secondary"/></a>
+                                <asp:Button ID="btnSave" runat="server" Text="Save" Visible="false" OnClick="btnSave_Click" href="#lookAt" Class="btn btn-outline-secondary" />
                             </div>
                         </div>
                     </div>

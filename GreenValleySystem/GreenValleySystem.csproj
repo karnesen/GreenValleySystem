@@ -86,6 +86,7 @@
     <Content Include="CustomerTickets.aspx" />
     <Content Include="editTicket.aspx" />
     <Content Include="HomePage.aspx" />
+    <Content Include="images\headerTransparent.png" />
     <Content Include="images\logo.jpg" />
     <Content Include="InventoryAdd.aspx" />
     <Content Include="InventoryAuction.aspx" />
