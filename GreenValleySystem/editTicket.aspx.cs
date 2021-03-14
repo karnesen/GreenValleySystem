@@ -198,7 +198,7 @@ namespace Lab2
         protected void btnLookAtForm_Click(object sender, EventArgs e)
         {
             Session["selectedCustomer"] = ddlServices.SelectedValue;
-            Response.Redirect("lookAtForm.aspx");
+            Response.Redirect("InventoryAdd.aspx");
         }
     }
 }

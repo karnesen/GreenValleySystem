@@ -27,10 +27,10 @@ namespace Lab1
                 disableAuction();
                 disableMove();
                 fillStates();
-                if (Session["selectedCustomer"] != null)
-                {
-                    fillCustomerTable(Session["selectedCustomer"].ToString());
-                }
+                //if (Session["selectedCustomer"] != null)
+                //{
+                //    fillCustomerTable(Session["selectedCustomer"].ToString());
+                //}
             }
         }
 

@@ -13,19 +13,19 @@
                 <div class="form-group row">
                     <label for="txtDistance" class="col-sm-2 col-form-label">Distance from Truck</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtDistance" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtDistance" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="txtDriveway" class="col-sm-2 col-form-label">Driveway Accessibility</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtDriveway" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtDriveway" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="loadingConditions" class="col-sm-2 col-form-label">Loading Conditions</label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="loadingConditions" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="loadingConditions" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </div>
                 </div>
             </div>

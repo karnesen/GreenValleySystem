@@ -196,7 +196,7 @@ $(function () {
                                 <asp:Button ID="btnSave" runat="server" Text="Save" Visible="false" OnClick="btnSave_Click" href="#lookAt" Class="btn btn-outline-secondary" />
                                 
                             </div>
-                            <asp:Button ID="btnLookAtForm" runat="server" Text="Look At Form" OnClick="btnLookAtForm_Click"/>
+                            <asp:Button ID="btnLookAtForm" runat="server" Text="Look At Form" OnClick="btnLookAtForm_Click" Class="btn btn-outline-secondary"/>
                         </div>
                     </div>
                 </div>

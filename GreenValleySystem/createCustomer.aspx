@@ -3,6 +3,12 @@
 <%--Kirsi And Josh Coleman 2/15/21--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <script src="Scripts/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.phone_us').mask('(000) 000-0000');
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container col-6">
@@ -219,7 +225,7 @@
 
                     <div class="row form-group">
                         <div class="col-md 9">
-                            <asp:TextBox ID="txtPhoneNumber" runat="server" Placeholder="Phone Number" class="form-control" TextMode="Phone"></asp:TextBox>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                 Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
@@ -341,5 +347,4 @@
 
     </div>
 
-    </div>
 </asp:Content>

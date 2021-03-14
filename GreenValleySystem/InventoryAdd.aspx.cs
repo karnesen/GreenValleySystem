@@ -30,6 +30,7 @@ namespace Lab1
             updateInventoryOutput();
         }
 
+
         // Fills drop down list with services
         private void fillServices()
         {

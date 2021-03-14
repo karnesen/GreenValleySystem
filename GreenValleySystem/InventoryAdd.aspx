@@ -1,16 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="InventoryAdd.aspx.cs" Inherits="Lab1.AddInventory" %>
+
 <%--Kirsi And Josh Coleman 2/15/21--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container col-6">
+    <div class="container col-6 mb-2">
         <div class="card">
             <div class="card-header text-center">
                 <asp:Label ID="lblAddInventory" runat="server" Text="Add Inventory" Class="h3 m-2"></asp:Label>
             </div>
 
-            <div class="card-body form-group">
+            <div class="card-body form-group ">
 
                 <div class="form-group">
                     <asp:Label ID="lblServices" runat="server" Text="Services" for="ddlServices"></asp:Label>
@@ -19,6 +20,7 @@
                         ControlToValidate="ddlServices" Text="Select a Service" ValidationGroup="inventory"></asp:RequiredFieldValidator>
                 </div>
 
+                <asp:DropDownList ID="ddlRooms" runat="server"></asp:DropDownList>
 
                 <div class="form-group">
                     <asp:TextBox ID="txtItemName" runat="server" Placeholder="Item Name" class="form-control"></asp:TextBox>
@@ -54,6 +56,68 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+    <div class="container col-6 mb-2">
+        <div class="card">
+            <div class="card-header text-center">
+                <asp:Label ID="lblRooms" runat="server" Text="Add Rooms" Class="h3 m-2"></asp:Label>
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="txtName" class="col-sm-2 col-form-label">Room Name</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="txtName" runat="server" class="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtDesc" class="col-sm-2 col-form-label">Room Notes</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="txtDesc" runat="server" class="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtDistance" class="col-sm-2 col-form-label">Floor Number</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="Floor" runat="server" class="form-control" TextMode="Number"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="roomImageUpload">Room Image</label>
+                    <asp:FileUpload ID="roomImageUpload" runat="server" class="form-control-file" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container col-6 mb-2">
+        <div class="card">
+            <div class="card-header text-center">
+                <asp:Label ID="lblLookAtForm" runat="server" Text="Look At Information" Class="h3 m-2"></asp:Label>
+            </div>
+
+            <div class="card-body form-group">
+                <div class="form-group row">
+                    <label for="txtDistance" class="col-sm-2 col-form-label">Distance from Truck</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="txtDistance" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtDriveway" class="col-sm-2 col-form-label">Driveway Accessibility</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="txtDriveway" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="loadingConditions" class="col-sm-2 col-form-label">Loading Conditions</label>
+                    <div class="col-sm-10">
+                        <asp:TextBox ID="loadingConditions" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>
