@@ -92,6 +92,7 @@
     <Content Include="InventoryAuction.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="images\movingTruck.png" />
+    <Content Include="lookAtForm.aspx" />
     <Content Include="NewAuction.aspx" />
     <Content Include="NewUser.aspx" />
     <Content Include="noteDetails.aspx" />
@@ -293,6 +294,13 @@
     </Compile>
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lookAtForm.aspx.cs">
+      <DependentUpon>lookAtForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lookAtForm.aspx.designer.cs">
+      <DependentUpon>lookAtForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>

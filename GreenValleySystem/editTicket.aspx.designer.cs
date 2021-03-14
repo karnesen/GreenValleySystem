@@ -15,6 +15,15 @@ namespace Lab2
     {
 
         /// <summary>
+        /// TabName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField TabName;
+
+        /// <summary>
         /// lblSelect control.
         /// </summary>
         /// <remarks>
@@ -175,6 +184,15 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
+
+        /// <summary>
+        /// btnLookAtForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLookAtForm;
 
         /// <summary>
         /// lblInventory control.

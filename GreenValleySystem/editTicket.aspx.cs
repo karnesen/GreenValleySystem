@@ -29,6 +29,7 @@ namespace Lab2
             if (IsPostBack)
             {
                 setCurrent();
+                TabName.Value = Request.Form[TabName.UniqueID];
             }
             
 
@@ -127,7 +128,7 @@ namespace Lab2
         {
             Session["serviceIDInventory"] = ddlServices.SelectedValue;
             Response.Redirect("InventoryAdd.aspx");
-
+            
         }
 
         protected void btnAuctionInventory_Click(object sender, EventArgs e)
@@ -194,6 +195,10 @@ namespace Lab2
             btnEdit.Text = "Edit";
         }
 
-
+        protected void btnLookAtForm_Click(object sender, EventArgs e)
+        {
+            Session["selectedCustomer"] = ddlServices.SelectedValue;
+            Response.Redirect("lookAtForm.aspx");
+        }
     }
 }

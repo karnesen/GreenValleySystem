@@ -3,9 +3,19 @@
 <%--Kirsi And Josh Coleman 2/15/21--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+$(function () {
+    var tabName = $("[id*=TabName]").val() != "" ? $("[id*=TabName]").val() : "navMove";
+    $('#serviceCard a[href="#' + tabName + '"]').tab('show');
+    $("#serviceCard a").click(function () {
+        $("[id*=TabName]").val($(this).attr("href").replace("#", ""));
+    });
+});
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:HiddenField ID="TabName" runat="server" />
     <div class="text-center mb-4">
         <asp:Label ID="lblSelect" Text="Select Service" runat="server"></asp:Label>
         <asp:DropDownList
@@ -42,6 +52,7 @@
                         </li>
                     </ul>
                 </div>
+
 
                 <div class="card-body">
                     <div class="tab-content" id="myTabContent">
@@ -183,14 +194,16 @@
                                 <asp:TextBox ID="txtLookAtDate" runat="server" ReadOnly="true" TextMode="DateTimeLocal"></asp:TextBox>
                                 <a href="#lookAt" ><asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click"  Class="btn btn-outline-secondary"/></a>
                                 <asp:Button ID="btnSave" runat="server" Text="Save" Visible="false" OnClick="btnSave_Click" href="#lookAt" Class="btn btn-outline-secondary" />
+                                
                             </div>
+                            <asp:Button ID="btnLookAtForm" runat="server" Text="Look At Form" OnClick="btnLookAtForm_Click"/>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="card">
+            <div class="card mb-2">
                 <div class="card-header">
                     <asp:Label ID="lblInventory" Text="Inventory" runat="server" Font-Bold="true"></asp:Label>
                 </div>
