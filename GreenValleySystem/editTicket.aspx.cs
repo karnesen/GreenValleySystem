@@ -49,7 +49,7 @@ namespace Lab2
 
         protected void gvNotes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["ticketID"] = gvNotes.SelectedRow.Cells[0].Text;
+            Session["ticketID"] = gvNotes.SelectedValue.ToString();
             Response.Redirect("noteDetails.aspx");
         }
 
@@ -192,7 +192,10 @@ namespace Lab2
             sqlConnect.Open();
             SqlDataReader queryResults = sqlCommand.ExecuteReader();
             sqlConnect.Close();
+            txtLookAtDate.ReadOnly = true;
             btnEdit.Text = "Edit";
+            btnSave.Visible = false;
+            setLookOut();
         }
 
         protected void btnLookAtForm_Click(object sender, EventArgs e)

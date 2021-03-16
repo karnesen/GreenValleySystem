@@ -17,8 +17,7 @@
                 <asp:Button ID="btnLogin" runat="server" Class="btn btn-primary" OnClick="btnLogin_Click" Text="Log in" />
             </div>
             <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
-
         </div>
-                
+              
     </div>
 </asp:Content>

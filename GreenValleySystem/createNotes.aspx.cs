@@ -66,7 +66,7 @@ namespace Lab2
 
         protected void fillServices()
         {
-            String sqlQuery = "Select Service.serviceType, Service.serviceStartDate, Service.serviceID, Customer.firstName, Customer.lastName" +
+            String sqlQuery = "Select Service.serviceID, Customer.firstName, Customer.lastName" +
                 " from CUSTOMER INNER JOIN Service on CUSTOMER.customerID = Service.customerID ";
             // Define the connection to the Database:
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -81,11 +81,7 @@ namespace Lab2
             String output = "";
             while (queryResults.Read())
             {
-                if (queryResults["serviceType"].ToString() == "A")
-                    output = "Auction - ";
-                else
-                    output = "Move - ";
-                output += queryResults["firstName"] + " " + queryResults["lastName"];
+                output = queryResults["firstName"] + " " + queryResults["lastName"];
                 ddlServices.Items.Add(new ListItem(output, queryResults["serviceID"].ToString()));
             }
             sqlConnect.Close();

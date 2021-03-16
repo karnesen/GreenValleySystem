@@ -3,12 +3,13 @@
 <%--Kirsi And Josh Coleman 2/15/21--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <script src="Scripts/jquery.mask.min.js"></script>
+    <script src="Scripts/jquery.mask.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.phone_us').mask('(000) 000-0000');
         });
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container col-6">

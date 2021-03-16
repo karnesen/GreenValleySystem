@@ -34,8 +34,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">New Service</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="createMove.aspx">New Move Request</a>
-                            <a class="dropdown-item" href="createAuction.aspx">New Auction Request</a>
+                            <%--<a class="dropdown-item" href="createMove.aspx">New Move Request</a>
+                            <a class="dropdown-item" href="createAuction.aspx">New Auction Request</a>--%>
                             <a class="dropdown-item" href="newAuction.aspx">Schedule Auction</a>
                         </div>
                     </li>

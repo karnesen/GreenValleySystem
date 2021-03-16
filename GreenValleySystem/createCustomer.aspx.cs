@@ -154,7 +154,8 @@ namespace Lab1
                     sqlConnect.Close();
 
                 }
-                else if (cbService.Items[0].Selected)
+
+                if (cbService.Items[0].Selected)
                 {
                     String ServiceAddressA = txtAuctionAddress.Text;
                     String ServiceCityA = txtAuctionCity.Text;
@@ -193,7 +194,7 @@ namespace Lab1
                 sqlCommand.ExecuteReader();
                 sqlConnect.Close();
 
-                sqlQuery += "INSERT INTO TICKETNOTE VALUES('" + DateTime.Now + "', " + serviceID + ", " + Session["EmployeeID"] + ", 'Initial Contact', @notes)";
+                sqlQuery = "INSERT INTO TICKETNOTE VALUES('" + DateTime.Now + "', " + serviceID + ", " + Session["EmployeeID"] + ", 'Initial Contact', @notes)";
                 sqlCommand.Parameters.Add(new SqlParameter("@notes", txtNotes.Text));
 
                 sqlCommand.CommandText = sqlQuery;
@@ -209,24 +210,42 @@ namespace Lab1
 
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
-            txtFirstName.Text = "Jeremy";
-            txtLastName.Text = "Loan";
-            txtEmail.Text = "JeremyL@gmail.com";
-            txtPhoneNumber.Text = "2349581823";
-            txtAddress.Text = "258 Merry Way";
+            txtFirstName.Text = "James";
+            txtLastName.Text = "Gordon";
+            txtEmail.Text = "gordonJ@gmail.com";
+            txtPhoneNumber.Text = "4109875647";
+
+            txtAddress.Text = "738 Dukes Way";
             txtCity.Text = "Harrisonburg";
             ddlState.SelectedIndex = 50;
             txtZipCode.Text = "22801";
+
             rdoContact.SelectedIndex = 1;
             txtHear.Text = "Online Advertisment";
+
             txtServiceAddress.Text = "235 Rose Court";
             txtServiceCity.Text = "Harrisonburg";
             txtServiceZip.Text = "23405";
+            ddlServiceState.SelectedIndex = 50;
+
             txtDestinationAddress.Text = "2019 Berry Way";
             txtDestinationCity.Text = "Harrisonburg";
             txtDestinationZip.Text = "28192";
+            ddlDestinationState.SelectedIndex = 50;
 
-            txtStartDate.Text = "2021-02-28T12:35";
+            txtAuctionAddress.Text = "235 Rose Court";
+            txtAuctionCity.Text = "Harrisonburg";
+            txtAuctionZip.Text = "23405";
+            ddlAuctionState.SelectedIndex = 50;
+
+            txtNotes.Text = "High Value Items";
+
+            txtStartDate.Text = "2021-03-28T12:35";
+            txtEndDate.Text = "2021-03-30T12:35";
+
+            txtAuctionStartDate.Text = "2021-03-16T12:35";
+            txtAuctionEndDate.Text = "2021-03-28T12:35";
+
         }
 
         // check to see that the current email does not exist in the system
@@ -292,6 +311,7 @@ namespace Lab1
             cbService.Items[0].Selected = false;
             cbService.Items[1].Selected = false;
             panelService.Visible = false;
+            txtNotes.Text = "";
 
         }
 

@@ -305,17 +305,25 @@ $(function () {
                     <asp:GridView
                         ID="gvNotes"
                         DataSourceID="srcNotes"
+                        AutoGenerateColumns ="false"
+                        DataKeyNames = "ID"
                         OnRowDataBound="gvNotes_RowDataBound"
                         OnSelectedIndexChanged="gvNotes_SelectedIndexChanged"
                         runat="server"
                         class="table table-bordered table-condensed">
+                        <Columns>
+                            <asp:BoundField Datafield="CreationDate" HeaderText="Creation Date"/>
+                            <asp:BoundField Datafield="CreatedBy" HeaderText="Created By"/>
+                            <asp:BoundField Datafield="NoteTitle" HeaderText="Note Title"/>
+                        </Columns>
+
                     </asp:GridView>
 
                     <asp:SqlDataSource
                         ID="srcNotes"
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
-                        SelectCommand="SELECT TICKETNOTE.ticketID as 'ID', TICKETNOTE.creationDate as 'Creation Date', EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'Created By', TICKETNOTE.noteTitle as 'Note Title' 
-                            FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID WHERE serviceTicketID = @serviceID"
+                        SelectCommand="SELECT TICKETNOTE.ticketID as 'ID', TICKETNOTE.creationDate as 'CreationDate', EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
+                            FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID WHERE serviceTicketID = @serviceID order by TICKETNOTE.creationDate desc"
                         runat="server">
                         <SelectParameters>
                             <asp:ControlParameter
