@@ -83,7 +83,6 @@
     <Content Include="createCustomer.aspx" />
     <Content Include="createNotes.aspx" />
     <Content Include="customerProfile.aspx" />
-    <Content Include="CustomerTickets.aspx" />
     <Content Include="editTicket.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="images\headerTransparent.png" />
@@ -250,13 +249,6 @@
     </Compile>
     <Compile Include="customerProfile.aspx.designer.cs">
       <DependentUpon>customerProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerTickets.aspx.cs">
-      <DependentUpon>CustomerTickets.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerTickets.aspx.designer.cs">
-      <DependentUpon>CustomerTickets.aspx</DependentUpon>
     </Compile>
     <Compile Include="editTicket.aspx.cs">
       <DependentUpon>editTicket.aspx</DependentUpon>

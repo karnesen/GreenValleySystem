@@ -21,13 +21,13 @@ namespace GreenValleySystem
 
         protected void gvCustomerTickets_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvCustomerTicket, "Select$" + e.Row.RowIndex);
+            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvCustomerTickets, "Select$" + e.Row.RowIndex);
             e.Row.Attributes["style"] = "cursor:pointer";
         }
 
         protected void gvCustomerTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["selectedService"] = gvCustomerTicket.SelectedValue.ToString();
+            Session["selectedService"] = gvCustomerTickets.SelectedValue.ToString();
             Response.Redirect("editTicket.aspx");
         }
 

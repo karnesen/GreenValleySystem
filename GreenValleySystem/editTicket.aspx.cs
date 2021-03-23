@@ -26,13 +26,6 @@ namespace Lab2
                 Response.Redirect("LoginPage.aspx");
             }
 
-            if (IsPostBack)
-            {
-                setCurrent();
-                TabName.Value = Request.Form[TabName.UniqueID];
-            }
-            
-
         }
 
 
@@ -42,8 +35,6 @@ namespace Lab2
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvNotes, "Select$" + e.Row.RowIndex);
                 e.Row.Attributes["style"] = "cursor:pointer";
-                e.Row.Attributes["onmouseover"] = "this.style.backgroundColor = '#c8e4b6'";
-                e.Row.Attributes["onmouseout"] = "this.style.backgroundColor='white'";
             }
         }
 
@@ -55,8 +46,40 @@ namespace Lab2
 
         protected void btnNewNote_Click(object sender, EventArgs e)
         {
-            Session["serviceIDNote"] = ddlServices.SelectedValue;
             Response.Redirect("createNotes.aspx");
+        }
+
+        protected void btnCreateNote_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                String sqlQuery = "INSERT INTO TICKETNOTE(creationDate, serviceID, noteCreator, noteTitle, noteText) VALUES('" +
+                    DateTime.Now +
+                    "', " + Session["selectedService"].ToString() +
+                    ", " + Session["EmployeeID"].ToString() +
+                    ", @noteName, @noteText)";
+
+
+                // Define the connection to the Database:
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+                // Create the SQL Command object which will send the query:
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Parameters.Add(new SqlParameter("@noteName", txtNoteTitle.Text));
+                sqlCommand.Parameters.Add(new SqlParameter("@noteText", txtNoteBody.Text));
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.CommandText = sqlQuery;
+                // Open your connection, send the query, retrieve the results:
+                sqlConnect.Open();
+                sqlCommand.ExecuteReader();
+                sqlConnect.Close();
+                gvNotes.DataBind();
+            }
+        }
+
+        protected void btnNewAddress_Click(object sender, EventArgs e)
+        {
+            srcServiceAddresses.Insert();
         }
 
         //protected void btnAssign_Click(object sender, EventArgs e)
@@ -118,79 +141,15 @@ namespace Lab2
         //{
         //    Session["serviceIDInventory"] = ddlServices.SelectedValue;
         //    Response.Redirect("InventoryAdd.aspx");
-            
+
         //}
 
-        //protected void btnAuctionInventory_Click(object sender, EventArgs e)
-        //{
-        //    Session["serviceIDInventory"] = ddlServices.SelectedValue;
-        //    Response.Redirect("InventoryAuction.aspx");
-        //}
 
-        //protected void btnEdit_Click(object sender, EventArgs e)
-        //{
-        //    if (btnEdit.Text == "Cancel")
-        //    {
-        //        txtLookAtDate.ReadOnly = true;
-        //        btnEdit.Text = "Edit";
-        //        btnSave.Visible = false;
-        //        setLookOut();
-        //    }
-        //    else
-        //    {
-        //        txtLookAtDate.ReadOnly = false;
-        //        btnEdit.Text = "Cancel";
-        //        btnSave.Visible = true;
-        //    }
-        //}
 
-        //protected void setLookOut()
-        //{
-        //    String sqlQuery = "Select lookAtDate from Service where serviceID=" + Int32.Parse(ddlServices.SelectedValue) + " AND lookAtDate IS NOT NULL"; 
-        //    // Define the connection to the Database:
-        //    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
-        //    // Create the SQL Command object which will send the query:
-        //    SqlCommand sqlCommand = new SqlCommand();
-        //    sqlCommand.Connection = sqlConnect;
-        //    sqlCommand.CommandType = CommandType.Text;
-        //    sqlCommand.CommandText = sqlQuery;
-        //    // Open your connection, send the query, retrieve the results:
-        //    sqlConnect.Open();
-        //    SqlDataReader queryResults = sqlCommand.ExecuteReader();
 
-        //    while (queryResults.Read())
-        //    {
-        //            DateTime date = DateTime.Parse(queryResults["lookAtDate"].ToString());
-        //            txtLookAtDate.Text = date.ToString("yyyy-MM-ddTHH:mm");
-                
-        //    }
 
-        //    sqlConnect.Close();
-        //}
 
-        //protected void btnSave_Click(object sender, EventArgs e)
-        //{
-        //    String sqlQuery = "UPDATE SERVICE SET lookAtDate = '" + DateTime.Parse(txtLookAtDate.Text).ToString("MM/dd/yyyy HH:mm:s") + "' where serviceID = " + Int32.Parse(ddlServices.SelectedValue);
-        //    // Define the connection to the Database:
-        //    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
-        //    // Create the SQL Command object which will send the query:
-        //    SqlCommand sqlCommand = new SqlCommand();
-        //    sqlCommand.Connection = sqlConnect;
-        //    sqlCommand.CommandType = CommandType.Text;
-        //    sqlCommand.CommandText = sqlQuery;
-        //    // Open your connection, send the query, retrieve the results:
-        //    sqlConnect.Open();
-        //    SqlDataReader queryResults = sqlCommand.ExecuteReader();
-        //    sqlConnect.Close();
-        //    txtLookAtDate.ReadOnly = true;
-        //    btnEdit.Text = "Edit";
-        //    btnSave.Visible = false;
-        //    setLookOut();
-        //}
 
-        protected void btnLookAtForm_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("InventoryAdd.aspx");
-        }
+
     }
 }

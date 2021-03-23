@@ -5,9 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container col-4">
         <div class="card">
-            <div class="card-header">
-                Search Results
-            </div>
             <div class="card-body">
                 <asp:GridView
                     ID="gvCustomer"
@@ -16,10 +13,9 @@
                     AutoGenerateColumns="false"
                     OnRowDataBound="gvCustomer_RowDataBound"
                     OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged"
-                    class="table table-striped table-borderless">
+                    class="table table-borderless table-hover">
                     <Columns>
-                        <asp:BoundField DataField="firstName" HeaderText="Customer" />
-                        <asp:BoundField DataField="lastName" HeaderText=" " />
+                        <asp:BoundField DataField="customerName" HeaderText="Customers" />
                     </Columns>
                 </asp:GridView>
             </div>

@@ -23,7 +23,7 @@ namespace Lab3
         {
             String search = Session["search"].ToString();
             DataTable dt = new DataTable();
-            String sqlQuery = "SELECT customerID, firstName, lastName FROM CUSTOMER " +
+            String sqlQuery = "SELECT customerID, firstName +  ' ' +  lastName as customerName FROM CUSTOMER " +
                 "WHERE((firstName LIKE @search) " +
                 "OR(lastName LIKE  @search)" +
                 "OR(firstName + ' ' + lastName LIKE  @search))";
@@ -49,15 +49,13 @@ namespace Lab3
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvCustomer, "Select$" + e.Row.RowIndex);
                 e.Row.Attributes["style"] = "cursor:pointer";
-                e.Row.Attributes["onmouseover"] = "this.style.backgroundColor = '#c8e4b6'";
-                e.Row.Attributes["onmouseout"] = "this.style.backgroundColor='white'";
             }
         }
 
         protected void gvCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["selectedCustomer"] = gvCustomer.SelectedValue.ToString();
-            Session["selectedCustomerName"] = gvCustomer.SelectedRow.Cells[0].Text + " " + gvCustomer.SelectedRow.Cells[1].Text;
+            Session["selectedCustomerName"] = gvCustomer.SelectedRow.Cells[0].Text;
             Response.Redirect("customerProfile.aspx");
         }
     }
