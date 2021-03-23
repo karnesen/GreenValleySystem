@@ -7,218 +7,182 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab3
+namespace GreenValleySystem
 {
 
 
-    public partial class NewUser
+    public partial class AuctionRequest
     {
 
         /// <summary>
-        /// txtFirstName control.
+        /// txtAuctionAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionAddress;
 
         /// <summary>
-        /// rfvFirstName control.
+        /// rfvAuctionAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionAddress;
 
         /// <summary>
-        /// txtLastName control.
+        /// txtAuctionCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionCity;
 
         /// <summary>
-        /// rfvLastName control.
+        /// rfvAuctionCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionCity;
 
         /// <summary>
-        /// txtUsername control.
+        /// ddlAuctionState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAuctionState;
 
         /// <summary>
-        /// rfvEmail control.
+        /// rfvAuctionState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionState;
 
         /// <summary>
-        /// cvCheckUniqueCustomer control.
+        /// txtAuctionZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cvCheckUniqueCustomer;
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionZip;
 
         /// <summary>
-        /// txtPassword control.
+        /// rfvAuctionZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionZip;
 
         /// <summary>
-        /// rfvPassword control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// txtPhoneNumber control.
+        /// lblAuctionStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+        protected global::System.Web.UI.WebControls.Label lblAuctionStartDate;
 
         /// <summary>
-        /// rfvPhoneNumber control.
+        /// txtAuctionStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPhoneNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionStartDate;
 
         /// <summary>
-        /// ddlPhoneNumberType control.
+        /// rfvStartDateAuction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPhoneNumberType;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStartDateAuction;
 
         /// <summary>
-        /// RrfvPhoneType control.
+        /// lblAuctionEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RrfvPhoneType;
+        protected global::System.Web.UI.WebControls.Label lblAuctionEndDate;
 
         /// <summary>
-        /// txtAddress control.
+        /// txtAuctionEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionEndDate;
 
         /// <summary>
-        /// rfvAddress control.
+        /// auctionDateValidate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAddress;
+        protected global::System.Web.UI.WebControls.CustomValidator auctionDateValidate;
 
         /// <summary>
-        /// txtCity control.
+        /// txtNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCity;
+        protected global::System.Web.UI.WebControls.TextBox txtNotes;
 
         /// <summary>
-        /// rfvCity control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCity;
+        protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
-        /// ddlState control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlState;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// rfvState control.
+        /// btnPopulate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvState;
-
-        /// <summary>
-        /// txtZipCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZipCode;
-
-        /// <summary>
-        /// rfvZipCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvZipCode;
-
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
-
-        /// <summary>
-        /// lblStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
+        protected global::System.Web.UI.WebControls.Button btnPopulate;
     }
 }

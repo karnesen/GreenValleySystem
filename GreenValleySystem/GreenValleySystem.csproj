@@ -73,16 +73,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assign.aspx" />
+    <Content Include="AuctionRequest.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="createAuction.aspx" />
     <Content Include="createCustomer.aspx" />
-    <Content Include="createMove.aspx" />
     <Content Include="createNotes.aspx" />
+    <Content Include="customerProfile.aspx" />
     <Content Include="CustomerTickets.aspx" />
     <Content Include="editTicket.aspx" />
     <Content Include="HomePage.aspx" />
@@ -93,8 +93,8 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="images\movingTruck.png" />
     <Content Include="lookAtForm.aspx" />
+    <Content Include="MoveRequest.aspx" />
     <Content Include="NewAuction.aspx" />
-    <Content Include="NewUser.aspx" />
     <Content Include="noteDetails.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -203,8 +203,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="searchResults.aspx" />
-    <Content Include="UserLogin.aspx" />
-    <Content Include="UserRequestService.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -225,12 +223,12 @@
     <Compile Include="Assign.aspx.designer.cs">
       <DependentUpon>Assign.aspx</DependentUpon>
     </Compile>
-    <Compile Include="createAuction.aspx.cs">
-      <DependentUpon>createAuction.aspx</DependentUpon>
+    <Compile Include="AuctionRequest.aspx.cs">
+      <DependentUpon>AuctionRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="createAuction.aspx.designer.cs">
-      <DependentUpon>createAuction.aspx</DependentUpon>
+    <Compile Include="AuctionRequest.aspx.designer.cs">
+      <DependentUpon>AuctionRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="createCustomer.aspx.cs">
       <DependentUpon>createCustomer.aspx</DependentUpon>
@@ -239,13 +237,6 @@
     <Compile Include="createCustomer.aspx.designer.cs">
       <DependentUpon>createCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="createMove.aspx.cs">
-      <DependentUpon>createMove.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="createMove.aspx.designer.cs">
-      <DependentUpon>createMove.aspx</DependentUpon>
-    </Compile>
     <Compile Include="createNotes.aspx.cs">
       <DependentUpon>createNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,12 +244,12 @@
     <Compile Include="createNotes.aspx.designer.cs">
       <DependentUpon>createNotes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerMaster.Master.cs">
-      <DependentUpon>CustomerMaster.Master</DependentUpon>
+    <Compile Include="customerProfile.aspx.cs">
+      <DependentUpon>customerProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomerMaster.Master.designer.cs">
-      <DependentUpon>CustomerMaster.Master</DependentUpon>
+    <Compile Include="customerProfile.aspx.designer.cs">
+      <DependentUpon>customerProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerTickets.aspx.cs">
       <DependentUpon>CustomerTickets.aspx</DependentUpon>
@@ -316,19 +307,19 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="MoveRequest.aspx.cs">
+      <DependentUpon>MoveRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveRequest.aspx.designer.cs">
+      <DependentUpon>MoveRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewAuction.aspx.cs">
       <DependentUpon>NewAuction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewAuction.aspx.designer.cs">
       <DependentUpon>NewAuction.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewUser.aspx.cs">
-      <DependentUpon>NewUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewUser.aspx.designer.cs">
-      <DependentUpon>NewUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="noteDetails.aspx.cs">
       <DependentUpon>noteDetails.aspx</DependentUpon>
@@ -346,23 +337,8 @@
     <Compile Include="searchResults.aspx.designer.cs">
       <DependentUpon>searchResults.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserLogin.aspx.cs">
-      <DependentUpon>UserLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserLogin.aspx.designer.cs">
-      <DependentUpon>UserLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserRequestService.aspx.cs">
-      <DependentUpon>UserRequestService.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserRequestService.aspx.designer.cs">
-      <DependentUpon>UserRequestService.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CustomerMaster.Master" />
     <Content Include="MasterPage.Master" />
     <Content Include="libman.json" />
     <None Include="packages.config" />

@@ -30,14 +30,14 @@ namespace Lab2
         {
             try
             {
-                System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
+                System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString.ToString());
                 
                 System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
                 findPass.Connection = sc;
                 findPass.CommandType = System.Data.CommandType.Text;
                 // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-                findPass.CommandText = "SELECT PasswordHash, EmployeeID FROM ePass WHERE Username = @Username";
-                findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text.ToString()));
+                findPass.CommandText = "SELECT PasswordHash, EmployeeID, firstName + ' ' + lastName as employeeName FROM Employee WHERE email = @email";
+                findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text.ToString()));
                 sc.Open();
                 SqlDataReader reader = findPass.ExecuteReader(); // create a reader
 
@@ -49,7 +49,7 @@ namespace Lab2
 
                         if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
-                            Session["UserName"] = HttpUtility.HtmlEncode(txtUsername.Text);
+                            Session["UserName"] = reader["employeeName"];
                             Session["EmployeeID"] = reader["EmployeeID"];
                             Response.Redirect("HomePage.aspx");
                         }
