@@ -3,15 +3,7 @@
 <%--Kirsi And Josh Coleman 2/15/21--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-$(function () {
-    var tabName = $("[id*=TabName]").val() != "" ? $("[id*=TabName]").val() : "navMove";
-    $('#serviceCard a[href="#' + tabName + '"]').tab('show');
-    $("#serviceCard a").click(function () {
-        $("[id*=TabName]").val($(this).attr("href").replace("#", ""));
-    });
-});
-    </script>
+   
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

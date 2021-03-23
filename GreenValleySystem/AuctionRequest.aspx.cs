@@ -15,6 +15,7 @@ namespace GreenValleySystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblCustomer.Text = Session["selectedCustomerName"].ToString();
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to create a new auction.";
@@ -77,11 +78,11 @@ namespace GreenValleySystem
                     completionDate = serviceCompletionDate.ToString("MM/dd/yyyy HH:mm:ss");
                 }
 
-                String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, customerID) " +
-                    "VALUES('"+ DateTime.Now + "', 1,'" + StartDate + "', '" + completionDate + "', " + customerID + " )";
-                sqlQuery += "INSERT INTO Auction(serviceID) VALUES((select max(serviceID) from service))";
+                String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID) " +
+                    "VALUES('"+ DateTime.Now + "', 1,'" + StartDate + "', '" + completionDate + "', 'A', " + customerID + " )";
+                sqlQuery += " INSERT INTO Auction(serviceID) VALUES((select max(serviceID) from service))";
                 sqlQuery += " INSERT INTO ADDRESSES VALUES(@AserviceAddress, @AserviceCity, @AserviceState, @AserviceState, 'P', (select max(serviceID) from service))";
-                sqlQuery = "INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
+                sqlQuery += " INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
                     "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), " + Session["EmployeeID"] + ", 'Initial Request', @notes)";
 
 

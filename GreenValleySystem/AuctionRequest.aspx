@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="card-body">
+        <asp:Label ID="lblCustomer" runat="server"></asp:Label>
         <div class="form-group">
             <asp:TextBox ID="txtAuctionAddress" runat="server" Placeholder="Service Address" class="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvAuctionAddress" runat="server"

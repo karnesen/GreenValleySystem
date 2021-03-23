@@ -57,7 +57,8 @@ namespace Lab3
         protected void gvCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["selectedCustomer"] = gvCustomer.SelectedValue.ToString();
-            Response.Redirect("CustomerTickets.aspx");
+            Session["selectedCustomerName"] = gvCustomer.SelectedRow.Cells[0].Text + " " + gvCustomer.SelectedRow.Cells[1].Text;
+            Response.Redirect("customerProfile.aspx");
         }
     }
 }

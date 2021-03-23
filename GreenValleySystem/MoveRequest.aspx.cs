@@ -81,13 +81,13 @@ namespace GreenValleySystem
                 completionDate = serviceCompletionDate.ToString("MM/dd/yyyy HH:mm:ss");
             }
 
-            String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, customerID) " +
-                    "VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', " + customerID + " )";
+            String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID) " +
+                    "VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'M'," + customerID + " )";
             sqlQuery = "INSERT INTO MOVE(serviceID) VALUES((select max(serviceID) from service))";
 
             sqlQuery += " INSERT INTO ADDRESSES VALUES(@serviceAddress, @serviceCity, @serviceState, @serviceState, 'P', (select max(serviceID) from service))";
             sqlQuery += " INSERT INTO ADDRESSES VALUES(@destAddress, @destCity, @destState, @destState, 'D', (select max(serviceID) from service))";
-            sqlQuery = "INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
+            sqlQuery += "INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
                 "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), " + Session["EmployeeID"] + ", 'Initial Request', @notes)";
 
 

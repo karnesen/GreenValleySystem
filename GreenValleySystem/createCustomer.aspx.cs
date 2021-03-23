@@ -61,7 +61,7 @@ namespace Lab1
                     initialContact = txtOther.Text;
                 String hear = txtHear.Text;
 
-                String sqlQuery = "INSERT INTO CUSTOMER VALUES (@firstName, @lastName, @phoneNumber, @phoneType, @email, @address, @city, @state, @zip, @initialContact, @hear, '" + DateTime.Now + "')";
+                String sqlQuery = "INSERT INTO CUSTOMER VALUES (@firstName, @lastName, @phoneNumber, @phoneType, @email, @address, @city, @state, @zip, @initialContact, @hear, '" + DateTime.Now + "', '" + DateTime.Now + "')";
                 sqlQuery += "INSERT INTO TICKETNOTE (creationDate, customerID, noteCreator, noteTitle, noteText)" +
                     " VALUES('" + DateTime.Now + "', (select max(customerID) from customer), " + Session["EmployeeID"] + ", 'Initial Contact', @notes)";
                 sqlQuery += " Select max(customerID) as selected from customer";
