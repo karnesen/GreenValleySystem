@@ -7,47 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab2
+namespace GreenValleySystem
 {
 
 
-    public partial class noteDetails
+    public partial class updateResources
     {
 
         /// <summary>
-        /// lnkButtonReturn control.
+        /// lblUdpateEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkButtonReturn;
+        protected global::System.Web.UI.WebControls.Label lblUdpateEmployees;
 
         /// <summary>
-        /// lblViewNote control.
+        /// gvEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblViewNote;
+        protected global::System.Web.UI.WebControls.GridView gvEmployees;
 
         /// <summary>
-        /// txtNoteTitle control.
+        /// btnNewEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoteTitle;
+        protected global::System.Web.UI.WebControls.LinkButton btnNewEmployee;
 
         /// <summary>
-        /// txtNoteBody control.
+        /// srcEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoteBody;
+        protected global::System.Web.UI.WebControls.SqlDataSource srcEmployees;
     }
 }

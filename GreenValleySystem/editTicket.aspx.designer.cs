@@ -15,6 +15,15 @@ namespace Lab2
     {
 
         /// <summary>
+        /// lnkButtonReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkButtonReturn;
+
+        /// <summary>
         /// dvServiceDetails control.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,13 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.GridView gvServiceAddresses;
 
         /// <summary>
-        /// btnNewAddress control.
+        /// btnInsertAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewAddress;
+        protected global::System.Web.UI.WebControls.LinkButton btnInsertAddress;
 
         /// <summary>
         /// ddlAddressType control.

@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card-body">
+    <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" runat="server">Back to Customer</asp:LinkButton>
+    <div class="card card-body">
         <asp:Label ID="lblCustomer" runat="server"></asp:Label>
         <div class="form-group">
             <asp:TextBox ID="txtAuctionAddress" runat="server" Placeholder="Service Address" class="form-control"></asp:TextBox>
@@ -60,16 +61,16 @@
         </div>
 
         <div class="form-group">
-                        <asp:TextBox ID="txtNotes" runat="server" Placeholder="Initial Notes"
-                            Class="form-control" TextMode="MultiLine"></asp:TextBox>
-                    </div>
+            <asp:TextBox ID="txtNotes" runat="server" Placeholder="Initial Notes"
+                Class="form-control" TextMode="MultiLine"></asp:TextBox>
+        </div>
 
         <div class="form-group">
-                <div class="d-flex justify-content-around">
-                    <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-primary btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
-                    <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
-                    <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-secondary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
-                </div>
+            <div class="d-flex justify-content-around">
+                <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-primary btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
+                <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
+                <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-secondary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
             </div>
         </div>
+    </div>
 </asp:Content>

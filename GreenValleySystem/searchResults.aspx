@@ -13,7 +13,7 @@
                     AutoGenerateColumns="false"
                     OnRowDataBound="gvCustomer_RowDataBound"
                     OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged"
-                    class="table table-borderless table-hover">
+                    class="table table-bordered tablee-condensed table-hover">
                     <Columns>
                         <asp:BoundField DataField="customerName" HeaderText="Customers" />
                     </Columns>

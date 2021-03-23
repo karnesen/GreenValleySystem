@@ -4,10 +4,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <div class="container col-6">
+  
+    <div class="container col-6">
+        <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="editTicket.aspx" runat="server">Back to Service Page</asp:LinkButton>
         <div class="card">
             <div class="card-header text-center">
-                <asp:Label ID="lblViewNote" runat="server" Text="View Note" Class="h3 m-2"></asp:Label>
+                <asp:Label ID="lblViewNote" runat="server" Text="Note Details" Class="h3 m-2"></asp:Label>
             </div>
             <div class="card-body">
                     <asp:TextBox ID="txtNoteTitle" runat="server" Placeholder="Note Title" class="form-control" ReadOnly="true"></asp:TextBox>

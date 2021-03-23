@@ -8,8 +8,10 @@
 
     <div class="row justify-content-around">
         <div class=" col-5">
+            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" runat="server">Back to Customer</asp:LinkButton>
             <div class="card" id="serviceCard">
                 <div class="card-header">
+                    Initial Service Details
                 </div>
 
                 <div class="card-body">
@@ -29,15 +31,38 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:BoundField DataField="serviceOpenDate" HeaderText="Open Date" />
+                            <asp:TemplateField HeaderText="Service Type">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblServiceOpenDate" runat="server" Text='<%#Bind("serviceOpenDate")%>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
                             <asp:TemplateField HeaderText="Status">
                                 <ItemTemplate>
                                     <asp:Label ID="lblStatus" runat="server" Text='<%#(Eval("serviceStatus").ToString()) == "True" ? "Active" : "Inactive"%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField DataField="serviceDeadlineStart" HeaderText="Deadline Start" />
-                            <asp:BoundField DataField="serviceDeadlineEnd" HeaderText="Deadline End" />
+
+                            <asp:TemplateField HeaderText="Deadline">
+                                <ItemTemplate>
+                                    <asp:Label ID="lbldeadLineStart" runat="server" Text='<%#Bind("serviceDeadlineStart")%>'></asp:Label>
+                                    - 
+                                    <asp:Label ID="lbldeadlineEnd" runat="server" Text='<%#Bind("serviceDeadlineEnd")%>'></asp:Label>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <div class="form-group col-6">
+                                        <asp:TextBox ID="txtAuctionStartDate" runat="server" Text='<%#Bind("serviceDeadlineStart")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvStartDateAuction" runat="server"
+                                            ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionStartDate"
+                                            Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
+                                        </asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-6">
+                                        <asp:TextBox ID="txtAuctionEndDate" runat="server" Text='<%#Bind("serviceDeadlineEnd")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
+                                    </div>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Last Updated" ControlStyle-Font-Italic="true">
                                 <ItemTemplate>
                                     <asp:Label ID="lblLastUpdated" runat="server" Font-Italic="true"
@@ -68,19 +93,14 @@
                         DataSourceID="srcServiceAddresses"
                         class="table table-bordered table-condensed">
                         <Columns>
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
-                                </ItemTemplate>
+                            <asp:TemplateField HeaderText="Address">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="ddlAddressType" runat="server">
+                                    <div class="form-group">
+                                    <asp:DropDownList ID="ddlAddressType" runat="server" class="form-control">
                                         <asp:ListItem Text="Pick Up" Value="P"></asp:ListItem>
                                         <asp:ListItem Text="Drop Off" Value="D"></asp:ListItem>
                                     </asp:DropDownList>
-                                </EditItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Address">
-                                <EditItemTemplate>
+                                        </div>
                                     <div class="form-group">
                                         <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("streetAddress") %>' class="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="rfvAddress" runat="server"
@@ -90,7 +110,7 @@
                                     </div>
 
                                     <div class="row form-group">
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvCity" runat="server"
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
@@ -98,59 +118,59 @@
                                             </asp:RequiredFieldValidator>
                                         </div>
 
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
-                                                <asp:ListItem Value="AL">Alabama</asp:ListItem>
-                                                <asp:ListItem Value="AK">Alaska</asp:ListItem>
-                                                <asp:ListItem Value="AZ">Arizona</asp:ListItem>
-                                                <asp:ListItem Value="AR">Arkansas</asp:ListItem>
-                                                <asp:ListItem Value="CA">California</asp:ListItem>
-                                                <asp:ListItem Value="CO">Colorado</asp:ListItem>
-                                                <asp:ListItem Value="CT">Connecticut</asp:ListItem>
-                                                <asp:ListItem Value="DC">District of Columbia</asp:ListItem>
-                                                <asp:ListItem Value="DE">Delaware</asp:ListItem>
-                                                <asp:ListItem Value="FL">Florida</asp:ListItem>
-                                                <asp:ListItem Value="GA">Georgia</asp:ListItem>
-                                                <asp:ListItem Value="HI">Hawaii</asp:ListItem>
-                                                <asp:ListItem Value="ID">Idaho</asp:ListItem>
-                                                <asp:ListItem Value="IL">Illinois</asp:ListItem>
-                                                <asp:ListItem Value="IN">Indiana</asp:ListItem>
-                                                <asp:ListItem Value="IA">Iowa</asp:ListItem>
-                                                <asp:ListItem Value="KS">Kansas</asp:ListItem>
-                                                <asp:ListItem Value="KY">Kentucky</asp:ListItem>
-                                                <asp:ListItem Value="LA">Louisiana</asp:ListItem>
-                                                <asp:ListItem Value="ME">Maine</asp:ListItem>
-                                                <asp:ListItem Value="MD">Maryland</asp:ListItem>
-                                                <asp:ListItem Value="MA">Massachusetts</asp:ListItem>
-                                                <asp:ListItem Value="MI">Michigan</asp:ListItem>
-                                                <asp:ListItem Value="MN">Minnesota</asp:ListItem>
-                                                <asp:ListItem Value="MS">Mississippi</asp:ListItem>
-                                                <asp:ListItem Value="MO">Missouri</asp:ListItem>
-                                                <asp:ListItem Value="MT">Montana</asp:ListItem>
-                                                <asp:ListItem Value="NE">Nebraska</asp:ListItem>
-                                                <asp:ListItem Value="NV">Nevada</asp:ListItem>
-                                                <asp:ListItem Value="NH">New Hampshire</asp:ListItem>
-                                                <asp:ListItem Value="NJ">New Jersey</asp:ListItem>
-                                                <asp:ListItem Value="NM">New Mexico</asp:ListItem>
-                                                <asp:ListItem Value="NY">New York</asp:ListItem>
-                                                <asp:ListItem Value="NC">North Carolina</asp:ListItem>
-                                                <asp:ListItem Value="ND">North Dakota</asp:ListItem>
-                                                <asp:ListItem Value="OH">Ohio</asp:ListItem>
-                                                <asp:ListItem Value="OK">Oklahoma</asp:ListItem>
-                                                <asp:ListItem Value="OR">Oregon</asp:ListItem>
-                                                <asp:ListItem Value="PA">Pennsylvania</asp:ListItem>
-                                                <asp:ListItem Value="RI">Rhode Island</asp:ListItem>
-                                                <asp:ListItem Value="SC">South Carolina</asp:ListItem>
-                                                <asp:ListItem Value="SD">South Dakota</asp:ListItem>
-                                                <asp:ListItem Value="TN">Tennessee</asp:ListItem>
-                                                <asp:ListItem Value="TX">Texas</asp:ListItem>
-                                                <asp:ListItem Value="UT">Utah</asp:ListItem>
-                                                <asp:ListItem Value="VT">Vermont</asp:ListItem>
-                                                <asp:ListItem Value="VA">Virginia</asp:ListItem>
-                                                <asp:ListItem Value="WA">Washington</asp:ListItem>
-                                                <asp:ListItem Value="WV">West Virginia</asp:ListItem>
-                                                <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
-                                                <asp:ListItem Value="WY">Wyoming</asp:ListItem>
+                                                <asp:ListItem Value="AL">AL</asp:ListItem>
+                                                <asp:ListItem Value="AK">AK</asp:ListItem>
+                                                <asp:ListItem Value="AZ">AZ</asp:ListItem>
+                                                <asp:ListItem Value="AR">AR</asp:ListItem>
+                                                <asp:ListItem Value="CA">CA</asp:ListItem>
+                                                <asp:ListItem Value="CO">CO</asp:ListItem>
+                                                <asp:ListItem Value="CT">CT</asp:ListItem>
+                                                <asp:ListItem Value="DC">DC</asp:ListItem>
+                                                <asp:ListItem Value="DE">DE</asp:ListItem>
+                                                <asp:ListItem Value="FL">FL</asp:ListItem>
+                                                <asp:ListItem Value="GA">GA</asp:ListItem>
+                                                <asp:ListItem Value="HI">HI</asp:ListItem>
+                                                <asp:ListItem Value="ID">ID</asp:ListItem>
+                                                <asp:ListItem Value="IL">IL</asp:ListItem>
+                                                <asp:ListItem Value="IN">IN</asp:ListItem>
+                                                <asp:ListItem Value="IA">IA</asp:ListItem>
+                                                <asp:ListItem Value="KS">KS</asp:ListItem>
+                                                <asp:ListItem Value="KY">KY</asp:ListItem>
+                                                <asp:ListItem Value="LA">LA</asp:ListItem>
+                                                <asp:ListItem Value="ME">ME</asp:ListItem>
+                                                <asp:ListItem Value="MD">MD</asp:ListItem>
+                                                <asp:ListItem Value="MA">MA</asp:ListItem>
+                                                <asp:ListItem Value="MI">MI</asp:ListItem>
+                                                <asp:ListItem Value="MN">MN</asp:ListItem>
+                                                <asp:ListItem Value="MS">MS</asp:ListItem>
+                                                <asp:ListItem Value="MO">MO</asp:ListItem>
+                                                <asp:ListItem Value="MT">MT</asp:ListItem>
+                                                <asp:ListItem Value="NE">NE</asp:ListItem>
+                                                <asp:ListItem Value="NV">NV</asp:ListItem>
+                                                <asp:ListItem Value="NH">NH</asp:ListItem>
+                                                <asp:ListItem Value="NJ">NJ</asp:ListItem>
+                                                <asp:ListItem Value="NM">NM</asp:ListItem>
+                                                <asp:ListItem Value="NY">NY</asp:ListItem>
+                                                <asp:ListItem Value="NC">NC</asp:ListItem>
+                                                <asp:ListItem Value="ND">ND</asp:ListItem>
+                                                <asp:ListItem Value="OH">OH</asp:ListItem>
+                                                <asp:ListItem Value="OK">OK</asp:ListItem>
+                                                <asp:ListItem Value="OR">OR</asp:ListItem>
+                                                <asp:ListItem Value="PA">PA</asp:ListItem>
+                                                <asp:ListItem Value="RI">RI</asp:ListItem>
+                                                <asp:ListItem Value="SC">SC</asp:ListItem>
+                                                <asp:ListItem Value="SD">SD</asp:ListItem>
+                                                <asp:ListItem Value="TN">TN</asp:ListItem>
+                                                <asp:ListItem Value="TX">TX</asp:ListItem>
+                                                <asp:ListItem Value="UT">UT</asp:ListItem>
+                                                <asp:ListItem Value="VT">VT</asp:ListItem>
+                                                <asp:ListItem Value="VA">VA</asp:ListItem>
+                                                <asp:ListItem Value="WA">WA</asp:ListItem>
+                                                <asp:ListItem Value="WV">WV</asp:ListItem>
+                                                <asp:ListItem Value="WI">WI</asp:ListItem>
+                                                <asp:ListItem Value="WY">WY</asp:ListItem>
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="rfvState" runat="server"
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
@@ -168,6 +188,7 @@
                                     </div>
                                 </EditItemTemplate>
                                 <ItemTemplate>
+                                    <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
                                     <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>
                                     <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
                                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
@@ -176,19 +197,23 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                    <div class="table table-bordered table-condensed">
-                        <div class="d-table-row">
-                            <div class="d-table-cell">
-                                <asp:Button ID="btnNewAddress" OnClick="btnNewAddress_Click" runat="server" Text="New Address" Class="btn btn-outline-secondary" />
-                                </div>
-                            <div class="d-table-cell">
-                                <asp:DropDownList ID="ddlAddressType" runat="server">
-                                        <asp:ListItem Text="Pick Up" Value="P"></asp:ListItem>
-                                        <asp:ListItem Text="Drop Off" Value="D"></asp:ListItem>
-                                    </asp:DropDownList>
-                                </div>
-                            <div class="d-table-cell">
-                                <div class="form-group">
+
+                    <table class="table-bordered table-condensed">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server">Add Address</asp:LinkButton>
+                                </td>
+
+                                <td>
+                                    <div class="form-group">
+                                        <asp:DropDownList ID="ddlAddressType" runat="server" class="form-control">
+                                            <asp:ListItem Text="Pick Up" Value="P"></asp:ListItem>
+                                            <asp:ListItem Text="Drop Off" Value="D"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+
+                                    <div class="form-group">
                                         <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="rfvAddress" runat="server"
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
@@ -207,57 +232,57 @@
 
                                         <div class="col-md-2">
                                             <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
-                                                <asp:ListItem Value="AL">Alabama</asp:ListItem>
-                                                <asp:ListItem Value="AK">Alaska</asp:ListItem>
-                                                <asp:ListItem Value="AZ">Arizona</asp:ListItem>
-                                                <asp:ListItem Value="AR">Arkansas</asp:ListItem>
-                                                <asp:ListItem Value="CA">California</asp:ListItem>
-                                                <asp:ListItem Value="CO">Colorado</asp:ListItem>
-                                                <asp:ListItem Value="CT">Connecticut</asp:ListItem>
-                                                <asp:ListItem Value="DC">District of Columbia</asp:ListItem>
-                                                <asp:ListItem Value="DE">Delaware</asp:ListItem>
-                                                <asp:ListItem Value="FL">Florida</asp:ListItem>
-                                                <asp:ListItem Value="GA">Georgia</asp:ListItem>
-                                                <asp:ListItem Value="HI">Hawaii</asp:ListItem>
-                                                <asp:ListItem Value="ID">Idaho</asp:ListItem>
-                                                <asp:ListItem Value="IL">Illinois</asp:ListItem>
-                                                <asp:ListItem Value="IN">Indiana</asp:ListItem>
-                                                <asp:ListItem Value="IA">Iowa</asp:ListItem>
-                                                <asp:ListItem Value="KS">Kansas</asp:ListItem>
-                                                <asp:ListItem Value="KY">Kentucky</asp:ListItem>
-                                                <asp:ListItem Value="LA">Louisiana</asp:ListItem>
-                                                <asp:ListItem Value="ME">Maine</asp:ListItem>
-                                                <asp:ListItem Value="MD">Maryland</asp:ListItem>
-                                                <asp:ListItem Value="MA">Massachusetts</asp:ListItem>
-                                                <asp:ListItem Value="MI">Michigan</asp:ListItem>
-                                                <asp:ListItem Value="MN">Minnesota</asp:ListItem>
-                                                <asp:ListItem Value="MS">Mississippi</asp:ListItem>
-                                                <asp:ListItem Value="MO">Missouri</asp:ListItem>
-                                                <asp:ListItem Value="MT">Montana</asp:ListItem>
-                                                <asp:ListItem Value="NE">Nebraska</asp:ListItem>
-                                                <asp:ListItem Value="NV">Nevada</asp:ListItem>
-                                                <asp:ListItem Value="NH">New Hampshire</asp:ListItem>
-                                                <asp:ListItem Value="NJ">New Jersey</asp:ListItem>
-                                                <asp:ListItem Value="NM">New Mexico</asp:ListItem>
-                                                <asp:ListItem Value="NY">New York</asp:ListItem>
-                                                <asp:ListItem Value="NC">North Carolina</asp:ListItem>
-                                                <asp:ListItem Value="ND">North Dakota</asp:ListItem>
-                                                <asp:ListItem Value="OH">Ohio</asp:ListItem>
-                                                <asp:ListItem Value="OK">Oklahoma</asp:ListItem>
-                                                <asp:ListItem Value="OR">Oregon</asp:ListItem>
-                                                <asp:ListItem Value="PA">Pennsylvania</asp:ListItem>
-                                                <asp:ListItem Value="RI">Rhode Island</asp:ListItem>
-                                                <asp:ListItem Value="SC">South Carolina</asp:ListItem>
-                                                <asp:ListItem Value="SD">South Dakota</asp:ListItem>
-                                                <asp:ListItem Value="TN">Tennessee</asp:ListItem>
-                                                <asp:ListItem Value="TX">Texas</asp:ListItem>
-                                                <asp:ListItem Value="UT">Utah</asp:ListItem>
-                                                <asp:ListItem Value="VT">Vermont</asp:ListItem>
-                                                <asp:ListItem Value="VA">Virginia</asp:ListItem>
-                                                <asp:ListItem Value="WA">Washington</asp:ListItem>
-                                                <asp:ListItem Value="WV">West Virginia</asp:ListItem>
-                                                <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
-                                                <asp:ListItem Value="WY">Wyoming</asp:ListItem>
+                                                <asp:ListItem Value="AL">AL</asp:ListItem>
+                                                <asp:ListItem Value="AK">AK</asp:ListItem>
+                                                <asp:ListItem Value="AZ">AZ</asp:ListItem>
+                                                <asp:ListItem Value="AR">AR</asp:ListItem>
+                                                <asp:ListItem Value="CA">CA</asp:ListItem>
+                                                <asp:ListItem Value="CO">CO</asp:ListItem>
+                                                <asp:ListItem Value="CT">CT</asp:ListItem>
+                                                <asp:ListItem Value="DC">DC</asp:ListItem>
+                                                <asp:ListItem Value="DE">DE</asp:ListItem>
+                                                <asp:ListItem Value="FL">FL</asp:ListItem>
+                                                <asp:ListItem Value="GA">GA</asp:ListItem>
+                                                <asp:ListItem Value="HI">HI</asp:ListItem>
+                                                <asp:ListItem Value="ID">ID</asp:ListItem>
+                                                <asp:ListItem Value="IL">IL</asp:ListItem>
+                                                <asp:ListItem Value="IN">IN</asp:ListItem>
+                                                <asp:ListItem Value="IA">IA</asp:ListItem>
+                                                <asp:ListItem Value="KS">KS</asp:ListItem>
+                                                <asp:ListItem Value="KY">KY</asp:ListItem>
+                                                <asp:ListItem Value="LA">LA</asp:ListItem>
+                                                <asp:ListItem Value="ME">ME</asp:ListItem>
+                                                <asp:ListItem Value="MD">MD</asp:ListItem>
+                                                <asp:ListItem Value="MA">MA</asp:ListItem>
+                                                <asp:ListItem Value="MI">MI</asp:ListItem>
+                                                <asp:ListItem Value="MN">MN</asp:ListItem>
+                                                <asp:ListItem Value="MS">MS</asp:ListItem>
+                                                <asp:ListItem Value="MO">MO</asp:ListItem>
+                                                <asp:ListItem Value="MT">MT</asp:ListItem>
+                                                <asp:ListItem Value="NE">NE</asp:ListItem>
+                                                <asp:ListItem Value="NV">NV</asp:ListItem>
+                                                <asp:ListItem Value="NH">NH</asp:ListItem>
+                                                <asp:ListItem Value="NJ">NJ</asp:ListItem>
+                                                <asp:ListItem Value="NM">NM</asp:ListItem>
+                                                <asp:ListItem Value="NY">NY</asp:ListItem>
+                                                <asp:ListItem Value="NC">NC</asp:ListItem>
+                                                <asp:ListItem Value="ND">ND</asp:ListItem>
+                                                <asp:ListItem Value="OH">OH</asp:ListItem>
+                                                <asp:ListItem Value="OK">OK</asp:ListItem>
+                                                <asp:ListItem Value="OR">OR</asp:ListItem>
+                                                <asp:ListItem Value="PA">PA</asp:ListItem>
+                                                <asp:ListItem Value="RI">RI</asp:ListItem>
+                                                <asp:ListItem Value="SC">SC</asp:ListItem>
+                                                <asp:ListItem Value="SD">SD</asp:ListItem>
+                                                <asp:ListItem Value="TN">TN</asp:ListItem>
+                                                <asp:ListItem Value="TX">TX</asp:ListItem>
+                                                <asp:ListItem Value="UT">UT</asp:ListItem>
+                                                <asp:ListItem Value="VT">VT</asp:ListItem>
+                                                <asp:ListItem Value="VA">VA</asp:ListItem>
+                                                <asp:ListItem Value="WA">WA</asp:ListItem>
+                                                <asp:ListItem Value="WV">WV</asp:ListItem>
+                                                <asp:ListItem Value="WI">WI</asp:ListItem>
+                                                <asp:ListItem Value="WY">WY</asp:ListItem>
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="rfvState" runat="server"
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
@@ -273,9 +298,10 @@
                                             </asp:RequiredFieldValidator>
                                         </div>
                                     </div>
-                            </div>    
-                        </div>
-                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <asp:SqlDataSource
                         ID="srcServiceAddresses"
