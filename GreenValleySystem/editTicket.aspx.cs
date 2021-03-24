@@ -80,6 +80,18 @@ namespace Lab2
         protected void btnNewAddress_Click(object sender, EventArgs e)
         {
             srcServiceAddresses.Insert();
+            txtAddress.Text = "";
+            txtCity.Text = "";
+            txtZipCode.Text = "";
+            ddlState.SelectedIndex = -1;
+        }
+
+        protected void btnSubmitTask_Click(object sender, EventArgs e)
+        {
+            srcTasks.Insert();
+            txtTask.Text = "";
+            ddlPriority.SelectedIndex = -1;
+
         }
 
         //protected void btnAssign_Click(object sender, EventArgs e)

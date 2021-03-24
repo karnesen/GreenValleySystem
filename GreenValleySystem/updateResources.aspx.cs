@@ -11,12 +11,24 @@ namespace GreenValleySystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            gvEmployees.DataBind();
         }
 
-        protected void btnNewEmployee_Click(object sender, EventArgs e)
-        {
 
+        protected void btnInsertEmployee_Click(object sender, EventArgs e)
+        {
+            srcEmployees.Insert();
+            txtEmail.Text = "";
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtPosition.Text = "";
+        }
+
+        protected void lbtnNewEquipment_Click(object sender, EventArgs e)
+        {
+            srcEquipment.Insert();
+            txtEquipmentName.Text = "";
+            txtDatePurchased.Text = "";
         }
     }
 }

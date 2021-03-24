@@ -31,9 +31,10 @@
                     <a class="nav-item nav-link" href="HomePage.aspx">Home</a>
                     <a class="nav-item nav-link" href="createCustomer.aspx">New Customer</a>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">New Service</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Manage</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="newAuction.aspx">Schedule Auction</a>
+                            <a class="dropdown-item" href="updateResources.aspx">Update Resources</a>
                         </div>
                     </li>
                 </ul>
