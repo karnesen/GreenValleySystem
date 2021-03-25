@@ -17,6 +17,10 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString.Get("num") != null)
+            {
+                Session["ticketID"] = Request.QueryString.Get("num");
+            }
             String sqlQuery = "Select noteTitle, noteText from TICKETNOTE WHERE ticketID = " + Session["ticketID"].ToString();
 
             // Define the connection to the Database:

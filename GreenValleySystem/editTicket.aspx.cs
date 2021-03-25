@@ -29,53 +29,40 @@ namespace Lab2
         }
 
 
-        protected void gvNotes_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvNotes, "Select$" + e.Row.RowIndex);
-                e.Row.Attributes["style"] = "cursor:pointer";
-            }
-        }
-
-        protected void gvNotes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Session["ticketID"] = gvNotes.SelectedValue.ToString();
-            Response.Redirect("noteDetails.aspx");
-        }
+       
 
         protected void btnNewNote_Click(object sender, EventArgs e)
         {
             Response.Redirect("createNotes.aspx");
         }
 
-        protected void btnCreateNote_Click(object sender, EventArgs e)
-        {
-            if (Page.IsValid)
-            {
-                String sqlQuery = "INSERT INTO TICKETNOTE(creationDate, serviceID, noteCreator, noteTitle, noteText) VALUES('" +
-                    DateTime.Now +
-                    "', " + Session["selectedService"].ToString() +
-                    ", " + Session["EmployeeID"].ToString() +
-                    ", @noteName, @noteText)";
+        //protected void btnCreateNote_Click(object sender, EventArgs e)
+        //{
+        //    if (Page.IsValid)
+        //    {
+        //        String sqlQuery = "INSERT INTO TICKETNOTE(creationDate, serviceID, noteCreator, noteTitle, noteText) VALUES('" +
+        //            DateTime.Now +
+        //            "', " + Session["selectedService"].ToString() +
+        //            ", " + Session["EmployeeID"].ToString() +
+        //            ", @noteName, @noteText)";
 
 
-                // Define the connection to the Database:
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
-                // Create the SQL Command object which will send the query:
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Parameters.Add(new SqlParameter("@noteName", txtNoteTitle.Text));
-                sqlCommand.Parameters.Add(new SqlParameter("@noteText", txtNoteBody.Text));
-                sqlCommand.Connection = sqlConnect;
-                sqlCommand.CommandType = CommandType.Text;
-                sqlCommand.CommandText = sqlQuery;
-                // Open your connection, send the query, retrieve the results:
-                sqlConnect.Open();
-                sqlCommand.ExecuteReader();
-                sqlConnect.Close();
-                gvNotes.DataBind();
-            }
-        }
+        //        // Define the connection to the Database:
+        //        SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+        //        // Create the SQL Command object which will send the query:
+        //        SqlCommand sqlCommand = new SqlCommand();
+        //        sqlCommand.Parameters.Add(new SqlParameter("@noteName", txtNoteTitle.Text));
+        //        sqlCommand.Parameters.Add(new SqlParameter("@noteText", txtNoteBody.Text));
+        //        sqlCommand.Connection = sqlConnect;
+        //        sqlCommand.CommandType = CommandType.Text;
+        //        sqlCommand.CommandText = sqlQuery;
+        //        // Open your connection, send the query, retrieve the results:
+        //        sqlConnect.Open();
+        //        sqlCommand.ExecuteReader();
+        //        sqlConnect.Close();
+        //        lvNotes.DataBind();
+        //    }
+        //}
 
         protected void btnNewAddress_Click(object sender, EventArgs e)
         {
@@ -93,6 +80,12 @@ namespace Lab2
             ddlPriority.SelectedIndex = -1;
 
         }
+
+        //protected void lvNotes_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        //{
+        //    (lvNotes.FindControl("dataPager") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+        //}
+
 
         //protected void btnAssign_Click(object sender, EventArgs e)
         //{

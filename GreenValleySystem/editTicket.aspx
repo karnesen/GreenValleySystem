@@ -8,7 +8,6 @@
 
     <div class="row justify-content-around">
         <div class=" col-6">
-            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
             <div class="card" id="serviceCard">
                 <div class="card-header">
                     Initial Service Details
@@ -82,7 +81,7 @@
                         </SelectParameters>
                     </asp:SqlDataSource>
 
-                    
+
                     <asp:GridView
                         ID="gvServiceAddresses"
                         AutoGenerateColumns="false"
@@ -199,110 +198,110 @@
                         </Columns>
                     </asp:GridView>
 
-                    <asp:LinkButton ID="lnkButtonExpandAddress"  href="#collapseAddress" data-toggle="collapse"  aria-expanded="false" aria-controls="collapseAddress" runat="server">Add Address</asp:LinkButton>
+                    <asp:LinkButton ID="lnkButtonExpandAddress" href="#collapseAddress" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAddress" runat="server">Add Address</asp:LinkButton>
                     <div class="collapse" id="collapseAddress">
-                    <table class="table-bordered table-condensed">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <asp:DropDownList ID="ddlAddressType" runat="server" class="form-control">
-                                            <asp:ListItem Text="Pick Up" Value="P"></asp:ListItem>
-                                            <asp:ListItem Text="Drop Off" Value="D"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="rfvAddress" runat="server"
-                                            ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
-                                            Text="Please Enter An Address.">
-                                        </asp:RequiredFieldValidator>
-                                    </div>
-
-                                    <div class="row form-group">
-                                        <div class="col-md-6">
-                                            <asp:TextBox ID="txtCity" runat="server" Placeholder="City" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfvCity" runat="server"
-                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
-                                                Text="Please Enter A City.">
-                                            </asp:RequiredFieldValidator>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
-                                                <asp:ListItem Value="AL">AL</asp:ListItem>
-                                                <asp:ListItem Value="AK">AK</asp:ListItem>
-                                                <asp:ListItem Value="AZ">AZ</asp:ListItem>
-                                                <asp:ListItem Value="AR">AR</asp:ListItem>
-                                                <asp:ListItem Value="CA">CA</asp:ListItem>
-                                                <asp:ListItem Value="CO">CO</asp:ListItem>
-                                                <asp:ListItem Value="CT">CT</asp:ListItem>
-                                                <asp:ListItem Value="DC">DC</asp:ListItem>
-                                                <asp:ListItem Value="DE">DE</asp:ListItem>
-                                                <asp:ListItem Value="FL">FL</asp:ListItem>
-                                                <asp:ListItem Value="GA">GA</asp:ListItem>
-                                                <asp:ListItem Value="HI">HI</asp:ListItem>
-                                                <asp:ListItem Value="ID">ID</asp:ListItem>
-                                                <asp:ListItem Value="IL">IL</asp:ListItem>
-                                                <asp:ListItem Value="IN">IN</asp:ListItem>
-                                                <asp:ListItem Value="IA">IA</asp:ListItem>
-                                                <asp:ListItem Value="KS">KS</asp:ListItem>
-                                                <asp:ListItem Value="KY">KY</asp:ListItem>
-                                                <asp:ListItem Value="LA">LA</asp:ListItem>
-                                                <asp:ListItem Value="ME">ME</asp:ListItem>
-                                                <asp:ListItem Value="MD">MD</asp:ListItem>
-                                                <asp:ListItem Value="MA">MA</asp:ListItem>
-                                                <asp:ListItem Value="MI">MI</asp:ListItem>
-                                                <asp:ListItem Value="MN">MN</asp:ListItem>
-                                                <asp:ListItem Value="MS">MS</asp:ListItem>
-                                                <asp:ListItem Value="MO">MO</asp:ListItem>
-                                                <asp:ListItem Value="MT">MT</asp:ListItem>
-                                                <asp:ListItem Value="NE">NE</asp:ListItem>
-                                                <asp:ListItem Value="NV">NV</asp:ListItem>
-                                                <asp:ListItem Value="NH">NH</asp:ListItem>
-                                                <asp:ListItem Value="NJ">NJ</asp:ListItem>
-                                                <asp:ListItem Value="NM">NM</asp:ListItem>
-                                                <asp:ListItem Value="NY">NY</asp:ListItem>
-                                                <asp:ListItem Value="NC">NC</asp:ListItem>
-                                                <asp:ListItem Value="ND">ND</asp:ListItem>
-                                                <asp:ListItem Value="OH">OH</asp:ListItem>
-                                                <asp:ListItem Value="OK">OK</asp:ListItem>
-                                                <asp:ListItem Value="OR">OR</asp:ListItem>
-                                                <asp:ListItem Value="PA">PA</asp:ListItem>
-                                                <asp:ListItem Value="RI">RI</asp:ListItem>
-                                                <asp:ListItem Value="SC">SC</asp:ListItem>
-                                                <asp:ListItem Value="SD">SD</asp:ListItem>
-                                                <asp:ListItem Value="TN">TN</asp:ListItem>
-                                                <asp:ListItem Value="TX">TX</asp:ListItem>
-                                                <asp:ListItem Value="UT">UT</asp:ListItem>
-                                                <asp:ListItem Value="VT">VT</asp:ListItem>
-                                                <asp:ListItem Value="VA">VA</asp:ListItem>
-                                                <asp:ListItem Value="WA">WA</asp:ListItem>
-                                                <asp:ListItem Value="WV">WV</asp:ListItem>
-                                                <asp:ListItem Value="WI">WI</asp:ListItem>
-                                                <asp:ListItem Value="WY">WY</asp:ListItem>
+                        <table class="table-bordered table-condensed">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <asp:DropDownList ID="ddlAddressType" runat="server" class="form-control">
+                                                <asp:ListItem Text="Pick Up" Value="P"></asp:ListItem>
+                                                <asp:ListItem Text="Drop Off" Value="D"></asp:ListItem>
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="rfvState" runat="server"
-                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
-                                                Text="Please Select A State.">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rfvAddress" runat="server"
+                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
+                                                Text="Please Enter An Address.">
                                             </asp:RequiredFieldValidator>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <asp:TextBox ID="txtZipCode" runat="server" PlaceHolder="Zip" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
-                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
-                                                Text="Please Enter Zip Code.">
-                                            </asp:RequiredFieldValidator>
+                                        <div class="row form-group">
+                                            <div class="col-md-6">
+                                                <asp:TextBox ID="txtCity" runat="server" Placeholder="City" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvCity" runat="server"
+                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
+                                                    Text="Please Enter A City.">
+                                                </asp:RequiredFieldValidator>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
+                                                    <asp:ListItem Value="AL">AL</asp:ListItem>
+                                                    <asp:ListItem Value="AK">AK</asp:ListItem>
+                                                    <asp:ListItem Value="AZ">AZ</asp:ListItem>
+                                                    <asp:ListItem Value="AR">AR</asp:ListItem>
+                                                    <asp:ListItem Value="CA">CA</asp:ListItem>
+                                                    <asp:ListItem Value="CO">CO</asp:ListItem>
+                                                    <asp:ListItem Value="CT">CT</asp:ListItem>
+                                                    <asp:ListItem Value="DC">DC</asp:ListItem>
+                                                    <asp:ListItem Value="DE">DE</asp:ListItem>
+                                                    <asp:ListItem Value="FL">FL</asp:ListItem>
+                                                    <asp:ListItem Value="GA">GA</asp:ListItem>
+                                                    <asp:ListItem Value="HI">HI</asp:ListItem>
+                                                    <asp:ListItem Value="ID">ID</asp:ListItem>
+                                                    <asp:ListItem Value="IL">IL</asp:ListItem>
+                                                    <asp:ListItem Value="IN">IN</asp:ListItem>
+                                                    <asp:ListItem Value="IA">IA</asp:ListItem>
+                                                    <asp:ListItem Value="KS">KS</asp:ListItem>
+                                                    <asp:ListItem Value="KY">KY</asp:ListItem>
+                                                    <asp:ListItem Value="LA">LA</asp:ListItem>
+                                                    <asp:ListItem Value="ME">ME</asp:ListItem>
+                                                    <asp:ListItem Value="MD">MD</asp:ListItem>
+                                                    <asp:ListItem Value="MA">MA</asp:ListItem>
+                                                    <asp:ListItem Value="MI">MI</asp:ListItem>
+                                                    <asp:ListItem Value="MN">MN</asp:ListItem>
+                                                    <asp:ListItem Value="MS">MS</asp:ListItem>
+                                                    <asp:ListItem Value="MO">MO</asp:ListItem>
+                                                    <asp:ListItem Value="MT">MT</asp:ListItem>
+                                                    <asp:ListItem Value="NE">NE</asp:ListItem>
+                                                    <asp:ListItem Value="NV">NV</asp:ListItem>
+                                                    <asp:ListItem Value="NH">NH</asp:ListItem>
+                                                    <asp:ListItem Value="NJ">NJ</asp:ListItem>
+                                                    <asp:ListItem Value="NM">NM</asp:ListItem>
+                                                    <asp:ListItem Value="NY">NY</asp:ListItem>
+                                                    <asp:ListItem Value="NC">NC</asp:ListItem>
+                                                    <asp:ListItem Value="ND">ND</asp:ListItem>
+                                                    <asp:ListItem Value="OH">OH</asp:ListItem>
+                                                    <asp:ListItem Value="OK">OK</asp:ListItem>
+                                                    <asp:ListItem Value="OR">OR</asp:ListItem>
+                                                    <asp:ListItem Value="PA">PA</asp:ListItem>
+                                                    <asp:ListItem Value="RI">RI</asp:ListItem>
+                                                    <asp:ListItem Value="SC">SC</asp:ListItem>
+                                                    <asp:ListItem Value="SD">SD</asp:ListItem>
+                                                    <asp:ListItem Value="TN">TN</asp:ListItem>
+                                                    <asp:ListItem Value="TX">TX</asp:ListItem>
+                                                    <asp:ListItem Value="UT">UT</asp:ListItem>
+                                                    <asp:ListItem Value="VT">VT</asp:ListItem>
+                                                    <asp:ListItem Value="VA">VA</asp:ListItem>
+                                                    <asp:ListItem Value="WA">WA</asp:ListItem>
+                                                    <asp:ListItem Value="WV">WV</asp:ListItem>
+                                                    <asp:ListItem Value="WI">WI</asp:ListItem>
+                                                    <asp:ListItem Value="WY">WY</asp:ListItem>
+                                                </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="rfvState" runat="server"
+                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
+                                                    Text="Please Select A State.">
+                                                </asp:RequiredFieldValidator>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <asp:TextBox ID="txtZipCode" runat="server" PlaceHolder="Zip" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
+                                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
+                                                    Text="Please Enter Zip Code.">
+                                                </asp:RequiredFieldValidator>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server">Commit</asp:LinkButton>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                        </div>
+                                        <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server">Commit</asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <asp:SqlDataSource
                         ID="srcServiceAddresses"
@@ -349,7 +348,7 @@
                         ID="gvTasks"
                         DataSourceID="srcTasks"
                         AutoGenerateColumns="false"
-                     AutoGenerateDeleteButton="true"
+                        AutoGenerateDeleteButton="true"
                         DataKeyNames="toDoID"
                         runat="server"
                         class="table table-bordered table-condensed table-hover">
@@ -386,7 +385,7 @@
                 </div>
 
             </div>
-            <div class="card mb-2">
+            <%--<div class="card mb-2">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -400,33 +399,45 @@
                 <div class="card-body">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="note" role="tabpanel" aria-labelledby="notes-tab">
-                            <asp:GridView
-                                ID="gvNotes"
-                                DataSourceID="srcNotes"
-                                AutoGenerateColumns="false"
-                                DataKeyNames="ticketID"
-                                OnRowDataBound="gvNotes_RowDataBound"
-                                OnSelectedIndexChanged="gvNotes_SelectedIndexChanged"
+                            <asp:ListView
+                                ID="lvNotes"
                                 runat="server"
-                                class="table table-bordered table-condensed table-hover">
-                                <Columns>
-                                    <asp:BoundField DataField="CreationDate" HeaderText="Creation Date" />
-                                    <asp:BoundField DataField="CreatedBy" HeaderText="Created By" />
-                                    <asp:BoundField DataField="NoteTitle" HeaderText="Note Title" />
-                                </Columns>
-                            </asp:GridView>
+                                DataSourceID="srcNotes"
+                                DataKeyNames="ticketID"
+                                OnPagePropertiesChanging="lvNotes_PagePropertiesChanging">
+                                <LayoutTemplate>
+                                    <div runat="server" id="lstProducts">
+                                        <div runat="server" id="itemPlaceholder" />
+                                    </div>
+                                    <asp:DataPager runat="server" PageSize="3" ID="dataPager">
+                                        <Fields>
+                                            <asp:NumericPagerField />
+                                        </Fields>
+                                    </asp:DataPager>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <asp:HyperLink ID="lnkNote" Text='<%#Eval("NoteTitle")%>' NavigateUrl='<%# "noteDetails.aspx?num=" + Eval("ticketID")%>' runat="server">HyperLink</asp:HyperLink>
+                                    </br>
+                                    <asp:Label ID="noteText" runat="server" Text='<%# (Eval("noteText").ToString().Length>=100) ? Eval("noteText").ToString().Substring(0,100) + "..." : Eval("noteText") %>'></asp:Label>
+                                    </br>
+                                    <asp:Label ID="lblCreatedBy" runat="server" Font-Italic="true" Text=' <%#"Created by " + Eval("CreatedBy") + " on " + Eval("CreationDate") %>'></asp:Label>
+                                    </br>
+                                    </br>
+
+                                </ItemTemplate>
+                            </asp:ListView>
+
 
                             <asp:SqlDataSource
                                 ID="srcNotes"
                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
-                                SelectCommand="SELECT TicketNote.ticketID, TICKETNOTE.creationDate as 'CreationDate', EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
+                                SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
                             FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID WHERE TICKETNOTE.serviceID = @serviceID order by TICKETNOTE.creationDate desc"
                                 runat="server">
                                 <SelectParameters>
                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
-                            <asp:Button ID="btnNewNote" runat="server" Text="Add Note" OnClick="btnNewNote_Click" Class="btn btn-outline-secondary" />
                         </div>
 
                         <div class="tab-pane fade" id="newNote" role="tabpanel" aria-labelledby="newNote-tab">
@@ -444,7 +455,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
             <div class="card">
                 <div class="card-header">
                     <asp:Label ID="lblWorkflow" Text="Service Workers" runat="server" Font-Bold="true"></asp:Label>
