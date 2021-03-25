@@ -1,0 +1,16 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="serviceDetails.master.cs" Inherits="GreenValleySystem.serviceDetails" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row">
+    <nav class="nav navbar-light flex-column">
+            <a class="nav-link" href="editTicket.aspx">Service Details</a>
+            <asp:HyperLink id="lookAt" CssClass="nav-link" runat="server">Look At Form</asp:HyperLink>
+        <asp:HyperLink id="schedule" CssClass="nav-link" runat="server">Schedule Form</asp:HyperLink>
+            <a class="nav-link" href="homePage.aspx">Compeletion Form</a>
+     </nav>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderChild" runat="server">
+        
+    </asp:ContentPlaceHolder>
+        </div>
+</asp:Content>

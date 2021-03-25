@@ -81,7 +81,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="createCustomer.aspx" />
+    <Content Include="createNewUser.aspx" />
     <Content Include="createNotes.aspx" />
+    <Content Include="customerHome.aspx" />
+    <Content Include="customerLogin.aspx" />
     <Content Include="customerProfile.aspx" />
     <Content Include="editTicket.aspx" />
     <Content Include="HomePage.aspx" />
@@ -92,9 +95,13 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="images\movingTruck.png" />
     <Content Include="lookAtForm.aspx" />
+    <Content Include="moveLookAt.aspx" />
     <Content Include="MoveRequest.aspx" />
+    <Content Include="moveSchedule.aspx" />
     <Content Include="NewAuction.aspx" />
     <Content Include="noteDetails.aspx" />
+    <Content Include="requestAuction.aspx" />
+    <Content Include="requestMove.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -118,6 +125,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="CustomerPortal.Master" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\inputmask.js" />
@@ -237,12 +245,40 @@
     <Compile Include="createCustomer.aspx.designer.cs">
       <DependentUpon>createCustomer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="createNewUser.aspx.cs">
+      <DependentUpon>createNewUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createNewUser.aspx.designer.cs">
+      <DependentUpon>createNewUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="createNotes.aspx.cs">
       <DependentUpon>createNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="createNotes.aspx.designer.cs">
       <DependentUpon>createNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customerHome.aspx.cs">
+      <DependentUpon>customerHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerHome.aspx.designer.cs">
+      <DependentUpon>customerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customerLogin.aspx.cs">
+      <DependentUpon>customerLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerLogin.aspx.designer.cs">
+      <DependentUpon>customerLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPortal.Master.cs">
+      <DependentUpon>CustomerPortal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPortal.Master.designer.cs">
+      <DependentUpon>CustomerPortal.Master</DependentUpon>
     </Compile>
     <Compile Include="customerProfile.aspx.cs">
       <DependentUpon>customerProfile.aspx</DependentUpon>
@@ -300,12 +336,26 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="moveLookAt.aspx.cs">
+      <DependentUpon>moveLookAt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="moveLookAt.aspx.designer.cs">
+      <DependentUpon>moveLookAt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MoveRequest.aspx.cs">
       <DependentUpon>MoveRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MoveRequest.aspx.designer.cs">
       <DependentUpon>MoveRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="moveSchedule.aspx.cs">
+      <DependentUpon>moveSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="moveSchedule.aspx.designer.cs">
+      <DependentUpon>moveSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewAuction.aspx.cs">
       <DependentUpon>NewAuction.aspx</DependentUpon>
@@ -323,12 +373,33 @@
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="requestAuction.aspx.cs">
+      <DependentUpon>requestAuction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="requestAuction.aspx.designer.cs">
+      <DependentUpon>requestAuction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="requestMove.aspx.cs">
+      <DependentUpon>requestMove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="requestMove.aspx.designer.cs">
+      <DependentUpon>requestMove.aspx</DependentUpon>
+    </Compile>
     <Compile Include="searchResults.aspx.cs">
       <DependentUpon>searchResults.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="searchResults.aspx.designer.cs">
       <DependentUpon>searchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="serviceDetails.Master.cs">
+      <DependentUpon>serviceDetails.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="serviceDetails.Master.designer.cs">
+      <DependentUpon>serviceDetails.Master</DependentUpon>
     </Compile>
     <Compile Include="updateResources.aspx.cs">
       <DependentUpon>updateResources.aspx</DependentUpon>
@@ -344,6 +415,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="serviceDetails.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,14 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="editTicket.aspx.cs" Inherits="Lab2.editTicket" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/serviceDetails.Master" AutoEventWireup="true" CodeBehind="editTicket.aspx.cs" Inherits="Lab2.editTicket" EnableEventValidation="false" %>
 
 <%--Kirsi And Josh Coleman 2/15/21--%>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>--%>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
 
     <div class="row justify-content-around">
-        <div class=" col-5">
-            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" runat="server">Back to Customer</asp:LinkButton>
+        <div class=" col-6">
+            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
             <div class="card" id="serviceCard">
                 <div class="card-header">
                     Initial Service Details
@@ -82,6 +82,7 @@
                         </SelectParameters>
                     </asp:SqlDataSource>
 
+                    
                     <asp:GridView
                         ID="gvServiceAddresses"
                         AutoGenerateColumns="false"
@@ -198,13 +199,11 @@
                         </Columns>
                     </asp:GridView>
 
+                    <asp:LinkButton ID="lnkButtonExpandAddress"  href="#collapseAddress" data-toggle="collapse"  aria-expanded="false" aria-controls="collapseAddress" runat="server">Add Address</asp:LinkButton>
+                    <div class="collapse" id="collapseAddress">
                     <table class="table-bordered table-condensed">
                         <tbody>
                             <tr>
-                                <td>
-                                    <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server">Add Address</asp:LinkButton>
-                                </td>
-
                                 <td>
                                     <div class="form-group">
                                         <asp:DropDownList ID="ddlAddressType" runat="server" class="form-control">
@@ -298,10 +297,12 @@
                                             </asp:RequiredFieldValidator>
                                         </div>
                                     </div>
+                                    <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server">Commit</asp:LinkButton>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                        </div>
 
                     <asp:SqlDataSource
                         ID="srcServiceAddresses"
@@ -329,7 +330,7 @@
             </div>
         </div>
 
-        <div class="col-5">
+        <div class="col-6">
             <div class="card mb-2">
                 <div class="card-header">
                     Create New Task

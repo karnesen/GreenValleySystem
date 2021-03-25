@@ -1,26 +1,32 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="createCustomer.aspx.cs" Inherits="Lab1.createCustomer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="createNewUser.aspx.cs" Inherits="GreenValleySystem.createNewUser" %>
 
-<%--Kirsi And Josh Coleman 2/15/21--%>
+<!DOCTYPE html>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="Scripts/jquery.mask.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.phone_us').mask('(000) 000-0000');
-        });
-    </script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
 
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container col-6">
+    <script src="Scripts/jquery-3.5.1.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="container col-6">
         <div class="card">
             <div class="card-header text-center">
-                <asp:Label ID="lblCreateNewCustomer" runat="server" Text="Initial Contact Form" Class="h3 m-2"></asp:Label>
+                <asp:Label ID="lblCreateNewCustomer" runat="server" Text="Inital COntact Information" Class="h3 m-2"></asp:Label>
             </div>
-
 
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
+                     <div class="text-center">
+                        <asp:LinkButton ID="lbtnExisitngUser" runat="server" PostBackUrl="customerLogin.aspx">Already Have an Account?</asp:LinkButton>
+                    </div>
+
                     <asp:Label ID="lblCustomerInfo" runat="server" Text="Customer Info" Class="h6"></asp:Label>
                     <div class="form-group">
                         <asp:TextBox ID="txtFirstName" runat="server" Placeholder="First Name" class="form-control"></asp:TextBox>
@@ -60,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        <asp:TextBox ID="txtEmail" runat="server" Placeholder="email" class="form-control" TextMode="Email"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" Placeholder="Email" class="form-control" TextMode="Email"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                             Text="Please Enter An Email." ValidationGroup="CreateCustomer">
@@ -69,6 +75,15 @@
                             ErrorMessage="CustomValidator" OnServerValidate="cvCheckUniqueCustomer_ServerValidate"
                             ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>
                     </div>
+
+                    <div class="form-group">
+                        <asp:TextBox ID="txtPassword" runat="server" Placeholder="Password" class="form-control" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                            ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPassword"
+                            Text="Please Choose a Password." ValidationGroup="CreateCustomer">
+                        </asp:RequiredFieldValidator>
+                    </div>
+
 
                     <div class="form-group">
                         <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
@@ -125,8 +140,6 @@
                         </div>
                         <div class="col-4">
                             <asp:TextBox ID="txtOther" Class="form-control" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
-                                ControlToValidate="txtOther" Enabled="false" Text="Please specify" ValidationGroup="CreateCustomer"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -161,5 +174,7 @@
         </div>
 
     </div>
-
-</asp:Content>
+        </div>
+    </form>
+</body>
+</html>

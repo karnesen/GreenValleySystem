@@ -28,6 +28,7 @@ namespace GreenValleySystem
         protected void gvCustomerTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["selectedService"] = gvCustomerTickets.SelectedValue.ToString();
+            Session["serviceType"] = (gvCustomerTickets.SelectedRow.FindControl("lblService") as Label).Text;
             Response.Redirect("editTicket.aspx");
         }
 

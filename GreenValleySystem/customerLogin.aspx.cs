@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,9 +8,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
-namespace Lab2
+namespace GreenValleySystem
 {
-    public partial class LoginPage : System.Web.UI.Page
+    public partial class customerLogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,12 +30,13 @@ namespace Lab2
             try
             {
                 System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString.ToString());
-                
+
                 System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
                 findPass.Connection = sc;
                 findPass.CommandType = System.Data.CommandType.Text;
                 // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-                findPass.CommandText = "SELECT PasswordHash, EmployeeID, firstName + ' ' + lastName as employeeName FROM Employee WHERE email = @email";
+                findPass.CommandText = "SELECT customerauth.PasswordHash, customer.customerID, customer.firstName + ' ' + customer.lastName as custName  FROM Customer Inner join customerauth on " +
+                    "customer.customerID = customerauth.customerID WHERE email = @email";
                 findPass.Parameters.Add(new SqlParameter("@email", txtUsername.Text.ToString()));
                 sc.Open();
                 SqlDataReader reader = findPass.ExecuteReader(); // create a reader
@@ -49,9 +49,9 @@ namespace Lab2
 
                         if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
-                            Session["UserName"] = reader["employeeName"];
-                            Session["EmployeeID"] = reader["EmployeeID"];
-                            Response.Redirect("HomePage.aspx");
+                            Session["UserName"] = reader["custName"];
+                            Session["customerID"] = reader["customerID"];
+                            Response.Redirect("customerHome.aspx");
                         }
                         else
                             lblLoginMessage.Text = "Either username or password is incorrect";

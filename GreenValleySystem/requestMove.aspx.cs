@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.UI.HtmlControls;
 using System.Web.Configuration;
 
 namespace GreenValleySystem
 {
-    public partial class MoveRequest : System.Web.UI.Page
+    public partial class requestMove : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,8 +20,8 @@ namespace GreenValleySystem
                 Session["InvalidUse"] = "You must first login to create a new service.";
                 Response.Redirect("LoginPage.aspx");
             }
-            
-            if(!IsPostBack)
+
+            if (!IsPostBack)
             {
                 fillStates();
             }
@@ -62,7 +62,7 @@ namespace GreenValleySystem
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            int customerID = Int32.Parse(Session["selectedCustomer"].ToString());
+            int customerID = Int32.Parse(Session["customerID"].ToString());
             String ServiceAddress = txtServiceAddress.Text;
             String ServiceCity = txtServiceCity.Text;
             String ServiceState = ddlServiceState.SelectedValue;
@@ -92,8 +92,8 @@ namespace GreenValleySystem
 
             sqlQuery += " INSERT INTO ADDRESSES VALUES(@serviceAddress, @serviceCity, @serviceState, @serviceState, 'P', (select max(serviceID) from service))";
             sqlQuery += " INSERT INTO ADDRESSES VALUES(@destAddress, @destCity, @destState, @destState, 'D', (select max(serviceID) from service))";
-            sqlQuery += "INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
-                "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), " + Session["EmployeeID"] + ", 'Initial Request', @notes)";
+            sqlQuery += "INSERT INTO TICKETNOTE (creationDate, serviceID, noteTitle, noteText)" +
+                "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), 'Customer Initial Request', @notes)";
 
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -138,4 +138,5 @@ namespace GreenValleySystem
             txtNotes.Text = "Notes!";
         }
     }
-}
+
+    }
