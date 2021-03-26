@@ -115,7 +115,12 @@
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                                     Text="Please Enter An Email." ValidationGroup="newEmployee">
                                 </asp:RequiredFieldValidator>
+
+                                <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="Password" class="form-control"></asp:TextBox>
+
+
                             </td>
+                           
                         </tr>
                     </tbody>
                 </table>

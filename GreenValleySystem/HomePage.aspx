@@ -9,7 +9,7 @@
         <asp:Label ID="lblHome" runat="server" Text="Welcome!" class="text-center h4"></asp:Label>
         <div class="card-group">
             <div class="card p-3">
-                                <asp:Label ID="lblWork" runat="server" Text=" Your Current Assignments"></asp:Label>
+            <asp:Label ID="lblWork" runat="server" Text=" Your Current Assignments"></asp:Label>
                <%-- <asp:GridView
                     ID="gvWork"
                     runat="server"
