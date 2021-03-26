@@ -130,7 +130,7 @@
     <Content Include="style\style.css" />
     <Content Include="style\UIkit1.css" />
     <Content Include="style\UIkit2.css" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="login.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\inputmask.js" />
@@ -413,12 +413,12 @@
     <Compile Include="updateResources.aspx.designer.cs">
       <DependentUpon>updateResources.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

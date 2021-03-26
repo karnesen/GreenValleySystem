@@ -27,13 +27,13 @@ namespace Lab1
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("WebForm1.aspx");
+            Response.Redirect("login.aspx");
         }
 
         protected void btnToLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("WebForm1.aspx?loggedout=true");
+            Response.Redirect("login.aspx?loggedout=true");
         }
 
         protected void btnCustomerSearch_Click(object sender, EventArgs e)
