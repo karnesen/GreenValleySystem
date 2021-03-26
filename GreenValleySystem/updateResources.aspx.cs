@@ -22,6 +22,7 @@ namespace GreenValleySystem
             txtFirstName.Text = "";
             txtLastName.Text = "";
             txtPosition.Text = "";
+            txtPassword.Text = "";
         }
 
         protected void lbtnNewEquipment_Click(object sender, EventArgs e)
