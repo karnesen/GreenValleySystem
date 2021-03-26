@@ -52,10 +52,10 @@
                                 <asp:ListItem>Cell</asp:ListItem>
                                 <asp:ListItem>Work</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RrfvPhoneType" runat="server"
+                           <%-- <asp:RequiredFieldValidator ID="RrfvPhoneType" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlPhoneNumberType"
                                 Text="Please Select Phone Type." ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
+                            </asp:RequiredFieldValidator>--%>
                         </div>
                     </div>
 
@@ -72,35 +72,35 @@
 
                     <div class="form-group">
                         <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvAddress" runat="server"
+                        <%--<asp:RequiredFieldValidator ID="rfvAddress" runat="server"
                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
                             Text="Please Enter An Address." ValidationGroup="CreateCustomer">
-                        </asp:RequiredFieldValidator>
+                        </asp:RequiredFieldValidator>--%>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-6">
                             <asp:TextBox ID="txtCity" runat="server" Placeholder="City" class="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvCity" runat="server"
+                        <%--    <asp:RequiredFieldValidator ID="rfvCity" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                 Text="Please Enter A City." ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
+                            </asp:RequiredFieldValidator>--%>
                         </div>
 
                         <div class="col-md-2">
                             <asp:DropDownList ID="ddlState" runat="server" class="form-control"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="rfvState" runat="server"
+                            <%--<asp:RequiredFieldValidator ID="rfvState" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
                                 Text="Please Select A State." ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
+                            </asp:RequiredFieldValidator>--%>
                         </div>
 
                         <div class="col-md-4">
                             <asp:TextBox ID="txtZipCode" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
+                           <%-- <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                 Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
+                            </asp:RequiredFieldValidator>--%>
                         </div>
                     </div>
                 </li>
@@ -118,24 +118,25 @@
                                 <asp:ListItem Class="form-check-input" Text="Text"></asp:ListItem>
                                 <asp:ListItem Class="form-check-input" Text="Other"></asp:ListItem>
                             </asp:RadioButtonList>
-                            <asp:RequiredFieldValidator ID="rfv" runat="server"
+                            <%--<asp:RequiredFieldValidator ID="rfv" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="rdoContact"
                                 Text="Please select a contact type" ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
+                            </asp:RequiredFieldValidator>--%>
                         </div>
                         <div class="col-4">
                             <asp:TextBox ID="txtOther" Class="form-control" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
-                                ControlToValidate="txtOther" Enabled="false" Text="Please specify" ValidationGroup="CreateCustomer"></asp:RequiredFieldValidator>
+                                ControlToValidate="txtOther" Enabled="false" Text="Please specify" ValidationGroup="CreateCustomer">
+                            </asp:RequiredFieldValidator>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <asp:TextBox ID="txtHear" runat="server" Placeholder="How did they hear about us?"
                             Class="form-control" TextMode="MultiLine"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHear"
-                            Text="Please Complete this field" ValidationGroup="CreateCustomer"></asp:RequiredFieldValidator>
+                            Text="Please Complete this field" ValidationGroup="CreateCustomer"></asp:RequiredFieldValidator>--%>
                     </div>
                 </li>
 
