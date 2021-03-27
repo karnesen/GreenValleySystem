@@ -66,13 +66,7 @@
         </div>
 
 
-        <div class="form-group">
-            <input id="oFile" type="file" runat="server" name="oFile" />
-            <asp:Button ID="btnImageupload" runat="server" Text="Upload Image" type="submit" OnClick="btnImageupload_Click"/>
-            <asp:Panel ID="panelConfirm" runat="server" Visible="false">
-            <asp:Label ID="lblResult" runat="server" Text="Label"></asp:Label>
-            </asp:Panel>
-        </div>
+        
 
         <div class="form-group">
             <div class="d-flex justify-content-around">
