@@ -2,19 +2,20 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container-fluid">
     <div class="row">
-        <div class="col-1">
+        <div class="col-2">
 
 
             <nav class="nav navbar-light flex-column">
-                <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
+                <asp:LinkButton ID="lnkButtonReturn" class="nav-link" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
                 <a class="nav-link" href="editTicket.aspx">Service Details</a>
-                <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Look At Form</asp:HyperLink>
-                <asp:HyperLink ID="schedule" CssClass="nav-link" runat="server">Schedule Form</asp:HyperLink>
+                <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Assessment Form</asp:HyperLink>
+                <asp:HyperLink ID="schedule" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
                 <a class="nav-link" href="#">Compeletion Form</a>
             </nav>
         </div>
-        <div class="col-11">
+        <div class="col-10">
             <div class="card mb-2 sticky-top">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
@@ -98,4 +99,5 @@
             </asp:ContentPlaceHolder>
         </div>
     </div>
+        </div>
 </asp:Content>

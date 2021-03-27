@@ -11,16 +11,25 @@ namespace GreenValleySystem
 {
 
 
-    public partial class moveLookAt
+    public partial class auctionAssessment
     {
 
         /// <summary>
-        /// fvLookAtMove control.
+        /// fvAuctionAssessment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvLookAtMove;
+        protected global::System.Web.UI.WebControls.FormView fvAuctionAssessment;
+
+        /// <summary>
+        /// srcAuctionAssessment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcAuctionAssessment;
     }
 }

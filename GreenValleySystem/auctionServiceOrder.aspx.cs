@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace GreenValleySystem
 {
-    public partial class moveLookAt : System.Web.UI.Page
+    public partial class auctionServiceOrder : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
