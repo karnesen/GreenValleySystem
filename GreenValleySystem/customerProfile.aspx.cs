@@ -32,6 +32,38 @@ namespace GreenValleySystem
             Response.Redirect("editTicket.aspx");
         }
 
+        protected void lvNotes_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        {
+            (lvNotes.FindControl("dataPager") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+        }
+
+        protected void btnCreateNote_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                String sqlQuery = "INSERT INTO TICKETNOTE(creationDate, customerID, noteCreator, noteTitle, noteText) VALUES('" +
+                    DateTime.Now +
+                    "', " + Session["selectedCustomer"].ToString() +
+                    ", " + Session["EmployeeID"].ToString() +
+                    ", @noteName, @noteText)";
+
+
+                // Define the connection to the Database:
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+                // Create the SQL Command object which will send the query:
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Parameters.Add(new SqlParameter("@noteName", txtNoteTitle.Text));
+                sqlCommand.Parameters.Add(new SqlParameter("@noteText", txtNoteBody.Text));
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.CommandText = sqlQuery;
+                // Open your connection, send the query, retrieve the results:
+                sqlConnect.Open();
+                sqlCommand.ExecuteReader();
+                sqlConnect.Close();
+                lvNotes.DataBind();
+            }
+        }
 
         protected void btnNewMove_Click(object sender, EventArgs e)
         {

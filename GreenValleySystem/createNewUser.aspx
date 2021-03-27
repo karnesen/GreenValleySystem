@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
@@ -11,6 +11,8 @@
     <script src="Scripts/popper.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,7 +20,7 @@
             <div class="container col-6">
         <div class="card">
             <div class="card-header text-center">
-                <asp:Label ID="lblCreateNewCustomer" runat="server" Text="Inital COntact Information" Class="h3 m-2"></asp:Label>
+                <asp:Label ID="lblCreateNewCustomer" runat="server" Text="Inital Contact Information" Class="h3 m-2"></asp:Label>
             </div>
 
             <ul class="list-group list-group-flush">
@@ -46,7 +48,7 @@
 
                     <div class="row form-group">
                         <div class="col-md 9">
-                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" PlaceHolder="Phone Number"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                 Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">

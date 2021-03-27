@@ -15,11 +15,11 @@ namespace Lab1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["username"] == null)
-            {
-                Session["InvalidUse"] = "You must first login to create a new customer.";
-                Response.Redirect("LoginPage.aspx");
-            }
+            //if(Session["username"] == null)
+            //{
+            //    Session["InvalidUse"] = "You must first login to create a new customer.";
+            //    Response.Redirect("LoginPage.aspx");
+            //}
 
             if (!IsPostBack)
             {
@@ -51,7 +51,9 @@ namespace Lab1
                 String lastName = txtLastName.Text;
                 String email = txtEmail.Text;
                 String phoneNumber = txtPhoneNumber.Text;
+                String phoneNumber2 = txtPhoneNumber2.Text;
                 String phoneType = ddlPhoneNumberType.SelectedItem.ToString();
+                String phoneType2 = ddlPhoneNumberType2.SelectedItem.ToString();
                 String address = txtAddress.Text;
                 String city = txtCity.Text;
                 String state = ddlState.SelectedValue;
@@ -61,9 +63,44 @@ namespace Lab1
                     initialContact = txtOther.Text;
                 String hear = txtHear.Text;
 
-                String sqlQuery = "INSERT INTO CUSTOMER VALUES (@firstName, @lastName, @phoneNumber, @phoneType, @email, @address, @city, @state, @zip, @initialContact, @hear, '" + DateTime.Now + "', '" + DateTime.Now + "')";
+                String serviceStartDate = DateTime.Parse(txtStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+                DateTime serviceCompletionDate;
+                String completionDate;
+                if (String.IsNullOrEmpty(txtEndDate.Text))
+                {
+                    completionDate = "";
+                }
+                else
+                {
+                    serviceCompletionDate = DateTime.Parse(txtEndDate.Text);
+                    completionDate = serviceCompletionDate.ToString("MM/dd/yyyy HH:mm:ss");
+                }
+
+                String sqlQuery = "INSERT INTO CUSTOMER VALUES (@firstName, @lastName, @phoneNumber, @phoneType,  @phoneNumber2, @phoneType2, " +
+                    "@mobilePref, @homePref, @emailPref, @textPref, " +
+                    "@email, @address, @city, @state, @zip, @initialContact, @hear, '" + DateTime.Now + "', '" + DateTime.Now + "')";
+
                 sqlQuery += "INSERT INTO TICKETNOTE (creationDate, customerID, noteCreator, noteTitle, noteText)" +
-                    " VALUES('" + DateTime.Now + "', (select max(customerID) from customer), " + Session["EmployeeID"] + ", 'Initial Contact', @notes)";
+                    " VALUES('" + DateTime.Now + "', (select max(customerID) from customer), " + Session["EmployeeID"].ToString() + ", 'Initial Contact', @notes)";
+               
+                if(chAppraisal.Checked)
+                {
+
+                }
+                if (chMove.Checked)
+                {
+                    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
+                    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'M', (select max(customerID) from customer), '" + DateTime.Now + "')";
+                    sqlQuery += " INSERT INTO MOVE(serviceID) VALUES((select max(serviceID) from service))";
+                }
+                if (chAuction.Checked)
+                {
+                    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
+                    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'A', (select max(customerID) from customer), '" + DateTime.Now + "')";
+                    sqlQuery += " INSERT INTO AUCTION(serviceID) VALUES((select max(serviceID) from service))";
+                }
+
+
                 sqlQuery += " Select max(customerID) as selected from customer";
 
 
@@ -76,7 +113,9 @@ namespace Lab1
                 sqlCommand.Parameters.Add(new SqlParameter("@firstName", firstName));
                 sqlCommand.Parameters.Add(new SqlParameter("@lastName", lastName));
                 sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber", firstName));
+                sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber2", phoneNumber2));
                 sqlCommand.Parameters.Add(new SqlParameter("@phoneType", phoneType));
+                sqlCommand.Parameters.Add(new SqlParameter("@phoneType2", phoneType2));
                 sqlCommand.Parameters.Add(new SqlParameter("@email", email));
                 sqlCommand.Parameters.Add(new SqlParameter("@address", address));
                 sqlCommand.Parameters.Add(new SqlParameter("@city", city));
@@ -84,7 +123,14 @@ namespace Lab1
                 sqlCommand.Parameters.Add(new SqlParameter("@zip", zip));
                 sqlCommand.Parameters.Add(new SqlParameter("@initialContact", initialContact));
                 sqlCommand.Parameters.Add(new SqlParameter("@hear", hear));
-                sqlCommand.Parameters.Add(new SqlParameter("@notes", txtNotes.Text));
+                sqlCommand.Parameters.Add(new SqlParameter("@notes", txtNoteBody.Text));
+
+                sqlCommand.Parameters.Add(new SqlParameter("@mobilePref", chMobile.Checked));
+                sqlCommand.Parameters.Add(new SqlParameter("@homePref", chHome.Checked ));
+                sqlCommand.Parameters.Add(new SqlParameter("@emailPref", chEmail.Checked ));
+                sqlCommand.Parameters.Add(new SqlParameter("@textPref", chText.Checked ));
+
+
 
                 sqlConnect.Open();
                 SqlDataReader reader = sqlCommand.ExecuteReader(); // create a reader
@@ -104,6 +150,14 @@ namespace Lab1
             }
         }
 
+        protected void dateValidation_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (String.IsNullOrEmpty(txtEndDate.Text))
+                args.IsValid = true;
+            else
+                args.IsValid = Convert.ToDateTime(txtStartDate.Text) <= Convert.ToDateTime(txtEndDate.Text);
+        }
+
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
             txtFirstName.Text = "James";
@@ -118,7 +172,6 @@ namespace Lab1
 
             rdoContact.SelectedIndex = 1;
             txtHear.Text = "Online Advertisment";
-            txtNotes.Text = "High Value Items";
         }
 
         // check to see that the current email does not exist in the system
@@ -158,12 +211,10 @@ namespace Lab1
             ddlState.SelectedValue = null;
             txtCity.Text = "";
             txtZipCode.Text = "";
-            outputLbl.Text = "";
             rdoContact.SelectedIndex = -1;
             txtOther.Text = "";
             txtHear.Text = "";
             rfvOther.Enabled = false;
-            txtNotes.Text = "";
         }
  
         // If other, make other box required 
@@ -174,5 +225,6 @@ namespace Lab1
             else
                 rfvOther.Enabled = false;
         }
+
     }
 }

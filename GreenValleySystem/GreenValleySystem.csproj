@@ -73,7 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assign.aspx" />
+    <Content Include="auctionAssessment.aspx" />
     <Content Include="AuctionRequest.aspx" />
+    <Content Include="auctionServiceOrder.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -95,9 +97,7 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="images\movingTruck.png" />
     <Content Include="lookAtForm.aspx" />
-    <Content Include="moveLookAt.aspx" />
     <Content Include="MoveRequest.aspx" />
-    <Content Include="moveSchedule.aspx" />
     <Content Include="NewAuction.aspx" />
     <Content Include="noteDetails.aspx" />
     <Content Include="requestAuction.aspx" />
@@ -231,12 +231,26 @@
     <Compile Include="Assign.aspx.designer.cs">
       <DependentUpon>Assign.aspx</DependentUpon>
     </Compile>
+    <Compile Include="auctionAssessment.aspx.cs">
+      <DependentUpon>auctionAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auctionAssessment.aspx.designer.cs">
+      <DependentUpon>auctionAssessment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AuctionRequest.aspx.cs">
       <DependentUpon>AuctionRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AuctionRequest.aspx.designer.cs">
       <DependentUpon>AuctionRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="auctionServiceOrder.aspx.cs">
+      <DependentUpon>auctionServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auctionServiceOrder.aspx.designer.cs">
+      <DependentUpon>auctionServiceOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="createCustomer.aspx.cs">
       <DependentUpon>createCustomer.aspx</DependentUpon>
@@ -336,26 +350,12 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="moveLookAt.aspx.cs">
-      <DependentUpon>moveLookAt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="moveLookAt.aspx.designer.cs">
-      <DependentUpon>moveLookAt.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MoveRequest.aspx.cs">
       <DependentUpon>MoveRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MoveRequest.aspx.designer.cs">
       <DependentUpon>MoveRequest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="moveSchedule.aspx.cs">
-      <DependentUpon>moveSchedule.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="moveSchedule.aspx.designer.cs">
-      <DependentUpon>moveSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewAuction.aspx.cs">
       <DependentUpon>NewAuction.aspx</DependentUpon>
