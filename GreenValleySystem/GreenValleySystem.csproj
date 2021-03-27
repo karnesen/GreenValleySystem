@@ -88,6 +88,7 @@
     <Content Include="customerProfile.aspx" />
     <Content Include="editTicket.aspx" />
     <Content Include="HomePage.aspx" />
+    <Content Include="images\bigstock-Packed-household-goods-for-mov-131525006.jpg" />
     <Content Include="images\headerTransparent.png" />
     <Content Include="images\logo.jpg" />
     <Content Include="InventoryAdd.aspx" />
@@ -126,6 +127,10 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="CustomerPortal.Master" />
+    <Content Include="style\style.css" />
+    <Content Include="style\UIkit1.css" />
+    <Content Include="style\UIkit2.css" />
+    <Content Include="login.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Scripts\inputmask\inputmask.js" />
@@ -407,6 +412,13 @@
     </Compile>
     <Compile Include="updateResources.aspx.designer.cs">
       <DependentUpon>updateResources.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

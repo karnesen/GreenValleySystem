@@ -74,6 +74,8 @@
                             </EditItemTemplate>
                         </asp:TemplateField>
 
+                     
+
                     </Columns>
                 </asp:GridView>
 
@@ -111,12 +113,13 @@
 
                             <td>
                                 <asp:TextBox ID="txtEmail" runat="server" Placeholder="Email" class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="Password" class="form-control"></asp:TextBox>
+
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                                     Text="Please Enter An Email." ValidationGroup="newEmployee">
                                 </asp:RequiredFieldValidator>
 
-                                <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="Password" class="form-control"></asp:TextBox>
 
 
                             </td>
@@ -130,7 +133,7 @@
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
                     SelectCommand="SELECT * from Employee where currentEmployee = 1"
                     UpdateCommand="UPDATE Employee SET firstName=@firstName, lastName=@lastName, position=@position, email=@email where employeeID=@employeeID"
-                    InsertCommand="INSERT into Employee(firstName,lastName,Position, currentEmployee, email) VALUES(@firstName,@lastName,@Position,1,@email)"
+                    InsertCommand="INSERT into Employee(firstName,lastName,Position, currentEmployee, email, PasswordHash) VALUES(@firstName,@lastName,@Position,1,@email,@password)"
                     DeleteCommand="UPDATE EMPLOYEE set currentEmployee=0 where employeeID=@employeeID"
                     runat="server">
                     <InsertParameters>
@@ -139,6 +142,7 @@
                         <asp:ControlParameter Name="lastName" ControlID="txtLastName" Type="String" />
                         <asp:ControlParameter Name="email" ControlID="txtPosition" Type="String" />
                         <asp:ControlParameter Name="position" ControlID="txtEmail" />
+                        <asp:ControlParameter Name="password" ControlID="txtPassword" />
                     </InsertParameters>
                 </asp:SqlDataSource>
             </div>
