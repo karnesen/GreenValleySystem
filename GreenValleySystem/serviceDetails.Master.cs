@@ -27,6 +27,10 @@ namespace GreenValleySystem
                 lookAt.NavigateUrl = "auctionAssessment.aspx";
                 schedule.NavigateUrl = "auctionServiceOrder.aspx";
             }
+            if(!IsPostBack)
+            {
+
+            }    
         }
 
         protected void lvNotes_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)

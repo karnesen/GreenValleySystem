@@ -43,6 +43,7 @@
                         </div>
                         <div class="col-md 2">
                             <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control col-4 mb-1">
+                                <asp:ListItem></asp:ListItem>
                                 <asp:ListItem>Home</asp:ListItem>
                                 <asp:ListItem>Cell</asp:ListItem>
                                 <asp:ListItem>Work</asp:ListItem>
@@ -62,6 +63,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control mb-1">
+                                        <asp:ListItem></asp:ListItem>
                                         <asp:ListItem>Home</asp:ListItem>
                                         <asp:ListItem>Cell</asp:ListItem>
                                         <asp:ListItem>Work</asp:ListItem>

@@ -9,7 +9,7 @@
     <title>Green Valley Auction</title>
     <link rel="stylesheet" href="style/UIkit1.css"/>
     <link rel="stylesheet" href="style/UIkit2.css"/>
-    <link rel="stylesheet" href="style/style.css"/>
+    <link rel="stylesheet" href="style/style.css"/> 
 </head>
 <body>
     <main class="auth">

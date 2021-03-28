@@ -79,49 +79,43 @@
                     </Columns>
                 </asp:GridView>
 
-                <table class="table-bordered table-condensed">
+                <table class="table-borderless">
                     <tbody>
                         <tr>
                             <td>
                                 <asp:LinkButton ID="btnInsertEmployee" OnClick="btnInsertEmployee_Click" runat="server" ValidationGroup="newEmployee">Add Employee</asp:LinkButton>
                             </td>
                             <td>
-                                <div class="form-group">
                                     <asp:TextBox ID="txtFirstName" runat="server" PlaceHolder="First Name" class="form-control"></asp:TextBox>
-                                </div>
-                                <div class="form-group">
+                                
                                     <asp:TextBox ID="txtLastName" runat="server" Placeholder="Last Name" class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvLastName" runat="server"
-                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName" ValidationGroup="newEmployee"
-                                        Text="Please Enter A Last Name.">
-                                    </asp:RequiredFieldValidator>
+                                    
                                     <asp:RequiredFieldValidator ID="rfvFirstName" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName" ValidationGroup="newEmployee"
                                         Text="Please Enter A First Name.">
                                     </asp:RequiredFieldValidator>
-                                </div>
+                                    <asp:RequiredFieldValidator ID="rfvLastName" runat="server"
+                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName" ValidationGroup="newEmployee"
+                                        Text="Please Enter A Last Name.">
+                                    </asp:RequiredFieldValidator>
+                                
                             </td>
                             <td>
-                                <div class="form-group">
                                     <asp:TextBox ID="txtPosition" runat="server" PlaceHolder="Position" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvPosition" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPosition" 
                                         Text="Please Enter A Position." ValidationGroup="newEmployee">
                                     </asp:RequiredFieldValidator>
-                                </div>
                             </td>
 
                             <td>
                                 <asp:TextBox ID="txtEmail" runat="server" Placeholder="Email" class="form-control"></asp:TextBox>
                                 <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="Password" class="form-control"></asp:TextBox>
-
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                                     Text="Please Enter An Email." ValidationGroup="newEmployee">
                                 </asp:RequiredFieldValidator>
-
-
-
+                                
                             </td>
                            
                         </tr>
@@ -140,9 +134,9 @@
 
                         <asp:ControlParameter Name="firstName" ControlID="txtFirstName" Type="String" />
                         <asp:ControlParameter Name="lastName" ControlID="txtLastName" Type="String" />
-                        <asp:ControlParameter Name="email" ControlID="txtPosition" Type="String" />
-                        <asp:ControlParameter Name="position" ControlID="txtEmail" />
-                        <asp:ControlParameter Name="password" ControlID="txtPassword" />
+                        <asp:ControlParameter Name="email" ControlID="txtEmail" Type="String" />
+                        <asp:ControlParameter Name="position" ControlID="txtPosition" />
+                        <asp:Parameter Name="password" />
                     </InsertParameters>
                 </asp:SqlDataSource>
             </div>
@@ -192,29 +186,25 @@
                     </Columns>
                 </asp:GridView>
 
-                <table class="table-bordered table-condensed">
+                <table class="table-borderless">
                     <tbody>
                         <tr>
                             <td>
                                 <asp:LinkButton ID="lblNewEquipment" OnClick="lbtnNewEquipment_Click" runat="server" ValidationGroup="newEquipment">Add Equipment</asp:LinkButton>
                             </td>
                             <td>
-                                <div class="form-group">
                                     <asp:TextBox ID="txtEquipmentName" runat="server" Placeholder="Equipment Name" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvEquipmentType" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEquipmentName"
                                         Text="Please Enter An Equipment Type." ValidationGroup="newEquipment">
                                     </asp:RequiredFieldValidator>
-                                </div>
                             </td>
                             <td>
-                                <div class="form-group">
                                     <asp:TextBox ID="txtDatePurchased" runat="server" Placeholder="Equipment Name" TextMode="DateTimeLocal" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEquipmentName"
                                         Text="Please Enter A Purchase Date." ValidationGroup="newEquipment">
                                     </asp:RequiredFieldValidator>
-                                </div>
                             </td>
                             </tr>
                         </tbody>
@@ -231,6 +221,7 @@
 
                         <asp:ControlParameter Name="equipmentType" ControlID="txtEquipmentName" Type="String" />
                         <asp:ControlParameter Name="datePurchased" ControlID="txtDatePurchased" DbType="DateTime"/>
+                        
                     </InsertParameters>
                 </asp:SqlDataSource>
                 </div>

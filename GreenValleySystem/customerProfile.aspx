@@ -53,6 +53,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType") %>'>
+                                            <asp:ListItem></asp:ListItem>
                                             <asp:ListItem>Home</asp:ListItem>
                                             <asp:ListItem>Cell</asp:ListItem>
                                             <asp:ListItem>Work</asp:ListItem>
@@ -63,6 +64,7 @@
                                         </asp:RequiredFieldValidator>
 
                                         <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType2") %>'>
+                                            <asp:ListItem></asp:ListItem>
                                             <asp:ListItem>Home</asp:ListItem>
                                             <asp:ListItem>Cell</asp:ListItem>
                                             <asp:ListItem>Work</asp:ListItem>
@@ -272,7 +274,7 @@
             <div class="col-4">
          
 
-                <div class="card">
+                <div class="card mb-2">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
                             <li class="nav-item">

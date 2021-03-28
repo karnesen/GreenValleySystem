@@ -10,6 +10,7 @@
                 <nav class="nav navbar-light flex-column">
                     <asp:LinkButton ID="lnkButtonReturn" class="nav-link" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
                     <a class="nav-link" href="editTicket.aspx">Service Details</a>
+                    <asp:LinkButton ID="lnkButtonSchedule" data-toggle="modal" data-target="#exampleModal" class="nav-link" CausesValidation="false" runat="server">Schedule</asp:LinkButton>
                     <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Assessment Form</asp:HyperLink>
                     <asp:HyperLink ID="schedule" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
                     <a class="nav-link" href="#">Compeletion Form</a>
@@ -97,6 +98,58 @@
                 </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolderChild" runat="server">
                 </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Schedule Service</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <asp:DropDownList ID="ddlEvents" runat="server" class="form-control">
+                        <asp:ListItem>Move Assessment</asp:ListItem>
+                        <asp:ListItem>Auction Walk Through</asp:ListItem>
+                        <asp:ListItem>Packing</asp:ListItem>
+                        <asp:ListItem>Move</asp:ListItem>
+                        <asp:ListItem>Auction Pick Up</asp:ListItem>
+                        <asp:ListItem>Auction Bring In</asp:ListItem>
+                        <asp:ListItem>Appraisal</asp:ListItem>
+                        <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
+                        <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
+                        <asp:ListItem>Trash Removal</asp:ListItem>
+                    </asp:DropDownList>
+
+                          <%--  <asp:TextBox ID="txtBoxCust1" TextMode="DateTimeLocal" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtBoxCust2" TextMode="DateTimeLocal" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtBoxCust3" TextMode="DateTimeLocal" runat="server"></asp:TextBox>
+                    <asp:Button ID="Button1" runat="server" OnClick="srcDates.Insert();" Text="Save" />
+                    <asp:SqlDataSource
+                        ID="srcDates"
+                        runat="server"
+                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                        InsertCommand="Insert into Schedule (serviceID,description,custDateOption1,custDateOption2,custDateOption3) 
+                        values(@serviceID, @description, @opt1, @opt2, @opt3)"
+                        UpdateCommand="Update schedule set where serviceID=@serviceID and description=@description">
+                        <InsertParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            <asp:ControlParameter ControlID="ddlEvents" Name="description" Type="String" />
+                            <asp:ControlParameter ControlID="txtBoxCust1" Name="opt1" DbType="DateTime" />
+                            <asp:ControlParameter ControlID="txtBoxCust2" Name="opt2" DbType="DateTime" />
+                            <asp:ControlParameter ControlID="txtBoxCust3" Name="opt3" DbType="DateTime" />
+                        </InsertParameters>
+                    </asp:SqlDataSource>--%>
+
+                </div>
+                <div class="modal-footer">
+                    <%--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>--%>
+                </div>
             </div>
         </div>
     </div>

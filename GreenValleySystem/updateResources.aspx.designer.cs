@@ -60,15 +60,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// rfvLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
-
-        /// <summary>
         /// rfvFirstName control.
         /// </summary>
         /// <remarks>
@@ -76,6 +67,15 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstName;
+
+        /// <summary>
+        /// rfvLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
 
         /// <summary>
         /// txtPosition control.
