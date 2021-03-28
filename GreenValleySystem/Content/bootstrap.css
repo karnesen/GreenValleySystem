@@ -2560,11 +2560,12 @@ fieldset:disabled a.btn {
     border-color: #266141;
 }
 
-Gity:hover {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #dbaa00;
+        border-color: #dbaa00;
+    }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
@@ -2592,16 +2593,16 @@ Gity:hover {
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+    color: #fff;
+    background-color: #266141;
+    border-color: #266141;
 }
 
-.btn-secondary:hover {
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
-}
+    .btn-secondary:hover {
+        color: #fff;
+        background-color: #dbaa00;
+        border-color: #dbaa00;
+    }
 
 .btn-secondary:focus, .btn-secondary.focus {
   color: #fff;
@@ -3131,7 +3132,7 @@ Gity:hover {
     font-size: 1.25rem;
     line-height: 1.5;
     border-radius: 0.3rem;
-    
+    background-color:#266141;
 }
 
 .btn-sm, .btn-group-sm > .btn {
@@ -3513,8 +3514,9 @@ input[type="button"].btn-block {
 }
 
 .btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    background-color: #266141;
 }
 
 .btn-group-vertical {
@@ -4822,10 +4824,12 @@ input[type="button"].btn-block {
 }
 
 .card-header {
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: #fff;
+    background-color: #266141;
+    border-color: #266141;
 }
 
 .card-header:first-child {
