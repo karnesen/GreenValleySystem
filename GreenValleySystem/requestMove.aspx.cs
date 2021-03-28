@@ -147,7 +147,7 @@ namespace GreenValleySystem
             string fileName;
             string filePath;
             string folder;
-            folder = Server.MapPath("~/images/");
+            folder = Server.MapPath("./");
 
             //retrieve name of posted file
             fileName = oFile.PostedFile.FileName;

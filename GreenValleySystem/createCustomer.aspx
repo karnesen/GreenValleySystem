@@ -57,7 +57,6 @@
                             <div class="row form-group">
                                 <div class="col-md-6">
                                     <asp:TextBox ID="txtPhoneNumber2" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>
-                                    <%--<asp:TextBox ID="txtPhoneNumber2" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>--%>
 
                                 </div>
                                 <div class="col-md-4">

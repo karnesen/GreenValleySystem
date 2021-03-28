@@ -101,7 +101,6 @@
     <Content Include="MoveRequest.aspx" />
     <Content Include="NewAuction.aspx" />
     <Content Include="noteDetails.aspx" />
-    <Content Include="phoneNumber.js" />
     <Content Include="requestAuction.aspx" />
     <Content Include="requestMove.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
