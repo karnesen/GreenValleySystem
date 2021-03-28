@@ -14,7 +14,7 @@
                 <asp:TextBox ID="txtPassword" runat="server" class="form-control" PlaceHolder="Password" TextMode="Password"></asp:TextBox>
             </div>
             <div class="text-center">
-                <asp:Button ID="btnLogin" runat="server" Class="btn btn-primary" OnClick="btnLogin_Click" Text="Log in" />
+                <asp:Button ID="btnLogin" runat="server" Class="btn btn-success" OnClick="btnLogin_Click" Text="Log in" />
             </div>
             <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
         </div>

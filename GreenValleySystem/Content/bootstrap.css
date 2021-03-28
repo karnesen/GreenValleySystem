@@ -2529,7 +2529,7 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #212529;
+  color: $green-700;
   text-decoration: none;
 }
 
@@ -2626,20 +2626,20 @@ fieldset:disabled a.btn {
 }
 
 .btn-success {
-  color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
+    color: #fff;
+    background-color: $green-700;
+    border-color: $green-700;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #218838;
-  border-color: #1e7e34;
+  background-color: $green-700;
+  border-color: $green-700;
 }
 
 .btn-success:focus, .btn-success.focus {
   color: #fff;
-  background-color: #218838;
+  background-color: $green-700;
   border-color: #1e7e34;
   box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
 }

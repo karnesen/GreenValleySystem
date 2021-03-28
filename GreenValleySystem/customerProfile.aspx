@@ -348,8 +348,8 @@
                     </div>
                 </div>
 
-                <asp:Button ID="btnNewMove" runat="server" Text="New Move" OnClick="btnNewMove_Click" class="btn btn-primary btn-block" />
-                <asp:Button ID="btnNewAuction" runat="server" Text="New Auction" OnClick="btnNewAuction_Click" class="btn btn-primary btn-block" />
+                <asp:Button ID="btnNewMove" runat="server" Text="New Move" OnClick="btnNewMove_Click" class="btn btn-success btn-block" />
+                <asp:Button ID="btnNewAuction" runat="server" Text="New Auction" OnClick="btnNewAuction_Click" class="btn btn-success btn-block" />
                 <br />
 
             </div>

@@ -70,8 +70,8 @@
 
         <div class="form-group">
             <div class="d-flex justify-content-around">
-                <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-primary btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
-                <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
+                <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-success btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
+                <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-success  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
                 <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-secondary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
             </div>
         </div>
