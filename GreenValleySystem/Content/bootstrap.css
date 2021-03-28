@@ -2627,19 +2627,19 @@ fieldset:disabled a.btn {
 
 .btn-success {
     color: #fff;
-    background-color: $green-700;
-    border-color: $green-700;
+    background-color: #266141;
+    border-color: #266141;
 }
 
 .btn-success:hover {
-  color: #fff;
-  background-color: $green-700;
-  border-color: $green-700;
+    color: #fff;
+    background-color: #dbaa00;
+    border-color: #dbaa00;
 }
 
 .btn-success:focus, .btn-success.focus {
   color: #fff;
-  background-color: $green-700;
+  background-color: #dbaa00;
   border-color: #1e7e34;
   box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
 }
