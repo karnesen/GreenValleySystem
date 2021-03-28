@@ -101,7 +101,7 @@ namespace Lab1
                 }
 
 
-                sqlQuery += " Select customerID, firstName, lastName from customer where customerID = (select max(customerID) from customer)";
+                sqlQuery += " Select customerID as selected, firstName, lastName from customer where customerID = (select max(customerID) from customer)";
 
 
                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
