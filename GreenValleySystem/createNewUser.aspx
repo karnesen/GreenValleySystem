@@ -5,8 +5,10 @@
 <html>
 <head runat="server">
     <title></title>
+    
     <link href="Content/bootstrap.css" rel="stylesheet" />
-
+    <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.js'></script>
+    <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
     <script src="Scripts/jquery-3.5.1.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
@@ -48,11 +50,12 @@
 
                     <div class="row form-group">
                         <div class="col-md 9">
-                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" PlaceHolder="Phone Number"></asp:TextBox>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" data-inputmask="'alias': 'phonebe'" PlaceHolder="Phone Number"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                 Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>
+
                         </div>
                         <div class="col-md 2">
                             <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control col-4 mb-1">
