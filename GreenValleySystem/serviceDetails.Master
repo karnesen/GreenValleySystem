@@ -2,102 +2,102 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
 
 
-            <nav class="nav navbar-light flex-column">
-                <asp:LinkButton ID="lnkButtonReturn" class="nav-link" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
-                <a class="nav-link" href="editTicket.aspx">Service Details</a>
-                <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Assessment Form</asp:HyperLink>
-                <asp:HyperLink ID="schedule" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
-                <a class="nav-link" href="#">Compeletion Form</a>
-            </nav>
-        </div>
-        <div class="col-10">
-            <div class="card mb-2 sticky-top">
-                <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">New Note</a>
-                        </li>
-                        <li class="nav-justified">
-                            <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i></asp:LinkButton>
+                <nav class="nav navbar-light flex-column">
+                    <asp:LinkButton ID="lnkButtonReturn" class="nav-link" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
+                    <a class="nav-link" href="editTicket.aspx">Service Details</a>
+                    <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Assessment Form</asp:HyperLink>
+                    <asp:HyperLink ID="schedule" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
+                    <a class="nav-link" href="#">Compeletion Form</a>
+                </nav>
+            </div>
+            <div class="col-10">
+                <div class="card mb-2 sticky-top">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">New Note</a>
+                            </li>
+                            <li class="nav-justified">
+                                <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i></asp:LinkButton>
 
-                        </li>
-                    </ul>
-                </div>
+                            </li>
+                        </ul>
+                    </div>
 
 
-                <div class='<%= state %>' id="collapseExample">
-                    <div class="card-body">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="note" role="tabpanel" aria-labelledby="notes-tab">
-                                <asp:ListView
-                                    ID="lvNotes"
-                                    runat="server"
-                                    DataSourceID="srcNotes"
-                                    DataKeyNames="ticketID"
-                                    OnPagePropertiesChanging="lvNotes_PagePropertiesChanging">
-                                    <LayoutTemplate>
-                                        <div runat="server" id="lstProducts">
-                                            <div runat="server" id="itemPlaceholder" />
-                                        </div>
-                                        <asp:DataPager runat="server" PageSize="3" ID="dataPager">
-                                            <Fields>
-                                                <asp:NumericPagerField />
-                                            </Fields>
-                                        </asp:DataPager>
-                                    </LayoutTemplate>
-                                    <ItemTemplate>
-                                        <asp:HyperLink ID="lnkNote" Text='<%#Eval("NoteTitle")%>' NavigateUrl='<%# "noteDetails.aspx?num=" + Eval("ticketID")%>' runat="server">HyperLink</asp:HyperLink>
-                                        </br>
+                    <div class='<%= state %>' id="collapseExample">
+                        <div class="card-body">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="note" role="tabpanel" aria-labelledby="notes-tab">
+                                    <asp:ListView
+                                        ID="lvNotes"
+                                        runat="server"
+                                        DataSourceID="srcNotes"
+                                        DataKeyNames="ticketID"
+                                        OnPagePropertiesChanging="lvNotes_PagePropertiesChanging">
+                                        <LayoutTemplate>
+                                            <div runat="server" id="lstProducts">
+                                                <div runat="server" id="itemPlaceholder" />
+                                            </div>
+                                            <asp:DataPager runat="server" PageSize="3" ID="dataPager">
+                                                <Fields>
+                                                    <asp:NumericPagerField />
+                                                </Fields>
+                                            </asp:DataPager>
+                                        </LayoutTemplate>
+                                        <ItemTemplate>
+                                            <asp:HyperLink ID="lnkNote" Text='<%#Eval("NoteTitle")%>' NavigateUrl='<%# "noteDetails.aspx?num=" + Eval("ticketID")%>' runat="server">HyperLink</asp:HyperLink>
+                                            </br>
                                     <asp:Label ID="noteText" runat="server" Text='<%# (Eval("noteText").ToString().Length>=100) ? Eval("noteText").ToString().Substring(0,100) + "..." : Eval("noteText") %>'></asp:Label>
-                                        </br>
+                                            </br>
                                     <asp:Label ID="lblCreatedBy" runat="server" Font-Italic="true" Text=' <%#"Created by " + Eval("CreatedBy") + " on " + Eval("CreationDate") %>'></asp:Label>
-                                        </br>
+                                            </br>
                                     </br>
 
-                                    </ItemTemplate>
-                                </asp:ListView>
+                                        </ItemTemplate>
+                                    </asp:ListView>
 
 
-                                <asp:SqlDataSource
-                                    ID="srcNotes"
-                                    ConnectionString="<%$ ConnectionStrings:Connect %>"
-                                    SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
+                                    <asp:SqlDataSource
+                                        ID="srcNotes"
+                                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                        SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
                             FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID WHERE TICKETNOTE.serviceID = @serviceID order by TICKETNOTE.creationDate desc"
-                                    runat="server">
-                                    <SelectParameters>
-                                        <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                            </div>
-
-                            <div class="tab-pane fade" id="newNote" role="tabpanel" aria-labelledby="newNote-tab">
-                                <div class=" form-group">
-                                    <asp:TextBox ID="txtNoteTitle" runat="server" Placeholder="Note Title" class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvNoteTitle" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteTitle" Text="Please create a title."></asp:RequiredFieldValidator>
-
-                                    <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvNoteBody" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteBody" Text="Please enter note body."></asp:RequiredFieldValidator>
+                                        runat="server">
+                                        <SelectParameters>
+                                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
                                 </div>
 
-                                <div class="form-group">
-                                    <asp:Button ID="btnCreateNote" runat="server" Text="Create" OnClick="btnCreateNote_Click" ValidationGroup="newNote" class="btn btn-outline-secondary" />
+                                <div class="tab-pane fade" id="newNote" role="tabpanel" aria-labelledby="newNote-tab">
+                                    <div class=" form-group">
+                                        <asp:TextBox ID="txtNoteTitle" runat="server" Placeholder="Note Title" class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvNoteTitle" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteTitle" Text="Please create a title."></asp:RequiredFieldValidator>
+
+                                        <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvNoteBody" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteBody" Text="Please enter note body."></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <asp:Button ID="btnCreateNote" runat="server" Text="Create" OnClick="btnCreateNote_Click" ValidationGroup="newNote" class="btn btn-outline-secondary" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderChild" runat="server">
+                </asp:ContentPlaceHolder>
             </div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolderChild" runat="server">
-            </asp:ContentPlaceHolder>
         </div>
     </div>
-        </div>
 </asp:Content>

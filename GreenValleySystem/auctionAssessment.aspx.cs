@@ -13,5 +13,29 @@ namespace GreenValleySystem
         {
 
         }
+
+        protected void Button_Command(object sender, CommandEventArgs e)
+        {
+           
+        }
+
+        protected void fvAuctionAssessment_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+            //switch (e.CommandName)
+            //{
+            //    case "Edit":
+            //        fvAuctionAssessment.ChangeMode(FormViewMode.Edit);
+            //        break;
+            //    case "Cancel":
+            //        fvAuctionAssessment.ChangeMode(FormViewMode.ReadOnly);
+            //        break;
+            //    case "Update":
+            //        srcAuctionAssessment.Update();
+            //        break;
+            //}
+            //fvAuctionAssessment.DataBind();
+        }
+
+
     }
 }

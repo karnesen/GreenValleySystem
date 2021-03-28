@@ -135,8 +135,7 @@
                     <div class="row">
                         <div class="col-8">
                             <asp:RadioButtonList ID="rdoContact" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow"
-                                class="row d-flex justify-content-around form-check form-check-inline" OnSelectedIndexChanged="rdoContact_SelectedIndexChanged"
-                                AutoPostBack="true">
+                                class="row d-flex justify-content-around form-check form-check-inline" OnSelectedIndexChanged="rdoContact_SelectedIndexChanged">
                                 <asp:ListItem Class="form-check-input" Text="In Person"></asp:ListItem>
                                 <asp:ListItem Class="form-check-input" Text="Phone"></asp:ListItem>
                                 <asp:ListItem Class="form-check-input" Text="Email"></asp:ListItem>

@@ -101,7 +101,7 @@ namespace Lab1
                 }
 
 
-                sqlQuery += " Select max(customerID) as selected from customer";
+                sqlQuery += " Select max(customerID) as selected, firstName, lastName from customer";
 
 
                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -140,6 +140,9 @@ namespace Lab1
                     while (reader.Read()) // this will read the single record that matches the entered username
                     {
                         Session["selectedCustomer"] = reader["selected"];
+                        Session["selectedCustomerName"] = reader["firstName"] + " " + reader["lastName"];
+
+
                     }
                 }
                 sqlConnect.Close();

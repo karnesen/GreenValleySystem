@@ -30,7 +30,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="Service Type">
+                            <asp:TemplateField HeaderText="Service Open Date">
                                 <ItemTemplate>
                                     <asp:Label ID="lblServiceOpenDate" runat="server" Text='<%#Bind("serviceOpenDate")%>'></asp:Label>
                                 </ItemTemplate>
@@ -49,16 +49,16 @@
                                     <asp:Label ID="lbldeadlineEnd" runat="server" Text='<%#Bind("serviceDeadlineEnd")%>'></asp:Label>
                                 </ItemTemplate>
                                 <EditItemTemplate>
-                                    <div class="form-group col-6">
-                                        <asp:TextBox ID="txtAuctionStartDate" runat="server" Text='<%#Bind("serviceDeadlineStart")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="txtAuctionStartDate" runat="server" Text='<%#Bind("serviceDeadlineStart", "{0:yyyy-MM-ddTHH:mm}")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="rfvStartDateAuction" runat="server"
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionStartDate"
                                             Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
                                         </asp:RequiredFieldValidator>
                                     </div>
 
-                                    <div class="form-group col-6">
-                                        <asp:TextBox ID="txtAuctionEndDate" runat="server" Text='<%#Bind("serviceDeadlineEnd")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
+                                    <div class="form-group ">
+                                        <asp:TextBox ID="txtAuctionEndDate" runat="server" Text='<%#Bind("serviceDeadlineEnd", "{0:yyyy-MM-ddTHH:mm}")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
                                     </div>
                                 </EditItemTemplate>
                             </asp:TemplateField>
