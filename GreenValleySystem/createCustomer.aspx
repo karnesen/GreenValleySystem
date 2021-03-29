@@ -3,6 +3,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <link href="Content/bootstrap.css" rel="stylesheet" />
+    <base href="http://demos.telerik.com/kendo-ui/maskedtextbox/index">
+    <title></title>
+  
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.bootstrap.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    
+    
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row  container-fluid">
@@ -36,10 +49,14 @@
                     <div class="row form-group">
                         <div class="col-md 9">
                             <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>
+                            <input id="Text1" type="text" pattern="" />
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                 Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>
+                             <script>
+              
+                             </script>
                         </div>
                         <div class="col-md 2">
                             <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control col-4 mb-1">

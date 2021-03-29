@@ -6,13 +6,20 @@
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
 
+                 <div class="progress">
+                    <div class="progress-bar progress-bar-animated" style="width:80%;">
+                            Next Task: Shcedule Look-At
+                  </div>
+                </div>
+
+
     <div class="row justify-content-around">
         <div class=" col-6">
             <div class="card" id="serviceCard">
                 <div class="card-header">
                     Initial Service Details
                 </div>
-
+                  
                 <div class="card-body">
                     <asp:DetailsView
                         ID="dvServiceDetails"
@@ -56,6 +63,9 @@
                                             Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
                                         </asp:RequiredFieldValidator>
                                     </div>
+
+                                   
+                                    
 
                                     <div class="form-group ">
                                         <asp:TextBox ID="txtAuctionEndDate" runat="server" Text='<%#Bind("serviceDeadlineEnd", "{0:yyyy-MM-ddTHH:mm}")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>

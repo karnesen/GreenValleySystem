@@ -54,7 +54,7 @@
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                 Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
+                            </asp:RequiredFieldValidator>       
 
                         </div>
                         <div class="col-md 2">
