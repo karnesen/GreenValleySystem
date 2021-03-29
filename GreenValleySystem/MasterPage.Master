@@ -4,6 +4,7 @@
 
 <html>
 <head runat="server">
+    <meta charset="utf-8">
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
@@ -20,13 +21,13 @@
         });
     </script>--%>
 
-    <script>
+    <%--<script>
     document.getElementById('btnToLogout').addEventListener('keypress', function(event) {
         if (event.keyCode == 13) {
             event.preventDefault();
         }
     });
-    </script>
+    </script>--%>
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">

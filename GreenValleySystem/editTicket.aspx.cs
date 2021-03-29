@@ -73,13 +73,13 @@ namespace Lab2
             ddlState.SelectedIndex = -1;
         }
 
-        protected void btnSubmitTask_Click(object sender, EventArgs e)
-        {
-            srcTasks.Insert();
-            txtTask.Text = "";
-            ddlPriority.SelectedIndex = -1;
+        //protected void btnSubmitTask_Click(object sender, EventArgs e)
+        //{
+        //    srcTasks.Insert();
+        //    txtTask.Text = "";
+        //    ddlPriority.SelectedIndex = -1;
 
-        }
+        //}
 
         //protected void lvNotes_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         //{
