@@ -49,14 +49,12 @@
                     <div class="row form-group">
                         <div class="col-md 9">
                             <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>
-                            <input id="Text1" type="text" pattern="" />
+                            
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                 Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>
-                             <script>
-              
-                             </script>
+                             
                         </div>
                         <div class="col-md 2">
                             <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control col-4 mb-1">
