@@ -65,8 +65,8 @@
             <div class="text-right">
 
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-                <asp:Button ID="btnToLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" class="btn btn-success" />
-                <asp:Button ID="btnToLogout" runat="server" Text="Log Out" OnClick="btnToLogout_Click" class="btn btn-success" />
+                <asp:Button ID="btnToLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" class="btn btn-primary" />
+                <asp:Button ID="btnToLogout" runat="server" Text="Log Out" OnClick="btnToLogout_Click" class="btn btn-primary" />
             </div>
         </nav>
 
