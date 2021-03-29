@@ -2561,30 +2561,30 @@ fieldset:disabled a.btn {
 }
 
 
-    .btn-primary:hover {
-        color: #fff;
-        background-color: #dbaa00;
-        border-color: #dbaa00;
-    }
+.btn-primary:hover {
+    color: #fff;
+    background-color: #dbaa00;
+    border-color: #dbaa00;
+}
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #266141;
+  border-color: #266141;
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #266141;
+  border-color: #266141;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  background-color: #266141;
+  border-color: #266141;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2852,8 +2852,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
+  color: #266141;
+  border-color: #266141;
 }
 
 .btn-outline-primary:hover {
@@ -4249,11 +4249,13 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #000;
+  /*color: #000;*/
+  color: #BB9739;
 }
 
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
+  color: #000;
 }
 
 .nav-link.disabled {
@@ -4829,8 +4831,8 @@ input[type="button"].btn-block {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     color: #fff;
-    background-color: #518167;
-    border-color: #518167;
+    background-color: #266141;
+    border-color: #266141;
 }
 
 .card-header:first-child {
