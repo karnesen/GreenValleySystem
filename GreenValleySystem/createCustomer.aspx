@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <link href="Content/bootstrap.css" rel="stylesheet" />
-    <base href="http://demos.telerik.com/kendo-ui/maskedtextbox/index">
+    <%--<base href="http://demos.telerik.com/kendo-ui/maskedtextbox/index">--%>
     <title></title>
   
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-bootstrap.min.css" />
