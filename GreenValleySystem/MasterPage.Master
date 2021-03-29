@@ -21,13 +21,13 @@
         });
     </script>--%>
 
-    <%--<script>
+    <script>
     document.getElementById('btnToLogout').addEventListener('keypress', function(event) {
         if (event.keyCode == 13) {
             event.preventDefault();
         }
     });
-    </script>--%>
+    </script>
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
