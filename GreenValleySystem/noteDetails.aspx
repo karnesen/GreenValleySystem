@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   
     <div class="container col-6">
-        <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="editTicket.aspx" runat="server">Back to Service Page</asp:LinkButton>
+        <%--<asp:LinkButton ID="lnkButtonReturn" PostBackUrl="editTicket.aspx" runat="server">Back to Service Page</asp:LinkButton>--%>
         <div class="card">
             <div class="card-header text-center">
                 <asp:Label ID="lblViewNote" runat="server" Text="Note Details" Class="h3 m-2"></asp:Label>

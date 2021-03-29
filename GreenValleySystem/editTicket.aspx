@@ -6,13 +6,20 @@
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
 
+                 <div class="progress">
+                    <div class="progress-bar progress-bar-animated" style="width:80%;">
+                            Next Task: Shcedule Look-At
+                  </div>
+                </div>
+
+
     <div class="row justify-content-around">
         <div class=" col-6">
             <div class="card" id="serviceCard">
                 <div class="card-header">
                     Initial Service Details
                 </div>
-
+                  
                 <div class="card-body">
                     <asp:DetailsView
                         ID="dvServiceDetails"
@@ -56,6 +63,9 @@
                                             Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
                                         </asp:RequiredFieldValidator>
                                     </div>
+
+                                   
+                                    
 
                                     <div class="form-group ">
                                         <asp:TextBox ID="txtAuctionEndDate" runat="server" Text='<%#Bind("serviceDeadlineEnd", "{0:yyyy-MM-ddTHH:mm}")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
@@ -109,16 +119,13 @@
                                         </asp:RequiredFieldValidator>
                                     </div>
 
-                                    <div class="row form-group">
-                                        <div class="col-md-5">
+                                    <div class="form-group">
                                             <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvCity" runat="server"
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                                 Text="Please Enter A City.">
                                             </asp:RequiredFieldValidator>
-                                        </div>
 
-                                        <div class="col-md-3">
                                             <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
                                                 <asp:ListItem Value="AL">AL</asp:ListItem>
                                                 <asp:ListItem Value="AK">AK</asp:ListItem>
@@ -176,19 +183,18 @@
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
                                                 Text="Please Select A State.">
                                             </asp:RequiredFieldValidator>
-                                        </div>
-
-                                        <div class="col-md-4">
+                                        
                                             <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("zipcode") %>' class="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                                 Text="Please Enter Zip Code.">
                                             </asp:RequiredFieldValidator>
-                                        </div>
+                                        
                                     </div>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
+                                    <br />
                                     <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>
                                     <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
                                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
@@ -200,7 +206,7 @@
 
                     <asp:LinkButton ID="lnkButtonExpandAddress" href="#collapseAddress" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAddress" runat="server">Add Address</asp:LinkButton>
                     <div class="collapse" id="collapseAddress">
-                        <table class="table-bordered table-condensed">
+                        <table class="table-borderless">
                             <tbody>
                                 <tr>
                                     <td>
@@ -219,16 +225,14 @@
                                             </asp:RequiredFieldValidator>
                                         </div>
 
-                                        <div class="row form-group">
-                                            <div class="col-md-6">
+                                        <div class="form-group">
                                                 <asp:TextBox ID="txtCity" runat="server" Placeholder="City" class="form-control"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="rfvCity" runat="server"
                                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                                     Text="Please Enter A City.">
                                                 </asp:RequiredFieldValidator>
-                                            </div>
+                                            
 
-                                            <div class="col-md-2">
                                                 <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
                                                     <asp:ListItem Value="AL">AL</asp:ListItem>
                                                     <asp:ListItem Value="AK">AK</asp:ListItem>
@@ -286,15 +290,13 @@
                                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
                                                     Text="Please Select A State.">
                                                 </asp:RequiredFieldValidator>
-                                            </div>
-
-                                            <div class="col-md-4">
+                                           
                                                 <asp:TextBox ID="txtZipCode" runat="server" PlaceHolder="Zip" class="form-control"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
                                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                                     Text="Please Enter Zip Code.">
                                                 </asp:RequiredFieldValidator>
-                                            </div>
+                                            
                                         </div>
                                         <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server">Commit</asp:LinkButton>
                                     </td>
@@ -458,7 +460,7 @@
             </div>--%>
             <div class="card">
                 <div class="card-header">
-                    <asp:Label ID="lblWorkflow" Text="Service Workers" runat="server" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="lblWorkflow" Text="Service Workers" runat="server"></asp:Label>
                 </div>
                 <div class="card-body">
                     <asp:GridView
