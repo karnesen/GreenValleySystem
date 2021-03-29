@@ -109,7 +109,7 @@
                                         </asp:RequiredFieldValidator>
                                     </div>
 
-                                    <div class="row form-group">
+                                    <div class="form-group">
                                         <div class="col-md-5">
                                             <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvCity" runat="server"
@@ -189,6 +189,7 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
+                                    <br />
                                     <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>
                                     <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
                                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
@@ -200,7 +201,7 @@
 
                     <asp:LinkButton ID="lnkButtonExpandAddress" href="#collapseAddress" data-toggle="collapse" aria-expanded="false" aria-controls="collapseAddress" runat="server">Add Address</asp:LinkButton>
                     <div class="collapse" id="collapseAddress">
-                        <table class="table-bordered table-condensed">
+                        <table class="table-borderless">
                             <tbody>
                                 <tr>
                                     <td>
@@ -330,7 +331,7 @@
         </div>
 
         <div class="col-6">
-            <div class="card mb-2">
+         <%--   <div class="card mb-2">
                 <div class="card-header">
                     Create New Task
                 </div>
@@ -384,7 +385,7 @@
 
                 </div>
 
-            </div>
+            </div>--%>
             <%--<div class="card mb-2">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
@@ -458,7 +459,7 @@
             </div>--%>
             <div class="card">
                 <div class="card-header">
-                    <asp:Label ID="lblWorkflow" Text="Service Workers" runat="server" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="lblWorkflow" Text="Service Workers" runat="server"></asp:Label>
                 </div>
                 <div class="card-body">
                     <asp:GridView

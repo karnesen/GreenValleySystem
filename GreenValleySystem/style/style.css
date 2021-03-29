@@ -16,6 +16,12 @@
     -moz-osx-font-smoothing: grayscale
 }
 
+.btn-primary {
+    color: #fff;
+    background-color: #266141;
+    border-color: #266141;
+}
+
 .mdi-ab-testing::before {
     content: "\F001C"
 }

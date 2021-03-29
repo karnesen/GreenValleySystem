@@ -4,6 +4,7 @@
 
 <html>
 <head runat="server">
+    <meta charset="utf-8">
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
@@ -20,13 +21,13 @@
         });
     </script>--%>
 
-    <script>
+    <%--<script>
     document.getElementById('btnToLogout').addEventListener('keypress', function(event) {
         if (event.keyCode == 13) {
             event.preventDefault();
         }
     });
-    </script>
+    </script>--%>
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -65,8 +66,8 @@
             <div class="text-right">
 
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-                <asp:Button ID="btnToLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" class="btn btn-success" />
-                <asp:Button ID="btnToLogout" runat="server" Text="Log Out" OnClick="btnToLogout_Click" class="btn btn-success" />
+                <asp:Button ID="btnToLogin" runat="server" Text="Log In" OnClick="btnLogin_Click" class="btn btn-primary" />
+                <asp:Button ID="btnToLogout" runat="server" Text="Log Out" OnClick="btnToLogout_Click" class="btn btn-primary" />
             </div>
         </nav>
 
