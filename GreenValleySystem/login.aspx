@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Green Valley Auction</title>
+    
     <link rel="stylesheet" href="style/UIkit1.css"/>
     <link rel="stylesheet" href="style/UIkit2.css"/>
     <link rel="stylesheet" href="style/style.css"/> 
+    <link href="Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <main class="auth">
@@ -31,7 +33,7 @@
                                  <asp:Label ID="Label2" runat="server" Text="Password" class="sr-only"></asp:Label>
                         <asp:TextBox ID="txtPassword" runat="server" class="form-control" PlaceHolder="Password" TextMode="Password"></asp:TextBox>
                             </div>
-                             <asp:Button ID="btnLogin" runat="server" Class="btn btn-success btn-block mb-3" Text="Log in" OnClick="btnLogin_Click"/>
+                             <asp:Button ID="btnLogin" runat="server" Class="btn btn-primary btn-block mb-3" Text="Log in" OnClick="btnLogin_Click"/>
                              <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
                         </form>
                     </div>

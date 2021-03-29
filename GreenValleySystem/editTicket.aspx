@@ -330,7 +330,7 @@
         </div>
 
         <div class="col-6">
-            <div class="card mb-2">
+         <%--   <div class="card mb-2">
                 <div class="card-header">
                     Create New Task
                 </div>
@@ -384,7 +384,7 @@
 
                 </div>
 
-            </div>
+            </div>--%>
             <%--<div class="card mb-2">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">

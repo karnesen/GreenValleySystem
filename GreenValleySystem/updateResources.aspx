@@ -83,7 +83,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="btnInsertEmployee" OnClick="btnInsertEmployee_Click" runat="server" ValidationGroup="newEmployee">Add Employee</asp:LinkButton>
+                                <asp:LinkButton ID="btnInsertEmployee" OnClick="btnInsertEmployee_Click" runat="server" ValidationGroup="newEmployee" class="nav-link">Add Employee</asp:LinkButton>
                             </td>
                             <td>
                                     <asp:TextBox ID="txtFirstName" runat="server" PlaceHolder="First Name" class="form-control"></asp:TextBox>
@@ -190,7 +190,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <asp:LinkButton ID="lblNewEquipment" OnClick="lbtnNewEquipment_Click" runat="server" ValidationGroup="newEquipment">Add Equipment</asp:LinkButton>
+                                <asp:LinkButton ID="lblNewEquipment" OnClick="lbtnNewEquipment_Click" runat="server" ValidationGroup="newEquipment" class="nav-link">Add Equipment</asp:LinkButton>
                             </td>
                             <td>
                                     <asp:TextBox ID="txtEquipmentName" runat="server" Placeholder="Equipment Name" class="form-control"></asp:TextBox>

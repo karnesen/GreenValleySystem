@@ -4249,6 +4249,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  color: #000;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -4828,8 +4829,8 @@ input[type="button"].btn-block {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     color: #fff;
-    background-color: #266141;
-    border-color: #266141;
+    background-color: #518167;
+    border-color: #518167;
 }
 
 .card-header:first-child {
