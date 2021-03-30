@@ -6,18 +6,23 @@
     <base href="http://demos.telerik.com/kendo-ui/maskedtextbox/index">
     <title></title>
   
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-bootstrap.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.bootstrap.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.bootstrap.min.css" />
-
-    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
-    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    
     
     
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.bootstrap.min.css" />
+​
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    
+
+
+
     <div class="row  container-fluid">
         <div class="col-6">
             <div class="card">
@@ -48,15 +53,22 @@
 
                     <div class="row form-group">
                         <div class="col-md 9">
-                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>
-                            <input id="Text1" type="text" pattern="" />
+                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
+                            
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $("#txtPhoneNumber").kendoMaskedTextBox({
+                                        mask: "(999) 000-0000",
+                                        clearPromptChar: true
+                                    });
+                                });
+                            </script>
+
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                 Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>
-                             <script>
-              
-                             </script>
+                             
                         </div>
                         <div class="col-md 2">
                             <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control col-4 mb-1">
@@ -74,8 +86,16 @@
 
                             <div class="row form-group">
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txtPhoneNumber2" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>
-                                    <%--<asp:TextBox ID="txtPhoneNumber2" runat="server" class="form-control phone_us" PlaceHolder="Phone Number"></asp:TextBox>--%>
+                                    <asp:TextBox ID="txtPhoneNumber2" runat="server" class="form-control phone_us" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
+                                    
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $("#txtPhoneNumber2").kendoMaskedTextBox({
+                                                mask: "(999) 000-0000",
+                                                clearPromptChar: true
+                                            });
+                                        });
+                                    </script>
 
                                 </div>
                                 <div class="col-md-4">
