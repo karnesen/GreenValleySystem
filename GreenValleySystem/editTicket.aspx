@@ -8,7 +8,7 @@
 
                  <div class="progress">
                     <div class="progress-bar progress-bar-animated" style="width:80%;">
-                            Next Task: Shcedule Look-At
+                            Next Task: Schedule Look-At
                   </div>
                 </div>
 
