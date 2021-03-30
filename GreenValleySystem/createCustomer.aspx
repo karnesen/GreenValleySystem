@@ -17,6 +17,7 @@
     
    
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row  container-fluid">
         <div class="col-6">
