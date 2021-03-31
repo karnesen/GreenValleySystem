@@ -11,7 +11,7 @@ namespace GreenValleySystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblMessage.Text = "Welcome, " + Session["customerID"].ToString();
+            lblMessage.Text = "Welcome, " + Session["UserName"].ToString();
         }
     }
 }

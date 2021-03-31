@@ -380,7 +380,11 @@
                         <asp:Label ID="lblStatus" runat="server" Text='<%#(Eval("serviceStatus").ToString()) == "True" ? "Active" : "Inactive"%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Progress"></asp:TemplateField>
+                <asp:TemplateField HeaderText="Progress">
+                    <ItemTemplate>
+                        Next Task: Schedule Look-At
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
 

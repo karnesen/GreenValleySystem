@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
     <div class="card card-body">
         <asp:Label ID="lblCustomer" runat="server"></asp:Label>
         <div class="form-group">
@@ -64,10 +65,10 @@
         </div>
 
         <div class="form-group">
-            <input id="oFile" type="file" runat="server" name="oFile" />
-            <asp:Button ID="btnImageupload" runat="server" Text="Upload Image" type="submit" OnClick="btnImageupload_Click"/>
+            <input id="oFile" type="file" runat="server" class="btn btn-primary btn-lg" name="oFile" />
+            <asp:Button ID="btnImageupload" runat="server" class="btn btn-primary btn-lg" Text="Upload Image" type="submit" OnClick="btnImageupload_Click"/>
             <asp:Panel ID="panelConfirm" runat="server" Visible="false">
-            <asp:Label ID="lblResult" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblResult" runat="server" class="h6" Text="Label"></asp:Label>
             </asp:Panel>
         </div>
 
@@ -77,6 +78,7 @@
                 <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
                 <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-secondary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
             </div>
+        </div>
         </div>
     </div>
 </asp:Content>

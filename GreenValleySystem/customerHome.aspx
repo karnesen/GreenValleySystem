@@ -3,13 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
     <asp:GridView
         ID="gvCustomerServices"
         DataSourceID="srcCustomerServices"
         DataKeyNames="serviceID"
         AutoGenerateColumns="false"
         runat="server"
-        class="table table-boreded table-condensed">
+        class="table table-bordered table-condensed">
         <Columns>
             <asp:TemplateField HeaderText="Service Type">
                 <ItemTemplate>
@@ -49,4 +50,6 @@
             <asp:SessionParameter Name="customerID" SessionField="customerID" />
         </SelectParameters>
     </asp:SqlDataSource>
+        <asp:LinkButton ID="lBTNreturnEmployee" runat="server">View Employee Demo</asp:LinkButton>
+        </div>
 </asp:Content>
