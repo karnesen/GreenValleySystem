@@ -34,7 +34,7 @@
                                 <a class="nav-link" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">New Note</a>
                             </li>
                             <li class="nav-justified">
-                                <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i></asp:LinkButton>
+                                <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i>View Notes</asp:LinkButton>
 
                             </li>
                         </ul>
