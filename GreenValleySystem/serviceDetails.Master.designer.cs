@@ -24,15 +24,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.LinkButton lnkButtonReturn;
 
         /// <summary>
-        /// lnkButtonSchedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkButtonSchedule;
-
-        /// <summary>
         /// lookAt control.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lookAt;
-
-        /// <summary>
-        /// schedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink schedule;
 
         /// <summary>
         /// lbtnCollapse control.
@@ -123,6 +105,24 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.Button btnCreateNote;
 
         /// <summary>
+        /// fvDates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvDates;
+
+        /// <summary>
+        /// srcDates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcDates;
+
+        /// <summary>
         /// ContentPlaceHolderChild control.
         /// </summary>
         /// <remarks>
@@ -130,14 +130,5 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderChild;
-
-        /// <summary>
-        /// ddlEvents control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEvents;
     }
 }

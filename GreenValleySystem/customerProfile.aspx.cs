@@ -15,7 +15,7 @@ namespace GreenValleySystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
 
         }
 
@@ -74,5 +74,6 @@ namespace GreenValleySystem
         {
             Response.Redirect("AuctionRequest.aspx");
         }
+
     }
 }

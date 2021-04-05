@@ -20,12 +20,10 @@ namespace GreenValleySystem
             if((Session["serviceType"].ToString()).Equals("Move"))
             {
                 lookAt.NavigateUrl = "moveAssessment.aspx";
-                schedule.NavigateUrl = "moveServiceOrder.aspx";
             }
             else
             {
                 lookAt.NavigateUrl = "auctionAssessment.aspx";
-                schedule.NavigateUrl = "auctionServiceOrder.aspx";
             }
             if(!IsPostBack)
             {

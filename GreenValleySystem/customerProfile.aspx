@@ -106,19 +106,19 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <div class="row form-group justify-content-around">
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chHome" Text="Home" Checked='<%# Bind("prefHome") %>' runat="server" />
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chHome" Text="Home" Checked='<%# Bind("prefHome") %>' runat="server" />
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chMobile" Text="Mobile" Checked='<%# Bind("prefMobile") %>' runat="server" />
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chText" Text="Text" Checked='<%# Bind("prefText") %>' runat="server" />
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chEmail" Text="Email" Checked='<%# Bind("prefEmail") %>' runat="server" />
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chMobile" Text="Mobile" Checked='<%# Bind("prefMobile") %>' runat="server" />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chText" Text="Text" Checked='<%# Bind("prefText") %>' runat="server" />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chEmail" Text="Email" Checked='<%# Bind("prefEmail") %>' runat="server" />
-                                </div>
-                            </div>
                             </EditItemTemplate>
 
                         </asp:TemplateField>
@@ -272,7 +272,7 @@
             </div>
 
             <div class="col-4">
-         
+
 
                 <div class="card mb-2">
                     <div class="card-header">
@@ -296,6 +296,7 @@
                                     DataKeyNames="ticketID"
                                     OnPagePropertiesChanging="lvNotes_PagePropertiesChanging">
                                     <LayoutTemplate>
+                                        
                                         <div runat="server" id="lstProducts">
                                             <div runat="server" id="itemPlaceholder" />
                                         </div>
@@ -306,7 +307,7 @@
                                         </asp:DataPager>
                                     </LayoutTemplate>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="lnkNote" Text='<%#Eval("NoteTitle")%>' NavigateUrl='<%# "noteDetails.aspx?num=" + Eval("ticketID")%>' runat="server">HyperLink</asp:HyperLink>
+                                        <asp:LinkButton ID="lnkNote" Text='<%#Eval("NoteTitle")%>' runat="server" CommandName="Edit">LinkButton</asp:LinkButton>
                                         </br>
                                     <asp:Label ID="noteText" runat="server" Text='<%# (Eval("noteText").ToString().Length>=200) ? Eval("noteText").ToString().Substring(0,100) + "..." : Eval("noteText") %>'></asp:Label>
                                         </br>
@@ -315,6 +316,16 @@
                                     </br>
 
                                     </ItemTemplate>
+                                    <EditItemTemplate>
+                                        <asp:LinkButton ID="lnkNote" Text='<%#Bind("NoteTitle")%>'   runat="server" data-toggle="modal" data-target="#exampleModal">LinkButton</asp:LinkButton>
+                                        </br>
+                                        <asp:TextBox ID="txtNoteText" runat="server" TextMode="MultiLine" rows="5" Text='<%#Bind("noteText")%>' Class="form-control"></asp:TextBox>
+                                        </br>
+                                        <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                                        <asp:LinkButton ID="btnCancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
+                                        <br />
+                                        <br />
+                                    </EditItemTemplate>
                                 </asp:ListView>
 
 
@@ -324,6 +335,7 @@
                                     SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
                             FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID Left Join service on ticketNote.serviceID = service.serviceID WHERE TicketNote.customerID = @selectedCustomer OR service.customerID = @selectedCustomer 
                                 order by TICKETNOTE.creationDate desc"
+                                    UpdateCommand="Update TicketNote set noteText=@noteText where ticketID=@ticketID"
                                     runat="server">
                                     <SelectParameters>
                                         <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
@@ -398,4 +410,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
     </div>
+
+    
+
 </asp:Content>
