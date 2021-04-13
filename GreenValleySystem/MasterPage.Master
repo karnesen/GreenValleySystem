@@ -53,6 +53,7 @@
 
             <div class="form-inline " >
         <asp:TextBox ID="txtSearchCustomer" class="form-control" Placeholder="Search" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" TextMode="DateTimeLocal" class="form-control" runat="server"></asp:TextBox>
         <asp:LinkButton ID="btnCustomerSearch" class="btn form-control-lg " runat="server" OnClick="btnCustomerSearch_Click" ><span class="fa fa-search"></span> </asp:LinkButton>
     </div>
 

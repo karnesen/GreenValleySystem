@@ -72,6 +72,7 @@ namespace Lab3
             gvCustomers.DataSource = dt;
             gvCustomers.DataBind();
         }
+
         private void GetData3()
         {
             String search = Session["search"].ToString();

@@ -12,6 +12,7 @@
                     <asp:LinkButton ID="lnkButtonReturn" class="nav-link" PostBackUrl="customerProfile.aspx" CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
                     <a class="nav-link" href="editTicket.aspx">Service Details</a>
                     <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Assessment Form</asp:HyperLink>
+                    <asp:HyperLink ID="serviceOrder" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
                     <a class="nav-link" href="#">Compeletion Form</a>
                 </nav>
             </div>
@@ -26,16 +27,16 @@
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
+                                <a class='<%= state4 %>' id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">New Note</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
+                                <a class='<%= state5 %>' id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
                             </li>
                             <li class="nav-item ml-auto">
-                                <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> View Notes</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> Expand</asp:LinkButton>
 
                             </li>
                         </ul>
@@ -45,7 +46,7 @@
                     <div class='<%= state %>' id="collapseExample">
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="note" role="tabpanel" aria-labelledby="notes-tab">
+                                <div class= '<%= state3 %>' id="note" role="tabpanel" aria-labelledby="notes-tab">
                                     <asp:ListView
                                         ID="lvNotes"
                                         runat="server"
@@ -111,67 +112,215 @@
                                         <asp:Button ID="btnCreateNote" runat="server" Text="Create" OnClick="btnCreateNote_Click" ValidationGroup="newNote" class="btn btn-outline-secondary" />
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
-                                    <asp:FormView
-                                        ID="fvDates"
-                                        runat="server"
-                                        DefaultMode="Insert">
-                                        <InsertItemTemplate>
-                                            <asp:DropDownList ID="ddlEvents" runat="server" class="form-control">
-                                                <asp:ListItem>Move Assessment</asp:ListItem>
-                                                <asp:ListItem>Auction Walk Through</asp:ListItem>
-                                                <asp:ListItem>Packing</asp:ListItem>
-                                                <asp:ListItem>Move</asp:ListItem>
-                                                <asp:ListItem>Auction Pick Up</asp:ListItem>
-                                                <asp:ListItem>Auction Bring In</asp:ListItem>
-                                                <asp:ListItem>Appraisal</asp:ListItem>
-                                                <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
-                                                <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
-                                                <asp:ListItem>Trash Removal</asp:ListItem>
-                                            </asp:DropDownList>
-                                            <asp:TextBox ID="txtBoxCust1" TextMode="DateTimeLocal" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:TextBox ID="txtBoxCust2" TextMode="DateTimeLocal" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:TextBox ID="txtBoxCust3" TextMode="DateTimeLocal" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:Button ID="btnInsert" OnClick="srcDates.insert()" runat="server" Text="Insert" class="form-control"/>
-                                        </InsertItemTemplate>
-                                       
-                                        <EditItemTemplate>
-                                            <asp:DropDownList ID="ddlEvents" runat="server" class="form-control" SelectedValue='<%#Bind("description") %>'>
-                                                <asp:ListItem>Move Assessment</asp:ListItem>
-                                                <asp:ListItem>Auction Walk Through</asp:ListItem>
-                                                <asp:ListItem>Packing</asp:ListItem>
-                                                <asp:ListItem>Move</asp:ListItem>
-                                                <asp:ListItem>Auction Pick Up</asp:ListItem>
-                                                <asp:ListItem>Auction Bring In</asp:ListItem>
-                                                <asp:ListItem>Appraisal</asp:ListItem>
-                                                <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
-                                                <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
-                                                <asp:ListItem>Trash Removal</asp:ListItem>
-                                            </asp:DropDownList>
-                                            <asp:TextBox ID="txtBoxCust1" TextMode="DateTimeLocal" Text='<%#Bind("custDateOption1") %>' runat="server" class="form-control"></asp:TextBox>
-                                            <asp:TextBox ID="txtBoxCust2" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("custDateOption2") %>' class="form-control"></asp:TextBox>
-                                            <asp:TextBox ID="txtBoxCust3" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("custDateOption3") %>' class="form-control"></asp:TextBox>
-                                            <asp:Button ID="btnSave" runat="server" CommandName="Update" Text="Save" />
-                                            <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" />
-                                        </EditItemTemplate>
-                                    </asp:FormView>
+                                <div class='<%= state2 %>' id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <asp:ListView
+                                                ID="lvSchedules"
+                                                runat="server"
+                                                DataSourceID="srcSchedule">
+                                                <LayoutTemplate>
+                                                    <table class="table">
+                                                      <thead>
+                                                        <tr>
+                                                          <th scope="col">Event</th>
+                                                          <th scope="col">Confirmed Date</th>
+                                                        </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                         <tr id="itemPlaceholder" runat="server"></tr>
+                                                       </tbody>
+                                                       </table>
+                                                </LayoutTemplate>
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td>
+                                                            <asp:LinkButton ID="LinkButtonEvent" runat="server"
+                                                                Text='<%#Bind("description") %>'
+                                                                OnClick="LinkButtonEvent_Click"></asp:LinkButton>
+                                                        </td>
+
+                                                        <td>
+
+                                                            <asp:Label ID="lblDate" runat="server" Text='<%#Bind("confirmedDate", "{0:yyyy-MM-ddTHH:mm}") %>'></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                            </asp:ListView>
+
+                                            <asp:SqlDataSource
+                                                ID="srcSchedule"
+                                                runat="server"
+                                                ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                                SelectCommand="Select description, FORMAT(confirmedDate, 'g') as confirmedDate from Schedule where serviceID=@serviceID">
+                                                <SelectParameters>
+                                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                                </SelectParameters>
+                                            </asp:SqlDataSource>
+
+                                        </div>
+                                        <div class="col-7">
+                                            <asp:FormView
+                                                ID="fvDates"
+                                                DataSourceID="srcDates"
+                                                runat="server"
+                                                DefaultMode="Insert">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="LinkButton1" runat="server" Class="text-center" OnClick="Button1_Click">Schedule New Event</asp:LinkButton>
+
+                                                    <asp:TextBox ID="txtEvent" Text='<%#Bind("description") %>' runat="server" class="form-control mb-1"></asp:TextBox>
+
+                                                    <div class="row">
+                                                        <div class="col-6 mb-1">
+                                                            <div class="text-center">Customer Options</div>
+                                                            <asp:TextBox ID="txtBoxCust1" TextMode="DateTimeLocal" Text='<%#Bind("custDateOption1", "{0:yyyy-MM-ddTHH:mm}") %>' runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBoxCust2" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("custDateOption2", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBoxCust3" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("custDateOption3", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                        </div>
+
+                                                        <div class="col-6 mb-1">
+                                                            <div class="text-center">Office Options</div>
+                                                            <asp:TextBox ID="TextBox1" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("empDateOption1", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="TextBox2" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("empDateOption2", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="TextBox3" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("empDateOption3", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+
+                                                    <asp:TextBox ID="txtFinalDate" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("confirmedDate", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control mb-1"></asp:TextBox>
 
 
-                                    <asp:SqlDataSource
-                                        ID="srcDates"
-                                        runat="server"
-                                        ConnectionString="<%$ ConnectionStrings:Connect %>"
-                                        InsertCommand="Insert into Schedule (serviceID,description,custDateOption1,custDateOption2,custDateOption3) 
-                                        values(@serviceID, @description, @opt1, @opt2, @opt3)"
-                                        UpdateCommand="Update schedule set where serviceID=@serviceID and description=@description">
-                                        <InsertParameters>
-                                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                                            <asp:ControlParameter ControlID="ddlEvents" Name="description" Type="String" />
-                                            <asp:ControlParameter ControlID="txtBoxCust1" Name="opt1" DbType="DateTime" />
-                                            <asp:ControlParameter ControlID="txtBoxCust2" Name="opt2" DbType="DateTime" />
-                                            <asp:ControlParameter ControlID="txtBoxCust3" Name="opt3" DbType="DateTime" />
-                                        </InsertParameters>
-                                    </asp:SqlDataSource>
+                                                    <asp:Button ID="btnEdit" runat="server" CommandName="Edit" Text="Edit" class="form-control mb-1" OnClick="keepOpen_Click" />
+                                                    
+
+                                                </ItemTemplate>
+                                                <InsertItemTemplate>
+                                                    <div class="text-center">Creating New Event</div>
+                                                    <asp:DropDownList ID="ddlEvents" runat="server" class="form-control" SelectedValue='<%#Bind("description") %>'>
+                                                        <asp:ListItem>Move Assessment</asp:ListItem>
+                                                        <asp:ListItem>Auction Walk Through</asp:ListItem>
+                                                        <asp:ListItem>Packing</asp:ListItem>
+                                                        <asp:ListItem>Move</asp:ListItem>
+                                                        <asp:ListItem>Auction Pick Up</asp:ListItem>
+                                                        <asp:ListItem>Auction Bring In</asp:ListItem>
+                                                        <asp:ListItem>Appraisal</asp:ListItem>
+                                                        <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
+                                                        <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
+                                                        <asp:ListItem>Trash Removal</asp:ListItem>
+                                                    </asp:DropDownList>
+
+                                                    <div class="row">
+                                                        <div class="col-6 mb-1">
+                                                            <div class="text-center">Customer Options</div>
+                                                            <asp:TextBox ID="txtBoxCust1" Text='<%#Bind("custDateOption1")%>' TextMode="DateTimeLocal" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBoxCust2" Text='<%#Bind("custDateOption2" )%>' TextMode="DateTimeLocal" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBoxCust3" Text='<%#Bind("custDateOption3") %>' TextMode="DateTimeLocal" runat="server" class="form-control"></asp:TextBox>
+                                                            
+                                                        </div>
+                                                        <div class="col-6 mb-1">
+                                                            <div class="text-center">Office Options</div>
+                                                            <asp:TextBox ID="txtGreg1" TextMode="DateTimeLocal" Text='<%#Bind("empDateOption1")%>' runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtGreg2" TextMode="DateTimeLocal" Text='<%#Bind("empDateOption2")%>' runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtGreg3" TextMode="DateTimeLocal" Text='<%#Bind("empDateOption3")%>' runat="server" class="form-control"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">Scheduled Date</div>
+                                                    <asp:TextBox ID="txtFinalDate" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("confirmedDate", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control mb-1"></asp:TextBox>
+
+
+                                                     <div class="row mb-1">
+                                                         <div class="col">
+                                                    <asp:Button ID="btnInsert" CommandName="Insert" runat="server" Text="Save" class="form-control" OnClick="keepOpen_Click" />
+                                                             </div>
+                                                         <div class="col">
+                                                    <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" class="form-control" OnClick="keepOpen_Click" />
+                                                             </div>
+                                                </div>
+                                                         </InsertItemTemplate>
+
+                                                <EditItemTemplate>
+                                                    <div class="text-center">Edit Event</div>
+                                                    <asp:DropDownList ID="ddlEvents" runat="server" class="form-control" SelectedValue='<%#Bind("description") %>'>
+                                                        <asp:ListItem>Move Assessment</asp:ListItem>
+                                                        <asp:ListItem>Auction Walk Through</asp:ListItem>
+                                                        <asp:ListItem>Packing</asp:ListItem>
+                                                        <asp:ListItem>Move</asp:ListItem>
+                                                        <asp:ListItem>Auction Pick Up</asp:ListItem>
+                                                        <asp:ListItem>Auction Bring In</asp:ListItem>
+                                                        <asp:ListItem>Appraisal</asp:ListItem>
+                                                        <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
+                                                        <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
+                                                        <asp:ListItem>Trash Removal</asp:ListItem>
+                                                    </asp:DropDownList>
+
+                                                    <div class="row mb-1">
+                                                        <div class="col-6">
+                                                            <div class="text-center">Customer Options</div>
+                                                            <asp:TextBox ID="txtBoxCust1" TextMode="DateTimeLocal" Text='<%#Bind("custDateOption1", "{0:yyyy-MM-ddTHH:mm}") %>' runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBoxCust2" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("custDateOption2", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="txtBoxCust3" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("custDateOption3", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="text-center">Office Options</div>
+                                                            <asp:TextBox ID="TextBox1" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("empDateOption1", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="TextBox2" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("empDateOption2", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="TextBox3" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("empDateOption3", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                   <div class="text-center">Scheduled Date</div>
+                                                   <asp:TextBox ID="txtFinalDate" TextMode="DateTimeLocal" runat="server" Text='<%#Bind("confirmedDate", "{0:yyyy-MM-ddTHH:mm}") %>' class="form-control mb-1"></asp:TextBox>
+
+                                                    <div class="row mb-1">
+                                                        <div class="col">
+                                                    <asp:Button ID="btnSave" runat="server" CommandName="Update" Text="Save" class="form-control" OnClick="keepOpen_Click" />
+                                                            </div>
+                                                        <div class="col">
+                                                    <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" class="form-control" OnClick="keepOpen_Click" />
+                                                            </div>
+                                                        </div>
+                                                </EditItemTemplate>
+                                            </asp:FormView>
+
+
+                                            <asp:SqlDataSource
+                                                ID="srcDates"
+                                                runat="server"
+                                                OnInserted="srcDates_Inserted"
+                                                 OnUpdated="srcDates_Updated"
+                                                ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                                SelectCommand="Select * from Schedule where serviceID=@serviceID and description=@description"
+                                                InsertCommand="Insert into Schedule (serviceID,description,custDateOption1, custDateOption2, custDateOption3, empDateOption1,  empDateOption2, empDateOption3, confirmedDate) 
+                                        values(@serviceID, @description, parse(@custDateOption1 as dateTime), parse(@custDateOption2 as dateTime), parse(@custDateOption3 as dateTime),  parse(@empDateOption1 as dateTime), parse(@empDateOption2 as dateTime), parse(@empDateOption3 as dateTime), parse(@confirmedDate as dateTime))"
+                                                UpdateCommand="Update schedule set
+                                            custDateOption1=parse(@custDateOption1 as dateTime), custDateOption2=parse(@custDateOption2 as dateTime) , custDateOption3=parse(@custDateOption3 as dateTime), empDateOption1=parse(@empDateOption1 as dateTime),  empDateOption2= parse(@empDateOption2 as dateTime), empDateOption3= parse(@empDateOption3 as dateTime),  confirmedDate= parse(@confirmedDate as dateTime)  
+                                            where serviceID=@serviceID and description=@description">
+                                                <SelectParameters>
+                                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                                    <asp:SessionParameter Name="description" SessionField="selectedDescription" />
+
+                                                </SelectParameters>
+                                                <InsertParameters>
+                                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                                    <asp:Parameter Name="custDateOption1" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="custDateOption2" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="custDateOption3" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="empDateOption1" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="empDateOption2" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="empDateOption3" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="confirmedDate" ConvertEmptyStringToNull="true" />
+                                                </InsertParameters>
+                                                <UpdateParameters>
+                                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                                    <asp:Parameter Name="custDateOption1" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="custDateOption2" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="custDateOption3" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="empDateOption1" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="empDateOption2" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="empDateOption3" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="confirmedDate" ConvertEmptyStringToNull="true" />
+                                                </UpdateParameters>
+                                            </asp:SqlDataSource>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

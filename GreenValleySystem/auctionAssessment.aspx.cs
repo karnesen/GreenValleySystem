@@ -7,35 +7,36 @@ using System.Web.UI.WebControls;
 
 namespace GreenValleySystem
 {
+    
     public partial class auctionAssessment : System.Web.UI.Page
     {
+        public string state2 = "tab-pane fade";
+        public string state3 = "tab-pane fade show active";
+        public string state4 = "nav-link active";
+        public string state5 = "nav-link";
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+        
 
-        protected void Button_Command(object sender, CommandEventArgs e)
+        protected void btnEquipment_Click(object sender, EventArgs e)
         {
-           
+            srcTrucks.Insert();
+            keepOpen();
         }
 
-        protected void fvAuctionAssessment_ItemCommand(object sender, FormViewCommandEventArgs e)
+        protected void lnkDelete_Click(object sender, EventArgs e)
         {
-            //switch (e.CommandName)
-            //{
-            //    case "Edit":
-            //        fvAuctionAssessment.ChangeMode(FormViewMode.Edit);
-            //        break;
-            //    case "Cancel":
-            //        fvAuctionAssessment.ChangeMode(FormViewMode.ReadOnly);
-            //        break;
-            //    case "Update":
-            //        srcAuctionAssessment.Update();
-            //        break;
-            //}
-            //fvAuctionAssessment.DataBind();
+            keepOpen();
         }
 
-
+        public void keepOpen()
+        {
+            state2 = "tab-pane fade show active";
+            state3 = "tab-pane fade";
+            state4 = "nav-link";
+            state5 = "nav-link active";
+    }
     }
 }
