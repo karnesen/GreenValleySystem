@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GreenValleySystem.WebForm1" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="GreenValleySystem.WebForm1" %>--%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
