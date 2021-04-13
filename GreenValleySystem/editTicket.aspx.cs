@@ -23,7 +23,7 @@ namespace Lab2
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to view a ticket.";
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("login.aspx");
             }
 
         }
