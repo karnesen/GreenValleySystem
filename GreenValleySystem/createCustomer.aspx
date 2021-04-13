@@ -2,24 +2,24 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <%--<base href="http://demos.telerik.com/kendo-ui/maskedtextbox/index">--%>
     <title></title>
-  
-    
-    
-    
-   
+
+
+
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-bootstrap.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.bootstrap.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.bootstrap.min.css" />
-​
+    ​
     <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
     <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
-    
+
 
 
 
@@ -51,43 +51,43 @@
                                 </div>
                             </div>
 
-                    <div class="row form-group">
-                        <div class="col-md 9">
-                            <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
-                            
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $("#txtPhoneNumber").kendoMaskedTextBox({
-                                        mask: "(999) 000-0000",
-                                        clearPromptChar: true
-                                    });
-                                });
-                            </script>
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
 
-                            <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
-                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
-                                Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
-                             
-                        </div>
-                        <div class="col-md 2">
-                            <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control col-4 mb-1">
-                                <asp:ListItem></asp:ListItem>
-                                <asp:ListItem>Home</asp:ListItem>
-                                <asp:ListItem>Cell</asp:ListItem>
-                                <asp:ListItem>Work</asp:ListItem>
-                            </asp:DropDownList>
-                           <%-- <asp:RequiredFieldValidator ID="RrfvPhoneType" runat="server"
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            $("#txtPhoneNumber").kendoMaskedTextBox({
+                                                mask: "(999) 000-0000",
+                                                clearPromptChar: true
+                                            });
+                                        });
+                                    </script>
+
+                                    <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
+                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
+                                        Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
+                                    </asp:RequiredFieldValidator>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control mb-1">
+                                        <asp:ListItem></asp:ListItem>
+                                        <asp:ListItem>Home</asp:ListItem>
+                                        <asp:ListItem>Cell</asp:ListItem>
+                                        <asp:ListItem>Work</asp:ListItem>
+                                    </asp:DropDownList>
+                                    <%-- <asp:RequiredFieldValidator ID="RrfvPhoneType" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlPhoneNumberType"
                                 Text="Please Select Phone Type." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
-                        </div>
-                    </div>
+                                </div>
+                            </div>
 
                             <div class="row form-group">
                                 <div class="col-md-6">
                                     <asp:TextBox ID="txtPhoneNumber2" runat="server" class="form-control phone_us" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
-                                    
+
                                     <script type="text/javascript">
                                         $(document).ready(function () {
                                             $("#txtPhoneNumber2").kendoMaskedTextBox({
@@ -98,7 +98,7 @@
                                     </script>
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control mb-1">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem>Home</asp:ListItem>
@@ -135,74 +135,74 @@
                                 </div>
                             </div>
 
-                    <div class="form-group">
-                        <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
-                        <%--<asp:RequiredFieldValidator ID="rfvAddress" runat="server"
+                            <div class="form-group">
+                                <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator ID="rfvAddress" runat="server"
                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
                             Text="Please Enter An Address." ValidationGroup="CreateCustomer">
                         </asp:RequiredFieldValidator>--%>
-                    </div>
+                            </div>
 
-                    <div class="row form-group">
-                        <div class="col-md-6">
-                            <asp:TextBox ID="txtCity" runat="server" Placeholder="City" class="form-control"></asp:TextBox>
-                        <%--    <asp:RequiredFieldValidator ID="rfvCity" runat="server"
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txtCity" runat="server" Placeholder="City" class="form-control"></asp:TextBox>
+                                    <%--    <asp:RequiredFieldValidator ID="rfvCity" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                 Text="Please Enter A City." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
-                        </div>
+                                </div>
 
-                        <div class="col-md-2">
-                            <asp:DropDownList ID="ddlState" runat="server" class="form-control"></asp:DropDownList>
-                            <%--<asp:RequiredFieldValidator ID="rfvState" runat="server"
+                                <div class="col-md-2">
+                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control"></asp:DropDownList>
+                                    <%--<asp:RequiredFieldValidator ID="rfvState" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
                                 Text="Please Select A State." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
-                        </div>
+                                </div>
 
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtZipCode" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
-                           <%-- <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
+                                <div class="col-md-4">
+                                    <asp:TextBox ID="txtZipCode" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
+                                    <%-- <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                 Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
-                        </div>
-                    </div>
-                </li>
+                                </div>
+                            </div>
+                        </li>
 
-                <li class="list-group-item">
-                    <asp:Label ID="lblContact" runat="server" Text="Initial Contact" class="h6"></asp:Label>
-                    <div class="row">
-                        <div class="col-8">
-                            <asp:RadioButtonList ID="rdoContact" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow"
-                                class="row d-flex justify-content-around form-check form-check-inline" OnSelectedIndexChanged="rdoContact_SelectedIndexChanged">
-                                <asp:ListItem Class="form-check-input" Text="In Person"></asp:ListItem>
-                                <asp:ListItem Class="form-check-input" Text="Phone"></asp:ListItem>
-                                <asp:ListItem Class="form-check-input" Text="Email"></asp:ListItem>
-                                <asp:ListItem Class="form-check-input" Text="Text"></asp:ListItem>
-                                <asp:ListItem Class="form-check-input" Text="Other"></asp:ListItem>
-                            </asp:RadioButtonList>
-                            <%--<asp:RequiredFieldValidator ID="rfv" runat="server"
+                        <li class="list-group-item">
+                            <asp:Label ID="lblContact" runat="server" Text="Initial Contact" class="h6"></asp:Label>
+                            <div class="row">
+                                <div class="col-8">
+                                    <asp:RadioButtonList ID="rdoContact" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow"
+                                        class="row d-flex justify-content-around form-check form-check-inline" OnSelectedIndexChanged="rdoContact_SelectedIndexChanged">
+                                        <asp:ListItem Class="form-check-input" Text="In Person"></asp:ListItem>
+                                        <asp:ListItem Class="form-check-input" Text="Phone"></asp:ListItem>
+                                        <asp:ListItem Class="form-check-input" Text="Email"></asp:ListItem>
+                                        <asp:ListItem Class="form-check-input" Text="Text"></asp:ListItem>
+                                        <asp:ListItem Class="form-check-input" Text="Other"></asp:ListItem>
+                                    </asp:RadioButtonList>
+                                    <%--<asp:RequiredFieldValidator ID="rfv" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="rdoContact"
                                 Text="Please select a contact type" ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
-                        </div>
-                        <div class="col-4">
-                            <asp:TextBox ID="txtOther" Class="form-control" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
-                                ControlToValidate="txtOther" Enabled="false" Text="Please specify" ValidationGroup="CreateCustomer">
-                            </asp:RequiredFieldValidator>
-                        </div>
-                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <asp:TextBox ID="txtOther" Class="form-control" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
+                                        ControlToValidate="txtOther" Enabled="false" Text="Please specify" ValidationGroup="CreateCustomer">
+                                    </asp:RequiredFieldValidator>
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <asp:TextBox ID="txtHear" runat="server" Placeholder="How did they hear about us?"
-                            Class="form-control" TextMode="MultiLine"></asp:TextBox>
-                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                            <div class="form-group">
+                                <asp:TextBox ID="txtHear" runat="server" Placeholder="How did they hear about us?"
+                                    Class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHear"
                             Text="Please Complete this field" ValidationGroup="CreateCustomer"></asp:RequiredFieldValidator>--%>
-                    </div>
-                </li>
+                            </div>
+                        </li>
 
                         <li class="list-group-item">
                             <asp:Label ID="Label1" runat="server" Class="h6" Text="Requested Services"></asp:Label>

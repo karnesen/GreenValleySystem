@@ -28,7 +28,7 @@
                         <asp:Button ID="btnLogin" runat="server" Class="btn btn-primary" OnClick="btnLogin_Click" Text="Log in" />
                     </div>
                     <div class="text-center">
-                        <asp:LinkButton ID="lbtnNewUSer" runat="server" PostBackUrl="createNewUser.aspx">Need to Create and Account?</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnNewUSer" runat="server" PostBackUrl="createNewUser.aspx">Need to Create an Account?</asp:LinkButton>
                     </div>
                     <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
                 </div>

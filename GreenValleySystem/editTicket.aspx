@@ -6,11 +6,7 @@
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
 
-                 <div class="progress">
-                    <div class="progress-bar progress-bar-animated" style="width:80%;">
-                            Next Task: Schedule Look-At
-                  </div>
-                </div>
+                 
 
 
     <div class="row justify-content-around">

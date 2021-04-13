@@ -22,7 +22,7 @@
             <div class="container col-6">
         <div class="card">
             <div class="card-header text-center">
-                <asp:Label ID="lblCreateNewCustomer" runat="server" Text="Inital Contact Information" Class="h3 m-2"></asp:Label>
+                <asp:Label ID="lblCreateNewCustomer" runat="server" Text="Initial Contact Information" Class="h3 m-2"></asp:Label>
             </div>
 
             <ul class="list-group list-group-flush">

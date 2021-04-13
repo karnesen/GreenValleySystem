@@ -61,10 +61,10 @@
                 <div class="form-group row" >
                     <div class="col-sm-10">
                         <div class="form-check" >
-                            <asp:RadioButton ID="rdoCust" Checked='<%# Bind("custLookAt") %>' runat="server" Text="Customer Requests Auction Look At" GroupName="lookAt" visible='<%#Eval("auctionWalkThrough")%>'/>
+                            <asp:RadioButton ID="rdoCust" Checked='<%# Bind("custLookAt") %>' runat="server" Text="Customer Requests Auction Look At" GroupName="lookAt" visible='<%#Bind("auctionWalkThrough")%>'/>
                         </div>
                         <div class="form-check">
-                            <asp:RadioButton ID="rdoGV" Checked='<%# Bind("gvLookAt") %>' runat="server" Text="Green Valley Requires Look At"  GroupName="lookAt" visible='<%#Eval("auctionWalkThrough") %>'/>
+                            <asp:RadioButton ID="rdoGV" Checked='<%# Bind("gvLookAt") %>' runat="server" Text="Green Valley Requires Look At"  GroupName="lookAt" visible='<%#Bind("auctionWalkThrough") %>'/>
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
                                 <asp:CheckBox ID="chBringIn" Text="Bring In" Checked='<%# Bind("bringIn") %>' runat="server" />
                             </div>
                             <div class="form-check">
-                                <asp:CheckBox ID="chWalkThrough" Text="Auction Walk Through" Checked='<%# Bind("auctionWalkThrough") %>' runat="server" data-toggle="collapse" data-target="#collapseExample" aria-controls="collapseExample"/>
+                                <asp:CheckBox ID="chWalkThrough" Text="Auction Walk Through" Checked='<%# Bind("auctionWalkThrough") %>' runat="server"/>
                             </div>
                             <div class="form-check">
                                 <asp:CheckBox ID="chPickUp" Text="Pick Up" Checked='<%# Bind("pickUp") %>' runat="server" />
@@ -153,7 +153,7 @@
                     </div>
                 </div>
 
-                 <div class="form-group row collapse show" id="collapseExample">
+                 <div class="form-group row" id="collapseRdo">
                     <div class="col-sm-10">
                         <div class="form-check">
                             <asp:RadioButton ID="rdoCust" Checked='<%# Bind("custLookAt") %>' runat="server" Text="Customer Requests Auction Look At" GroupName="lookAt" visible='<%#Eval("auctionWalkThrough") %>'/>

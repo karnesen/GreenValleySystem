@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="searchResults.aspx.cs" Inherits="Lab3.searchResults" EnableEventValidation="false" %>
+
 <%--Kirsi And Josh Coleman--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +8,7 @@
         <div class="card">
             <div class="card-body">
                 <asp:GridView
-                    ID="gvCustomer"
+                    ID="gvCustomers"
                     runat="server"
                     DataKeyNames="customerID"
                     AutoGenerateColumns="false"
@@ -15,50 +16,36 @@
                     OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged"
                     class="table table-bordered tablee-condensed table-hover">
                     <Columns>
-                        <asp:BoundField DataField="customerName" HeaderText="Customers" />
+                        <asp:BoundField DataField="customerName" HeaderText="Customer" />
+                        <asp:BoundField DataField="customerAddress" HeaderText="Current Address" />
                     </Columns>
                 </asp:GridView>
-            </div>
-        </div>
-    </div>
-     <div class="container col-4">
-        <div class="card">
-            <div class="card-body"> 
-                <asp:GridView
-                    ID="gvAddress"
-                    runat="server"
-                    DataKeyNames="customerID"
-                    AutoGenerateColumns="false"
-                    OnRowDataBound="gvAddress_RowDataBound"
-                    OnSelectedIndexChanged="gvAddress_SelectedIndexChanged"
-                    class="table table-bordered tablee-condensed table-hover">
-                    <Columns>
-                        <asp:BoundField DataField="customerAddress" HeaderText="Addresses" />
-                        <asp:BoundField DataField="customerName" HeaderText="Customers" />
-                    </Columns>
-                </asp:GridView>
-            </div>
-        </div>
-    </div>
-         <div class="container col-4">
-        <div class="card">
-            <div class="card-body">
+                    <br />
                 <asp:GridView
                     ID="gvServiceAddress"
                     runat="server"
-                    DataKeyNames="addressID"
+                    DataKeyNames="customerID"
                     AutoGenerateColumns="false"
                     OnRowDataBound="gvServiceAddress_RowDataBound"
                     OnSelectedIndexChanged="gvServiceAddress_SelectedIndexChanged"
                     class="table table-bordered tablee-condensed table-hover">
                     <Columns>
-                        <asp:BoundField DataField="serviceAddress" HeaderText="Service Addresses" />
-                        <asp:BoundField DataField="addresstype" HeaderText="Address Type" />
-                        <asp:BoundField DataField="serviceType" HeaderText="Service Type" />
+                        <asp:BoundField DataField="customerName" HeaderText="Customer" />
+                        <asp:BoundField DataField="serviceAddress" HeaderText="Service Address" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Label ID="lblService" runat="server" Text='<%#Eval("serviceType").ToString() == "M" ? "Move" : "Auction"%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </div>
         </div>
     </div>
-</asp:Content> 
+</asp:Content>
 
