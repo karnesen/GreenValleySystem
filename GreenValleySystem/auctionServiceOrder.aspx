@@ -87,18 +87,22 @@
                     </EmptyDataTemplate>
                     <EditItemTemplate>
                         <h4>Trash Removal Service Order</h4>
-                        <div class="mb-2">
-                            <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
+                        <div class="row">
+                                    <div class="col">
+                                        <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
+                                    </div>
+
+                                    <div class="col">
+                                        <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
+                                        <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="col">
+                                        <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
+                                        <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
+                                    </div>
                         </div>
-                        <div class="mb-2 form-group">
-                            <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
-                            <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="mb-2 form-group">
-                            <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
-                            <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="mb-2 form-group">
+
+                        <div class="mb-2 form-group form-row">
                             <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
                             <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
                         </div>
@@ -124,13 +128,14 @@
             <%-- Pickup Service Order --%>
             <li class='<%= pickupCollapse %>'>
                 <h4>Pickup Service Order</h4>
-                 <%-- Pick up details --%>
+                <%-- Pick up details --%>
                 <asp:FormView
                     ID="fvPickUp"
                     runat="server"
                     DataSourceID="srcPickup"
                     DefaultMode="Edit">
                     <EditItemTemplate>
+                        <div class="table-responsive">
                         <table class="table">
                             <tbody>
                                 <tr>
@@ -181,15 +186,15 @@
                                     </td>
                                     <td>
                                         <asp:Label ID="Label1" runat="server"
-                                            Text='<%# (Eval("smallamt").ToString() == "0") ? "" : "Small " + Eval("smallamt").ToString() %>'></asp:Label>
+                                            Text='<%# (Eval("smallamt").ToString() == "0") ? "" : "Small " + Eval("smallamt").ToString() +  "<br>" %>'></asp:Label>
                                         <asp:Label ID="Label2" runat="server"
-                                            Text='<%# (Eval("medamt").ToString() == "0") ? "" : " Medium " + Eval("medamt").ToString() %>'></asp:Label>
+                                            Text='<%# (Eval("medamt").ToString() == "0") ? "" : " Medium " + Eval("medamt").ToString() +  "<br>"  %>'></asp:Label>
                                         <asp:Label ID="Label3" runat="server"
-                                            Text='<%# (Eval("largeamt").ToString() == "0") ? "" : " Large " + Eval("largeamt").ToString() %>'></asp:Label>
+                                            Text='<%# (Eval("largeamt").ToString() == "0") ? "" : " Large " + Eval("largeamt").ToString() +  "<br>"  %>'></asp:Label>
                                         <asp:Label ID="Label4" runat="server"
-                                            Text='<%# (Eval("smallPadsamt").ToString() == "0") ? "" : " Small Pads " + Eval("smallPadsamt").ToString() %>'></asp:Label>
+                                            Text='<%# (Eval("smallPadsamt").ToString() == "0") ? "" : " Small Pads " + Eval("smallPadsamt").ToString() +  "<br>" %>'></asp:Label>
                                         <asp:Label ID="Label5" runat="server"
-                                            Text='<%# (Eval("largePadsamt").ToString() == "0") ? "" : " Large Pads " + Eval("largePadsamt").ToString() %>'></asp:Label>
+                                            Text='<%# (Eval("largePadsamt").ToString() == "0") ? "" : " Large Pads " + Eval("largePadsamt").ToString() +  "<br>"  %>'></asp:Label>
 
                                     </td>
                                 </tr>
@@ -210,12 +215,13 @@
 
                             </tbody>
                         </table>
+                            </div>
                     </EditItemTemplate>
                 </asp:FormView>
 
                 <div class="card card-body mb-2">
                     <h5>Crew Assignments</h5>
-                <%-- Assign Crew --%>
+                    <%-- Assign Crew --%>
                     <div class="row">
                         <div class="col">
                             <asp:DropDownList
@@ -301,25 +307,25 @@
 
                 <div class="card card-body">
                     <h5>Vehicles</h5>
-                <asp:ListView
-                    ID="lvTrucks"
-                    runat="server"
-                    DataSourceID="srcTrucks">
-                    <LayoutTemplate>
-                        <table class="table borderless">
-                            <tbody>
-                                <tr id="itemPlaceholder" runat="server"></tr>
-                            </tbody>
-                        </table>
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <td>
-                                <asp:Label ID="lblTruck" runat="server" Text='<%# Bind("equipmentType") %>'></asp:Label>
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                </asp:ListView>
+                    <asp:ListView
+                        ID="lvTrucks"
+                        runat="server"
+                        DataSourceID="srcTrucks">
+                        <LayoutTemplate>
+                            <table class="table borderless">
+                                <tbody>
+                                    <tr id="itemPlaceholder" runat="server"></tr>
+                                </tbody>
+                            </table>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblTruck" runat="server" Text='<%# Bind("equipmentType") %>'></asp:Label>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:ListView>
 
                     <asp:SqlDataSource
                         ID="srcTrucks"
@@ -361,7 +367,7 @@
             </li>
 
             <%-- Storage Dropdown --%>
-            <li class="list-group-item"
+            <li class="list-group-item">
                 <h4>Storage</h4>
                 <div class="row">
                     <div class="col">
