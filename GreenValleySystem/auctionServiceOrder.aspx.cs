@@ -45,12 +45,8 @@ namespace GreenValleySystem
 
         protected void btnEmployee_Click(object sender, EventArgs e)
         {
-            
+            srcAssignedEmployees.Insert();
         }
 
-        protected void lnkDelete_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

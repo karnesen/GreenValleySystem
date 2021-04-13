@@ -234,27 +234,48 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <asp:Label ID="lblPickUp" For="txtPickUp" runat="server" Text="Pick Up Fee"></asp:Label>
-                                <asp:TextBox ID="txtPickUp" runat="server" Text='<%# Bind("pickUpFee")%>' class="form-control"></asp:TextBox>
-                            </div>
+                            <table class="table borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblPickUp" For="txtPickUp" runat="server" Text="Pick Up Fee"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtPickUp" runat="server" Text='<%# Bind("pickUpFee")%>' class="form-control"></asp:TextBox>
+                                        </td>
+                                    </tr>
 
-                            <div class="form-group">
-                                <asp:Label ID="lblConsignment" For="txtConsignment" runat="server" Text="Consignment Rate"></asp:Label>
-                                <asp:TextBox ID="txtConsignment" runat="server" Text='<%# Bind("Consignment")%>' class="form-control"></asp:TextBox>
-                            </div>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblConsignment" For="txtConsignment" runat="server" Text="Consignment Rate"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtConsignment" runat="server" Text='<%# Bind("Consignment")%>' class="form-control"></asp:TextBox>
+                                        </td>
+                                    </tr>
 
-                            <div class="form-group">
-                                <asp:Label ID="lblTrash" For="txtTrash" runat="server" Text="Trash Removal"></asp:Label>
-                                <asp:TextBox ID="txtTrash" runat="server" Text='<%# Bind("Trash")%>' class="form-control"></asp:TextBox>
-                            </div>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblTrash" For="txtTrash" runat="server" Text="Trash Removal"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtTrash" runat="server" Text='<%# Bind("Trash")%>' class="form-control"></asp:TextBox>
+                                        </td>
+                                    </tr>
 
-                            <div class="form-group">
-                                <asp:Label ID="lblAdditional" For="txtAdd" runat="server" Text="Additional Fees"></asp:Label>
-                                <asp:TextBox ID="txtAdd" runat="server" Text='<%# Bind("additional")%>' class="form-control"></asp:TextBox>
-                            </div>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblAdditional" For="txtAdd" runat="server" Text="Additional Fees"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtAdd" runat="server" Text='<%# Bind("additional")%>' class="form-control"></asp:TextBox>
 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <asp:Button ID="btnSaveChanges" Text="Save" runat="server" CommandName="Update" Class="btn btn-primary" />
+
                         </EditItemTemplate>
                     </asp:FormView>
 
@@ -280,71 +301,74 @@
                     </asp:SqlDataSource>
 
                     <%-- Assign Trucks --%>
-                    <div class="row">
-                        <div class="col">
-                            <asp:DropDownList
-                                ID="ddlTrucks"
-                                runat="server"
-                                class="form-control"
-                                DataSourceID="srcAllTrucks"
-                                DataTextField="equipmentType"
-                                DataValueField="equipmentID">
-                            </asp:DropDownList>
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col">
+                                <asp:DropDownList
+                                    ID="ddlTrucks"
+                                    runat="server"
+                                    class="form-control"
+                                    DataSourceID="srcAllTrucks"
+                                    DataTextField="equipmentType"
+                                    DataValueField="equipmentID">
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col">
+                                <asp:Button ID="btnEquipment" runat="server" Text="Add" OnClick="btnEquipment_Click" class="btn btn-primary" />
+                            </div>
                         </div>
-                        <div class="col">
-                            <asp:Button ID="btnEquipment" runat="server" Text="Add" OnClick="btnEquipment_Click" class="btn btn-primary" />
+                        <asp:SqlDataSource
+                            ID="srcAllTrucks"
+                            runat="server"
+                            ConnectionString="<%$ ConnectionStrings:Connect %>"
+                            SelectCommand="Select * from Equipment where active=1"></asp:SqlDataSource>
+
+                        <div class="row col-6">
+                            <asp:ListView
+                                ID="lvTrucks"
+                                runat="server"
+                                DataKeyNames="equipmentID"
+                                DataSourceID="srcTrucks">
+                                <LayoutTemplate>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr id="itemPlaceholder" runat="server"></tr>
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblTruck" runat="server" Text='<%# Bind("equipmentType") %>'></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" OnClick="lnkDelete_Click"><i class="fas fa-times"></i></asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:ListView>
                         </div>
                     </div>
+
                     <asp:SqlDataSource
-                        ID="srcAllTrucks"
+                        ID="srcTrucks"
                         runat="server"
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
-                        SelectCommand="Select * from Equipment where active=1"></asp:SqlDataSource>
-
-                    <div class="row col-6">
-                        <asp:ListView
-                            ID="lvTrucks"
-                            runat="server"
-                            DataSourceID="srcTrucks">
-                            <LayoutTemplate>
-                                <table class="table">
-                                    <tbody>
-                                        <tr id="itemPlaceholder" runat="server"></tr>
-                                    </tbody>
-                                </table>
-                            </LayoutTemplate>
-                            <ItemTemplate>
-                                <tr>
-                                    <td>
-                                        <asp:Label ID="lblTruck" runat="server" Text='<%# Bind("equipmentType") %>'></asp:Label>
-                                    </td>
-                                    <td>
-                                        <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" OnClick="lnkDelete_Click"><i class="fas fa-times"></i></asp:LinkButton>
-                                    </td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:ListView>
-                    </div>
+                        SelectCommand="Select * from utilizeEquipment Inner Join Equipment on utilizeEquipment.equipmentID = Equipment.equipmentID where serviceID=@serviceID"
+                        InsertCommand="Insert into utilizeEquipment values(@equipmentId, @serviceID)"
+                        DeleteCommand="Delete from utilizeEquipment where equipemntID=@equipmentID and serviceID=@serviceID">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </SelectParameters>
+                        <InsertParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            <asp:ControlParameter Name="equipmentID" ControlID="ddlTrucks" />
+                        </InsertParameters>
+                        <DeleteParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </DeleteParameters>
+                    </asp:SqlDataSource>
                 </div>
-
-                <asp:SqlDataSource
-                    ID="srcTrucks"
-                    runat="server"
-                    ConnectionString="<%$ ConnectionStrings:Connect %>"
-                    SelectCommand="Select * from utilizeEquipment Inner Join Equipment on utilizeEquipment.equipmentID = Equipment.equipmentID where serviceID=@serviceID"
-                    InsertCommand="Insert into utilizeEquipment values(@equipmentId, @serviceID)"
-                    DeleteCommand="Delete from utilizeEquipment where equipemntID=@equipmentID and serviceID=@serviceID">
-                    <SelectParameters>
-                        <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                    </SelectParameters>
-                    <InsertParameters>
-                        <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                        <asp:ControlParameter Name="equipmentID" ControlID="ddlTrucks" />
-                    </InsertParameters>
-                    <DeleteParameters>
-                        <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                    </DeleteParameters>
-                </asp:SqlDataSource>
 
             </div>
         </div>

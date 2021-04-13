@@ -69,6 +69,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.SqlDataSource srcService;
 
         /// <summary>
+        /// fvPickUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvPickUp;
+
+        /// <summary>
         /// ddlEmployees control.
         /// </summary>
         /// <remarks>
@@ -114,13 +123,13 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.SqlDataSource srcAssignedEmployees;
 
         /// <summary>
-        /// fvPickUp control.
+        /// srcPickup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvPickUp;
+        protected global::System.Web.UI.WebControls.SqlDataSource srcPickup;
 
         /// <summary>
         /// lvTrucks control.

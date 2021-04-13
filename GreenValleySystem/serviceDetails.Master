@@ -202,6 +202,7 @@
                                                         <asp:ListItem>Move</asp:ListItem>
                                                         <asp:ListItem>Auction Pick Up</asp:ListItem>
                                                         <asp:ListItem>Auction Bring In</asp:ListItem>
+                                                        <asp:ListItem>Auction</asp:ListItem>
                                                         <asp:ListItem>Appraisal</asp:ListItem>
                                                         <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
                                                         <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
