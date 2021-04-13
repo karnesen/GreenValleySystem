@@ -2563,6 +2563,7 @@ fieldset:disabled a.btn {
     color: #fff;
     background-color: #266141;
     border-color: #266141;
+    
 }
 
 
@@ -2570,13 +2571,15 @@ fieldset:disabled a.btn {
     color: #fff;
     background-color: #dbaa00;
     border-color: #dbaa00;
+
 }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
   background-color: #266141;
   border-color: #266141;
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(38, 97, 65, 1);
+
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
