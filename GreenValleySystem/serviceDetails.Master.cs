@@ -15,15 +15,22 @@ namespace GreenValleySystem
     public partial class serviceDetails : System.Web.UI.MasterPage
     {
         public string state = "collapse";
+        public string state2 = "tab-pane fade";
+        public string state3 = "tab-pane fade show active";
+        public string state4 = "nav-link active";
+        public string state5 = "nav-link";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if((Session["serviceType"].ToString()).Equals("Move"))
             {
                 lookAt.NavigateUrl = "moveAssessment.aspx";
+                
             }
             else
             {
                 lookAt.NavigateUrl = "auctionAssessment.aspx";
+                serviceOrder.NavigateUrl = "auctionServiceOrder.aspx"; 
             }
             if(!IsPostBack)
             {
@@ -65,5 +72,47 @@ namespace GreenValleySystem
             }
         }
 
+        protected void keepOpen_Click(object sender, EventArgs e)
+        {
+            state = "collapse show";
+            state2 = "tab-pane fade show active";
+            state3 = "tab-pane fade";
+            state4 = "nav-link";
+            state5 = "nav-link active";
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            state = "collapse show";
+            state3 = "tab-pane fade";
+            state2 = "tab-pane fade show active";
+            fvDates.ChangeMode(FormViewMode.Insert);
+            state4 = "nav-link";
+            state5 = "nav-link active";
+            lvSchedules.DataBind();
+        }
+
+        protected void LinkButtonEvent_Click(object sender, EventArgs e)
+        {
+            LinkButton link = (LinkButton)sender;
+            Session["selectedDescription"] = link.Text;
+            state = "collapse show";
+            state3 = "tab-pane fade";
+            state2 = "tab-pane fade show active";
+            fvDates.ChangeMode(FormViewMode.ReadOnly);
+            state4 = "nav-link";
+            state5 = "nav-link active";
+
+        }
+
+        protected void srcDates_Inserted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            lvSchedules.DataBind();
+        }
+
+        protected void srcDates_Updated(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            lvSchedules.DataBind();
+        }
     }
 }

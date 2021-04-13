@@ -33,6 +33,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.HyperLink lookAt;
 
         /// <summary>
+        /// serviceOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink serviceOrder;
+
+        /// <summary>
         /// lbtnCollapse control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,24 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateNote;
+
+        /// <summary>
+        /// lvSchedules control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvSchedules;
+
+        /// <summary>
+        /// srcSchedule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcSchedule;
 
         /// <summary>
         /// fvDates control.

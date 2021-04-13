@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="form-group">
-                                <asp:TextBox ID="txtEmail" runat="server" Placeholder="email" class="form-control" TextMode="Email"></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" runat="server" Placeholder="Email" class="form-control" TextMode="Email"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                                     Text="Please Enter An Email." ValidationGroup="CreateCustomer">
@@ -122,10 +122,10 @@
                             <asp:Label ID="lblContactPreference" runat="server" Class="h6" Text="Contact Preference"></asp:Label>
                             <div class="row form-group justify-content-around">
                                 <div class="form-check">
-                                    <asp:CheckBox ID="chHome" Text="Home" runat="server" />
+                                    <asp:CheckBox ID="chHome" runat="server" Text="Home"  />
                                 </div>
                                 <div class="form-check">
-                                    <asp:CheckBox ID="chMobile" Text="Mobile" runat="server" />
+                                    <asp:CheckBox ID="chMobile" Text="Mobile" runat="server" TextAlign="Right" />
                                 </div>
                                 <div class="form-check">
                                     <asp:CheckBox ID="chText" Text="Text" runat="server" />
@@ -247,9 +247,9 @@
 
                     <div class="form-group">
                         <div class="d-flex justify-content-around">
-                            <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-success  btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
-                            <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-success  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
-                            <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-secondary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
+                            <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-primary  btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
+                            <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
+                            <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-primary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
                         </div>
                     </div>
                 </div>

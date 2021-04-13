@@ -153,13 +153,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  /*color: #007bff;*/
+  color: #266141;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #BB9739;
   text-decoration: underline;
 }
 
@@ -222,6 +223,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
+  padding: 0.5rem;
 }
 
 button {
@@ -289,7 +291,7 @@ button::-moz-focus-inner,
 input[type="radio"],
 input[type="checkbox"] {
   box-sizing: border-box;
-  padding: 0;
+  padding: 0.5em;
 }
 
 textarea {
@@ -2012,7 +2014,8 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  /*color: #495057;*/
+  color: #266141;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -2078,14 +2081,15 @@ input[type="date"].form-control,
 input[type="time"].form-control,
 input[type="datetime-local"].form-control,
 input[type="month"].form-control {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 select.form-control:focus::-ms-value {
   color: #495057;
   background-color: #fff;
+ 
 }
 
 .form-control-file,
@@ -2148,6 +2152,7 @@ select.form-control:focus::-ms-value {
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
+  color: #266141;
 }
 
 select.form-control[size], select.form-control[multiple] {
