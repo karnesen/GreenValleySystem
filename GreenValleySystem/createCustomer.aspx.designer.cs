@@ -330,15 +330,6 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtStartDate;
 
         /// <summary>
-        /// rfvStartDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStartDate;
-
-        /// <summary>
         /// lblEndDate control.
         /// </summary>
         /// <remarks>
@@ -366,15 +357,6 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.CustomValidator dateValidation;
 
         /// <summary>
-        /// btnClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
-
-        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
@@ -382,15 +364,6 @@ namespace Lab1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-
-        /// <summary>
-        /// btnPopulate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPopulate;
 
         /// <summary>
         /// txtNoteBody control.

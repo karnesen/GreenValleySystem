@@ -16,6 +16,12 @@ namespace GreenValleySystem
         public string state5 = "nav-link";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to view the Auction Assessment Form.";
+                Response.Redirect("login.aspx");
+            }
+
 
         }
         

@@ -19,7 +19,7 @@ namespace Lab3
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to create a new Auction.";
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("login.aspx");
             }
 
             if (!IsPostBack)

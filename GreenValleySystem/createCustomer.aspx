@@ -220,15 +220,11 @@
 
                             <div class="row">
                                 <div class="col-2">
-                                    <asp:Label ID="lblserviceDeadline" runat="server" Text="Deadline "></asp:Label>
+                                    <asp:Label ID="lblserviceDeadline" runat="server" Text="Deadline" ></asp:Label>
                                 </div>
                                 <div class="form-group col-5">
                                     <asp:Label ID="lblStartDate" runat="server" Text="Start Date" for="txtStartDate"></asp:Label>
                                     <asp:TextBox ID="txtStartDate" runat="server" Placeholder="Start Date" class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvStartDate" runat="server"
-                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtStartDate"
-                                        Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
-                                    </asp:RequiredFieldValidator>
                                 </div>
 
                                 <div class="form-group col-5">
@@ -247,9 +243,7 @@
 
                     <div class="form-group">
                         <div class="d-flex justify-content-around">
-                            <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-primary  btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
                             <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
-                            <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-primary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
                         </div>
                     </div>
                 </div>
