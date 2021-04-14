@@ -154,7 +154,7 @@ sup {
 
 a {
   /*color: #007bff;*/
-  color: #266141;
+  color: #BB9739;
   text-decoration: none;
   background-color: transparent;
 }
@@ -2014,8 +2014,8 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  /*color: #495057;*/
-  color: #266141;
+  color: #495057;
+  margin: 1rem;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -2036,7 +2036,7 @@ pre code {
 
 .form-control:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 #495057;
+  text-shadow: 0 0 0 #BB9739;
 }
 
 .form-control:focus {

@@ -101,7 +101,7 @@
                                 
                             </td>
                             <td>
-                                    <asp:TextBox ID="txtPosition" runat="server" PlaceHolder="Position" class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtPosition" runat="server" PlaceHolder="Position" class="form-control" ></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvPosition" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPosition" 
                                         Text="Please Enter A Position." ValidationGroup="newEmployee">
