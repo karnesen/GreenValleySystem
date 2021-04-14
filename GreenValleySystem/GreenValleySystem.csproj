@@ -81,6 +81,7 @@
     <Content Include="auctionAssessment.aspx" />
     <Content Include="AuctionRequest.aspx" />
     <Content Include="auctionServiceOrder.aspx" />
+    <Content Include="completion.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -273,6 +274,13 @@
     </Compile>
     <Compile Include="auctionServiceOrder.aspx.designer.cs">
       <DependentUpon>auctionServiceOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="completion.aspx.cs">
+      <DependentUpon>completion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="completion.aspx.designer.cs">
+      <DependentUpon>completion.aspx</DependentUpon>
     </Compile>
     <Compile Include="createCustomer.aspx.cs">
       <DependentUpon>createCustomer.aspx</DependentUpon>

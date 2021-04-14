@@ -39,15 +39,16 @@
                 </asp:SqlDataSource>
             </li>
 
-            <li>
+            <li class="list-group-item">
                 <asp:FormView
                     ID="fvAppraisal"
                     runat="server"
-                    DataSourceID="srcAppraisal">
+                    DataSourceID="srcAppraisal"
+                    DefaultMode="edit">
                     <EditItemTemplate>
                         <asp:DropDownList ID="ddlPurpose" runat="server" class="form-control" SelectedValue='<%#Bind("appraisalPurpose")%>'>
-                            <asp:ListItem Value="Tax" Text="Tax"></asp:ListItem>
-                            <asp:ListItem Value="Family Division" Text="Family Division"></asp:ListItem>
+                            <asp:ListItem Value="0" Text="Tax"></asp:ListItem>
+                            <asp:ListItem Value="1" Text="Family Division"></asp:ListItem>
                         </asp:DropDownList>
 
                         <div class="row">
@@ -71,6 +72,8 @@
                             <asp:TextBox ID="txtInventory" Class="form-control" Text='<%#Bind("inventory")%>' TextMode="MultiLine" runat="server"></asp:TextBox>
                         </div>
 
+                        <asp:LinkButton ID="lbtnSave" runat="server" CommandName="Update">Save</asp:LinkButton>
+
                     </EditItemTemplate>
 
                 </asp:FormView>
@@ -79,10 +82,15 @@
                     ID="srcAppraisal"
                     runat="server"
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
+                    UpdateCommand="Update appraisal set appraisalSize=@appraisalSize, inventory=@inventory, appraisalPurpose=appraisalPurpose where serviceID=@serviceID;
+                        Update service set serviceDeadlineStart=parse(@serviceDeadlineStart as dateTime), serviceDeadlineEnd=parse(@serviceDeadlineEnd as dateTime) where serviceID=@serviceID;"
                     SelectCommand="Select * from appraisal inner join service on appraisal.serviceID = service.serviceID where service.serviceID=@serviceID">
                     <SelectParameters>
                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                     </SelectParameters>
+                    <UpdateParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </UpdateParameters>
                 </asp:SqlDataSource>
             </li>
         </ul>

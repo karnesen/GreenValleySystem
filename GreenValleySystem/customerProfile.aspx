@@ -5,64 +5,97 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class=" container">
         <div class="row">
-            <div class="card-body col-8">
-                <asp:DetailsView
-                    ID="dvCustomerInfo"
+            <div class="col-7 mb-2">
+            <div class="card card-body mb-2">
+                <asp:FormView
+                    ID="fvCustomer"
                     runat="server"
-                    class="table table-bordered table-condensed"
-                    DataSourceID="srcCustomer"
-                    DataKeyName="customerID"
-                    AutoGenerateEditButton="true"
-                    AutoGenerateRows="false">
-                    <Fields>
-                        <asp:TemplateField HeaderText="Name">
-                            <EditItemTemplate>
-                                <div class="form-row">
-                                    <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("firstName") %>' class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvFirstName" runat="server"
-                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName"
-                                        Text="Please Enter A First Name.">
-                                    </asp:RequiredFieldValidator>
-                                    <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("lastName") %>' class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvLastName" runat="server"
-                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName"
-                                        Text="Please Enter A Last Name.">
-                                    </asp:RequiredFieldValidator>
+                    DefaultMode="ReadOnly"
+                    DataSourceID="srcCustomer">
+                    <ItemTemplate>
+                        <ul class="list-group list-group-flush">
+                            <div class="text-center">
+                                <asp:Label ID="lblFirstName" runat="server" Class="h2"
+                                    Text='<%# Eval("firstName") + " " %>'></asp:Label>
 
-                                </div>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="lblFirstName" runat="server"
-                                    Text='<%# Bind("firstName") %>'></asp:Label>
-                                <asp:Label ID="lblLastName" runat="server"
+                                <asp:Label ID="lblLastName" runat="server" Class="h2"
                                     Text='<%# Bind("lastName") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            </div>
 
-                        <asp:TemplateField HeaderText="Phone">
-                            <EditItemTemplate>
+                            <li class="list-group-item">
+                                <h5>Contact Information</h5>
+
+                                <asp:Label ID="lblPhoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>'></asp:Label>
+                                <asp:Label ID="lblPhoneType" runat="server" Text='<%# Bind("phoneType") %>'></asp:Label>
+                                <br />
+                                <asp:Label ID="lbllblPhoneNumber2" runat="server" Text='<%# Bind("altPhoneNumber") %>'></asp:Label>
+                                <asp:Label ID="lblPhoneType2" runat="server" Text='<%# Bind("phoneType2") %>'></asp:Label>
+                                <br />
+
+                                <asp:Label ID="lblEmail" runat="server"
+                                    Text='<%# Bind("email") %>'></asp:Label>
+
+                                Contact Preferences: 
+                                <asp:Label ID="lblHomePref" runat="server" Text='<%# (Eval("prefHome").ToString() == "True") ? "Home " : ""  %>'></asp:Label>
+                                <asp:Label ID="lblMobilePref" runat="server" Text='<%# (Eval("prefMobile").ToString() == "True") ? "Mobile " : ""  %>'></asp:Label>
+                                <asp:Label ID="lblEmailPref" runat="server" Text='<%# (Eval("prefEmail").ToString() == "True") ? "Email " : ""  %>'></asp:Label>
+                                <asp:Label ID="lblTextPref" runat="server" Text='<%# (Eval("prefText").ToString() == "True") ? "Text " : ""  %>'></asp:Label>
+                            </li>
+
+                            <li class="list-group-item">
+                                <h5>Customer Address</h5>
+                                <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>, 
+                                <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
+                                <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
+                                <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
+                            </li>
+
+                            <li class="list-group-item">
+                                <asp:Label ID="lblInitialContact" runat="server"
+                                    Text='<%#"Initial Contact Type: " +  Eval("initialContactType") %>'></asp:Label>
+                                <br />
+                                <asp:Label ID="lblHearAbout" runat="server"
+                                    Text='<%# "Hear about us: " + Eval("hearAbout") %>'></asp:Label>
+                                <br />
+                                <asp:Label ID="lblInitialContactDate" runat="server"
+                                    Text='<%#"Initial Contact Date " + (DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
+                            </li>
+
+                            <asp:Label ID="lblLastUpdated" runat="server" Font-Italic="true"
+                                Text='<%#"Last Updated " + (DateTime.Parse(Eval("lastUpdated").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
+                            <asp:LinkButton ID="btnSave" CommandName="Edit" runat="server">Edit</asp:LinkButton>
+                        </ul>
+
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <ul class="list-group list-group-flush">
+                            <div class="row">
+                                <div class="col-6">
+                            <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("firstName") %>' class="form-control"></asp:TextBox>
+                                    </div>
+                                <div class="col-6">
+                            <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("lastName") %>' class="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                            <li class="list-group-item">
+                                <h6>Contact Information</h6>
+
                                 <div class="row form-group">
                                     <div class="col-md-9">
                                         <asp:TextBox ID="txtphoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("phoneNumber") %>'></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
-                                            ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
-                                            Text="Please Enter A Phone Number.">
-                                        </asp:RequiredFieldValidator>
                                         <br />
                                         <asp:TextBox ID="txtAltPhoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("altPhoneNumber") %>'></asp:TextBox>
                                     </div>
                                     <div class="col-md-3">
+                                        
                                         <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType") %>'>
                                             <asp:ListItem></asp:ListItem>
                                             <asp:ListItem>Home</asp:ListItem>
                                             <asp:ListItem>Cell</asp:ListItem>
                                             <asp:ListItem>Work</asp:ListItem>
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="rfvPhoneType" runat="server"
-                                            ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlPhoneNumberType"
-                                            Text="Please Select Phone Type.">
-                                        </asp:RequiredFieldValidator>
-
+                                        <br />
                                         <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType2") %>'>
                                             <asp:ListItem></asp:ListItem>
                                             <asp:ListItem>Home</asp:ListItem>
@@ -71,40 +104,12 @@
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="lblPhoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>'></asp:Label>
-                                <asp:Label ID="lblPhoneType" runat="server" Text='<%# Bind("phoneType") %>'></asp:Label>
+
+                                <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("email") %>' class="form-control" TextMode="Email" Placeholder="Email"></asp:TextBox>
+
                                 <br />
-                                <asp:Label ID="lbllblPhoneNumber2" runat="server" Text='<%# Bind("altPhoneNumber") %>'></asp:Label>
-                                <asp:Label ID="lblPhoneType2" runat="server" Text='<%# Bind("phoneType2") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="E-mail">
-                            <EditItemTemplate>
-                                <div class="form-group">
-                                    <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("email") %>' class="form-control" TextMode="Email"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
-                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
-                                        Text="Please Enter An Email.">
-                                    </asp:RequiredFieldValidator>
-                                </div>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="lblEmail" runat="server"
-                                    Text='<%# Bind("email") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Preferred Contact">
-                            <ItemTemplate>
-                                <asp:Label ID="lblHomePref" runat="server" Text='<%# (Eval("prefHome").ToString() == "True") ? "Home " : ""  %>'></asp:Label>
-                                <asp:Label ID="lblMobilePref" runat="server" Text='<%# (Eval("prefMobile").ToString() == "True") ? "Mobile " : ""  %>'></asp:Label>
-                                <asp:Label ID="lblEmailPref" runat="server" Text='<%# (Eval("prefEmail").ToString() == "True") ? "Email " : ""  %>'></asp:Label>
-                                <asp:Label ID="lblTextPref" runat="server" Text='<%# (Eval("prefText").ToString() == "True") ? "Text " : ""  %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
+                                Contact Preference
                                 <div class="row form-group justify-content-around">
                                     <div class="form-check">
                                         <asp:CheckBox ID="chHome" Text="Home" Checked='<%# Bind("prefHome") %>' runat="server" />
@@ -119,27 +124,17 @@
                                         <asp:CheckBox ID="chEmail" Text="Email" Checked='<%# Bind("prefEmail") %>' runat="server" />
                                     </div>
                                 </div>
-                            </EditItemTemplate>
+                            </li>
 
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Address">
-                            <EditItemTemplate>
+                            <li class="list-group-item">
+                                <h6>Customer Address</h6>
                                 <div class="form-group">
-                                    <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("streetAddress") %>' class="form-control"></asp:TextBox>
-                                    <%--<asp:RequiredFieldValidator ID="rfvAddress" runat="server"
-                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
-                                        Text="Please Enter An Address.">
-                                    </asp:RequiredFieldValidator>--%>
+                                    <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("streetAddress") %>' class="form-control" Placeholder="Address"></asp:TextBox>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col-md-6">
-                                        <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control"></asp:TextBox>
-                                        <%--<asp:RequiredFieldValidator ID="rfvCity" runat="server"
-                                            ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
-                                            Text="Please Enter A City.">
-                                        </asp:RequiredFieldValidator>--%>
+                                        <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control" Placeholder="City"></asp:TextBox>
                                     </div>
 
                                     <div class="col-md-2">
@@ -196,62 +191,31 @@
                                             <asp:ListItem Value="WI">WI</asp:ListItem>
                                             <asp:ListItem Value="WY">WY</asp:ListItem>
                                         </asp:DropDownList>
-                                        <%--<asp:RequiredFieldValidator ID="rfvState" runat="server"
-                                            ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlState"
-                                            Text="Please Select A State.">
-                                        </asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <div class="col-md-4">
-                                        <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("zipcode") %>' class="form-control"></asp:TextBox>
-                                        <%--<asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
-                                            ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
-                                            Text="Please Enter Zip Code.">
-                                        </asp:RequiredFieldValidator>--%>
+                                        <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("zipcode") %>' class="form-control" Placeholder="Zip"></asp:TextBox>
                                     </div>
                                 </div>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>
-                                <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
-                                <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
-                                <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            </li>
 
-                        <asp:TemplateField HeaderText="Initial Contact Type">
-                            <ItemTemplate>
+                            <li class="list-group-item">
                                 <asp:Label ID="lblInitialContact" runat="server"
-                                    Text='<%# Bind("initialContactType") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Hear About">
-                            <ItemTemplate>
-                                <asp:Label ID="lblHearAbout" runat="server"
-                                    Text='<%# Bind("hearAbout") %>'></asp:Label>
-                            </ItemTemplate>
-
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txtHearAbout" runat="server" Text='<%# Bind("hearAbout") %>' class="form-control"></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Initial Contact Date">
-                            <ItemTemplate>
-                                <asp:Label ID="lblInitialContactDate" runat="server"
-                                    Text='<%# (DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Last Updated" ControlStyle-Font-Italic="true">
-                            <ItemTemplate>
-                                <asp:Label ID="lblLastUpdated" runat="server" Font-Italic="true"
-                                    Text='<%# (DateTime.Parse(Eval("lastUpdated").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Fields>
-                </asp:DetailsView>
+                                    Text='<%# "Initial Contact Type: " + Eval("initialContactType") %>'></asp:Label>
+                                <br />
+                                <div class="row">
+                                <asp:TextBox ID="txtHearAbout" runat="server" Text='<%# Bind("hearAbout") %>' class="form-control" Placeholder="How did they hear about us?"></asp:TextBox>
+                                    </div>
+                                <br />
+                                <asp:Label ID="lblInitialContactDate" runat="server" Text='<%# "Initial Contact Date: " + (DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
+                            </li>
+                            <div class="row justify-content-around">
+                            <asp:LinkButton ID="btnCancel" CommandName="Cancel" runat="server">Cancel</asp:LinkButton>
+                            <asp:LinkButton ID="btnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
+                                </div>
+                        </ul>
+                    </EditItemTemplate>
+                </asp:FormView>
 
                 <asp:SqlDataSource
                     ID="srcCustomer"
@@ -269,10 +233,22 @@
                         <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
-            </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <asp:Button ID="btnNewMove" runat="server" Text="New Move" OnClick="btnNewMove_Click" class="btn btn-primary btn-block" />
+                    </div>
+                    <div class="col">
+                        <asp:Button ID="btnNewAuction" runat="server" Text="New Auction" OnClick="btnNewAuction_Click" class="btn btn-primary btn-block col" />
+                    </div>
+                    <div class="col">
+                        <asp:Button ID="btnNewAppraisal" runat="server" Text="New Appraisal" OnClick="btnNewAppraisal_Click" class="btn btn-primary btn-block col" />
+                    </div>
+                </div>
+            
+                </div>
 
-            <div class="col-4">
-
+            <div class="col-5">
 
                 <div class="card mb-2">
                     <div class="card-header">
@@ -296,7 +272,7 @@
                                     DataKeyNames="ticketID"
                                     OnPagePropertiesChanging="lvNotes_PagePropertiesChanging">
                                     <LayoutTemplate>
-                                        
+
                                         <div runat="server" id="lstProducts">
                                             <div runat="server" id="itemPlaceholder" />
                                         </div>
@@ -317,9 +293,9 @@
 
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:LinkButton ID="lnkNote" Text='<%#Bind("NoteTitle")%>'   runat="server" data-toggle="modal" data-target="#exampleModal">LinkButton</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkNote" Text='<%#Bind("NoteTitle")%>' runat="server" data-toggle="modal" data-target="#exampleModal">LinkButton</asp:LinkButton>
                                         </br>
-                                        <asp:TextBox ID="txtNoteText" runat="server" TextMode="MultiLine" rows="5" Text='<%#Bind("noteText")%>' Class="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtNoteText" runat="server" TextMode="MultiLine" Rows="5" Text='<%#Bind("noteText")%>' Class="form-control"></asp:TextBox>
                                         </br>
                                         <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
                                         <asp:LinkButton ID="btnCancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
@@ -360,9 +336,7 @@
                     </div>
                 </div>
 
-                <asp:Button ID="btnNewMove" runat="server" Text="New Move" OnClick="btnNewMove_Click" class="btn btn-primary btn-block" />
-                <asp:Button ID="btnNewAuction" runat="server" Text="New Auction" OnClick="btnNewAuction_Click" class="btn btn-primary btn-block" />
-                <asp:Button ID="btnNewAppraisal" runat="server" Text="New Appraisal" OnClick="btnNewAppraisal_Click" class="btn btn-primary btn-block" />
+
                 <br />
 
             </div>
@@ -412,6 +386,6 @@
         </asp:SqlDataSource>
     </div>
 
-    
+
 
 </asp:Content>

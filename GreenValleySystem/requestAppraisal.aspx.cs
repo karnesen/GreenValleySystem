@@ -65,7 +65,7 @@ namespace GreenValleySystem
 
                 String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID) " +
                     "VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'P', " + customerID + " )";
-                sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '', '')";
+                sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '0', '')";
                 sqlQuery += " INSERT INTO TICKETNOTE (creationDate, serviceID, noteTitle, noteText)" +
                     "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), 'Customer Initial Request', @notes)";
 

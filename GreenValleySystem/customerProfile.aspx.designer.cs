@@ -15,13 +15,13 @@ namespace GreenValleySystem
     {
 
         /// <summary>
-        /// dvCustomerInfo control.
+        /// fvCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView dvCustomerInfo;
+        protected global::System.Web.UI.WebControls.FormView fvCustomer;
 
         /// <summary>
         /// srcCustomer control.
@@ -31,6 +31,33 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource srcCustomer;
+
+        /// <summary>
+        /// btnNewMove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNewMove;
+
+        /// <summary>
+        /// btnNewAuction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNewAuction;
+
+        /// <summary>
+        /// btnNewAppraisal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNewAppraisal;
 
         /// <summary>
         /// lvNotes control.
@@ -94,33 +121,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateNote;
-
-        /// <summary>
-        /// btnNewMove control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewMove;
-
-        /// <summary>
-        /// btnNewAuction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewAuction;
-
-        /// <summary>
-        /// btnNewAppraisal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewAppraisal;
 
         /// <summary>
         /// gvCustomerTickets control.

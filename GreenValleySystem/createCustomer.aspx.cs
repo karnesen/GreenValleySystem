@@ -103,7 +103,7 @@ namespace Lab1
                 {
                     sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
                     + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'P', (select max(customerID) from customer), '" + DateTime.Now + "')";
-                    sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '', '')";
+                    sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '0', '')";
                 }
                 if (chMove.Checked)
                 {
