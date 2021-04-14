@@ -19,7 +19,7 @@ namespace Lab2
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to view employee home.";
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("login.aspx");
             }
             if (!IsPostBack)
             {

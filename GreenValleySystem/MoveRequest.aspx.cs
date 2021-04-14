@@ -18,7 +18,7 @@ namespace GreenValleySystem
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to create a new service.";
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("login.aspx");
             }
             
             if(!IsPostBack)
