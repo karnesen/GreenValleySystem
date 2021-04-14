@@ -20,9 +20,6 @@
     <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
     <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
 
-
-
-
     <div class="row  container-fluid">
         <div class="col-6">
             <div class="card">
@@ -110,13 +107,13 @@
 
                             <div class="form-group">
                                 <asp:TextBox ID="txtEmail" runat="server" Placeholder="Email" class="form-control" TextMode="Email"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
+                                <%--<asp:RequiredFieldValidator ID="rfvEmail" runat="server"
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                                     Text="Please Enter An Email." ValidationGroup="CreateCustomer">
                                 </asp:RequiredFieldValidator>
                                 <asp:CustomValidator ID="cvCheckUniqueCustomer" runat="server"
                                     ErrorMessage="CustomValidator" OnServerValidate="cvCheckUniqueCustomer_ServerValidate"
-                                    ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>
+                                    ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>--%>
                             </div>
 
                             <asp:Label ID="lblContactPreference" runat="server" Class="h6" Text="Contact Preference"></asp:Label>
@@ -189,9 +186,9 @@
                                 </div>
                                 <div class="col-4">
                                     <asp:TextBox ID="txtOther" Class="form-control" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
+                                    <%--<asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
                                         ControlToValidate="txtOther" Enabled="false" Text="Please specify" ValidationGroup="CreateCustomer">
-                                    </asp:RequiredFieldValidator>
+                                    </asp:RequiredFieldValidator>--%>
                                 </div>
                             </div>
 
@@ -220,11 +217,15 @@
 
                             <div class="row">
                                 <div class="col-2">
-                                    <asp:Label ID="lblserviceDeadline" runat="server" Text="Deadline" ></asp:Label>
+                                    <asp:Label ID="lblserviceDeadline" runat="server" Text="Deadline "></asp:Label>
                                 </div>
                                 <div class="form-group col-5">
                                     <asp:Label ID="lblStartDate" runat="server" Text="Start Date" for="txtStartDate"></asp:Label>
                                     <asp:TextBox ID="txtStartDate" runat="server" Placeholder="Start Date" class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
+                                    <%--<asp:RequiredFieldValidator ID="rfvStartDate" runat="server"
+                                        ErrorMessage="RequiredFieldValidator" ControlToValidate="txtStartDate"
+                                        Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
+                                    </asp:RequiredFieldValidator>--%>
                                 </div>
 
                                 <div class="form-group col-5">
@@ -243,7 +244,9 @@
 
                     <div class="form-group">
                         <div class="d-flex justify-content-around">
+                            <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-primary  btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
                             <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
+                            <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-primary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
                         </div>
                     </div>
                 </div>
@@ -253,7 +256,7 @@
             <div class="card-body sticky-top">
                 <div class=" form-group">
 
-                    <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" Rows="30" class="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Notes" Rows="30" class="form-control"></asp:TextBox>
                 </div>
             </div>
         </div>
