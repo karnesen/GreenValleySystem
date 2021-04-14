@@ -79,5 +79,9 @@ namespace GreenValleySystem
             Response.Redirect("AuctionRequest.aspx");
         }
 
+        protected void btnNewAppraisal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("requestAppraisal.aspx");
+        }
     }
 }

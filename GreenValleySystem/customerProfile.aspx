@@ -362,6 +362,7 @@
 
                 <asp:Button ID="btnNewMove" runat="server" Text="New Move" OnClick="btnNewMove_Click" class="btn btn-primary btn-block" />
                 <asp:Button ID="btnNewAuction" runat="server" Text="New Auction" OnClick="btnNewAuction_Click" class="btn btn-primary btn-block" />
+                <asp:Button ID="btnNewAppraisal" runat="server" Text="New Appraisal" OnClick="btnNewAppraisal_Click" class="btn btn-primary btn-block" />
                 <br />
 
             </div>
@@ -381,7 +382,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Service Type">
                     <ItemTemplate>
-                        <asp:Label ID="lblService" runat="server" Text='<%#Eval("serviceType").ToString() == "M" ? "Move" : "Auction"%>'></asp:Label>
+                        <asp:Label ID="lblService" runat="server" Text='<%#Eval("serviceType").ToString() == "M" ? "Move" :  Eval("serviceType").ToString() == "A" ? "Auction" : "Appraisal"%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 

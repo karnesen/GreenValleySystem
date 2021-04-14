@@ -69,7 +69,15 @@ namespace GreenValleySystem
                 String ServiceStateA = ddlAuctionState.SelectedValue;
                 String ServiceZipA = txtAuctionZip.Text;
 
-                String StartDate = DateTime.Parse(txtAuctionStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+                String serviceStartDate;
+                if (String.IsNullOrEmpty(txtAuctionStartDate.Text))
+                {
+                    serviceStartDate = "";
+                }
+                else
+                {
+                    serviceStartDate = DateTime.Parse(txtAuctionStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+                }
                 DateTime serviceCompletionDate;
                 String completionDate;
                 if (String.IsNullOrEmpty(txtAuctionEndDate.Text))
@@ -83,7 +91,7 @@ namespace GreenValleySystem
                 }
 
                 String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID) " +
-                    "VALUES('" + DateTime.Now + "', 1,'" + StartDate + "', '" + completionDate + "', 'A', " + customerID + " )";
+                    "VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'A', " + customerID + " )";
                 sqlQuery += " INSERT INTO Auction(serviceID) VALUES((select max(serviceID) from service))";
                 sqlQuery += " INSERT INTO ADDRESSES VALUES(@AserviceAddress, @AserviceCity, @AserviceState, @AserviceState, 'P', (select max(serviceID) from service))";
                 sqlQuery += " INSERT INTO TICKETNOTE (creationDate, serviceID, noteTitle, noteText)" +

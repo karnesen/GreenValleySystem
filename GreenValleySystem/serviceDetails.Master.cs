@@ -27,6 +27,12 @@ namespace GreenValleySystem
                 lookAt.NavigateUrl = "moveAssessment.aspx";
                 serviceOrder.NavigateUrl = "moveServiceOrder.aspx";
             }
+            else if((Session["serviceType"].ToString()).Equals("Appraisal"))
+            {
+                lookAt.NavigateUrl = "";
+                lookAt.Text = "";
+                serviceOrder.NavigateUrl = "appraisalServiceOrder.aspx";
+            }
             else
             {
                 lookAt.NavigateUrl = "auctionAssessment.aspx";
