@@ -16,7 +16,7 @@ namespace GreenValleySystem
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to update resources.";
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("login.aspx");
             }
 
             gvEmployees.DataBind();
