@@ -83,23 +83,22 @@
                     DefaultMode="Edit"
                     DataSourceID="srcService">
                     <EmptyDataTemplate>
-                        No Trash Pickup Requested
                     </EmptyDataTemplate>
                     <EditItemTemplate>
                         <h4>Trash Removal Service Order</h4>
                         <div class="row">
-                                    <div class="col">
-                                        <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
-                                    </div>
+                            <div class="col">
+                                <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
+                            </div>
 
-                                    <div class="col">
-                                        <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
-                                        <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col">
-                                        <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
-                                        <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
-                                    </div>
+                            <div class="col">
+                                <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
+                                <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col">
+                                <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
+                                <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
+                            </div>
                         </div>
 
                         <div class="mb-2 form-group form-row">
@@ -125,6 +124,107 @@
                 </asp:SqlDataSource>
             </li>
 
+            <%-- Packing Service Order --%>
+            <li class='<%= packingCollapse %>'>
+                <h4>Packing Service Order</h4>
+                <asp:FormView
+                    ID="fvPacking"
+                    runat="server"
+                    DataSourceID="srcPickup"
+                    DefaultMode="Edit">
+                    <EditItemTemplate>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Packing Materials
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label1" runat="server"
+                                                Text='<%# (Eval("smallamt").ToString() == "0") ? "" : "Small " + Eval("smallamt").ToString() +  "<br>" %>'></asp:Label>
+                                            <asp:Label ID="Label2" runat="server"
+                                                Text='<%# (Eval("medamt").ToString() == "0") ? "" : " Medium " + Eval("medamt").ToString() +  "<br>"  %>'></asp:Label>
+                                            <asp:Label ID="Label3" runat="server"
+                                                Text='<%# (Eval("largeamt").ToString() == "0") ? "" : " Large " + Eval("largeamt").ToString() +  "<br>"  %>'></asp:Label>
+                                            <asp:Label ID="Label4" runat="server"
+                                                Text='<%# (Eval("smallPadsamt").ToString() == "0") ? "" : " Small Pads " + Eval("smallPadsamt").ToString() +  "<br>" %>'></asp:Label>
+                                            <asp:Label ID="Label5" runat="server"
+                                                Text='<%# (Eval("largePadsamt").ToString() == "0") ? "" : " Large Pads " + Eval("largePadsamt").ToString() +  "<br>"  %>'></asp:Label>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </EditItemTemplate>
+                </asp:FormView>
+
+                <div class="card card-body mb-2">
+                    <h5>Crew Assignments</h5>
+                    <%-- Assign Crew --%>
+                    <div class="row">
+                        <div class="col">
+                            <asp:DropDownList
+                                ID="ddlCrew"
+                                runat="server"
+                                class="form-control"
+                                DataSourceID="srcAllEmployees"
+                                DataTextField="employeeName"
+                                DataValueField="employeeID">
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col">
+                            <asp:Button ID="btnAddtoPickup" runat="server" Text="Add" OnClick="btnAddtoPickup_Click" class="btn btn-primary" />
+                        </div>
+                    </div>
+
+                    <div class="row col-6">
+                        <asp:ListView
+                            ID="lvPackingEmployees"
+                            runat="server"
+                            DataKeyNames="employeeID"
+                            DataSourceID="srcPacking">
+                            <LayoutTemplate>
+                                <table class="table">
+                                    <tbody>
+                                        <tr id="itemPlaceholder" runat="server"></tr>
+                                    </tbody>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblEmployee" runat="server" Text='<%# Eval("firstName") + " " + Eval("lastName")  %>'></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete"><i class="fas fa-times"></i></asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:ListView>
+                    </div>
+
+                    <asp:SqlDataSource
+                        ID="srcPacking"
+                        runat="server"
+                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                        SelectCommand="Select * from employee inner join assignment on employee.employeeID = assignment.employeeID where assignment.serviceID = @serviceID and employeeRole='packing'"
+                        InsertCommand="Insert into assignment values(@employeeId, @serviceID, 'packing')"
+                        DeleteCommand="Delete from assignment where employeeID=@employeeID and serviceID=@serviceID">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </SelectParameters>
+                        <InsertParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            <asp:ControlParameter Name="employeeID" ControlID="ddlEmployees" />
+                        </InsertParameters>
+                        <DeleteParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </DeleteParameters>
+                    </asp:SqlDataSource>
+                </div>
+            </li>
+
             <%-- Pickup Service Order --%>
             <li class='<%= pickupCollapse %>'>
                 <h4>Pickup Service Order</h4>
@@ -136,86 +236,86 @@
                     DefaultMode="Edit">
                     <EditItemTemplate>
                         <div class="table-responsive">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>Location Type
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblHome" runat="server"
-                                            Text='<%# ((Eval("apartment").ToString() == "true") ? "Apartment" 
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Location Type
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblHome" runat="server"
+                                                Text='<%# ((Eval("apartment").ToString() == "true") ? "Apartment" 
                                      : (Eval("house").ToString() == "true") ? "House"
                                      : (Eval("storageUnit").ToString() == "true") ? "Storage Unit" : "Place of Business")%>'></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Truck Accessibility
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblAccess" runat="server" Text='<%# Eval("truckAccess").ToString() %>'></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Distance from Loading Door
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblFar" runat="server" Text='<%# Eval("howFar").ToString() %>'></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Steps
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblSteps" runat="server" Text='<%# Eval("steps").ToString() %>'></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Special Equipment Needed
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblAppCart" runat="server" Text='<%# (Eval("appCart").ToString() == "true") ? "Appliance Cart " : "" %>'></asp:Label>
-                                        <asp:Label ID="lblPianoDolly" runat="server" Text='<%# (Eval("pianoDolly").ToString() == "true") ? "Piano Dolly " : "" %>'></asp:Label>
-                                        <asp:Label ID="lblPianoBoard" runat="server" Text='<%# (Eval("pianoBoard").ToString() == "true") ? "Piano Board " : "" %>'></asp:Label>
-                                        <asp:Label ID="lblGunSafe" runat="server" Text='<%# (Eval("gunSafe").ToString() == "true") ? "Gun Safe Cart" : "" %>'></asp:Label>
-                                        <asp:Label ID="lblExtraBlankets" runat="server" Text='<%# (Eval("blankets").ToString() == "true") ? "Extra Blankets " : "" %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Truck Accessibility
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblAccess" runat="server" Text='<%# Eval("truckAccess").ToString() %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Distance from Loading Door
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblFar" runat="server" Text='<%# Eval("howFar").ToString() %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Steps
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblSteps" runat="server" Text='<%# Eval("steps").ToString() %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Special Equipment Needed
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblAppCart" runat="server" Text='<%# (Eval("appCart").ToString() == "true") ? "Appliance Cart " : "" %>'></asp:Label>
+                                            <asp:Label ID="lblPianoDolly" runat="server" Text='<%# (Eval("pianoDolly").ToString() == "true") ? "Piano Dolly " : "" %>'></asp:Label>
+                                            <asp:Label ID="lblPianoBoard" runat="server" Text='<%# (Eval("pianoBoard").ToString() == "true") ? "Piano Board " : "" %>'></asp:Label>
+                                            <asp:Label ID="lblGunSafe" runat="server" Text='<%# (Eval("gunSafe").ToString() == "true") ? "Gun Safe Cart" : "" %>'></asp:Label>
+                                            <asp:Label ID="lblExtraBlankets" runat="server" Text='<%# (Eval("blankets").ToString() == "true") ? "Extra Blankets " : "" %>'></asp:Label>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Packing Materials
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="Label1" runat="server"
-                                            Text='<%# (Eval("smallamt").ToString() == "0") ? "" : "Small " + Eval("smallamt").ToString() +  "<br>" %>'></asp:Label>
-                                        <asp:Label ID="Label2" runat="server"
-                                            Text='<%# (Eval("medamt").ToString() == "0") ? "" : " Medium " + Eval("medamt").ToString() +  "<br>"  %>'></asp:Label>
-                                        <asp:Label ID="Label3" runat="server"
-                                            Text='<%# (Eval("largeamt").ToString() == "0") ? "" : " Large " + Eval("largeamt").ToString() +  "<br>"  %>'></asp:Label>
-                                        <asp:Label ID="Label4" runat="server"
-                                            Text='<%# (Eval("smallPadsamt").ToString() == "0") ? "" : " Small Pads " + Eval("smallPadsamt").ToString() +  "<br>" %>'></asp:Label>
-                                        <asp:Label ID="Label5" runat="server"
-                                            Text='<%# (Eval("largePadsamt").ToString() == "0") ? "" : " Large Pads " + Eval("largePadsamt").ToString() +  "<br>"  %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Packing Materials
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label1" runat="server"
+                                                Text='<%# (Eval("smallamt").ToString() == "0") ? "" : "Small " + Eval("smallamt").ToString() +  "<br>" %>'></asp:Label>
+                                            <asp:Label ID="Label2" runat="server"
+                                                Text='<%# (Eval("medamt").ToString() == "0") ? "" : " Medium " + Eval("medamt").ToString() +  "<br>"  %>'></asp:Label>
+                                            <asp:Label ID="Label3" runat="server"
+                                                Text='<%# (Eval("largeamt").ToString() == "0") ? "" : " Large " + Eval("largeamt").ToString() +  "<br>"  %>'></asp:Label>
+                                            <asp:Label ID="Label4" runat="server"
+                                                Text='<%# (Eval("smallPadsamt").ToString() == "0") ? "" : " Small Pads " + Eval("smallPadsamt").ToString() +  "<br>" %>'></asp:Label>
+                                            <asp:Label ID="Label5" runat="server"
+                                                Text='<%# (Eval("largePadsamt").ToString() == "0") ? "" : " Large Pads " + Eval("largePadsamt").ToString() +  "<br>"  %>'></asp:Label>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pick Up Fees
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="Label6" runat="server" Text='<%#"Pick up fees: " + Eval("pickUpFee").ToString() %>'></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Additional Fees
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="Label7" runat="server" Text='<%#Eval("additional").ToString() %>'></asp:Label>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pick Up Fees
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label6" runat="server" Text='<%#"Pick up fees: " + Eval("pickUpFee").ToString() %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Additional Fees
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Label7" runat="server" Text='<%#Eval("additional").ToString() %>'></asp:Label>
+                                        </td>
+                                    </tr>
 
-                            </tbody>
-                        </table>
-                            </div>
+                                </tbody>
+                            </table>
+                        </div>
                     </EditItemTemplate>
                 </asp:FormView>
 
@@ -351,7 +451,7 @@
                         No Auction Date Set.
                     </EmptyItemTemplate>
                     <ItemTemplate>
-                        <asp:TextBox ID="txtAuctionDate" Text='<%# Bind("confirmedDate") %>' runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtAuctionDate" Text='<%# Bind("confirmedDate", "{0:yyyy-MM-ddTHH:mm}") %>' runat="server" class="form-control"></asp:TextBox>
                     </ItemTemplate>
                 </asp:ListView>
 

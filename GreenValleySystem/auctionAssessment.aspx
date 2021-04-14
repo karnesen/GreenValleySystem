@@ -54,13 +54,16 @@
                                     <asp:CheckBox ID="chPickUp" Text="Pick Up" Checked='<%# Bind("pickUp") %>' runat="server" />
                                 </div>
                                 <div class="form-check">
+                                    <asp:CheckBox ID="chPacking" Text="Packing" Checked='<%# Bind("packing") %>' runat="server" />
+                                </div>
+                                <div class="form-check">
                                     <asp:CheckBox ID="chTrash" Text="Trash Removal" Checked='<%# Bind("trashRemoval") %>' runat="server" />
 
                                 </div>
                             </div>
                             <asp:TextBox ID="txtTrash" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
 
-                            <div class="form-group row justify-content-around" visible='<%# Eval("auctionWalkThrough") %>'>
+                            <div class="form-group row justify-content-around" >
                                 <div class="form-check">
                                     <asp:RadioButton ID="rdoCust" Checked='<%# Bind("custLookAt") %>' runat="server" Text="Customer Requests Auction Look At" GroupName="lookAt" Visible='<%#Eval("auctionWalkThrough") %>' />
                                 </div>
@@ -103,7 +106,7 @@
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
                     SelectCommand="Select * from auctionAssessment where serviceID=@serviceID"
                     UpdateCommand="UPDATE auctionAssessment Set whatSell=@whatSell, whySell=@whySell, bringIn=@bringIn, auctionWalkThrough=@auctionWalkThrough, custLookAt=@custLookAt, gvLookAt=@gvLookAt,
-        pickUp=@pickUp, trashRemoval=@trashRemoval, trashDesc=@trashdesc, photos=@photos, items=@items, move=@move, appraisal=@appraisal where serviceID=@serviceID">
+        pickUp=@pickUp, packing=@packing, trashRemoval=@trashRemoval, trashDesc=@trashdesc, photos=@photos, items=@items, move=@move, appraisal=@appraisal where serviceID=@serviceID">
                     <SelectParameters>
                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                     </SelectParameters>

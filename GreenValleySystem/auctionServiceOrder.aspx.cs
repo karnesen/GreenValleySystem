@@ -14,9 +14,11 @@ namespace GreenValleySystem
     public partial class auctionServiceOrder : System.Web.UI.Page
     {
         public string pickupCollapse = "list-group-item collapse";
+        public string packingCollapse = "list-group-item collapse";
         protected void Page_Load(object sender, EventArgs e)
         {
-            String sqlQuery = "Select pickup from auctionAssessment where pickup=1 and serviceID = " + Session["selectedService"].ToString();
+            lvDate.DataBind();
+            String sqlQuery = "Select pickup, packing from auctionAssessment where serviceID = " + Session["selectedService"].ToString();
 
             // Define the connection to the Database:
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -30,7 +32,10 @@ namespace GreenValleySystem
             SqlDataReader queryResults = sqlCommand.ExecuteReader();
             while (queryResults.Read())
             {
-                pickupCollapse = "list-group-item";
+                if(queryResults.GetBoolean(0))
+                    pickupCollapse = "list-group-item";
+                if(queryResults.GetBoolean(1))
+                    packingCollapse = "list-group-item";
             }
             // Close all related connections
             queryResults.Close();
@@ -48,5 +53,9 @@ namespace GreenValleySystem
             srcAssignedEmployees.Insert();
         }
 
+        protected void btnAddtoPickup_Click(object sender, EventArgs e)
+        {
+            srcPacking.Insert();
+        }
     }
 }
