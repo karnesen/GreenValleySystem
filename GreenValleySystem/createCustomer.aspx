@@ -186,9 +186,9 @@
                                 </div>
                                 <div class="col-4">
                                     <asp:TextBox ID="txtOther" Class="form-control" runat="server"></asp:TextBox>
-                                    <%--<asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
+                                    <asp:RequiredFieldValidator ID="rfvOther" runat="server" ErrorMessage="RequiredFieldValidator"
                                         ControlToValidate="txtOther" Enabled="false" Text="Please specify" ValidationGroup="CreateCustomer">
-                                    </asp:RequiredFieldValidator>--%>
+                                    </asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
