@@ -154,7 +154,7 @@ sup {
 
 a {
   /*color: #007bff;*/
-  color: #266141;
+  color: #BB9739;
   text-decoration: none;
   background-color: transparent;
 }
@@ -245,7 +245,6 @@ textarea {
     font-size: inherit;
     line-height: inherit;
     color: #266141;
-    background-color: #266141;
 }
 
 button,
@@ -1696,7 +1695,7 @@ pre code {
 
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #dee2e6;
+  border: 1px solid #518167;
 }
 
 .table-bordered thead th,
@@ -2014,8 +2013,8 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  /*color: #495057;*/
-  color: #266141;
+  color: #495057;
+  margin: 1rem;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -2036,7 +2035,7 @@ pre code {
 
 .form-control:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 #495057;
+  text-shadow: 0 0 0 #BB9739;
 }
 
 .form-control:focus {
@@ -10298,7 +10297,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #dee2e6 !important;
+    border: 1px solid #518167 !important;
   }
   .table-dark {
     color: inherit;

@@ -15,11 +15,11 @@ namespace Lab1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if(Session["username"] == null)
-            //{
-            //    Session["InvalidUse"] = "You must first login to create a new customer.";
-            //    Response.Redirect("LoginPage.aspx");
-            //}
+            if(Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to create a new customer.";
+                Response.Redirect("login.aspx");
+            }
 
             if (!IsPostBack)
             {

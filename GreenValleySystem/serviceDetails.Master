@@ -15,6 +15,7 @@
                     <asp:HyperLink ID="serviceOrder" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
                     <a class="nav-link" href="#">Compeletion Form</a>
                 </nav>
+
             </div>
             <div class="col-10">
                 <div class="progress" style="height: 32px">
@@ -241,16 +242,16 @@
                                                 <EditItemTemplate>
                                                     <div class="text-center">Edit Event</div>
                                                     <asp:DropDownList ID="ddlEvents" runat="server" class="form-control" SelectedValue='<%#Bind("description") %>'>
-                                                        <asp:ListItem>Move Assessment</asp:ListItem>
-                                                        <asp:ListItem>Auction Walk Through</asp:ListItem>
-                                                        <asp:ListItem>Packing</asp:ListItem>
-                                                        <asp:ListItem>Move</asp:ListItem>
-                                                        <asp:ListItem>Auction Pick Up</asp:ListItem>
-                                                        <asp:ListItem>Auction Bring In</asp:ListItem>
-                                                        <asp:ListItem>Appraisal</asp:ListItem>
-                                                        <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
-                                                        <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
-                                                        <asp:ListItem>Trash Removal</asp:ListItem>
+                                                        <asp:ListItem Value="Move Assessment">Move Assessment</asp:ListItem>
+                                                        <asp:ListItem Value="Auction Walk Through">Auction Walk Through</asp:ListItem>
+                                                        <asp:ListItem Value="Packing">Packing</asp:ListItem>
+                                                        <asp:ListItem Value="Move">Move</asp:ListItem>
+                                                        <asp:ListItem Value="Auction Pick Up">Auction Pick Up</asp:ListItem>
+                                                        <asp:ListItem Value="Auction Bring In">Auction Bring In</asp:ListItem>
+                                                        <asp:ListItem Value="Appraisal">Appraisal</asp:ListItem>
+                                                        <asp:ListItem Value="Consignment Shop Pick Up">Consignment Shop Pick Up</asp:ListItem>
+                                                        <asp:ListItem Value="Consignment Shop Bring In">Consignment Shop Bring In</asp:ListItem>
+                                                        <asp:ListItem Value="Trash Removal">Trash Removal</asp:ListItem>
                                                     </asp:DropDownList>
 
                                                     <div class="row mb-1">

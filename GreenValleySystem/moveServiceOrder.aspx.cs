@@ -11,14 +11,14 @@ using System.Web.Configuration;
 
 namespace GreenValleySystem
 {
-    public partial class auctionServiceOrder : System.Web.UI.Page
+    public partial class moveServiceOrder : System.Web.UI.Page
     {
         public string pickupCollapse = "list-group-item collapse";
         public string packingCollapse = "list-group-item collapse";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            lvDate.DataBind();
-            String sqlQuery = "Select pickup, packing from auctionAssessment where serviceID = " + Session["selectedService"].ToString();
+            String sqlQuery = "Select pickup, packing from moveAssessment where serviceID = " + Session["selectedService"].ToString();
 
             // Define the connection to the Database:
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -32,30 +32,14 @@ namespace GreenValleySystem
             SqlDataReader queryResults = sqlCommand.ExecuteReader();
             while (queryResults.Read())
             {
-                if(queryResults.GetBoolean(0))
+                if (queryResults.GetBoolean(0))
                     pickupCollapse = "list-group-item";
-                if(queryResults.GetBoolean(1))
+                if (queryResults.GetBoolean(1))
                     packingCollapse = "list-group-item";
             }
             // Close all related connections
             queryResults.Close();
             sqlConnect.Close();
-        }
-
-
-        protected void btnStorage_Click(object sender, EventArgs e)
-        {
-            srcStorage.Insert();
-        }
-
-        protected void btnEmployee_Click(object sender, EventArgs e)
-        {
-            srcAssignedEmployees.Insert();
-        }
-
-        protected void btnAddtoPickup_Click(object sender, EventArgs e)
-        {
-            srcPacking.Insert();
         }
     }
 }

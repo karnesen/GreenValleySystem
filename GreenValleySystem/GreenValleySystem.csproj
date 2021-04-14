@@ -102,7 +102,9 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="images\movingTruck.png" />
     <Content Include="lookAtForm.aspx" />
+    <Content Include="moveAssessment.aspx" />
     <Content Include="MoveRequest.aspx" />
+    <Content Include="moveServiceOrder.aspx" />
     <Content Include="NewAuction.aspx" />
     <Content Include="noteDetails.aspx" />
     <Content Include="phoneNumber.js" />
@@ -220,6 +222,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="searchResults.aspx" />
+    <Content Include="updateEmployees.aspx" />
     <Content Include="updateResources.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -360,12 +363,26 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="moveAssessment.aspx.cs">
+      <DependentUpon>moveAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="moveAssessment.aspx.designer.cs">
+      <DependentUpon>moveAssessment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MoveRequest.aspx.cs">
       <DependentUpon>MoveRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MoveRequest.aspx.designer.cs">
       <DependentUpon>MoveRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="moveServiceOrder.aspx.cs">
+      <DependentUpon>moveServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="moveServiceOrder.aspx.designer.cs">
+      <DependentUpon>moveServiceOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewAuction.aspx.cs">
       <DependentUpon>NewAuction.aspx</DependentUpon>
@@ -410,6 +427,13 @@
     </Compile>
     <Compile Include="serviceDetails.Master.designer.cs">
       <DependentUpon>serviceDetails.Master</DependentUpon>
+    </Compile>
+    <Compile Include="updateEmployees.aspx.cs">
+      <DependentUpon>updateEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateEmployees.aspx.designer.cs">
+      <DependentUpon>updateEmployees.aspx</DependentUpon>
     </Compile>
     <Compile Include="updateResources.aspx.cs">
       <DependentUpon>updateResources.aspx</DependentUpon>

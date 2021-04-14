@@ -13,15 +13,15 @@ namespace Lab1
         {
             if (Session["username"] == null)
             {
-                btnToLogin.Visible = true;
+               // btnToLogin.Visible = true;
                 btnToLogout.Visible = false;
                 lblMessage.Text = "Login for more!";
             }
             else
             {
-                btnToLogin.Visible = false;
+                //btnToLogin.Visible = false;
                 btnToLogout.Visible = true;
-                lblMessage.Text = "Welcome " + Session["username"].ToString();
+                lblMessage.Text = "Welcome, " + Session["username"].ToString();
             }
         }
 

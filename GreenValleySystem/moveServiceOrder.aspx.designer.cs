@@ -11,79 +11,106 @@ namespace GreenValleySystem
 {
 
 
-    public partial class updateResources
+    public partial class moveServiceOrder
     {
 
         /// <summary>
-        /// Label1 control.
+        /// fvCustomerInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.FormView fvCustomerInfo;
 
         /// <summary>
-        /// gvEquipment control.
+        /// srcCustomerInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEquipment;
+        protected global::System.Web.UI.WebControls.SqlDataSource srcCustomerInfo;
 
         /// <summary>
-        /// txtEquipmentName control.
+        /// lvAddresses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEquipmentName;
+        protected global::System.Web.UI.WebControls.ListView lvAddresses;
 
         /// <summary>
-        /// rfvEquipmentType control.
+        /// srcServiceAddresses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEquipmentType;
+        protected global::System.Web.UI.WebControls.SqlDataSource srcServiceAddresses;
 
         /// <summary>
-        /// txtDatePurchased control.
+        /// fvPacking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDatePurchased;
+        protected global::System.Web.UI.WebControls.FormView fvPacking;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// ddlCrew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCrew;
 
         /// <summary>
-        /// lblNewEquipment control.
+        /// btnAddtoPickup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lblNewEquipment;
+        protected global::System.Web.UI.WebControls.Button btnAddtoPickup;
 
         /// <summary>
-        /// srcEquipment control.
+        /// lvPackingEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource srcEquipment;
+        protected global::System.Web.UI.WebControls.ListView lvPackingEmployees;
+
+        /// <summary>
+        /// srcPacking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcPacking;
+
+        /// <summary>
+        /// fvTrash control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvTrash;
+
+        /// <summary>
+        /// srcService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcService;
     }
 }
