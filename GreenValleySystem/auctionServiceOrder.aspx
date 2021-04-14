@@ -52,6 +52,9 @@
                         <div id="itemPlaceholder" runat="server"></div>
                     </li>
                 </LayoutTemplate>
+                <EmptyItemTemplate>
+                    No Addresses Specificed
+                </EmptyItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
                     <br />

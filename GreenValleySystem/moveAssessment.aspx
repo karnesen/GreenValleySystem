@@ -5,13 +5,13 @@
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="pre-tab" data-toggle="tab" href="#prelim" role="tab" aria-controls="prelim" aria-selected="true">Preliminary</a>
+                    <a class='<%=stateNav1 %>' id="pre-tab" data-toggle="tab" href="#prelim" role="tab" aria-controls="prelim" aria-selected="true">Preliminary</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="assess-tab" data-toggle="tab" href="#assessment" role="tab" aria-controls="assessment" aria-selected="false">Assessment</a>
+                    <a class='<%=stateNav2 %>' id="assess-tab" data-toggle="tab" href="#assessment" role="tab" aria-controls="assessment" aria-selected="false">Assessment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="rooms-tab" data-toggle="tab" href="#rooms" role="tab" aria-controls="rooms" aria-selected="false">Room Details</a>
+                    <a class='<%=stateNav3 %>' id="rooms-tab" data-toggle="tab" href="#rooms" role="tab" aria-controls="rooms" aria-selected="false">Room Details</a>
                 </li>
             </ul>
         </div>
@@ -21,7 +21,7 @@
             <div class="tab-content" id="myTabContent">
 
                 <%-- Preliminary Move Assessment Information --%>
-                <div class="tab-pane fade show active" id="prelim" role="tabpanel" aria-labelledby="pre-tab">
+                <div class='<%=stateTab1 %>' id="prelim" role="tabpanel" aria-labelledby="pre-tab">
                     <asp:FormView
                         ID="fvPreMove"
                         runat="server"
@@ -30,13 +30,14 @@
 
                         <EditItemTemplate>
                             Deadline
-                            <div class="form-group">
+                            <div class="row">
+                            <div class="form-group col">
                                 <asp:TextBox ID="txtAuctionStartDate" runat="server" Text='<%#Bind("serviceDeadlineStart", "{0:yyyy-MM-ddTHH:mm}")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
                             </div>
-                            <div class="form-group ">
+                            <div class="form-group col ">
                                 <asp:TextBox ID="txtAuctionEndDate" runat="server" Text='<%#Bind("serviceDeadlineEnd", "{0:yyyy-MM-ddTHH:mm}")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
                             </div>
-
+                                </div>
 
 
                             <div class="form-check">
@@ -312,7 +313,7 @@
                     </asp:SqlDataSource>
                 </div>
                 <%-- Auction Assessment --%>
-                <div class="tab-pane fade" id="assessment" role="tabpanel" aria-labelledby="assess-tab">
+                <div class='<%=stateTab2 %>' id="assessment" role="tabpanel" aria-labelledby="assess-tab">
                     <asp:FormView
                         ID="fvAssessment"
                         DefaultMode="Edit"
@@ -405,7 +406,7 @@
                                 </div>
                             </div>
 
-                            <asp:LinkButton ID="lnkButtonSave" CommandName="Update" runat="server">Save</asp:LinkButton>
+                            <asp:LinkButton ID="lnkButtonSave" CommandName="Update" OnClick="lnkButtonSave_Click" runat="server">Save</asp:LinkButton>
 
                         </EditItemTemplate>
                     </asp:FormView>
@@ -442,7 +443,7 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col">
-                                <asp:Button ID="btnEquipment" runat="server" Text="Add" OnClick="btnEquipment_Click" class="btn btn-primary" />
+                                <asp:Button ID="btnEquipment" runat="server" Text="Add" OnClick="btnEquipment_Click" class="btn btn-primary"/>
                             </div>
                         </div>
                         <asp:SqlDataSource
@@ -497,7 +498,7 @@
                         </DeleteParameters>
                     </asp:SqlDataSource>
                 </div>
-                <div class="tab-pane fade" id="rooms" role="tabpanel" aria-labelledby="rooms-tab">
+                <div class='<%=stateTab3 %>' id="rooms" role="tabpanel" aria-labelledby="rooms-tab">
                     <ul class="list-group list-group-flush">
 
                         <%-- Living Room --%>
@@ -510,7 +511,7 @@
                                 DataSourceID="srcLivingRoom"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveLiving" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveLiving" CommandName="Update" runat="server" class="mb-2" OnClick="btnSaveTab3_Click">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelLiving" runat="server" SelectedValue='<%# Bind("livingFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -592,7 +593,7 @@
                                 DataSourceID="srcDiningRoom"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveDining" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveDining" CommandName="Update" runat="server" class="mb-2" OnClick="btnSaveTab3_Click">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelDining" runat="server" SelectedValue='<%# Bind("diningFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -623,7 +624,7 @@
                                     </div>
                                     </div>
 
-                                     <div class="card card-body">
+                                     <div class="card card-body mb-2">
                                          <div class="form-check">
                                              <asp:CheckBox ID="chChina" Checked='<%# Bind("chinaPress")%>' Text="Server" runat="server" />
                                          </div>
@@ -646,7 +647,7 @@
                                          </div>
                                      </div>
 
-                                    <div class="card card-body">
+                                    <div class="card card-body mb-2">
                                         <div class="form-check">
                                             <asp:CheckBox ID="chTable" Checked='<%# Bind("diningTable")%>' Text="Table" runat="server" />
                                         </div>
@@ -673,7 +674,7 @@
                                         <asp:CheckBox ID="chPedestal" Checked='<%# Bind("pedastalTable")%>' Text="Table" runat="server" />
                                     </div>
 
-                                    <div class="card card-body">
+                                    <div class="card card-body mb-2">
                                         <div class="row mb-2">
                                             <div class="form-check col">
                                                 <asp:CheckBox ID="chChest" Checked='<%# Bind("silverChest")%>' Text="Silver Chest" runat="server" />
@@ -770,7 +771,7 @@
                                 DataSourceID="srcKitchenRoom"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveKitchen" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveKitchen" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelKitchen" runat="server" SelectedValue='<%# Bind("kitFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -840,7 +841,7 @@
                                 DataSourceID="srcDen"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveDen" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveDen" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelDen" runat="server" SelectedValue='<%# Bind("denFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -923,7 +924,7 @@
                                 DataSourceID="srcOffice"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveOffice" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveOffice" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelLiving" runat="server" SelectedValue='<%# Bind("officeFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -993,7 +994,7 @@
                                 DataSourceID="srcBedroom"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveOffice" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveOffice" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelBedroom" runat="server" SelectedValue='<%# Bind("bedFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -1063,7 +1064,7 @@
                                 DataSourceID="srcAttic"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveOffice" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveOffice" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelBedroom" runat="server" SelectedValue='<%# Bind("atticFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -1137,7 +1138,7 @@
                                 DataSourceID="srcBasement"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveBasement" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveBasement" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelBasement" runat="server" SelectedValue='<%# Bind("baseFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -1220,7 +1221,7 @@
                                 DataSourceID="srcGarage"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSaveGarage" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSaveGarage" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelBasement" runat="server" SelectedValue='<%# Bind("garageFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -1289,7 +1290,7 @@
                                 DataSourceID="srcPatio"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSavePatio" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSavePatio" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelPatio" runat="server" SelectedValue='<%# Bind("patioFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
@@ -1358,7 +1359,7 @@
                                 DataSourceID="srcOut"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="btnSavePatio" CommandName="Update" runat="server" class="mb-2">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSavePatio" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                     <asp:DropDownList ID="ddlLevelPatio" runat="server" SelectedValue='<%# Bind("outBuildingsFloor") %>' class="form-control mb-2">
                                         <asp:ListItem Text="Ground Floor" Value="1"></asp:ListItem>
                                         <asp:ListItem Text="2nd Floor" Value="2"></asp:ListItem>
