@@ -27,7 +27,7 @@
                         <li class="list-group-item">
                             <asp:Label ID="lblCustomerInfo" runat="server" Text="Customer Info" Class="h6"></asp:Label>
                             <div class="row form-group">
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <asp:TextBox ID="txtFirstName" runat="server" Placeholder="First Name" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvFirstName" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName"
@@ -35,14 +35,14 @@
                                     </asp:RequiredFieldValidator>
                                 </div>
 
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <asp:TextBox ID="txtLastName" runat="server" Placeholder="Last Name" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvLastName" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName"
                                         Text="Please Enter A Last Name." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
                                 </div>
-                                <div class=col-md-2>
+                                <div class=col-md-3>
                                 <asp:Button ID="btnCheckUniqueCombo" runat="server" ValidationGroup="CreateCustomer" Text="Check Unique" class="btn btn-outline-primary" OnClick="btnCheckUniqueCombo_Click"/>
                                     <asp:Label ID="lblUnique" runat="server" Text=""></asp:Label>
                                     </div>
