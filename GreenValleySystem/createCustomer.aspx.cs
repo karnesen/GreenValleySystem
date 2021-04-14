@@ -38,10 +38,6 @@ namespace Lab1
 
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            clearPage();
-        }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -58,12 +54,32 @@ namespace Lab1
                 String city = txtCity.Text;
                 String state = ddlState.SelectedValue;
                 String zip = txtZipCode.Text;
-                String initialContact = rdoContact.SelectedItem.ToString();
-                if (initialContact == "Other")
+
+                String initialContact;
+                if (rdoContact.SelectedIndex > 0)
+                {
+                    initialContact = rdoContact.SelectedItem.ToString();
+                }
+                else
+                {
+                    initialContact = "";
+                }
+
+                if (initialContact == "Other" && txtOther.Text!="")
                     initialContact = txtOther.Text;
+
                 String hear = txtHear.Text;
 
-                String serviceStartDate = DateTime.Parse(txtStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+                String serviceStartDate;
+                if (String.IsNullOrEmpty(txtStartDate.Text))
+                {
+                    serviceStartDate = "";
+                }
+                else
+                {
+                    serviceStartDate = DateTime.Parse(txtStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+                }
+
                 DateTime serviceCompletionDate;
                 String completionDate;
                 if (String.IsNullOrEmpty(txtEndDate.Text))
@@ -85,7 +101,9 @@ namespace Lab1
                
                 if(chAppraisal.Checked)
                 {
-
+                    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
+                    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'P', (select max(customerID) from customer), '" + DateTime.Now + "')";
+                    sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '', '')";
                 }
                 if (chMove.Checked)
                 {
@@ -112,7 +130,7 @@ namespace Lab1
 
                 sqlCommand.Parameters.Add(new SqlParameter("@firstName", firstName));
                 sqlCommand.Parameters.Add(new SqlParameter("@lastName", lastName));
-                sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber", firstName));
+                sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber", phoneNumber));
                 sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber2", phoneNumber2));
                 sqlCommand.Parameters.Add(new SqlParameter("@phoneType", phoneType));
                 sqlCommand.Parameters.Add(new SqlParameter("@phoneType2", phoneType2));
@@ -147,7 +165,6 @@ namespace Lab1
                 }
                 sqlConnect.Close();
 
-                clearPage();
                 Response.Redirect("customerProfile.aspx");
 
             }
@@ -161,27 +178,29 @@ namespace Lab1
                 args.IsValid = Convert.ToDateTime(txtStartDate.Text) <= Convert.ToDateTime(txtEndDate.Text);
         }
 
-        protected void btnPopulate_Click(object sender, EventArgs e)
-        {
-            txtFirstName.Text = "James";
-            txtLastName.Text = "Gordon";
-            txtEmail.Text = "gordonJ@gmail.com";
-            txtPhoneNumber.Text = "4109875647";
+        //protected void btnPopulate_Click(object sender, EventArgs e)
+        //{
+        //    txtFirstName.Text = "James";
+        //    txtLastName.Text = "Gordon";
+        //    txtEmail.Text = "gordonJ@gmail.com";
+        //    txtPhoneNumber.Text = "4109875647";
 
-            txtAddress.Text = "738 Dukes Way";
-            txtCity.Text = "Harrisonburg";
-            ddlState.SelectedIndex = 50;
-            txtZipCode.Text = "22801";
+        //    txtAddress.Text = "738 Dukes Way";
+        //    txtCity.Text = "Harrisonburg";
+        //    ddlState.SelectedIndex = 50;
+        //    txtZipCode.Text = "22801";
 
-            rdoContact.SelectedIndex = 1;
-            txtHear.Text = "Online Advertisment";
-        }
+        //    rdoContact.SelectedIndex = 1;
+        //    txtHear.Text = "Online Advertisment";
+        //}
 
         // check to see that the current email does not exist in the system
         protected void cvCheckUniqueCustomer_ServerValidate(object source, ServerValidateEventArgs args)
         {
             String email = txtEmail.Text;
-            String sqlQuery = "Select * from CUSTOMER where email = '" + email + "'";
+            
+            String sqlQuery = "Select email from CUSTOMER where email = @email";
+           
             // Define the connection to the Database:
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
             // Create the SQL Command object which will send the query:
@@ -189,12 +208,18 @@ namespace Lab1
             sqlCommand.Connection = sqlConnect;
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.CommandText = sqlQuery;
+
+            sqlCommand.Parameters.Add(new SqlParameter("@email", email));
             // Open your connection, send the query, retrieve the results:
             sqlConnect.Open();
             SqlDataReader queryResults = sqlCommand.ExecuteReader();
             if (queryResults.HasRows)
             {
                 args.IsValid = false;
+                if (email.Equals(""))
+                {
+                    args.IsValid = true;
+                }
             }
 
             else
@@ -204,30 +229,63 @@ namespace Lab1
             sqlConnect.Close();
         }
 
-        public void clearPage()
+        protected void btnCheckUniqueCombo_Click(object sender, EventArgs e)
         {
-            txtFirstName.Text = "";
-            txtLastName.Text = "";
-            txtEmail.Text = "";
-            txtPhoneNumber.Text = "";
-            txtAddress.Text = "";
-            ddlState.SelectedValue = null;
-            txtCity.Text = "";
-            txtZipCode.Text = "";
-            rdoContact.SelectedIndex = -1;
-            txtOther.Text = "";
-            txtHear.Text = "";
-            rfvOther.Enabled = false;
-        }
- 
-        // If other, make other box required 
-        protected void rdoContact_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (rdoContact.SelectedIndex == 4)
-                rfvOther.Enabled = true;
+            String phone = txtPhoneNumber.Text;
+            String firstName = txtFirstName.Text;
+            String lastNAme = txtLastName.Text;
+
+            String sqlQuery = "Select * from CUSTOMER where firstName=@firstName and lastName=@lastName and phoneNumber=@phone" ;
+           
+            // Define the connection to the Database:
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            // Create the SQL Command object which will send the query:
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+            sqlCommand.Parameters.Add(new SqlParameter("@firstName", firstName));
+            sqlCommand.Parameters.Add(new SqlParameter("@lastName", lastNAme));
+            sqlCommand.Parameters.Add(new SqlParameter("@phone", phone));
+            // Open your connection, send the query, retrieve the results:
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+            if (queryResults.HasRows)
+            {
+                lblUnique.Text = "Not Unique.";
+            }
+
             else
-                rfvOther.Enabled = false;
+            {
+                lblUnique.Text = "Unique.";
+            }
+            sqlConnect.Close();
         }
+
+        //public void clearPage()
+        //{
+        //    txtFirstName.Text = "";
+        //    txtLastName.Text = "";
+        //    txtEmail.Text = "";
+        //    txtPhoneNumber.Text = "";
+        //    txtAddress.Text = "";
+        //    ddlState.SelectedValue = null;
+        //    txtCity.Text = "";
+        //    txtZipCode.Text = "";
+        //    rdoContact.SelectedIndex = -1;
+        //    txtOther.Text = "";
+        //    txtHear.Text = "";
+        //    rfvOther.Enabled = false;
+        //}
+
+        //// If other, make other box required 
+        //protected void rdoContact_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (rdoContact.SelectedIndex == 4)
+        //        rfvOther.Enabled = true;
+        //    else
+        //        rfvOther.Enabled = false;
+        //}
 
     }
 }

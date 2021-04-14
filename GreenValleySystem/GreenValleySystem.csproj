@@ -76,6 +76,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appraisalServiceOrder.aspx" />
     <Content Include="Assign.aspx" />
     <Content Include="auctionAssessment.aspx" />
     <Content Include="AuctionRequest.aspx" />
@@ -108,6 +109,7 @@
     <Content Include="NewAuction.aspx" />
     <Content Include="noteDetails.aspx" />
     <Content Include="phoneNumber.js" />
+    <Content Include="requestAppraisal.aspx" />
     <Content Include="requestAuction.aspx" />
     <Content Include="requestMove.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -237,6 +239,13 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="appraisalServiceOrder.aspx.cs">
+      <DependentUpon>appraisalServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="appraisalServiceOrder.aspx.designer.cs">
+      <DependentUpon>appraisalServiceOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Assign.aspx.cs">
       <DependentUpon>Assign.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -400,6 +409,13 @@
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="requestAppraisal.aspx.cs">
+      <DependentUpon>requestAppraisal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="requestAppraisal.aspx.designer.cs">
+      <DependentUpon>requestAppraisal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="requestAuction.aspx.cs">
       <DependentUpon>requestAuction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

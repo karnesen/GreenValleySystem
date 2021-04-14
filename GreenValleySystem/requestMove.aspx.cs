@@ -78,7 +78,16 @@ namespace GreenValleySystem
             String destState = ddlDestinationState.SelectedValue;
             String destZip = txtDestinationZip.Text;
 
-            String serviceStartDate = DateTime.Parse(txtStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+            String serviceStartDate;
+            if (String.IsNullOrEmpty(txtStartDate.Text))
+            {
+                serviceStartDate = "";
+            }
+            else
+            {
+                serviceStartDate = DateTime.Parse(txtStartDate.Text).ToString("MM/dd/yyyy HH:mm:ss");
+            }
+
             DateTime serviceCompletionDate;
             String completionDate;
             if (String.IsNullOrEmpty(txtEndDate.Text))

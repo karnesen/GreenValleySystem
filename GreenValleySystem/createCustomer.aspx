@@ -6,10 +6,6 @@
     <%--<base href="http://demos.telerik.com/kendo-ui/maskedtextbox/index">--%>
     <title></title>
 
-
-
-
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-bootstrap.min.css" />
@@ -22,7 +18,7 @@
 
     <div class="row  container-fluid">
         <div class="col-6">
-            <div class="card">
+            <div class="card mb-2">
                 <div class="card-header text-center">
                     <asp:Label ID="lblCreateNewCustomer" runat="server" Text="Initial Contact Form" Class="h3 m-2"></asp:Label>
                 </div>
@@ -31,7 +27,7 @@
                         <li class="list-group-item">
                             <asp:Label ID="lblCustomerInfo" runat="server" Text="Customer Info" Class="h6"></asp:Label>
                             <div class="row form-group">
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <asp:TextBox ID="txtFirstName" runat="server" Placeholder="First Name" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvFirstName" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName"
@@ -39,18 +35,22 @@
                                     </asp:RequiredFieldValidator>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <asp:TextBox ID="txtLastName" runat="server" Placeholder="Last Name" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvLastName" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName"
                                         Text="Please Enter A Last Name." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
                                 </div>
+                                <div class=col-md-2>
+                                <asp:Button ID="btnCheckUniqueCombo" runat="server" ValidationGroup="CreateCustomer" Text="Check Unique" class="btn btn-outline-primary" OnClick="btnCheckUniqueCombo_Click"/>
+                                    <asp:Label ID="lblUnique" runat="server" Text=""></asp:Label>
+                                    </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control phone_us" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
 
                                     <script type="text/javascript">
                                         $(document).ready(function () {
@@ -60,10 +60,10 @@
                                             });
                                         });
                                     </script>
-
+                                    
                                     <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
-                                        Text="Please Enter A Phone Number." ValidationGroup="CreateCustomer">
+                                        Text="Phone Required." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
 
                                 </div>
@@ -110,10 +110,10 @@
                                 <%--<asp:RequiredFieldValidator ID="rfvEmail" runat="server"
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                                     Text="Please Enter An Email." ValidationGroup="CreateCustomer">
-                                </asp:RequiredFieldValidator>
+                                </asp:RequiredFieldValidator>--%>
                                 <asp:CustomValidator ID="cvCheckUniqueCustomer" runat="server"
                                     ErrorMessage="CustomValidator" OnServerValidate="cvCheckUniqueCustomer_ServerValidate"
-                                    ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>--%>
+                                    ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>
                             </div>
 
                             <asp:Label ID="lblContactPreference" runat="server" Class="h6" Text="Contact Preference"></asp:Label>
@@ -172,7 +172,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <asp:RadioButtonList ID="rdoContact" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow"
-                                        class="row d-flex justify-content-around form-check form-check-inline" OnSelectedIndexChanged="rdoContact_SelectedIndexChanged">
+                                        class="row d-flex justify-content-around form-check form-check-inline">
                                         <asp:ListItem Class="form-check-input" Text="In Person"></asp:ListItem>
                                         <asp:ListItem Class="form-check-input" Text="Phone"></asp:ListItem>
                                         <asp:ListItem Class="form-check-input" Text="Email"></asp:ListItem>
@@ -244,9 +244,7 @@
 
                     <div class="form-group">
                         <div class="d-flex justify-content-around">
-                            <asp:Button ID="btnClear" runat="server" Text="Clear" class="btn btn-primary  btn-lg" OnClick="btnClear_Click" CausesValidation="false" />
                             <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
-                            <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-primary btn-lg" OnClick="btnPopulate_Click" CausesValidation="false" />
                         </div>
                     </div>
                 </div>

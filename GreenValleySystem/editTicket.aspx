@@ -29,7 +29,7 @@
                         <Fields>
                             <asp:TemplateField HeaderText="Service Type">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblService" runat="server" Text='<%#Eval("serviceType").ToString() == "M" ? "Move" : "Auction"%>'></asp:Label>
+                                    <asp:Label ID="lblService" runat="server" Text='<%#Eval("serviceType").ToString() == "M" ? "Move" : Eval("serviceType").ToString() == "A" ? "Auction" : "Appraisal"%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
