@@ -2612,12 +2612,12 @@ fieldset:disabled a.btn {
         border-color: #dbaa00;
     }
 
-.btn-secondary:focus, .btn-secondary.focus {
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
-  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
-}
+    .btn-secondary:focus, .btn-secondary.focus {
+        color: #fff;
+        background-color: #5a6268;
+        border-color: #545b62;
+        box-shadow: 0 0 0 0.2rem rgba(38, 97, 65, 1);
+    }
 
 .btn-secondary.disabled, .btn-secondary:disabled {
   color: #fff;
