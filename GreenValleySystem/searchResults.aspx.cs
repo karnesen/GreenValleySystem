@@ -125,23 +125,26 @@ namespace Lab3
         }
         protected void gvCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (gvCustomers.SelectedRow.Cells[0].Text == "Customer")
             {
+            }
+            else { 
                 Session["selectedCustomer"] = gvCustomers.SelectedValue.ToString();
                 Session["selectedCustomerName"] = gvCustomers.SelectedRow.Cells[0].Text;
                 Response.Redirect("customerProfile.aspx");
             }
-            catch { }
+            
         }
         protected void gvServiceAddress_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (gvCustomers.SelectedRow.Cells[0].Text == "Customer")
             {
-                Session["selectedCustomer"] = gvServiceAddress.SelectedValue.ToString();
+            }
+            else { 
+            Session["selectedCustomer"] = gvServiceAddress.SelectedValue.ToString();
                 Session["selectedCustomerName"] = gvServiceAddress.SelectedRow.Cells[0].Text;
                 Response.Redirect("customerProfile.aspx");
             }
-            catch { }
         }
     }
 }

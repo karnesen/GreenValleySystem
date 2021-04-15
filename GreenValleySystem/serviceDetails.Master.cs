@@ -22,26 +22,24 @@ namespace GreenValleySystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if((Session["serviceType"].ToString()).Equals("Move"))
+            if (!IsPostBack)
             {
-                lookAt.NavigateUrl = "moveAssessment.aspx";
-                serviceOrder.NavigateUrl = "moveServiceOrder.aspx";
+                if ((Session["serviceType"].ToString()).Equals("Move"))
+                {
+                    lookAt.NavigateUrl = "moveAssessment.aspx";
+                    serviceOrder.NavigateUrl = "moveServiceOrder.aspx";
+                }
+                else if ((Session["serviceType"].ToString()).Equals("Appraisal"))
+                {
+                    lookAt.NavigateUrl = "";
+                    lookAt.Text = "";
+                }
+                else
+                {
+                    lookAt.NavigateUrl = "auctionAssessment.aspx";
+                    serviceOrder.NavigateUrl = "auctionServiceOrder.aspx";
+                }
             }
-            else if((Session["serviceType"].ToString()).Equals("Appraisal"))
-            {
-                lookAt.NavigateUrl = "";
-                lookAt.Text = "";
-                serviceOrder.NavigateUrl = "appraisalServiceOrder.aspx";
-            }
-            else
-            {
-                lookAt.NavigateUrl = "auctionAssessment.aspx";
-                serviceOrder.NavigateUrl = "auctionServiceOrder.aspx"; 
-            }
-            if(!IsPostBack)
-            {
-
-            }    
         }
 
         protected void lvNotes_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -120,5 +118,45 @@ namespace GreenValleySystem
         {
             lvSchedules.DataBind();
         }
+
+        protected void ddlProgress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            srcProgress.Insert();
+            lvHistory.DataBind();
+            fvCurrent.DataBind();
+        }
+
+        //protected void fvProgress_DataBinding(object sender, EventArgs e)
+        //{
+        //    DropDownList ddlProgress = (DropDownList)(sender);
+
+        //    if ((Session["serviceType"].ToString()).Equals("Move"))
+        //    {
+        //        ddlProgress.Items.Add(new ListItem("Contact Information Gathered", "Contact Information Gathered"));
+        //        ddlProgress.Items.Add(new ListItem("Ready To Schedule Assessment", "Ready To Schedule Assessment"));
+        //        ddlProgress.Items.Add(new ListItem("Move Assessment Scheduled","Move Assessment Scheduled"));
+        //        ddlProgress.Items.Add(new ListItem("Initial Estimate Sent", "Initial Estimate Sent"));
+        //        ddlProgress.Items.Add(new ListItem("Waiting for Estimate Response", "Waiting for Estimate Response"));
+        //        ddlProgress.Items.Add(new ListItem("Ready to Schedule Move Service", "Ready to Schedule Move Service"));
+        //        ddlProgress.Items.Add(new ListItem("Move Service Schedule", "Move Service Schedule"));
+        //        ddlProgress.Items.Add(new ListItem("Service Completed", "Service Completed"));
+        //    }
+        //    else if ((Session["serviceType"].ToString()).Equals("Auction"))
+        //    {
+        //        ddlProgress.Items.Add(new ListItem("Contact Information Gathered", "Contact Information Gathered"));
+        //        ddlProgress.Items.Add(new ListItem("Ready to Schedule Assessment", "Ready to Schedule Assessment"));
+        //        ddlProgress.Items.Add(new ListItem("Auction Assessment Scheduled", "Auction Assessment Scheduled"));
+        //        ddlProgress.Items.Add(new ListItem("Present Proposal", "Present Proposal"));
+        //        ddlProgress.Items.Add(new ListItem("Waiting for Proposal Response", "Waiting for Proposal Response"));
+        //        ddlProgress.Items.Add(new ListItem("Ready to Schedule Auction"));
+        //        ddlProgress.Items.Add(new ListItem("Auction Pick Up Scheduled", "Auction Pick Up Scheduled"));
+        //        ddlProgress.Items.Add(new ListItem("Trash Removal Scheduled", "Trash Removal Scheduled"));
+        //        ddlProgress.Items.Add(new ListItem("Items in Storage", "Items in Storage"));
+        //        ddlProgress.Items.Add(new ListItem("Auction Scheduled", "Auction Scheduled"));
+        //        ddlProgress.Items.Add(new ListItem("Service Completed", "Service Completed"));
+        //    }
+
+        //    ddlProgress.SelectedValue = Bind("currentStep");
+        //}
     }
 }

@@ -31,9 +31,15 @@ namespace GreenValleySystem
 
         protected void gvCustomerTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (gvCustomerTickets.SelectedRow.Cells[0].Text == "Service Type")
+            {
+            }
+            else
+            {
                 Session["selectedService"] = gvCustomerTickets.SelectedValue.ToString();
                 Session["serviceType"] = (gvCustomerTickets.SelectedRow.FindControl("lblService") as Label).Text;
                 Response.Redirect("editTicket.aspx");
+            }
         }
 
         protected void lvNotes_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)

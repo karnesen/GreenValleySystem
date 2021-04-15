@@ -613,7 +613,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-check">
-                                                <asp:CheckBox ID="chMirror" Checked='<%# Bind("mirrorBack")%>' Text="Mirror Back" runat="server" />
+                                                <asp:CheckBox ID="chHighValueServer" Checked='<%# Bind("highValueServer")%>' Text="Mirror Back" runat="server" />
                                             </div>
                                         </div>
                                         <div class="col">
@@ -820,7 +820,7 @@
                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
                                 SelectCommand="Select * from moveRooms where serviceID=@serviceID"
                                 UpdateCommand="Update moveRooms set 
-                                kitFloor=@kitFloor, kitSmallBoxes=@kitSmallBoxes, kitMedBoxes=@kitgMedBoxes, kitLargeBoxes=@kitLargeBoxes,
+                                kitFloor=@kitFloor, kitSmallBoxes=@kitSmallBoxes, kitMedBoxes=@kitMedBoxes, kitLargeBoxes=@kitLargeBoxes,
                                 kitWardrobeBoxes=@kitwardrobeboxes, kitartboxes=@kitartboxes 
                                 where serviceID=@serviceID">
                                 <SelectParameters>
@@ -1186,7 +1186,7 @@
                                             <tr>
                                                 <td>Art Boxes</td>
                                                 <td>
-                                                    <asp:TextBox ID="txtArt" runat="server" Text='<%# Bind("bedArtBoxes") %>' class="form-control" TextMode="Number"></asp:TextBox></td>
+                                                    <asp:TextBox ID="txtArt" runat="server" Text='<%# Bind("baseArtBoxes") %>' class="form-control" TextMode="Number"></asp:TextBox></td>
                                             </tr>
                                         </tbody>
                                     </table>

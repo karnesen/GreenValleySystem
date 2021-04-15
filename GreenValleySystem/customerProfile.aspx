@@ -6,110 +6,149 @@
     <div class=" container">
         <div class="row">
             <div class="col-7 mb-2">
-            <div class="card card-body mb-2">
-                <asp:FormView
-                    ID="fvCustomer"
-                    runat="server"
-                    DefaultMode="ReadOnly"
-                    DataSourceID="srcCustomer">
-                    <ItemTemplate>
-                        <ul class="list-group list-group-flush">
-                            <div class="text-center">
-                                <asp:Label ID="lblFirstName" runat="server" Class="h2"
-                                    Text='<%# Eval("firstName") + " " %>'></asp:Label>
+                <div class="card card-body mb-2">
+                    <asp:FormView
+                        ID="fvCustomer"
+                        runat="server"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcCustomer">
+                        <ItemTemplate>
+                            <ul class="list-group list-group-flush">
+                                <div class="text-center">
+                                    <asp:Label ID="lblFirstName" runat="server" Class="h2"
+                                        Text='<%# Eval("firstName") + " " %>'></asp:Label>
 
-                                <asp:Label ID="lblLastName" runat="server" Class="h2"
-                                    Text='<%# Bind("lastName") %>'></asp:Label>
-                            </div>
+                                    <asp:Label ID="lblLastName" runat="server" Class="h2"
+                                        Text='<%# Bind("lastName") %>'></asp:Label>
+                                </div>
 
-                            <li class="list-group-item">
-                                <h5>Contact Information</h5>
+                                <li class="list-group-item">
+                                    <h5>Contact Information</h5>
+                                    <div class="row">
+                                        <div class="col">
+                                            <i class="fas fa-phone"></i>
+                                            <asp:Label ID="lblPhoneType" runat="server" Text='<%# Bind("phoneType") %>'></asp:Label>
+                                            <br />
+                                            <asp:Label ID="lblPhoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>'></asp:Label>
+                                            <br />
+                                            <br />
+                                        </div>
+                                        <div class="col">
+                                            <i class="fas fa-phone"></i>
+                                            <asp:Label ID="lblPhoneType2" runat="server" Text='<%# Bind("phoneType2") %>'></asp:Label>
+                                            <br />
+                                            <asp:Label ID="lbllblPhoneNumber2" runat="server" Text='<%# Bind("altPhoneNumber") %>'></asp:Label>
+                                            <br />
+                                            <br />
+                                        </div>
+                                    </div>
 
-                                <asp:Label ID="lblPhoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>'></asp:Label>
-                                <asp:Label ID="lblPhoneType" runat="server" Text='<%# Bind("phoneType") %>'></asp:Label>
-                                <br />
-                                <asp:Label ID="lbllblPhoneNumber2" runat="server" Text='<%# Bind("altPhoneNumber") %>'></asp:Label>
-                                <asp:Label ID="lblPhoneType2" runat="server" Text='<%# Bind("phoneType2") %>'></asp:Label>
-                                <br />
 
-                                <asp:Label ID="lblEmail" runat="server"
-                                    Text='<%# Bind("email") %>'></asp:Label>
 
-                                Contact Preferences: 
+
+                                    <i class="fas fa-envelope-square"></i>
+                                    <asp:Label ID="lblEmail" runat="server"
+                                        Text='<%# Bind("email") %>'></asp:Label>
+
+                                    <br />
+                                    <br />
+                                    Contact Preferences: 
                                 <asp:Label ID="lblHomePref" runat="server" Text='<%# (Eval("prefHome").ToString() == "True") ? "Home " : ""  %>'></asp:Label>
-                                <asp:Label ID="lblMobilePref" runat="server" Text='<%# (Eval("prefMobile").ToString() == "True") ? "Mobile " : ""  %>'></asp:Label>
-                                <asp:Label ID="lblEmailPref" runat="server" Text='<%# (Eval("prefEmail").ToString() == "True") ? "Email " : ""  %>'></asp:Label>
-                                <asp:Label ID="lblTextPref" runat="server" Text='<%# (Eval("prefText").ToString() == "True") ? "Text " : ""  %>'></asp:Label>
-                            </li>
+                                    <asp:Label ID="lblMobilePref" runat="server" Text='<%# (Eval("prefMobile").ToString() == "True") ? "Mobile " : ""  %>'></asp:Label>
+                                    <asp:Label ID="lblEmailPref" runat="server" Text='<%# (Eval("prefEmail").ToString() == "True") ? "Email " : ""  %>'></asp:Label>
+                                    <asp:Label ID="lblTextPref" runat="server" Text='<%# (Eval("prefText").ToString() == "True") ? "Text " : ""  %>'></asp:Label>
+                                </li>
 
-                            <li class="list-group-item">
-                                <h5>Customer Address</h5>
-                                <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>, 
+                                <li class="list-group-item">
+                                    <h5>Customer Address</h5>
+                                    <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>, 
                                 <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
-                                <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
-                                <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
-                            </li>
+                                    <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
+                                    <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
+                                </li>
 
-                            <li class="list-group-item">
-                                <asp:Label ID="lblInitialContact" runat="server"
-                                    Text='<%#"Initial Contact Type: " +  Eval("initialContactType") %>'></asp:Label>
-                                <br />
-                                <asp:Label ID="lblHearAbout" runat="server"
-                                    Text='<%# "Hear about us: " + Eval("hearAbout") %>'></asp:Label>
-                                <br />
-                                <asp:Label ID="lblInitialContactDate" runat="server"
-                                    Text='<%#"Initial Contact Date " + (DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
-                            </li>
+                                <li class="list-group-item">
+                                    <table class="table table-borderless table-responsive">
+                                        <tr>
+                                            <td>
+                                                <td>Initial Contact Type</td>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblInitialContact" runat="server" Text='<%#Eval("initialContactType") %>'></asp:Label>
+                                            </td>
+                                        </tr>
 
-                            <asp:Label ID="lblLastUpdated" runat="server" Font-Italic="true"
-                                Text='<%#"Last Updated " + (DateTime.Parse(Eval("lastUpdated").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
-                            <asp:LinkButton ID="btnSave" CommandName="Edit" runat="server">Edit</asp:LinkButton>
-                        </ul>
+                                        <tr>
+                                            <td>
+                                                <td>Hear About Us</td>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblHearAbout" runat="server" Text='<%# Eval("hearAbout") %>'></asp:Label>
+                                            </td>
+                                        </tr>
 
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <ul class="list-group list-group-flush">
-                            <div class="row">
-                                <div class="col-6">
-                            <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("firstName") %>' class="form-control"></asp:TextBox>
+                                        <tr>
+                                            <td>
+                                                <td>Initial Contact Date</td>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblInitialContactDate" runat="server" Text='<%#(DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+
+
+                                <asp:Label ID="lblLastUpdated" runat="server" Font-Italic="true"
+                                    Text='<%#"Last Updated " + (DateTime.Parse(Eval("lastUpdated").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
+                                <asp:LinkButton ID="btnSave" CommandName="Edit" runat="server">Edit</asp:LinkButton>
+                            </ul>
+
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <ul class="list-group list-group-flush">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("firstName") %>' class="form-control"></asp:TextBox>
                                     </div>
-                                <div class="col-6">
-                            <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("lastName") %>' class="form-control"></asp:TextBox>
-                                    </div>
-                                </div>
-
-                            <li class="list-group-item">
-                                <h6>Contact Information</h6>
-
-                                <div class="row form-group">
-                                    <div class="col-md-9">
-                                        <asp:TextBox ID="txtphoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("phoneNumber") %>'></asp:TextBox>
-                                        <br />
-                                        <asp:TextBox ID="txtAltPhoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("altPhoneNumber") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-3">
-                                        
-                                        <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType") %>'>
-                                            <asp:ListItem></asp:ListItem>
-                                            <asp:ListItem>Home</asp:ListItem>
-                                            <asp:ListItem>Cell</asp:ListItem>
-                                            <asp:ListItem>Work</asp:ListItem>
-                                        </asp:DropDownList>
-                                        <br />
-                                        <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType2") %>'>
-                                            <asp:ListItem></asp:ListItem>
-                                            <asp:ListItem>Home</asp:ListItem>
-                                            <asp:ListItem>Cell</asp:ListItem>
-                                            <asp:ListItem>Work</asp:ListItem>
-                                        </asp:DropDownList>
+                                    <div class="col-6">
+                                        <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("lastName") %>' class="form-control"></asp:TextBox>
                                     </div>
                                 </div>
 
-                                <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("email") %>' class="form-control" TextMode="Email" Placeholder="Email"></asp:TextBox>
+                                <li class="list-group-item">
+                                    <h6>Contact Information</h6>
 
-                                <br />
+                                    <div class="row form-group">
+                                        <div class="col-md-9">
+                                            <asp:TextBox ID="txtphoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("phoneNumber") %>'></asp:TextBox>
+                                            <br />
+                                            <asp:TextBox ID="txtAltPhoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("altPhoneNumber") %>'></asp:TextBox>
+                                        </div>
+                                        <div class="col-md-3">
 
-                                Contact Preference
+                                            <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType") %>'>
+                                                <asp:ListItem></asp:ListItem>
+                                                <asp:ListItem>Home</asp:ListItem>
+                                                <asp:ListItem>Cell</asp:ListItem>
+                                                <asp:ListItem>Work</asp:ListItem>
+                                            </asp:DropDownList>
+                                            <br />
+                                            <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType2") %>'>
+                                                <asp:ListItem></asp:ListItem>
+                                                <asp:ListItem>Home</asp:ListItem>
+                                                <asp:ListItem>Cell</asp:ListItem>
+                                                <asp:ListItem>Work</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("email") %>' class="form-control" TextMode="Email" Placeholder="Email"></asp:TextBox>
+
+                                    <br />
+
+                                    Contact Preference
                                 <div class="row form-group justify-content-around">
                                     <div class="form-check">
                                         <asp:CheckBox ID="chHome" Text="Home" Checked='<%# Bind("prefHome") %>' runat="server" />
@@ -124,129 +163,119 @@
                                         <asp:CheckBox ID="chEmail" Text="Email" Checked='<%# Bind("prefEmail") %>' runat="server" />
                                     </div>
                                 </div>
-                            </li>
+                                </li>
 
-                            <li class="list-group-item">
-                                <h6>Customer Address</h6>
-                                <div class="form-group">
-                                    <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("streetAddress") %>' class="form-control" Placeholder="Address"></asp:TextBox>
+                                <li class="list-group-item">
+                                    <h6>Customer Address</h6>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("streetAddress") %>' class="form-control" Placeholder="Address"></asp:TextBox>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control" Placeholder="City"></asp:TextBox>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
+                                                <asp:ListItem Value="AL">AL</asp:ListItem>
+                                                <asp:ListItem Value="AK">AK</asp:ListItem>
+                                                <asp:ListItem Value="AZ">AZ</asp:ListItem>
+                                                <asp:ListItem Value="AR">AR</asp:ListItem>
+                                                <asp:ListItem Value="CA">CA</asp:ListItem>
+                                                <asp:ListItem Value="CO">CO</asp:ListItem>
+                                                <asp:ListItem Value="CT">CT</asp:ListItem>
+                                                <asp:ListItem Value="DC">DC</asp:ListItem>
+                                                <asp:ListItem Value="DE">DE</asp:ListItem>
+                                                <asp:ListItem Value="FL">FL</asp:ListItem>
+                                                <asp:ListItem Value="GA">GA</asp:ListItem>
+                                                <asp:ListItem Value="HI">HI</asp:ListItem>
+                                                <asp:ListItem Value="ID">ID</asp:ListItem>
+                                                <asp:ListItem Value="IL">IL</asp:ListItem>
+                                                <asp:ListItem Value="IN">IN</asp:ListItem>
+                                                <asp:ListItem Value="IA">IA</asp:ListItem>
+                                                <asp:ListItem Value="KS">KS</asp:ListItem>
+                                                <asp:ListItem Value="KY">KY</asp:ListItem>
+                                                <asp:ListItem Value="LA">LA</asp:ListItem>
+                                                <asp:ListItem Value="ME">ME</asp:ListItem>
+                                                <asp:ListItem Value="MD">MD</asp:ListItem>
+                                                <asp:ListItem Value="MA">MA</asp:ListItem>
+                                                <asp:ListItem Value="MI">MI</asp:ListItem>
+                                                <asp:ListItem Value="MN">MN</asp:ListItem>
+                                                <asp:ListItem Value="MS">MS</asp:ListItem>
+                                                <asp:ListItem Value="MO">MO</asp:ListItem>
+                                                <asp:ListItem Value="MT">MT</asp:ListItem>
+                                                <asp:ListItem Value="NE">NE</asp:ListItem>
+                                                <asp:ListItem Value="NV">NV</asp:ListItem>
+                                                <asp:ListItem Value="NH">NH</asp:ListItem>
+                                                <asp:ListItem Value="NJ">NJ</asp:ListItem>
+                                                <asp:ListItem Value="NM">NM</asp:ListItem>
+                                                <asp:ListItem Value="NY">NY</asp:ListItem>
+                                                <asp:ListItem Value="NC">NC</asp:ListItem>
+                                                <asp:ListItem Value="ND">ND</asp:ListItem>
+                                                <asp:ListItem Value="OH">OH</asp:ListItem>
+                                                <asp:ListItem Value="OK">OK</asp:ListItem>
+                                                <asp:ListItem Value="OR">OR</asp:ListItem>
+                                                <asp:ListItem Value="PA">PA</asp:ListItem>
+                                                <asp:ListItem Value="RI">RI</asp:ListItem>
+                                                <asp:ListItem Value="SC">SC</asp:ListItem>
+                                                <asp:ListItem Value="SD">SD</asp:ListItem>
+                                                <asp:ListItem Value="TN">TN</asp:ListItem>
+                                                <asp:ListItem Value="TX">TX</asp:ListItem>
+                                                <asp:ListItem Value="UT">UT</asp:ListItem>
+                                                <asp:ListItem Value="VT">VT</asp:ListItem>
+                                                <asp:ListItem Value="VA">VA</asp:ListItem>
+                                                <asp:ListItem Value="WA">WA</asp:ListItem>
+                                                <asp:ListItem Value="WV">WV</asp:ListItem>
+                                                <asp:ListItem Value="WI">WI</asp:ListItem>
+                                                <asp:ListItem Value="WY">WY</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("zipcode") %>' class="form-control" Placeholder="Zip"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <asp:Label ID="lblInitialContact" runat="server"
+                                        Text='<%# "Initial Contact Type: " + Eval("initialContactType") %>'></asp:Label>
+                                    <br />
+                                    <div class="row">
+                                        <asp:TextBox ID="txtHearAbout" runat="server" Text='<%# Bind("hearAbout") %>' class="form-control" Placeholder="How did they hear about us?"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                    <asp:Label ID="lblInitialContactDate" runat="server" Text='<%# "Initial Contact Date: " + (DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
+                                </li>
+                                <div class="row justify-content-around">
+                                    <asp:LinkButton ID="btnCancel" CommandName="Cancel" runat="server">Cancel</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
                                 </div>
+                            </ul>
+                        </EditItemTemplate>
+                    </asp:FormView>
 
-                                <div class="row form-group">
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control" Placeholder="City"></asp:TextBox>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
-                                            <asp:ListItem Value="AL">AL</asp:ListItem>
-                                            <asp:ListItem Value="AK">AK</asp:ListItem>
-                                            <asp:ListItem Value="AZ">AZ</asp:ListItem>
-                                            <asp:ListItem Value="AR">AR</asp:ListItem>
-                                            <asp:ListItem Value="CA">CA</asp:ListItem>
-                                            <asp:ListItem Value="CO">CO</asp:ListItem>
-                                            <asp:ListItem Value="CT">CT</asp:ListItem>
-                                            <asp:ListItem Value="DC">DC</asp:ListItem>
-                                            <asp:ListItem Value="DE">DE</asp:ListItem>
-                                            <asp:ListItem Value="FL">FL</asp:ListItem>
-                                            <asp:ListItem Value="GA">GA</asp:ListItem>
-                                            <asp:ListItem Value="HI">HI</asp:ListItem>
-                                            <asp:ListItem Value="ID">ID</asp:ListItem>
-                                            <asp:ListItem Value="IL">IL</asp:ListItem>
-                                            <asp:ListItem Value="IN">IN</asp:ListItem>
-                                            <asp:ListItem Value="IA">IA</asp:ListItem>
-                                            <asp:ListItem Value="KS">KS</asp:ListItem>
-                                            <asp:ListItem Value="KY">KY</asp:ListItem>
-                                            <asp:ListItem Value="LA">LA</asp:ListItem>
-                                            <asp:ListItem Value="ME">ME</asp:ListItem>
-                                            <asp:ListItem Value="MD">MD</asp:ListItem>
-                                            <asp:ListItem Value="MA">MA</asp:ListItem>
-                                            <asp:ListItem Value="MI">MI</asp:ListItem>
-                                            <asp:ListItem Value="MN">MN</asp:ListItem>
-                                            <asp:ListItem Value="MS">MS</asp:ListItem>
-                                            <asp:ListItem Value="MO">MO</asp:ListItem>
-                                            <asp:ListItem Value="MT">MT</asp:ListItem>
-                                            <asp:ListItem Value="NE">NE</asp:ListItem>
-                                            <asp:ListItem Value="NV">NV</asp:ListItem>
-                                            <asp:ListItem Value="NH">NH</asp:ListItem>
-                                            <asp:ListItem Value="NJ">NJ</asp:ListItem>
-                                            <asp:ListItem Value="NM">NM</asp:ListItem>
-                                            <asp:ListItem Value="NY">NY</asp:ListItem>
-                                            <asp:ListItem Value="NC">NC</asp:ListItem>
-                                            <asp:ListItem Value="ND">ND</asp:ListItem>
-                                            <asp:ListItem Value="OH">OH</asp:ListItem>
-                                            <asp:ListItem Value="OK">OK</asp:ListItem>
-                                            <asp:ListItem Value="OR">OR</asp:ListItem>
-                                            <asp:ListItem Value="PA">PA</asp:ListItem>
-                                            <asp:ListItem Value="RI">RI</asp:ListItem>
-                                            <asp:ListItem Value="SC">SC</asp:ListItem>
-                                            <asp:ListItem Value="SD">SD</asp:ListItem>
-                                            <asp:ListItem Value="TN">TN</asp:ListItem>
-                                            <asp:ListItem Value="TX">TX</asp:ListItem>
-                                            <asp:ListItem Value="UT">UT</asp:ListItem>
-                                            <asp:ListItem Value="VT">VT</asp:ListItem>
-                                            <asp:ListItem Value="VA">VA</asp:ListItem>
-                                            <asp:ListItem Value="WA">WA</asp:ListItem>
-                                            <asp:ListItem Value="WV">WV</asp:ListItem>
-                                            <asp:ListItem Value="WI">WI</asp:ListItem>
-                                            <asp:ListItem Value="WY">WY</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("zipcode") %>' class="form-control" Placeholder="Zip"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="list-group-item">
-                                <asp:Label ID="lblInitialContact" runat="server"
-                                    Text='<%# "Initial Contact Type: " + Eval("initialContactType") %>'></asp:Label>
-                                <br />
-                                <div class="row">
-                                <asp:TextBox ID="txtHearAbout" runat="server" Text='<%# Bind("hearAbout") %>' class="form-control" Placeholder="How did they hear about us?"></asp:TextBox>
-                                    </div>
-                                <br />
-                                <asp:Label ID="lblInitialContactDate" runat="server" Text='<%# "Initial Contact Date: " + (DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>
-                            </li>
-                            <div class="row justify-content-around">
-                            <asp:LinkButton ID="btnCancel" CommandName="Cancel" runat="server">Cancel</asp:LinkButton>
-                            <asp:LinkButton ID="btnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
-                                </div>
-                        </ul>
-                    </EditItemTemplate>
-                </asp:FormView>
-
-                <asp:SqlDataSource
-                    ID="srcCustomer"
-                    runat="server"
-                    ConnectionString="<%$ ConnectionStrings:Connect %>"
-                    SelectCommand="Select * from Customer where customerID =  @selectedCustomer"
-                    UpdateCommand="Update Customer SET firstName = @firstName, lastName=@lastName, phoneNumber=@phoneNumber, phoneType=@phoneType, altPhoneNumber=@altPhoneNumber, phoneType2=@phoneType2, email=@email, 
+                    <asp:SqlDataSource
+                        ID="srcCustomer"
+                        runat="server"
+                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                        SelectCommand="Select * from Customer where customerID =  @selectedCustomer"
+                        UpdateCommand="Update Customer SET firstName = @firstName, lastName=@lastName, phoneNumber=@phoneNumber, phoneType=@phoneType, altPhoneNumber=@altPhoneNumber, phoneType2=@phoneType2, email=@email, 
                     prefMobile=@prefMobile, prefHome=@prefHome, prefText=@prefText, prefEmail=@prefEmail,
                     streetAddress=@streetAddress, city=@city, state=@state, zipcode=@zipcode, hearAbout=@hearAbout,
                     lastUpdated=getDate() where customerID=@selectedCustomer">
-                    <SelectParameters>
-                        <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
-                    </SelectParameters>
-                    <UpdateParameters>
-                        <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
-                    </UpdateParameters>
-                </asp:SqlDataSource>
+                        <SelectParameters>
+                            <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
+                        </SelectParameters>
+                        <UpdateParameters>
+                            <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
+                        </UpdateParameters>
+                    </asp:SqlDataSource>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <asp:Button ID="btnNewMove" runat="server" Text="New Move" OnClick="btnNewMove_Click" class="btn btn-primary btn-block" />
-                    </div>
-                    <div class="col">
-                        <asp:Button ID="btnNewAuction" runat="server" Text="New Auction" OnClick="btnNewAuction_Click" class="btn btn-primary btn-block col" />
-                    </div>
-                    <div class="col">
-                        <asp:Button ID="btnNewAppraisal" runat="server" Text="New Appraisal" OnClick="btnNewAppraisal_Click" class="btn btn-primary btn-block col" />
-                    </div>
-                </div>
-            
-                </div>
+
+
+            </div>
 
             <div class="col-5">
 
@@ -336,10 +365,11 @@
                     </div>
                 </div>
 
-
-                <br />
-
+                <asp:Button ID="btnNewMove" runat="server" Text="New Move" OnClick="btnNewMove_Click" class="btn btn-primary btn-block" />
+                <asp:Button ID="btnNewAuction" runat="server" Text="New Auction" OnClick="btnNewAuction_Click" class="btn btn-primary btn-block" />
+                <asp:Button ID="btnNewAppraisal" runat="server" Text="New Appraisal" OnClick="btnNewAppraisal_Click" class="btn btn-primary btn-block" />
             </div>
+
 
         </div>
 

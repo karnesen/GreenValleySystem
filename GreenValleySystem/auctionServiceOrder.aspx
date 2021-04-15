@@ -454,7 +454,7 @@
                         No Auction Date Set.
                     </EmptyItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="txtAuctionDate" Text='<%# Bind("confirmedDate", "{0:yyyy-MM-ddTHH:mm}") %>' runat="server" class="form-control"></asp:Label>
+                        <asp:Label ID="txtAuctionDate" Text='<%# Bind("confirmedDate") %>' runat="server" class="form-control"></asp:Label>
                     </ItemTemplate>
                 </asp:ListView>
 
@@ -462,7 +462,7 @@
                     ID="srcDate"
                     runat="server"
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
-                    SelectCommand="Select FORMAT(confirmedDate, 'g') from schedule where serviceID=@serviceID and description='Auction'">
+                    SelectCommand="Select FORMAT(confirmedDate, 'g') as confirmedDate from schedule where serviceID=@serviceID and description='Auction'">
                     <SelectParameters>
                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                     </SelectParameters>

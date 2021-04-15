@@ -33,7 +33,7 @@
                                  <asp:Label ID="Label2" runat="server" Text="Password" class="sr-only"></asp:Label>
                         <asp:TextBox ID="txtPassword" runat="server" class="form-control" PlaceHolder="Password" TextMode="Password"></asp:TextBox>
                             </div>
-                             <asp:Button ID="btnLogin" runat="server" Class="btn btn-primary btn-block mb-3" Text="Log in" OnClick="btnLogin_Click"/>
+                             <asp:Button ID="btnLogin" runat="server" class="btn btn-primary btn-block mb-3" Text="Log in" OnClick="btnLogin_Click"/>
                              <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
                         </form>
                     </div>
