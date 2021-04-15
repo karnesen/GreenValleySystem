@@ -46,12 +46,12 @@
                                     </SelectParameters>
                                 </asp:SqlDataSource>
 
-
+                                
                                 <asp:DropDownList ID="ddlProgress" Class="form-control" runat="server" DataSourceID="srcProgress" DataTextField="serviceEvent"
                                     DataValueField="eventID">
                                     <asp:ListItem Value="Contact Information Gathered" Text="Contact Information Gathered"></asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:Button ID="btnSave" OnClick="ddlProgress_SelectedIndexChanged" runat="server" Text="Save" Class="btn btn-outline-primary btn-block" />
+                                <asp:Button ID="btnSave" OnClick="ddlProgress_SelectedIndexChanged" runat="server" Text="Save" Class="form-control" />
 
                                 <asp:SqlDataSource
                                     ID="srcProgress"
@@ -69,6 +69,7 @@
 
                                 </asp:SqlDataSource>
 
+                                <h5>Progress History</h5>
                                 <asp:ListView
                                     ID="lvHistory"
                                     runat="server"
@@ -77,7 +78,7 @@
                                         <div runat="server" id="itemPlaceholder" />
                                     </LayoutTemplate>
                                     <ItemTemplate>
-                                        <asp:Label ID="lblHistory" runat="server" Text='<%# Bind("serviceEvent") %>' class="disabled"></asp:Label>
+                                        <asp:Label ID="lblHistory" runat="server" Text='<%# Bind("serviceEvent") %>' class="fw-lighter"></asp:Label>
                                         <br />
                                     </ItemTemplate>
                                 </asp:ListView>

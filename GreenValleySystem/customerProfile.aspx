@@ -397,9 +397,10 @@
                         <asp:Label ID="lblStatus" runat="server" Text='<%#(Eval("serviceStatus").ToString()) == "True" ? "Active" : "Inactive"%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Progress">
                     <ItemTemplate>
-                        Next Task: Schedule Look-At
+                        <asp:Label ID="lblProgress" runat="server" Text='<%#(Eval("serviceEvent").ToString())%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -409,7 +410,12 @@
             ID="srcServices"
             runat="server"
             ConnectionString="<%$ ConnectionStrings:Connect %>"
-            SelectCommand="Select serviceStatus, serviceType, serviceOpenDate, serviceID from Service where customerID=@selectedCustomer order by serviceStatus desc, serviceOpenDate asc">
+            SelectCommand="Select serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent
+                from Service inner join ServiceHistory on service.serviceID = servicehistory.serviceID
+            inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 
+            where service.customerID=@selectedCustomer and 
+			serviceHistory.stepID IN (select max(stepID) from serviceHistory inner join service on serviceHistory.serviceID=service.serviceID where service.customerID = @selectedCustomer)  
+			order by serviceStatus desc, serviceOpenDate asc">
             <SelectParameters>
                 <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
             </SelectParameters>

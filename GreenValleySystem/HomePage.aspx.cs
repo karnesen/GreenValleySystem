@@ -27,6 +27,28 @@ namespace Lab2
             }
         }
 
+        protected void gvCustomer_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvCustomerTickets, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["style"] = "cursor:pointer";
+            }
+        }
+        protected void gvCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (gvCustomerTickets.SelectedRow.Cells[0].Text == "Customer")
+            {
+            }
+            else
+            {
+                Session["selectedCustomer"] = gvCustomerTickets.SelectedValue.ToString();
+                Session["selectedCustomerName"] = gvCustomerTickets.SelectedRow.Cells[0].Text;
+                Response.Redirect("customerProfile.aspx");
+            }
+
+        }
+
         //private void GetData()
         //{
         //    DataTable dt = new DataTable();
@@ -65,6 +87,6 @@ namespace Lab2
         //    Session["selectedService"] = gvWork.SelectedValue.ToString();
         //    Response.Redirect("editTicket.aspx", false);
         //}
-        
+
     }
 }
