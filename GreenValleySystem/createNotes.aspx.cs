@@ -18,7 +18,7 @@ namespace Lab2
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to create a new note.";
-                Response.Redirect("LoginPage.aspx");
+                Response.Redirect("login.aspx");
             }
 
           

@@ -16,6 +16,12 @@ namespace Lab1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to add inventory.";
+                Response.Redirect("login.aspx");
+            }
+
             if (!Page.IsPostBack)
             {
                 fillServices();
