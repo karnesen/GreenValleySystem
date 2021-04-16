@@ -42,15 +42,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtAuctionAddress;
 
         /// <summary>
-        /// rfvAuctionAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionAddress;
-
-        /// <summary>
         /// txtAuctionCity control.
         /// </summary>
         /// <remarks>
@@ -58,15 +49,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAuctionCity;
-
-        /// <summary>
-        /// rfvAuctionCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionCity;
 
         /// <summary>
         /// ddlAuctionState control.
@@ -78,15 +60,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.DropDownList ddlAuctionState;
 
         /// <summary>
-        /// rfvAuctionState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionState;
-
-        /// <summary>
         /// txtAuctionZip control.
         /// </summary>
         /// <remarks>
@@ -94,15 +67,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAuctionZip;
-
-        /// <summary>
-        /// rfvAuctionZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAuctionZip;
 
         /// <summary>
         /// Label1 control.
@@ -130,15 +94,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAuctionStartDate;
-
-        /// <summary>
-        /// rfvStartDateAuction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStartDateAuction;
 
         /// <summary>
         /// lblAuctionEndDate control.

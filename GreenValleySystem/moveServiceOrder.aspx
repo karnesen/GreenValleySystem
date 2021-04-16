@@ -77,7 +77,7 @@
                 <asp:FormView
                     ID="fvPacking"
                     runat="server"
-                    DataSourceID="srcPickup"
+                    DataSourceID="srcPacking"
                     DefaultMode="Edit">
                     <EditItemTemplate>
                         <div class="table-responsive">
@@ -123,6 +123,13 @@
                         <div class="col">
                             <asp:Button ID="btnAddtoPickup" runat="server" Text="Add" OnClick="btnAddtoPickup_Click" class="btn btn-primary" />
                         </div>
+
+                        <asp:SqlDataSource
+                        ID="srcAllEmployees"
+                        runat="server"
+                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                        SelectCommand="Select employeeID, firstName + ' ' + lastName as employeeName from Employee where currentEmployee=1"></asp:SqlDataSource>
+
                     </div>
 
                     <div class="row col-6">
@@ -200,7 +207,7 @@
 
                         <div class="mb-2 form-group form-row">
                             <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
-                            <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDes")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
                         </div>
                         <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
                     </EditItemTemplate>
@@ -210,7 +217,7 @@
                     ID="srcService"
                     runat="server"
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
-                    SelectCommand="Select * from moveAssessment  where moveAssessment.serviceID = @serviceID and moveAssessment.trashRemoval=1"
+                    SelectCommand="Select * from moveAssessment  where moveAssessment.serviceID = @serviceID and moveAssessment.trash=1"
                     UpdateCommand="Update moveAssessment set dumpster = @dumpster, men=@men trash=@trash, trashdesc=@trashdesc where serviceID=@serviceID">
                     <SelectParameters>
                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />

@@ -21,7 +21,7 @@ namespace GreenValleySystem
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblCustomer.Text = Session["selectedCustomerName"].ToString();
+            lblCustomer.Text = Session["selectedCustomerName"].ToString() + " Auction Request";
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to create a new auction.";

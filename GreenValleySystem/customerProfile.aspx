@@ -414,7 +414,7 @@
                 from Service inner join ServiceHistory on service.serviceID = servicehistory.serviceID
             inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 
             where service.customerID=@selectedCustomer and 
-			serviceHistory.stepID IN (select max(stepID) from serviceHistory inner join service on serviceHistory.serviceID=service.serviceID where service.customerID = @selectedCustomer)  
+			serviceHistory.stepID IN (select max(stepID) from serviceHistory inner join service on serviceHistory.serviceID=service.serviceID where service.customerID = @selectedCustomer group by service.serviceID)  
 			order by serviceStatus desc, serviceOpenDate asc">
             <SelectParameters>
                 <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />

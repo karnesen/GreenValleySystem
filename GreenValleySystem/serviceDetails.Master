@@ -169,10 +169,12 @@
                                         ConnectionString="<%$ ConnectionStrings:Connect %>"
                                         UpdateCommand="Update TicketNote set noteText=@noteText where ticketID=@ticketID"
                                         SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
-                            FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID WHERE TICKETNOTE.serviceID = @serviceID order by TICKETNOTE.creationDate desc"
+                                FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID Left Join service on ticketNote.serviceID = service.serviceID WHERE TicketNote.customerID = @selectedCustomer OR service.customerID = @selectedCustomer 
+                                order by TICKETNOTE.creationDate desc"
                                         runat="server">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                            <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>

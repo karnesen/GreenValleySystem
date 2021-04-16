@@ -24,6 +24,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.LinkButton lnkButtonReturn;
 
         /// <summary>
+        /// lblCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomer;
+
+        /// <summary>
         /// txtServiceAddress control.
         /// </summary>
         /// <remarks>
@@ -31,15 +40,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtServiceAddress;
-
-        /// <summary>
-        /// rfvServiceAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceAddress;
 
         /// <summary>
         /// txtServiceCity control.
@@ -51,15 +51,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtServiceCity;
 
         /// <summary>
-        /// rfvServiceCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceCity;
-
-        /// <summary>
         /// ddlServiceState control.
         /// </summary>
         /// <remarks>
@@ -67,15 +58,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlServiceState;
-
-        /// <summary>
-        /// rfvServiceState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceState;
 
         /// <summary>
         /// txtServiceZip control.
@@ -87,15 +69,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtServiceZip;
 
         /// <summary>
-        /// rfvServiceZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceZip;
-
-        /// <summary>
         /// txtDestinationAddress control.
         /// </summary>
         /// <remarks>
@@ -103,15 +76,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDestinationAddress;
-
-        /// <summary>
-        /// rfvDestAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDestAddress;
 
         /// <summary>
         /// txtDestinationCity control.
@@ -123,15 +87,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtDestinationCity;
 
         /// <summary>
-        /// rfvDestinationCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDestinationCity;
-
-        /// <summary>
         /// ddlDestinationState control.
         /// </summary>
         /// <remarks>
@@ -141,15 +96,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.DropDownList ddlDestinationState;
 
         /// <summary>
-        /// rfvDestinationState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDestinationState;
-
-        /// <summary>
         /// txtDestinationZip control.
         /// </summary>
         /// <remarks>
@@ -157,15 +103,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDestinationZip;
-
-        /// <summary>
-        /// rfvDestinationZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDestinationZip;
 
         /// <summary>
         /// lblserviceDeadline control.
@@ -193,15 +130,6 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStartDate;
-
-        /// <summary>
-        /// rfvStartDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStartDate;
 
         /// <summary>
         /// lblEndDate control.

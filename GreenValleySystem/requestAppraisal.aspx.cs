@@ -20,7 +20,8 @@ namespace GreenValleySystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["username"] == null)
+            lblCustomer.Text = Session["selectedCustomerName"].ToString() + " Appraisal Request";
+            if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to create a new service.";
                 Response.Redirect("login.aspx");
@@ -66,15 +67,15 @@ namespace GreenValleySystem
                 String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID) " +
                     "VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'P', " + customerID + " )";
                 sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '0', '')";
-                sqlQuery += " INSERT INTO TICKETNOTE (creationDate, serviceID, noteTitle, noteText)" +
-                    "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), 'Customer Initial Request', @notes)";
-
+                sqlQuery += " INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
+                    "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), " + Session["EmployeeID"] + ", 'Initial Request', @notes)";
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnect;
                 sqlCommand.CommandType = CommandType.Text;
                 sqlCommand.CommandText = sqlQuery;
+
                 sqlCommand.Parameters.Add(new SqlParameter("@notes", txtNotes.Text));
 
                 sqlConnect.Open();

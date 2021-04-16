@@ -3,7 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-    <div class="card card-body">
+        <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" runat="server">Back to Customer</asp:LinkButton>
+    <div class="card card-body mb-3">
         <asp:Label ID="lblCustomer" runat="server"></asp:Label>
 
         <div class="row">

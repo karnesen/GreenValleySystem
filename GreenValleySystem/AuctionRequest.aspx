@@ -3,40 +3,41 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   <div class="container">
     <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" runat="server">Back to Customer</asp:LinkButton>
-    <div class="card card-body">
-        <asp:Label ID="lblCustomer" runat="server"></asp:Label>
+    <div class="card card-body mb-3">
+        <asp:Label ID="lblCustomer" runat="server"  class="h4"></asp:Label>
         <div class="form-group">
             <asp:TextBox ID="txtAuctionAddress" runat="server" Placeholder="Service Address" class="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvAuctionAddress" runat="server"
+           <%-- <asp:RequiredFieldValidator ID="rfvAuctionAddress" runat="server"
                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionAddress"
                 Text="Please Enter An Address." ValidationGroup="CreateCustomer">
-            </asp:RequiredFieldValidator>
+            </asp:RequiredFieldValidator>--%>
         </div>
 
         <div class="row form-group">
             <div class="col-md-6">
                 <asp:TextBox ID="txtAuctionCity" runat="server" Placeholder="Service City" class="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvAuctionCity" runat="server"
+                <%--<asp:RequiredFieldValidator ID="rfvAuctionCity" runat="server"
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionCity"
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
-                </asp:RequiredFieldValidator>
+                </asp:RequiredFieldValidator>--%>
             </div>
 
             <div class="col-md-2">
                 <asp:DropDownList ID="ddlAuctionState" runat="server" class="form-control"></asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfvAuctionState" runat="server"
+               <%-- <asp:RequiredFieldValidator ID="rfvAuctionState" runat="server"
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlAuctionState"
                     Text="Please Select A State." ValidationGroup="CreateCustomer">
-                </asp:RequiredFieldValidator>
+                </asp:RequiredFieldValidator>--%>
             </div>
 
             <div class="col-md-4">
                 <asp:TextBox ID="txtAuctionZip" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvAuctionZip" runat="server"
+                <%--<asp:RequiredFieldValidator ID="rfvAuctionZip" runat="server"
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionZip"
                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
-                </asp:RequiredFieldValidator>
+                </asp:RequiredFieldValidator>--%>
             </div>
         </div>
         <div class="row">
@@ -46,10 +47,10 @@
             <div class="form-group col-5">
                 <asp:Label ID="lblAuctionStartDate" runat="server" Text="Start Date" for="txtStartDate"></asp:Label>
                 <asp:TextBox ID="txtAuctionStartDate" runat="server" Placeholder="Start Date" class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvStartDateAuction" runat="server"
+                <%--<asp:RequiredFieldValidator ID="rfvStartDateAuction" runat="server"
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionStartDate"
                     Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
-                </asp:RequiredFieldValidator>
+                </asp:RequiredFieldValidator>--%>
             </div>
 
             <div class="form-group col-5">
@@ -65,13 +66,11 @@
                 Class="form-control" TextMode="MultiLine"></asp:TextBox>
         </div>
 
-
-        
-
         <div class="form-group">
             <div class="d-flex justify-content-around">
                 <asp:Button ID="btnSave" runat="server" Text="Save" class="btn btn-primary  btn-lg" OnClick="btnSave_Click" ValidationGroup="CreateCustomer" />
             </div>
         </div>
     </div>
+       </div>
 </asp:Content>
