@@ -17,6 +17,11 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to search for a customer.";
+                Response.Redirect("login.aspx");
+            }
             if (Request.QueryString.Get("num") != null)
             {
                 Session["ticketID"] = Request.QueryString.Get("num");

@@ -17,7 +17,7 @@ namespace Lab3
         {
             if (Session["username"] == null)
             {
-                Session["InvalidUse"] = "You must first login to update resources.";
+                Session["InvalidUse"] = "You must first login to search for a customer.";
                 Response.Redirect("login.aspx");
             }
             //GetData();
@@ -137,7 +137,7 @@ namespace Lab3
         }
         protected void gvServiceAddress_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (gvCustomers.SelectedRow.Cells[0].Text == "Customer")
+            if (gvServiceAddress.SelectedRow.Cells[0].Text == "Customer")
             {
             }
             else { 

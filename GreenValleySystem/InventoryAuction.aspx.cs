@@ -16,6 +16,12 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to view Inventory Auction.";
+                Response.Redirect("login.aspx");
+            }
+
             if (!Page.IsPostBack)
             {
                 setCurrent();
