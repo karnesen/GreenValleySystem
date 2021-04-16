@@ -159,10 +159,15 @@
 
                                 <div class="col-md-4">
                                     <asp:TextBox ID="txtZipCode" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
+                                    <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="CreateCustomer" 
+                                        ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
                                     <%-- <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                 Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
+                                   
+                                    
+
                                 </div>
                             </div>
                         </li>

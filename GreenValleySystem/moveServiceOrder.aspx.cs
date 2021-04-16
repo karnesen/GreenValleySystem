@@ -17,6 +17,12 @@ namespace GreenValleySystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to view the move service order.";
+                Response.Redirect("login.aspx");
+            }
+
             String sqlQuery = "Select packing from moveAssessment where serviceID = " + Session["selectedService"].ToString();
 
             // Define the connection to the Database:

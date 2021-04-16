@@ -62,12 +62,7 @@
                                     </div>
                                 </EditItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Last Updated" ControlStyle-Font-Italic="true">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblLastUpdated" runat="server" Font-Italic="true"
-                                        Text='<%# Bind("lastUpdated") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            
                         </Fields>
                     </asp:DetailsView>
 
@@ -191,6 +186,8 @@
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                             Text="Please Enter Zip Code.">
                                         </asp:RequiredFieldValidator>
+                                        <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode"
+                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
 
                                     </div>
                                 </EditItemTemplate>
@@ -298,6 +295,8 @@
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                                 Text="Please Enter Zip Code." ValidationGroup="address">
                                             </asp:RequiredFieldValidator>
+                                            <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="address" 
+                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
 
                                         </div>
                                         <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server" ValidationGroup="address">Commit</asp:LinkButton>
