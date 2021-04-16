@@ -64,13 +64,13 @@
                 Class="form-control" TextMode="MultiLine"></asp:TextBox>
         </div>
 
-        <div class="form-group">
+        <%--<div class="form-group">
             <input id="oFile" type="file" runat="server" class="btn btn-primary btn-lg" name="oFile" />
             <asp:Button ID="btnImageupload" runat="server" class="btn btn-primary btn-lg" Text="Upload Image" type="submit" OnClick="btnImageupload_Click"/>
             <asp:Panel ID="panelConfirm" runat="server" Visible="false">
             <asp:Label ID="lblResult" runat="server" class="h6" Text="Label"></asp:Label>
             </asp:Panel>
-        </div>
+        </div>--%>
 
         <div class="form-group">
             <div class="d-flex justify-content-around">

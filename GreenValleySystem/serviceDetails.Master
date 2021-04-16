@@ -31,7 +31,7 @@
                                     DataSourceID="srcStep"
                                     runat="server">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblCurrentStep" runat="server" Text='<%# Bind("serviceEvent") %>' Class="h6"></asp:Label>
+                                        <asp:Label ID="lblCurrentStep" runat="server" Text='<%# Bind("serviceEvent") %>' Class="h3"></asp:Label>
                                     </ItemTemplate>
                                 </asp:FormView>
                                 <asp:SqlDataSource

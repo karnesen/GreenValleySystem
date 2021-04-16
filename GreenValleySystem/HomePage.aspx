@@ -29,14 +29,6 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:BoundField DataField="serviceOpenDate" HeaderText="Open Date" />
-
-                <asp:TemplateField HeaderText="Status">
-                    <ItemTemplate>
-                        <asp:Label ID="lblStatus" runat="server" Text='<%#(Eval("serviceStatus").ToString()) == "True" ? "Active" : "Inactive"%>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
                 <asp:TemplateField HeaderText="Progress">
                     <ItemTemplate>
                         <asp:Label ID="lblProgress" runat="server" Text='<%#(Eval("serviceEvent").ToString())%>'></asp:Label>

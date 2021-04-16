@@ -4,37 +4,44 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+       <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Green Valley Auction</title>
+    
+    <link rel="stylesheet" href="style/UIkit1.css"/>
+    <link rel="stylesheet" href="style/UIkit2.css"/>
+    <link rel="stylesheet" href="style/style.css"/> 
     <link href="Content/bootstrap.css" rel="stylesheet" />
-
-    <script src="Scripts/jquery-3.5.1.min.js"></script>
-    <script src="Scripts/popper.min.js"></script>
-    <script src="Scripts/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <div class="container col-4">
-                <div class="card p-3">
-                    <asp:Label ID="Label1" runat="server" Text="Log in" Class="text-center h3 m-2"></asp:Label>
-                    <div class="form-group">
-                        <asp:TextBox ID="txtUsername" class="form-control" PlaceHolder="Email" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <asp:TextBox ID="txtPassword" runat="server" class="form-control" PlaceHolder="Password" TextMode="Password"></asp:TextBox>
-                    </div>
-                    <div class="text-center">
-                        <asp:Button ID="btnLogin" runat="server" Class="btn btn-primary" OnClick="btnLogin_Click" Text="Log in" />
-                    </div>
-                    <div class="text-center">
-                        <asp:LinkButton ID="lbtnNewUSer" runat="server" PostBackUrl="createNewUser.aspx">Need to Create an Account?</asp:LinkButton>
-                    </div>
-                    <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
+        <main class="auth">
+        <div class="container-fluid">
+            <div class="row vh-100">
+                <div class="col-md-6 text-center py-5 d-flex flex-column justify-content-center auth-bg-section text-white" style="background-image: url(images/logo.jpeg)">
                 </div>
-
+                <div class="col-md-6 text-center d-flex flex-column py-5 justify-content-center">
+                    <div class="auth-form-section">
+                        <div class="logo"><img src="images/logo.jpg"  class="img-fluid" width="200"/></div>
+                        <h2>Welcome Customer</h2>
+                        <p>Please sign in</p>
+                        <form class="auth-form" runat="server">
+                            <div class="form-group">
+                                <asp:Label ID="Label1" runat="server" Text="Log in" class="sr-only"></asp:Label>
+                                 <asp:TextBox ID="txtUsername" class="form-control" PlaceHolder="Username" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                 <asp:Label ID="Label2" runat="server" Text="Password" class="sr-only"></asp:Label>
+                        <asp:TextBox ID="txtPassword" runat="server" class="form-control" PlaceHolder="Password" TextMode="Password"></asp:TextBox>
+                            </div>
+                             <asp:Button ID="btnLogin" runat="server" Class="btn btn-primary btn-block mb-3" Text="Log in" OnClick="btnLogin_Click"/>
+                             <asp:Label ID="lblLoginMessage" runat="server" Text=""></asp:Label>
+                            <asp:LinkButton ID="btnNewCustomer" runat="server" PostBackUrl="~/createNewUser.aspx">Create an Account</asp:LinkButton>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
+    </main>
 </body>
 </html>

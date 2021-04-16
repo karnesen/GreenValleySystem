@@ -67,7 +67,8 @@
                                     <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
                                 </li>
 
-                                <li class="list-group-item">
+                                <asp:LinkButton ID="lnbtnMore" runat="server" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">More Information</asp:LinkButton>
+                                <li class="list-group-item collapse" id="collapseExample">
                                     <table class="table table-borderless table-responsive">
                                         <tr>
                                             <td>
@@ -237,7 +238,7 @@
                                         </div>
                                     </div>
                                 </li>
-
+                                
                                 <li class="list-group-item">
                                     <asp:Label ID="lblInitialContact" runat="server"
                                         Text='<%# "Initial Contact Type: " + Eval("initialContactType") %>'></asp:Label>

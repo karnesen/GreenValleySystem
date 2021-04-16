@@ -11,43 +11,43 @@ namespace GreenValleySystem
 {
 
 
-    public partial class lookAtForm
+    public partial class dateResults
     {
 
         /// <summary>
-        /// lblLookAtForm control.
+        /// txtStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLookAtForm;
+        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
 
         /// <summary>
-        /// txtDistance control.
+        /// rfvDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistance;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDate;
 
         /// <summary>
-        /// txtDriveway control.
+        /// gvDates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDriveway;
+        protected global::System.Web.UI.WebControls.GridView gvDates;
 
         /// <summary>
-        /// loadingConditions control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox loadingConditions;
+        protected global::System.Web.UI.WebControls.LinkButton btnSearch;
     }
 }

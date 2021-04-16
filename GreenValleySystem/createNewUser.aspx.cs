@@ -51,17 +51,20 @@ namespace GreenValleySystem
                 String lastName = txtLastName.Text;
                 String email = txtEmail.Text;
                 String phoneNumber = txtPhoneNumber.Text;
+                String phoneNumber2 = txtPhoneNumber2.Text;
                 String phoneType = ddlPhoneNumberType.SelectedItem.ToString();
+                String phoneType2 = ddlPhoneNumberType2.SelectedItem.ToString();
                 String address = txtAddress.Text;
                 String city = txtCity.Text;
                 String state = ddlState.SelectedValue;
                 String zip = txtZipCode.Text;
-                String initialContact = rdoContact.SelectedItem.ToString();
-                if (initialContact == "Other")
-                    initialContact = txtOther.Text;
+
                 String hear = txtHear.Text;
 
-                String sqlQuery = "INSERT INTO CUSTOMER VALUES (@firstName, @lastName, @phoneNumber, @phoneType, @email, @address, @city, @state, @zip, @initialContact, @hear, '" + DateTime.Now + "', '" + DateTime.Now + "')";
+                String sqlQuery = "INSERT INTO CUSTOMER VALUES(@firstName, @lastName, @phoneNumber, @phoneType, @phoneNumber2, @phoneType2, " +
+                     "@mobilePref, @homePref, @emailPref, @textPref, " +
+                     "@email, @address, @city, @state, @zip, 'Customer Portal', @hear, '" + DateTime.Now + "', '" + DateTime.Now + "')";
+
                 sqlQuery += "INSERT INTO TICKETNOTE (creationDate, customerID, noteTitle, noteText)" +
                     " VALUES('" + DateTime.Now + "', (select max(customerID) from customer), 'New Customer', @notes)";
                 sqlQuery += "Insert INTO CUSTOMERAUTH VALUES((select max(customerID) from customer), '" + PasswordHash.HashPassword(txtPassword.Text) + "')";
@@ -76,16 +79,22 @@ namespace GreenValleySystem
 
                 sqlCommand.Parameters.Add(new SqlParameter("@firstName", firstName));
                 sqlCommand.Parameters.Add(new SqlParameter("@lastName", lastName));
-                sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber", firstName));
+                sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber", phoneNumber));
+                sqlCommand.Parameters.Add(new SqlParameter("@phoneNumber2", phoneNumber2));
                 sqlCommand.Parameters.Add(new SqlParameter("@phoneType", phoneType));
+                sqlCommand.Parameters.Add(new SqlParameter("@phoneType2", phoneType2));
                 sqlCommand.Parameters.Add(new SqlParameter("@email", email));
                 sqlCommand.Parameters.Add(new SqlParameter("@address", address));
                 sqlCommand.Parameters.Add(new SqlParameter("@city", city));
                 sqlCommand.Parameters.Add(new SqlParameter("@state", state));
                 sqlCommand.Parameters.Add(new SqlParameter("@zip", zip));
-                sqlCommand.Parameters.Add(new SqlParameter("@initialContact", initialContact));
                 sqlCommand.Parameters.Add(new SqlParameter("@hear", hear));
                 sqlCommand.Parameters.Add(new SqlParameter("@notes", txtNotes.Text));
+
+                sqlCommand.Parameters.Add(new SqlParameter("@mobilePref", chMobile.Checked));
+                sqlCommand.Parameters.Add(new SqlParameter("@homePref", chHome.Checked));
+                sqlCommand.Parameters.Add(new SqlParameter("@emailPref", chEmail.Checked));
+                sqlCommand.Parameters.Add(new SqlParameter("@textPref", chText.Checked));
 
                 sqlConnect.Open();
                 SqlDataReader reader = sqlCommand.ExecuteReader(); // create a reader
@@ -117,7 +126,6 @@ namespace GreenValleySystem
             ddlState.SelectedIndex = 50;
             txtZipCode.Text = "22801";
 
-            rdoContact.SelectedIndex = 1;
             txtHear.Text = "Online Advertisment";
             txtNotes.Text = "High Value Items";
         }
@@ -160,8 +168,6 @@ namespace GreenValleySystem
             txtCity.Text = "";
             txtZipCode.Text = "";
             outputLbl.Text = "";
-            rdoContact.SelectedIndex = -1;
-            txtOther.Text = "";
             txtHear.Text = "";
             txtNotes.Text = "";
         }
@@ -171,46 +177,46 @@ namespace GreenValleySystem
 
         }
 
-        protected void btnImageupload_Click(object sender, EventArgs e)
-        {
-            string fileName;
-            string filePath;
-            string folder;
-            folder = Server.MapPath("~/images/");
+        //protected void btnImageupload_Click(object sender, EventArgs e)
+        //{
+        //    string fileName;
+        //    string filePath;
+        //    string folder;
+        //    folder = Server.MapPath("~/images/");
 
-            //retrieve name of posted file
-            fileName = oFile.PostedFile.FileName;
-            fileName = Path.GetFileName(fileName);
+        //    //retrieve name of posted file
+        //    fileName = oFile.PostedFile.FileName;
+        //    fileName = Path.GetFileName(fileName);
 
            
-            if (oFile.Value != "")
-            {
-                //create folderz
-                if (!Directory.Exists(folder))
-                {
-                    Directory.CreateDirectory(folder);
-                }
-                //save to server
-                filePath = folder + fileName;
-                if (File.Exists(filePath))
-                {
-                    lblResult.Text = fileName + "file already exists in the database!";
-                    lblResult.ForeColor = System.Drawing.Color.Red;
+        //    if (oFile.Value != "")
+        //    {
+        //        //create folderz
+        //        if (!Directory.Exists(folder))
+        //        {
+        //            Directory.CreateDirectory(folder);
+        //        }
+        //        //save to server
+        //        filePath = folder + fileName;
+        //        if (File.Exists(filePath))
+        //        {
+        //            lblResult.Text = fileName + "file already exists in the database!";
+        //            lblResult.ForeColor = System.Drawing.Color.Red;
 
-                }
-                else
-                {
-                    oFile.PostedFile.SaveAs(filePath);
-                    lblResult.Text = fileName + "has been successfully uploaded!";
-                    lblResult.ForeColor = System.Drawing.Color.Green;
-                }
-            }
-            else
-            {
-                lblResult.Text = "Click 'Browse' to select the file to upload.";
-            }
-            //displayyyyyyyyyy
-            panelConfirm.Visible = true;
-        }
+        //        }
+        //        else
+        //        {
+        //            oFile.PostedFile.SaveAs(filePath);
+        //            lblResult.Text = fileName + "has been successfully uploaded!";
+        //            lblResult.ForeColor = System.Drawing.Color.Green;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        lblResult.Text = "Click 'Browse' to select the file to upload.";
+        //    }
+        //    //displayyyyyyyyyy
+        //    panelConfirm.Visible = true;
+        //}
     }
 }

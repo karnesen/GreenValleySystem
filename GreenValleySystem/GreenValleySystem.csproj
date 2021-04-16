@@ -90,25 +90,23 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="createCustomer.aspx" />
     <Content Include="createNewUser.aspx" />
-    <Content Include="createNotes.aspx" />
     <Content Include="customerHome.aspx" />
     <Content Include="customerLogin.aspx" />
     <Content Include="customerProfile.aspx" />
+    <Content Include="dateResults.aspx" />
     <Content Include="editTicket.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="images\bigstock-Packed-household-goods-for-mov-131525006.jpg" />
     <Content Include="images\headerTransparent.png" />
+    <Content Include="images\logo.jpeg" />
     <Content Include="images\logo.jpg" />
     <Content Include="InventoryAdd.aspx" />
     <Content Include="InventoryAuction.aspx" />
-    <Content Include="LoginPage.aspx" />
     <Content Include="images\movingTruck.png" />
-    <Content Include="lookAtForm.aspx" />
     <Content Include="moveAssessment.aspx" />
     <Content Include="MoveRequest.aspx" />
     <Content Include="moveServiceOrder.aspx" />
     <Content Include="NewAuction.aspx" />
-    <Content Include="noteDetails.aspx" />
     <Content Include="phoneNumber.js" />
     <Content Include="requestAppraisal.aspx" />
     <Content Include="requestAuction.aspx" />
@@ -296,13 +294,6 @@
     <Compile Include="createNewUser.aspx.designer.cs">
       <DependentUpon>createNewUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="createNotes.aspx.cs">
-      <DependentUpon>createNotes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="createNotes.aspx.designer.cs">
-      <DependentUpon>createNotes.aspx</DependentUpon>
-    </Compile>
     <Compile Include="customerHome.aspx.cs">
       <DependentUpon>customerHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -331,6 +322,13 @@
     <Compile Include="customerProfile.aspx.designer.cs">
       <DependentUpon>customerProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dateResults.aspx.cs">
+      <DependentUpon>dateResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dateResults.aspx.designer.cs">
+      <DependentUpon>dateResults.aspx</DependentUpon>
+    </Compile>
     <Compile Include="editTicket.aspx.cs">
       <DependentUpon>editTicket.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -358,20 +356,6 @@
     </Compile>
     <Compile Include="InventoryAuction.aspx.designer.cs">
       <DependentUpon>InventoryAuction.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPage.aspx.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPage.aspx.designer.cs">
-      <DependentUpon>LoginPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="lookAtForm.aspx.cs">
-      <DependentUpon>lookAtForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="lookAtForm.aspx.designer.cs">
-      <DependentUpon>lookAtForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -407,13 +391,6 @@
     </Compile>
     <Compile Include="NewAuction.aspx.designer.cs">
       <DependentUpon>NewAuction.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="noteDetails.aspx.cs">
-      <DependentUpon>noteDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="noteDetails.aspx.designer.cs">
-      <DependentUpon>noteDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

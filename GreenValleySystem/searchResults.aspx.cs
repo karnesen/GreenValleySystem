@@ -23,6 +23,7 @@ namespace Lab3
             //GetData();
             GetData2();
             GetData3();
+            GetData4();
         }
 
         //private void GetData()
@@ -145,6 +146,50 @@ namespace Lab3
                 Session["selectedCustomerName"] = gvServiceAddress.SelectedRow.Cells[0].Text;
                 Response.Redirect("customerProfile.aspx");
             }
+        }
+
+        private void GetData4()
+        {
+            String search = Session["search"].ToString();
+            DataTable dt = new DataTable();
+            String sqlQuery = "SELECT CUSTOMER.lastName, CUSTOMER.firstName, STORAGE.storageLocation " +   
+                  "FROM CUSTOMER INNER JOIN " + 
+                  "CUSTOMER AS CUSTOMER_1 ON CUSTOMER.customerID = CUSTOMER_1.customerID INNER JOIN " +
+                  "SERVICE ON CUSTOMER.customerID = SERVICE.customerID AND CUSTOMER_1.customerID = SERVICE.customerID INNER JOIN " + 
+                  "AUCTIONSTORAGE INNER JOIN " +
+                  "STORAGE ON AUCTIONSTORAGE.storageID = STORAGE.storageID ON SERVICE.serviceID = AUCTIONSTORAGE.serviceID INNER JOIN " +
+                  "STORAGE AS STORAGE_1 ON AUCTIONSTORAGE.storageID = STORAGE_1.storageID " +
+                  "where service.serviceStatus = 1 WHERE (storageLocation LIKE @search)";
+
+            // Define the connection to the Database:
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            // Create the SQL Command object which will send the query:
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Parameters.Add(new SqlParameter("@search", "%" + search + "%"));
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+            // Open your connection, send the query, retrieve the results:
+            sqlConnect.Open();
+            SqlDataAdapter queryResults = new SqlDataAdapter(sqlCommand);
+            queryResults.Fill(dt);
+            gvStorage.DataSource = dt;
+            gvStorage.DataBind();
+        }
+
+        protected void gvStorage_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvStorage, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["style"] = "cursor:pointer";
+            }
+        }
+        protected void gvStorage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["selectedStorage"] = gvStorage.SelectedValue.ToString();
+            Session["selectedStorage"] = gvStorage.SelectedRow.Cells[0].Text;
+            Response.Redirect("customerProfile.aspx");
         }
     }
 }

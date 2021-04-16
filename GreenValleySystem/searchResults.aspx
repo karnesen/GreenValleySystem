@@ -20,7 +20,7 @@
                         <asp:BoundField DataField="customerAddress" HeaderText="Current Address" />
                     </Columns>
                 </asp:GridView>
-                    <br />
+                <br />
                 <asp:GridView
                     ID="gvServiceAddress"
                     runat="server"
@@ -44,6 +44,27 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+
+                <div class="container col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <asp:GridView
+                                ID="gvStorage"
+                                runat="server"
+                                DataKeyNames="storageID"
+                                AutoGenerateColumns="false"
+                                OnRowDataBound="gvStorage_RowDataBound"
+                                OnSelectedIndexChanged="gvStorage_SelectedIndexChanged"
+                                class="table table-bordered tablee-condensed table-hover">
+                                <Columns>
+                                    <asp:BoundField DataField="customerName" HeaderText="Customer" />
+                                    <asp:BoundField DataField="storageLocation" HeaderText="Storage Locations" />
+                                </Columns>
+                            </asp:GridView>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
