@@ -158,6 +158,8 @@
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                             Text="Please Enter Zip Code.">
                                         </asp:RequiredFieldValidator>
+                                        <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" 
+                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
 
                                     </div>
                                 </EditItemTemplate>
@@ -287,6 +289,8 @@
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                                 Text="Please Enter Zip Code." ValidationGroup="address">
                                             </asp:RequiredFieldValidator>
+                                            <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="address" 
+                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
 
                                         </div>
                                         <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server" ValidationGroup="address">Commit</asp:LinkButton>
@@ -613,7 +617,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-check">
-                                                <asp:CheckBox ID="chHighValueServer" Checked='<%# Bind("highValueServer")%>' Text="Mirror Back" runat="server" />
+                                                <asp:CheckBox ID="chHighValueServer" Checked='<%# Bind("highValueServer")%>' Text="High Value" runat="server" />
                                             </div>
                                         </div>
                                         <div class="col">
@@ -626,22 +630,22 @@
 
                                      <div class="card card-body mb-2">
                                          <div class="form-check">
-                                             <asp:CheckBox ID="chChina" Checked='<%# Bind("chinaPress")%>' Text="Server" runat="server" />
+                                             <asp:CheckBox ID="chChina" Checked='<%# Bind("chinaPress")%>' Text="China Press" runat="server" />
                                          </div>
                                          <div class="row mb-2">
                                              <div class="col">
                                                  <div class="form-check">
-                                                     <asp:CheckBox ID="chBowfront" Checked='<%# Bind("bowFront")%>' Text="Sideboard" runat="server" />
+                                                     <asp:CheckBox ID="chBowfront" Checked='<%# Bind("bowFront")%>' Text="Bow Front" runat="server" />
                                                  </div>
                                              </div>
                                              <div class="col">
                                                  <div class="form-check">
-                                                     <asp:CheckBox ID="chChinaHighvalue" Checked='<%# Bind("chinaHighValue") %>' Text="Mirror Back" runat="server" />
+                                                     <asp:CheckBox ID="chChinaHighvalue" Checked='<%# Bind("chinaHighValue") %>' Text="High Value China" runat="server" />
                                                  </div>
                                              </div>
                                              <div class="col">
                                                  <div class="form-check">
-                                                     <asp:CheckBox ID="chTwoPiece" Checked='<%# Bind("twoPiece")%>' Text="Mirror Back" runat="server" />
+                                                     <asp:CheckBox ID="chTwoPiece" Checked='<%# Bind("twoPiece")%>' Text="Two Piece" runat="server" />
                                                  </div>
                                              </div>
                                          </div>

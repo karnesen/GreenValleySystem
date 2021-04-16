@@ -234,6 +234,8 @@
 
                                         <div class="col-md-4">
                                             <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("zipcode") %>' class="form-control" Placeholder="Zip"></asp:TextBox>
+                                            <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="CustomerProfile" 
+                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
                                         </div>
                                     </div>
                                 </li>
@@ -250,7 +252,7 @@
                                 </li>
                                 <div class="row justify-content-around">
                                     <asp:LinkButton ID="btnCancel" CommandName="Cancel" runat="server">Cancel</asp:LinkButton>
-                                    <asp:LinkButton ID="btnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
+                                    <asp:LinkButton ID="btnSave" CommandName="Update" runat="server" ValidationGroup="CustomerProfile">Save</asp:LinkButton>
                                 </div>
                             </ul>
                         </EditItemTemplate>
