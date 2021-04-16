@@ -2017,7 +2017,7 @@ pre code {
     margin: 1rem 0rem;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #BB9739;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -2043,7 +2043,7 @@ pre code {
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(187, 151, 57, 1);
 }
 
 .form-control::-webkit-input-placeholder {
@@ -2859,8 +2859,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #fff;
-  background-color: #266141;
+  color: #266141;
+  background-color: transparent;
   border-color: #266141;
   margin: 1rem;
 }
@@ -4773,7 +4773,7 @@ input[type="button"].btn-block {
   -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;
-  word-wrap: break-word;
+  word-wrap: normal;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);

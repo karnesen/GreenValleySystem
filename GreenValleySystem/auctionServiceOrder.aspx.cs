@@ -17,6 +17,12 @@ namespace GreenValleySystem
         public string packingCollapse = "list-group-item collapse";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to view the Auction Service Order Form.";
+                Response.Redirect("login.aspx");
+            }
+
             lvDate.DataBind();
             String sqlQuery = "Select pickup, packing from auctionAssessment where serviceID = " + Session["selectedService"].ToString();
 
