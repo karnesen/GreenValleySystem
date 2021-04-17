@@ -142,7 +142,7 @@ namespace Lab3
             {
             }
             else { 
-            Session["selectedCustomer"] = gvServiceAddress.SelectedValue.ToString();
+                Session["selectedCustomer"] = gvServiceAddress.SelectedValue.ToString();
                 Session["selectedCustomerName"] = gvServiceAddress.SelectedRow.Cells[0].Text;
                 Response.Redirect("customerProfile.aspx");
             }
@@ -152,14 +152,14 @@ namespace Lab3
         {
             String search = Session["search"].ToString();
             DataTable dt = new DataTable();
-            String sqlQuery = "SELECT CUSTOMER.lastName, CUSTOMER.firstName, STORAGE.storageLocation " +   
+            String sqlQuery = "SELECT customer.customerid, Storage.storageID, CUSTOMER.lastName + ' ' + CUSTOMER.firstName as customerName, STORAGE.storageLocation " +   
                   "FROM CUSTOMER INNER JOIN " + 
                   "CUSTOMER AS CUSTOMER_1 ON CUSTOMER.customerID = CUSTOMER_1.customerID INNER JOIN " +
                   "SERVICE ON CUSTOMER.customerID = SERVICE.customerID AND CUSTOMER_1.customerID = SERVICE.customerID INNER JOIN " + 
                   "AUCTIONSTORAGE INNER JOIN " +
                   "STORAGE ON AUCTIONSTORAGE.storageID = STORAGE.storageID ON SERVICE.serviceID = AUCTIONSTORAGE.serviceID INNER JOIN " +
                   "STORAGE AS STORAGE_1 ON AUCTIONSTORAGE.storageID = STORAGE_1.storageID " +
-                  "where service.serviceStatus = 1 WHERE (storageLocation LIKE @search)";
+                  "where service.serviceStatus = 1 and (Storage.storageLocation LIKE @search)";
 
             // Define the connection to the Database:
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -187,9 +187,15 @@ namespace Lab3
         }
         protected void gvStorage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["selectedStorage"] = gvStorage.SelectedValue.ToString();
-            Session["selectedStorage"] = gvStorage.SelectedRow.Cells[0].Text;
-            Response.Redirect("customerProfile.aspx");
+            if (gvStorage.SelectedRow.Cells[0].Text == "Customer")
+            {
+            }
+            else
+            {
+                Session["selectedCustomer"] = gvStorage.SelectedValue.ToString();
+                Session["selectedCustomerName"] = gvStorage.SelectedRow.Cells[0].Text;
+                Response.Redirect("customerProfile.aspx");
+            }
         }
     }
 }

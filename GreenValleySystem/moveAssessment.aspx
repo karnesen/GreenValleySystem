@@ -625,6 +625,11 @@
                                                 <asp:CheckBox ID="chMirrorBack" Checked='<%# Bind("mirrorBack")%>' Text="Mirror Back" runat="server" />
                                             </div>
                                         </div>
+                                        <div class="col">
+                                            <div class="form-check">
+                                                <asp:CheckBox ID="CheckBox1" Checked='<%# Bind("marbleTop")%>' Text="Marble Top" runat="server" />
+                                            </div>
+                                        </div>
                                     </div>
                                     </div>
 

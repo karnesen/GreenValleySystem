@@ -44,29 +44,24 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+                <br />
 
-                <div class="container col-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <asp:GridView
-                                ID="gvStorage"
-                                runat="server"
-                                DataKeyNames="storageID"
-                                AutoGenerateColumns="false"
-                                OnRowDataBound="gvStorage_RowDataBound"
-                                OnSelectedIndexChanged="gvStorage_SelectedIndexChanged"
-                                class="table table-bordered tablee-condensed table-hover">
-                                <Columns>
-                                    <asp:BoundField DataField="customerName" HeaderText="Customer" />
-                                    <asp:BoundField DataField="storageLocation" HeaderText="Storage Locations" />
-                                </Columns>
-                            </asp:GridView>
+                <asp:GridView
+                    ID="gvStorage"
+                    runat="server"
+                    DataKeyNames="customerID"
+                    AutoGenerateColumns="false"
+                    OnRowDataBound="gvStorage_RowDataBound"
+                    OnSelectedIndexChanged="gvStorage_SelectedIndexChanged"
+                    class="table table-bordered tablee-condensed table-hover">
+                    <Columns>
+                        <asp:BoundField DataField="customerName" HeaderText="Customer" />
+                        <asp:BoundField DataField="storageLocation" HeaderText="Storage Locations" />
+                    </Columns>
+                </asp:GridView>
 
-                        </div>
-                    </div>
-                </div>
             </div>
+
         </div>
-    </div>
 </asp:Content>
 
