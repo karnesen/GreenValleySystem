@@ -223,6 +223,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="searchResults.aspx" />
+    <Content Include="systemAnalytics.aspx" />
     <Content Include="updateEmployees.aspx" />
     <Content Include="updateResources.aspx" />
     <Content Include="Web.config" />
@@ -428,6 +429,13 @@
     </Compile>
     <Compile Include="serviceDetails.Master.designer.cs">
       <DependentUpon>serviceDetails.Master</DependentUpon>
+    </Compile>
+    <Compile Include="systemAnalytics.aspx.cs">
+      <DependentUpon>systemAnalytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="systemAnalytics.aspx.designer.cs">
+      <DependentUpon>systemAnalytics.aspx</DependentUpon>
     </Compile>
     <Compile Include="updateEmployees.aspx.cs">
       <DependentUpon>updateEmployees.aspx</DependentUpon>
