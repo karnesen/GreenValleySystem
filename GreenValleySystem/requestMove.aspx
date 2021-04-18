@@ -19,6 +19,12 @@
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceCity"
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="cityValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtServiceCity"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="col-md-2">
@@ -35,6 +41,11 @@
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceZip"
                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator runat="server"
+                    id="rexNumber"
+                    controltovalidate="txtServiceZip"
+                    validationexpression="\d{5}(-\d{4})?"
+                    errormessage="Please enter a 5 digit zip code!" />
             </div>
         </div>
 
@@ -53,6 +64,12 @@
                     ErrorMessage="rfvDestCity" ControlToValidate="txtDestinationCity"
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                    runat="server"
+                    ErrorMessage="Only Spaces and letters are valid characters!"
+                    ControlToValidate="txtDestinationCity"
+                    ValidationExpression="[a-zA-Z ]*$"
+                    ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="col-md-2">
@@ -69,6 +86,11 @@
                     ErrorMessage="rfvDestZip" ControlToValidate="txtDestinationZip"
                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator runat="server"
+                    id="RegularExpressionValidator2"
+                    controltovalidate="txtDestinationZip"
+                    validationexpression="\d{5}(-\d{4})?"
+                    errormessage="Please enter a 5 digit zip code!" />
             </div>
         </div>
 

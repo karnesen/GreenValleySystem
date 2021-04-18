@@ -27,6 +27,12 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName"
                                         Text="Please Enter A First Name.">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="firstNameValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtFirstName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class="form-group">
                                     <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("lastName") %>' class="form-control"></asp:TextBox>
@@ -34,6 +40,13 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName"
                                         Text="Please Enter A Last Name.">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="lastNameValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtLastName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
+
                                 </div>
                             </EditItemTemplate>
                             <ItemTemplate>
@@ -53,6 +66,12 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPosition"
                                         Text="Please Enter A Position." ValidationGroup="newEmployee">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="positionValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtPosition"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
                             </EditItemTemplate>
                         </asp:TemplateField>
@@ -68,6 +87,13 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
                                         Text="Please Enter An Email." ValidationGroup="newEmployee">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                      runat="server"
+                                      ControlToValidate="txtEmail"
+                                      ForeColor="Red"
+                                      ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                      Display = "Dynamic"
+                                      ErrorMessage = "Invalid email address"/>
                                 </div>
                             </EditItemTemplate>
                         </asp:TemplateField>
@@ -87,6 +113,12 @@
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName" ValidationGroup="newEmployee"
                                     Text="Please Enter A First Name.">
                                 </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="firNameValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtFirstName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtLastName" runat="server" Placeholder="Last Name" class="form-control"></asp:TextBox>
@@ -96,6 +128,12 @@
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName" ValidationGroup="newEmployee"
                                     Text="Please Enter A Last Name.">
                                 </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="lastValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtLastName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                             </td>
 
                             <td>
@@ -104,17 +142,31 @@
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPosition"
                                     Text="Please Enter A Position." ValidationGroup="newEmployee">
                                 </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="positionValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtPosition"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                             </td>
 
                             <td class="align-top">
                                 <asp:TextBox ID="txtEmail" runat="server" Placeholder="Email" class="form-control"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="emailValidate"
+                                      runat="server"
+                                      ControlToValidate="txtEmail"
+                                      ForeColor="Red"
+                                      ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                      Display = "Dynamic"
+                                      ErrorMessage = "Invalid email address"/>
+                             <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
+                                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
+                                                                Text="Please Enter An Email." ValidationGroup="newEmployee">
+                                                            </asp:RequiredFieldValidator>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="Password" class="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
-                                    ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail"
-                                    Text="Please Enter An Email." ValidationGroup="newEmployee">
-                                </asp:RequiredFieldValidator>
+                               
 
                             </td>
                             <td class="align-top">

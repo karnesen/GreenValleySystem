@@ -122,6 +122,13 @@
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                             Text="Please Enter A City.">
                                         </asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="cityValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtCity"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
+
 
                                         <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
                                             <asp:ListItem Value="AL">AL</asp:ListItem>
@@ -186,8 +193,24 @@
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                             Text="Please Enter Zip Code.">
                                         </asp:RequiredFieldValidator>
-                                        <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode"
-                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                                       <%-- <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode"
+                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
+                                        <asp:RegularExpressionValidator runat="server"
+                                        id="rexNumber"
+                                        controltovalidate="txtZipCode"
+                                        validationexpression="\d{5}(-\d{4})?"
+                                        errormessage="Please enter a 5 digit zip code!" />
+                                  <script>
+                                      var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
+                                      if (num > 30 || num <= 0)
+                                      {
+                                          alert('Please Enter Value between 1 to 30');
+                                          document.getElementById('<%=txtZipCode.ClientID %>').value = '';
+                                          document.getElementById('<%=txtZipCode.ClientID %>').focus();
+                                          return false;
+                                      }
+                                      return true;
+                                  </script>
 
                                     </div>
                                 </EditItemTemplate>
@@ -222,6 +245,7 @@
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
                                                 Text="Please Enter An Address." ValidationGroup="address">
                                             </asp:RequiredFieldValidator>
+
                                         </div>
 
                                         <div class="form-group">
@@ -230,6 +254,12 @@
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                                 Text="Please Enter A City." ValidationGroup="address">
                                             </asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="cityValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtCity"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
 
 
                                             <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
@@ -295,8 +325,23 @@
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                                 Text="Please Enter Zip Code." ValidationGroup="address">
                                             </asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="address" 
-                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                                            <%--<asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="address" 
+                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
+                                            <asp:RegularExpressionValidator runat="server"
+                                                id="rexNumber"
+                                                controltovalidate="txtZipCode"
+                                                validationexpression="\d{5}(-\d{4})?"
+                                                errormessage="Please enter a 5 digit zip code!" />
+                                  <script>
+                                      var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
+                                      if (num > 30 || num <= 0) {
+                                          alert('Please Enter Value between 1 to 30');
+                                          document.getElementById('<%=txtZipCode.ClientID %>').value = '';
+                                          document.getElementById('<%=txtZipCode.ClientID %>').focus();
+                                          return false;
+                                      }
+                                      return true;
+                                  </script>
 
                                         </div>
                                         <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server" ValidationGroup="address">Commit</asp:LinkButton>

@@ -36,6 +36,12 @@
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName"
                                     Text="Please Enter A First Name." ValidationGroup="CreateCustomer">
                                 </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtFirstName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                             </div>
 
                             <div class="form-group">
@@ -44,6 +50,12 @@
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName"
                                     Text="Please Enter A Last Name." ValidationGroup="CreateCustomer">
                                 </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtLastName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                             </div>
 
                             <div class="row form-group">
@@ -128,6 +140,13 @@
                                 <asp:CustomValidator ID="cvCheckUniqueCustomer" runat="server"
                                     ErrorMessage="CustomValidator" OnServerValidate="cvCheckUniqueCustomer_ServerValidate"
                                     ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>
+                                <asp:RegularExpressionValidator ID="emailValidation"
+                                      runat="server"
+                                      ControlToValidate="txtEmail"
+                                      ForeColor="Red"
+                                      ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                      Display = "Dynamic"
+                                      ErrorMessage = "Invalid email address"/>
                             </div>
 
                             <div class="form-group">
@@ -154,6 +173,12 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                         Text="Please Enter A City." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="cityValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtCity"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
 
                                 <div class="col-md-2">
@@ -170,6 +195,21 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                         Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator runat="server"
+                                        id="rexNumber"
+                                        controltovalidate="txtZipCode"
+                                        validationexpression="\d{5}(-\d{4})?"
+                                        errormessage="Please enter a 5 digit zip code!" />
+                                  <script>
+                                      var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
+                                      if (num > 30 || num <= 0) {
+                                          alert('Please Enter Value between 1 to 30');
+                                          document.getElementById('<%=txtZipCode.ClientID %>').value = '';
+                                          document.getElementById('<%=txtZipCode.ClientID %>').focus();
+                                          return false;
+                                      }
+                                      return true;
+                                  </script>
                                 </div>
                             </div>
                         </li>

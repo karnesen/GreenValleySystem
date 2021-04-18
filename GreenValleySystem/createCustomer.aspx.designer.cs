@@ -51,6 +51,15 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstName;
 
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
         /// txtLastName control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace Lab1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLastName;
+
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
         /// btnCheckUniqueCombo control.
@@ -150,6 +168,15 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.CustomValidator cvCheckUniqueCustomer;
 
         /// <summary>
+        /// emailValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator emailValid;
+
+        /// <summary>
         /// lblContactPreference control.
         /// </summary>
         /// <remarks>
@@ -213,6 +240,15 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtCity;
 
         /// <summary>
+        /// cityValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator cityValid;
+
+        /// <summary>
         /// ddlState control.
         /// </summary>
         /// <remarks>
@@ -231,13 +267,13 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.TextBox txtZipCode;
 
         /// <summary>
-        /// zipCodeValidator control.
+        /// rexNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator zipCodeValidator;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rexNumber;
 
         /// <summary>
         /// lblContact control.

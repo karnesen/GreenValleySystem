@@ -51,6 +51,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtServiceCity;
 
         /// <summary>
+        /// cityValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator cityValid;
+
+        /// <summary>
         /// ddlServiceState control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtServiceZip;
+
+        /// <summary>
+        /// rexNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator rexNumber;
 
         /// <summary>
         /// txtDestinationAddress control.
@@ -87,6 +105,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtDestinationCity;
 
         /// <summary>
+        /// destCityValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator destCityValid;
+
+        /// <summary>
         /// ddlDestinationState control.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDestinationZip;
+
+        /// <summary>
+        /// destZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator destZip;
 
         /// <summary>
         /// lblserviceDeadline control.

@@ -33,6 +33,12 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName"
                                         Text="Please Enter A First Name." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtFirstName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
 
                                 <div class="col-md-4">
@@ -41,6 +47,12 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName"
                                         Text="Please Enter A Last Name." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtLastName"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class=col-md-3>
                                 <asp:Button ID="btnCheckUniqueCombo" runat="server" ValidationGroup="CreateCustomer" Text="Check Unique" class="btn btn-outline-primary" OnClick="btnCheckUniqueCombo_Click"/>
@@ -114,6 +126,13 @@
                                 <asp:CustomValidator ID="cvCheckUniqueCustomer" runat="server"
                                     ErrorMessage="CustomValidator" OnServerValidate="cvCheckUniqueCustomer_ServerValidate"
                                     ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>
+                                <asp:RegularExpressionValidator ID="emailValid"
+                                      runat="server"
+                                      ControlToValidate="txtEmail"
+                                      ForeColor="Red"
+                                      ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                      Display = "Dynamic"
+                                      ErrorMessage = "Invalid email address"/>
                             </div>
 
                             <asp:Label ID="lblContactPreference" runat="server" Class="h6" Text="Contact Preference"></asp:Label>
@@ -147,6 +166,12 @@
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtCity"
                                 Text="Please Enter A City." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
+                                    <asp:RegularExpressionValidator ID="cityValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtCity"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
 
                                 <div class="col-md-2">
@@ -159,12 +184,17 @@
 
                                 <div class="col-md-4">
                                     <asp:TextBox ID="txtZipCode" runat="server" Placeholder="Zip" class="form-control"></asp:TextBox>
-                                    <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="CreateCustomer" 
-                                        ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                                    <%--<asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="CreateCustomer" 
+                                        ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
                                     <%-- <asp:RequiredFieldValidator ID="rfvZipCode" runat="server"
                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                 Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
+                                    <asp:RegularExpressionValidator runat="server"
+                                        id="rexNumber"
+                                        controltovalidate="txtZipCode"
+                                        validationexpression="\d{5}(-\d{4})?"
+                                        errormessage="Please enter a 5 digit zip code!" />
                                    
                                     
 

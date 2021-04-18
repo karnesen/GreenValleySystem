@@ -22,6 +22,12 @@
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceCity"
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>--%>
+                <asp:RegularExpressionValidator ID="cityValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtServiceCity"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="col-md-2">
@@ -38,6 +44,22 @@
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtServiceZip"
                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>--%>
+                <asp:RegularExpressionValidator runat="server"
+                                        id="rexNumber"
+                                        controltovalidate="txtServiceZip"
+                                        validationexpression="\d{5}(-\d{4})?"
+                                        errormessage="Please enter a 5 digit zip code!" />
+                                  <script>
+                                      var num = document.getElementById('<%=txtServiceZip.ClientID %>').value;
+                                      if (num > 30 || num <= 0)
+                                      {
+                                          alert('Please Enter Value between 1 to 30');
+                                          document.getElementById('<%=txtServiceZip.ClientID %>').value = '';
+                                          document.getElementById('<%=txtServiceZip.ClientID %>').focus();
+                                          return false;
+                                      }
+                                      return true;
+                                  </script>
             </div>
         </div>
 
@@ -56,6 +78,12 @@
                     ErrorMessage="rfvDestCity" ControlToValidate="txtDestinationCity"
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>--%>
+                <asp:RegularExpressionValidator ID="destCityValid"
+                                         runat="server"
+                                         ErrorMessage="Only Spaces and letters are valid characters!"
+                                         ControlToValidate="txtDestinationCity"
+                                         ValidationExpression="[a-zA-Z ]*$"
+                                         ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="col-md-2">
@@ -72,6 +100,21 @@
                     ErrorMessage="rfvDestZip" ControlToValidate="txtDestinationZip"
                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>--%>
+                <asp:RegularExpressionValidator runat="server"
+                                        id="destZip"
+                                        controltovalidate="txtDestinationZip"
+                                        validationexpression="\d{5}(-\d{4})?"
+                                        errormessage="Please enter a 5 digit zip code!" />
+                                  <script>
+                                      var num = document.getElementById('<%=txtServiceZip.ClientID %>').value;
+                                      if (num > 30 || num <= 0) {
+                                          alert('Please Enter Value between 1 to 30');
+                                          document.getElementById('<%=txtServiceZip.ClientID %>').value = '';
+                                          document.getElementById('<%=txtServiceZip.ClientID %>').focus();
+                                          return false;
+                                      }
+                                      return true;
+                                  </script>
             </div>
         </div>
 
