@@ -164,8 +164,12 @@
                                                                 Text="Please Enter An Email." ValidationGroup="newEmployee">
                                                             </asp:RequiredFieldValidator>
                             </td>
-                            <td>
+                            <td class="align-top">
                                 <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" Placeholder="Password" class="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvPassword" runat="server"
+                                                                ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPassword"
+                                                                Text="Please Enter A Password." ValidationGroup="newEmployee">
+                                                            </asp:RequiredFieldValidator>
                                
 
                             </td>
