@@ -52,6 +52,5 @@
         </asp:SqlDataSource>
 
         </div>
-        <asp:LinkButton ID="lBtnCustomerFacing" runat="server" PostBackUrl="~/createNewUser.aspx">View Customer Facing Demo</asp:LinkButton>
     </div>
 </asp:Content>
