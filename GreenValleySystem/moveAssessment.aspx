@@ -389,6 +389,7 @@
                                     <div class="form-check">
                                         <asp:CheckBox ID="chIndoor" Checked='<%# Bind("Indoor")%>' Text="Indoor" runat="server" />
                                     </div>
+                                    <a href="MoveRequest.aspx.cs">MoveRequest.aspx.cs</a>
                                     <div class="form-check">
                                         <asp:CheckBox ID="chOutdoor" Checked='<%# Bind("Outdoor")%>' Text="Outdoor" runat="server" />
                                     </div>
@@ -782,10 +783,10 @@
                                 SelectCommand="Select * from moveRooms where serviceID=@serviceID"
                                 UpdateCommand="Update moveRooms set 
                                 diningServer=@diningServer, sideBoard=@sideBoard, mirrorBack=@mirrorBack, highValueServer=@highValueServer, marbleTop=@marbleTop,
-                                chinaPress=@chinaPress, bowgfront=@bowfront, chinaHighValue=@chinaHighValue, twoPiece=@twoPiece, 
+                                chinaPress=@chinaPress, bowfront=@bowfront, chinaHighValue=@chinaHighValue, twoPiece=@twoPiece, 
                                 diningTable=@diningTable, tableLeaves=@tableLeaves, tableChairs=@tableChairs, tableHighValue=@tableHighValue, pedastalTable=@pedastalTable,
                                 silverChest=silverChest, silverChestHighValue=@silverChestHighValue, diningRug=@diningRug, diningBreakfront=@diningBreakfront,
-                                diningBreakfrontHighValue=diningBreakfrontHighValue, breakfrontTwoPiece=@breakfrontTwoPiece, diningFloor=@diningFloor, 
+                                BreakfrontHighValue=BreakfrontHighValue, breakfrontTwoPiece=@breakfrontTwoPiece, diningFloor=@diningFloor, 
                                 diningSmallBoxes=@diningSmallBoxes, diningMedBoxes=@diningMedBoxes, diningLargeBoxes=@diningLargeBoxes,
                             diningWardrobeBoxes=@diningwardrobeboxes, diningartboxes=@diningartboxes 
                             where serviceID=@serviceID">
