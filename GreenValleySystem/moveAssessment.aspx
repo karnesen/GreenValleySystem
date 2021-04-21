@@ -100,11 +100,12 @@
                                             Text="Please Enter A City.">
                                         </asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ID="cityValid"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtCity"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                                            runat="server" 
+                                            ValidationGroup="address"
+                                            ErrorMessage="Only Spaces and letters are valid characters!"
+                                            ControlToValidate="txtCity"
+                                            ValidationExpression="[a-zA-Z ]*$"
+                                            ForeColor="Red"></asp:RegularExpressionValidator>
 
                                         <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
                                             <asp:ListItem Value="AL">AL</asp:ListItem>
@@ -172,10 +173,11 @@
                                         <%--<asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" 
                                                  ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
                                         <asp:RegularExpressionValidator runat="server"
-                                        id="rexNumber"
-                                        controltovalidate="txtZipCode"
-                                        validationexpression="\d{5}(-\d{4})?"
-                                        errormessage="Please enter a 5 digit zip code!" />
+                                            id="rexNumber"
+                                            controltovalidate="txtZipCode"
+                                            ValidationGroup="address"
+                                            validationexpression="\d{5}(-\d{4})?"
+                                            errormessage="Please enter a 5 digit zip code!" />
                                   <script>
                                       var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
                                       if (num > 30 || num <= 0)
@@ -251,11 +253,12 @@
                                                 Text="Please Enter A City." ValidationGroup="address">
                                             </asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="cityValid"
-                                                 runat="server"
-                                                 ErrorMessage="Only Spaces and letters are valid characters!"
-                                                 ControlToValidate="txtCity"
-                                                 ValidationExpression="[a-zA-Z ]*$"
-                                                 ForeColor="Red"></asp:RegularExpressionValidator>
+                                                runat="server"
+                                                ErrorMessage="Only Spaces and letters are valid characters!"
+                                                ControlToValidate="txtCity"
+                                                ValidationGroup="address"
+                                                ValidationExpression="[a-zA-Z ]*$"
+                                                ForeColor="Red"></asp:RegularExpressionValidator>
 
 
                                             <asp:DropDownList ID="ddlState" runat="server" class="form-control" SelectedValue='<%# Bind("state") %>'>
@@ -370,9 +373,9 @@
                                     <asp:CheckBox ID="chBusiness" Checked='<%# Bind("business")%>' Text="Place of Business" runat="server" data-toggle="collapse" href="#collapseBus" role="button" aria-expanded="false" aria-controls="collapseBus" />
                                 </div>
                             </div>
-
+                            <%--Collapse Apartment--%>
                             <div class="collapse" id="collapseApt">
-                                <div class="card card-body">
+                                <div class="card card-body mb-2">
                                     <div class="form-group">
                                         <asp:Label ID="lblFloor" For="txtFloor" runat="server" Text="Floor Number"></asp:Label>
                                         <asp:TextBox ID="txtFloor" TextMode="Number" runat="server" Text='<%# Bind("floor")%>' class="form-control"></asp:TextBox>
@@ -389,12 +392,14 @@
                                 </div>
                             </div>
 
+                           <%-- Collapse Storage--%>
                             <div class="collapse" id="collapseStor">
-                                <div class="card card-body">
+                                <div class="card card-body mb-2">
+                                    <asp:Label ID="lblStorage" runat="server" Text="Storage Units"></asp:Label>
                                     <div class="form-check">
                                         <asp:CheckBox ID="chIndoor" Checked='<%# Bind("Indoor")%>' Text="Indoor" runat="server" />
                                     </div>
-                                    <a href="MoveRequest.aspx.cs">MoveRequest.aspx.cs</a>
+                                    <%--<a href="MoveRequest.aspx.cs">MoveRequest.aspx.cs</a>--%>
                                     <div class="form-check">
                                         <asp:CheckBox ID="chOutdoor" Checked='<%# Bind("Outdoor")%>' Text="Outdoor" runat="server" />
                                     </div>
@@ -402,44 +407,45 @@
                             </div>
 
                             <div class="collapse" id="collapseBus">
-                                <div class="card card-body">
+                                <div class="card card-body mb-2">
                                     <asp:Label ID="lblBusiness" For="txtBusiness" runat="server" Text="Place of Business"></asp:Label>
                                     <asp:TextBox ID="txtBusiness" runat="server" Text='<%# Bind("businessText")%>' class="form-control"></asp:TextBox>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <asp:Label ID="lblAccessability" for="txtAccessability" runat="server" Text="Truck Accessability"></asp:Label>
-                                <asp:TextBox ID="txtAccessability" TextMode="MultiLine" Text='<%# Bind("truckAccess")%>' runat="server" class="form-control"></asp:TextBox>
-                            </div>
-
-                            <div class="form-group">
-                                <asp:Label ID="lblFar" for="txtFarFromLoading" runat="server" Text="Distance from Loading Door"></asp:Label>
-                                <asp:TextBox ID="txtFarFromLoading" TextMode="MultiLine" Text='<%# Bind("howFar")%>' runat="server" class="form-control"></asp:TextBox>
-                            </div>
-
-                            <div class="form-group">
-                                <asp:Label ID="lblSteps" for="txtSteps" runat="server" Text="Steps"></asp:Label>
-                                <asp:TextBox ID="txtSteps" TextMode="Number" runat="server" Text='<%# Bind("steps")%>' class="form-control"></asp:TextBox>
-                            </div>
-
-                            <asp:Label ID="lblEquipment" runat="server" Text="Equipment Needed"></asp:Label>
-                            <div class="row form-group justify-content-around">
-
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chCart" Checked='<%# Bind("appCart")%>' Text="Appliance Cart" runat="server" />
+                            <div class="card card-body mb-2">
+                                <div class="form-group">
+                                    <asp:Label ID="lblAccessability" for="txtAccessability" runat="server" Text="Truck Accessability"></asp:Label>
+                                    <asp:TextBox ID="txtAccessability" TextMode="MultiLine" Text='<%# Bind("truckAccess")%>' runat="server" class="form-control"></asp:TextBox>
                                 </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chPianoDolly" Checked='<%# Bind("pianoDolly")%>' Text="Piano Dolly" runat="server" />
+
+                                <div class="form-group">
+                                    <asp:Label ID="lblFar" for="txtFarFromLoading" runat="server" Text="Distance from Loading Door"></asp:Label>
+                                    <asp:TextBox ID="txtFarFromLoading" TextMode="MultiLine" Text='<%# Bind("howFar")%>' runat="server" class="form-control"></asp:TextBox>
                                 </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chPianoBoard" Checked='<%# Bind("pianoBoard")%>' Text="Piano Board" runat="server" />
+
+                                <div class="form-group">
+                                    <asp:Label ID="lblSteps" for="txtSteps" runat="server" Text="Steps"></asp:Label>
+                                    <asp:TextBox ID="txtSteps" TextMode="Number" runat="server" Text='<%# Bind("steps")%>' class="form-control"></asp:TextBox>
                                 </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chGun" Checked='<%# Bind("gunSafe")%>' Text="Gun Safe Cart" runat="server" />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chBlanket" Checked='<%# Bind("blankets")%>' Text="Extra Blankets" runat="server" />
+
+                                <asp:Label ID="lblEquipment" runat="server" Text="Equipment Needed"></asp:Label>
+                                <div class="row form-group justify-content-around">
+
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chCart" Checked='<%# Bind("appCart")%>' Text="Appliance Cart" runat="server" />
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chPianoDolly" Checked='<%# Bind("pianoDolly")%>' Text="Piano Dolly" runat="server" />
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chPianoBoard" Checked='<%# Bind("pianoBoard")%>' Text="Piano Board" runat="server" />
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chGun" Checked='<%# Bind("gunSafe")%>' Text="Gun Safe Cart" runat="server" />
+                                    </div>
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chBlanket" Checked='<%# Bind("blankets")%>' Text="Extra Blankets" runat="server" />
+                                    </div>
                                 </div>
                             </div>
 
@@ -638,32 +644,32 @@
                                         <asp:ListItem Text="Basement" Value="0"></asp:ListItem>
                                     </asp:DropDownList>
 
-
-                                    <div class="form-check">
-                                        <asp:CheckBox ID="chServer" Checked='<%# Bind("diningServer")%>' Text="Server" runat="server" />
-                                    </div>
-                                    <div class="row mb-2">
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <asp:CheckBox ID="chSideboard" Checked='<%# Bind("sideBoard")%>' Text="Sideboard" runat="server" />
+                                    <div class="card card-body mb-2">
+                                        <div class="form-check">
+                                            <asp:CheckBox ID="chServer" Checked='<%# Bind("diningServer")%>' Text="Server" runat="server" />
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <asp:CheckBox ID="chSideboard" Checked='<%# Bind("sideBoard")%>' Text="Sideboard" runat="server" />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <asp:CheckBox ID="chHighValueServer" Checked='<%# Bind("highValueServer")%>' Text="High Value" runat="server" />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <asp:CheckBox ID="chMirrorBack" Checked='<%# Bind("mirrorBack")%>' Text="Mirror Back" runat="server" />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <asp:CheckBox ID="CheckBox1" Checked='<%# Bind("marbleTop")%>' Text="Marble Top" runat="server" />
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <asp:CheckBox ID="chHighValueServer" Checked='<%# Bind("highValueServer")%>' Text="High Value" runat="server" />
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <asp:CheckBox ID="chMirrorBack" Checked='<%# Bind("mirrorBack")%>' Text="Mirror Back" runat="server" />
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <asp:CheckBox ID="CheckBox1" Checked='<%# Bind("marbleTop")%>' Text="Marble Top" runat="server" />
-                                            </div>
-                                        </div>
-                                    </div>
                                     </div>
 
                                      <div class="card card-body mb-2">
@@ -695,8 +701,10 @@
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col">
-                                                <asp:Label ID="lblLeaves" runat="server" Text="Leaves"></asp:Label>
-                                                <asp:TextBox ID="txtLeaves" runat="server" Text='<%# Bind("tableLeaves") %>' class="form-control" TextMode="Number"></asp:TextBox>
+                                                <div class="form-check">
+                                                    <asp:Label ID="lblLeaves" runat="server" Text="Leaves"></asp:Label>
+                                                    <asp:TextBox ID="txtLeaves" runat="server" Text='<%# Bind("tableLeaves") %>' class="form-control" TextMode="Number"></asp:TextBox>
+                                                </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-check">
@@ -711,36 +719,42 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="form-check">
-                                        <asp:CheckBox ID="chPedestal" Checked='<%# Bind("pedastalTable")%>' Text="Table" runat="server" />
-                                    </div>
-
                                     <div class="card card-body mb-2">
+                                        <div class="form-check">
+                                            <asp:CheckBox ID="chPedestal" Checked='<%# Bind("pedastalTable")%>' Text="Pedastal Table" runat="server" />
+                                        </div>
+                                    </div>
+                                    <div class="card card-body mb-2">
+                                        <div class="form-check col">
+                                            <asp:CheckBox ID="chChest" Checked='<%# Bind("silverChest")%>' Text="Chest" runat="server" />
+                                        </div>
                                         <div class="row mb-2">
-                                            <div class="form-check col">
-                                                <asp:CheckBox ID="chChest" Checked='<%# Bind("silverChest")%>' Text="Silver Chest" runat="server" />
+                                            <div class="col">
+                                                <div class="form-check col">
+                                                    <asp:CheckBox ID="chChestSilver" Checked='<%# Bind("silverChestHighValue")%>' Text="High Value" runat="server" />
+                                                </div>
                                             </div>
-                                            <div class="form-check col">
-                                                <asp:CheckBox ID="chChestSilver" Checked='<%# Bind("silverChestHighValue")%>' Text="High Value" runat="server" />
-                                            </div>
+                                            
                                         </div>
                                     </div>
 
-                                    <div class="row mb-2">
+                                    <div class="card card-body mb-2">
                                         <div class="form-check col">
                                             <asp:CheckBox ID="chRug" Checked='<%# Bind("diningRug")%>' Text="Rug" runat="server" />
                                         </div>
                                     </div>
 
-                                    <div class="card card-body">
+                                    <div class="card card-body mb-2">
+                                        <div class="form-check col">
+                                            <asp:CheckBox ID="chBreakfront" Checked='<%# Bind("diningBreakfront")%>' Text="Breakfront" runat="server" />
+                                        </div>
                                         <div class="row mb-2">
-                                            <div class="form-check col">
-                                                <asp:CheckBox ID="chBreakfront" Checked='<%# Bind("diningBreakfront")%>' Text="Breakfront" runat="server" />
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <asp:CheckBox ID="chBreakfrontHigh" Checked='<%# Bind("breakfrontHighValue")%>' Text="High Value" runat="server" />
+                                                </div>
                                             </div>
-                                            <div class="form-check col">
-                                                <asp:CheckBox ID="chBreakfrontHigh" Checked='<%# Bind("breakfrontHighValue")%>' Text="High Value" runat="server" />
-                                            </div>
+                                            
                                             <div class="form-check col">
                                                 <asp:CheckBox ID="chBreakfrontTwoPiece" Checked='<%# Bind("breakfrontTwoPiece")%>' Text="Two Piece" runat="server" />
                                             </div>
@@ -1196,7 +1210,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-check">
-                                                <asp:CheckBox ID="chtruckToDoor" Checked='<%# Bind("truckToDoor")%>' Text="Get Truck to Door" runat="server" />
+                                                <asp:CheckBox ID="chtruckToDoor" Checked='<%# Bind("truckToDoor")%>' Text="Truck to Door?" runat="server" />
                                             </div>
                                         </div>
                                     </div>

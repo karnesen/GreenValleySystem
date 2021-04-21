@@ -23,7 +23,7 @@ namespace GreenValleySystem
         {
             if (Session["username"] == null)
             {
-                Session["InvalidUse"] = "You must first login to search for a customer.";
+                Session["InvalidUse"] = "You must be logged in to view this page.";
                 Response.Redirect("login.aspx");
             }
 

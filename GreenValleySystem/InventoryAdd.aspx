@@ -29,11 +29,12 @@
                         Text="Please Enter An Item Name." ValidationGroup="inventory">
                     </asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="addressValid"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtItemName"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                        runat="server"
+                        ErrorMessage="Only Spaces and letters are valid characters!"
+                        ControlToValidate="txtItemName"
+                        ValidationExpression="[a-zA-Z ]*$"
+                        ValidationGroup="inventory"
+                        ForeColor="Red"></asp:RegularExpressionValidator>
                 </div>
 
                 <div class="form-group">

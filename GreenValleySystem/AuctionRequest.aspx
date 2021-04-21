@@ -23,11 +23,12 @@
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>--%>
                 <asp:RegularExpressionValidator ID="cityValid"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtAuctionCity"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                    runat="server"
+                    ErrorMessage="Only Spaces and letters are valid characters!"
+                    ControlToValidate="txtAuctionCity"
+                    ValidationExpression="[a-zA-Z ]*$" 
+                    ValidationGroup="CreateCustomer"
+                    ForeColor="Red"></asp:RegularExpressionValidator>
 
             </div>
 
@@ -46,21 +47,22 @@
                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>--%>
                 <asp:RegularExpressionValidator runat="server"
-                                        id="rexNumber"
-                                        controltovalidate="txtAuctionZip"
-                                        validationexpression="\d{5}(-\d{4})?"
-                                        errormessage="Please enter a 5 digit zip code!" />
-                                  <script>
-                                      var num = document.getElementById('<%=txtAuctionZip.ClientID %>').value;
-                                      if (num > 30 || num <= 0)
-                                      {
-                                          alert('Please Enter Value between 1 to 30');
-                                          document.getElementById('<%=txtAuctionZip.ClientID %>').value = '';
-                                          document.getElementById('<%=txtAuctionZip.ClientID %>').focus();
-                                          return false;
-                                      }
-                                      return true;
-                                  </script>
+                    id="rexNumber"
+                    controltovalidate="txtAuctionZip"
+                    validationexpression="\d{5}(-\d{4})?"
+                    ValidationGroup="CreateCustomer"
+                    errormessage="Please enter a 5 digit zip code!" />
+                    <script>
+                        var num = document.getElementById('<%=txtAuctionZip.ClientID %>').value;
+                        if (num > 30 || num <= 0)
+                        {
+                            alert('Please Enter Value between 1 to 30');
+                            document.getElementById('<%=txtAuctionZip.ClientID %>').value = '';
+                            document.getElementById('<%=txtAuctionZip.ClientID %>').focus();
+                            return false;
+                        }
+                        return true;
+                    </script>
             </div>
         </div>
         <div class="row">
