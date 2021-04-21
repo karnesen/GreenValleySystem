@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/serviceDetails.Master" AutoEventWireup="true" CodeBehind="appraisalServiceOrder.aspx.cs" Inherits="GreenValleySystem.appraisalServiceOrder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
-    <div class="card card-body">
+    <div class="card">
+        <div class="card-header text-center">
+            Service Order
+                </div>
+    <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <h4>Customer Information</h4>
@@ -94,6 +98,6 @@
                 </asp:SqlDataSource>
             </li>
         </ul>
-
+        </div>
     </div>
 </asp:Content>

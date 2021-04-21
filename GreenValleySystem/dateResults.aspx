@@ -43,6 +43,11 @@
                                             ValidationGroup="Date">
                                         </asp:RequiredFieldValidator>
 
+                                         </div>
+
+                                </div>
+
+
                                         <asp:GridView
                                             ID="gvDates"
                                             runat="server"
@@ -64,16 +69,13 @@
 
                                                 <asp:TemplateField HeaderText="Date">
                                                     <ItemTemplate>
-                                                        <asp:Label ID="lblDate" runat="server" Text='<%#Eval("confirmedDate")%>'></asp:Label>
+                                                        <asp:Label ID="lblDate" runat="server" Text='<%#Eval("confirmedDate, "{0:d}"")%>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
 
                                             </Columns>
                                         </asp:GridView>
-                                    </div>
-
-                                </div>
-
+                                   
                             </div>
 
                         </div>

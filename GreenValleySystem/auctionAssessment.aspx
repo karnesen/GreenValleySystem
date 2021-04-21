@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
     <div class="card mb-2">
         <div class="card-header">
+            <div class="text-center h5">
+            Assessment Form
+                </div>
             <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class='<%= state4 %>' id="pre-tab" data-toggle="tab" href="#prelim" role="tab" aria-controls="prelim" aria-selected="true">Preliminary</a>
@@ -95,7 +98,8 @@
                             <asp:LinkButton ID="UpdateButton"
                                 Text="Save"
                                 CommandName="Update"
-                                runat="server" />
+                                runat="server" 
+                                Class="btn btn-outline-primary"/>
                         </EditItemTemplate>
                     </asp:FormView>
                 </div>
@@ -281,7 +285,7 @@
                                         </tbody>
                                     </table>
                                     <asp:TextBox ID="txtInventory" TextMode="MultiLine" Rows="20"  Class="form-control  fixed-bottom w-25" PlaceHolder="Inventory" Text='<%# Bind("Inventory") %>' runat="server"></asp:TextBox>
-                                    <asp:Button ID="btnSaveChanges" Text="Save" runat="server" CommandName="Update" Class="btn btn-primary" />
+                                    <asp:Button ID="btnSaveChanges" Text="Save" runat="server" CommandName="Update" Class="btn btn-outline-primary" />
 
                                 </EditItemTemplate>
                             </asp:FormView>
@@ -308,7 +312,7 @@
                             </asp:SqlDataSource>
 
                             <%-- Assign Trucks --%>
-                            <div class="card card-body">
+                            <div class="card card-body m-2">
                                 <div class="row">
                                     <div class="col">
                                         <asp:DropDownList
@@ -363,7 +367,7 @@
                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
                                 SelectCommand="Select * from utilizeEquipment Inner Join Equipment on utilizeEquipment.equipmentID = Equipment.equipmentID where serviceID=@serviceID"
                                 InsertCommand="Insert into utilizeEquipment values(@equipmentId, @serviceID)"
-                                DeleteCommand="Delete from utilizeEquipment where equipemntID=@equipmentID and serviceID=@serviceID">
+                                DeleteCommand="Delete from utilizeEquipment where equipmentID=@equipmentID and serviceID=@serviceID">
                                 <SelectParameters>
                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                 </SelectParameters>

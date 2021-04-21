@@ -41,14 +41,14 @@
             ID="srcServices"
             runat="server"
             ConnectionString="<%$ ConnectionStrings:Connect %>"
-            SelectCommand="Select customer.customerID, customer.FirstName, customer.LastName, serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent
+            SelectCommand="Select customer.customerID, serviceHistory.dateAdded, customer.FirstName, customer.LastName, serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent
                 from Customer inner join Service on customer.customerID = service.customerID
             inner join ServiceHistory on service.serviceID = servicehistory.serviceID
             inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 
             where serviceStatus=1 AND
             serviceHistory.stepID IN
             (select max(stepID) from serviceHistory inner join service on serviceHistory.serviceID=service.serviceID group by service.serviceID)  
-			order by serviceStatus desc, serviceOpenDate asc">
+			order by serviceHistory.dateAdded">
         </asp:SqlDataSource>
 
         </div>

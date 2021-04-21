@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class=" container">
-        <div class="row">
+        <div class="row mb-2">
             <div class="col-7 mb-2">
-                <div class="card card-body mb-2">
+                <div class="card card-body">
                     <asp:FormView
                         ID="fvCustomer"
                         runat="server"
@@ -413,7 +413,7 @@
             ID="srcServices"
             runat="server"
             ConnectionString="<%$ ConnectionStrings:Connect %>"
-            SelectCommand="Select serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent
+            SelectCommand="Select serviceStatus, service.serviceType, FORMAT(serviceOpenDate, 'MM/dd/yy') as 'serviceOpenDate', service.serviceID, serviceEvent
                 from Service inner join ServiceHistory on service.serviceID = servicehistory.serviceID
             inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 
             where service.customerID=@selectedCustomer and 

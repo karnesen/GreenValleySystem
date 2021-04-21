@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/serviceDetails.Master" AutoEventWireup="true" CodeBehind="completion.aspx.cs" Inherits="GreenValleySystem.completion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
-    <div class="card card-body">
+    <div class="card ">
+        <div class="card-header text-center h5">
+            Completion Form
+        </div>
+        <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <h4>Customer Information</h4>
@@ -57,12 +61,14 @@
                     No Addresses Specificed
                 </EmptyItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
+                    <asp:Label ID="addressType" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>' Font-Bold="true"></asp:Label>
                     <br />
-                    <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>,
-                    <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
+                    <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>
+                    <br />
+                    <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>,
                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
                     <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
+                    <br />
                 </ItemTemplate>
             </asp:ListView>
 
@@ -86,7 +92,7 @@
                     DataSourceID="srcCompletion">
                     <EditItemtemplate>
                         <div class="mb-2">
-                            <asp:TextBox ID="txtComments" Class="form-control" Text='<%# Bind("comments") %>' TextMode="MultiLine" Placeholder="Comments" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtComments" Class="form-control" Text='<%# Bind("comments") %>' Columns="20" TextMode="MultiLine" Placeholder="Comments" runat="server"></asp:TextBox>
                         </div>
                         <div class="mb-2">
                             <asp:DropDownList ID="ddlExperience" runat="server" class="form-control" SelectedValue='<%# Bind("positiveExperience") %>'>
@@ -95,7 +101,7 @@
                             </asp:DropDownList>
                         </div>
 
-                        <asp:LinkButton ID="lbtnSave" runat="server" CommandName="Update">Save</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnSave" runat="server" class="btn btn-outline-primary" CommandName="Update">Save</asp:LinkButton>
                     </EditItemtemplate>
                 </asp:FormView>
 
@@ -115,5 +121,6 @@
             </li>
 
         </ul>
+            </div>
     </div>
 </asp:Content>

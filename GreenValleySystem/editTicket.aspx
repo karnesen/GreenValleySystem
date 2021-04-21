@@ -35,7 +35,7 @@
 
                             <asp:TemplateField HeaderText="Service Open Date">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblServiceOpenDate" runat="server" Text='<%#Bind("serviceOpenDate")%>'></asp:Label>
+                                    <asp:Label ID="lblServiceOpenDate" runat="server" Text='<%#Eval("serviceOpenDate", "{0:d}")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
@@ -218,7 +218,8 @@
                                     <asp:Label ID="addressType" Font-Bold="true" runat="server" Text='<%# (Eval("addressType").ToString() == "P") ? "Pick Up Location" : "Drop Off" %>'></asp:Label>
                                     <br />
                                     <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>
-                                    <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>,
                                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
                                     <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
                                 </ItemTemplate>

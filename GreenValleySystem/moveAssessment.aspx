@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
     <div class="card mb-2">
         <div class="card-header">
+            <div class="text-center h5">
+            Assessment Form
+                </div>
             <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class='<%=stateNav1 %>' id="pre-tab" data-toggle="tab" href="#prelim" role="tab" aria-controls="prelim" aria-selected="true">Preliminary</a>
@@ -58,8 +61,10 @@
                                 </div>
                             </div>
                             <asp:TextBox ID="txtTrash" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
+                            <asp:LinkButton ID="lnkButtonSave" CommandName="Update"  runat="server" Class="btn btn-outline-primary">Save</asp:LinkButton>
                         </EditItemTemplate>
                     </asp:FormView>
+
                     <%-- Addresses --%>
                     <asp:GridView
                         ID="gvServiceAddresses"
@@ -438,7 +443,7 @@
                                 </div>
                             </div>
 
-                            <asp:LinkButton ID="lnkButtonSave" CommandName="Update" OnClick="lnkButtonSave_Click" runat="server">Save</asp:LinkButton>
+                            <asp:LinkButton ID="lnkButtonSave" CommandName="Update" OnClick="lnkButtonSave_Click" runat="server" Class="btn btn-outline-primary">Save</asp:LinkButton>
 
                         </EditItemTemplate>
                     </asp:FormView>

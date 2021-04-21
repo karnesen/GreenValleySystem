@@ -11,6 +11,8 @@
                         <li class="list-group-item">
                             <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" Class="btn btn-outline-primary"
                                 CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
+                            <br />
+                            <asp:Label ID="lblCustomer" runat="server" ></asp:Label>
                         </li>
 
                         <li class="list-group-item">

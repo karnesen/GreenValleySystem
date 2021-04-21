@@ -22,6 +22,7 @@ namespace GreenValleySystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblCustomer.Text = Session["selectedCustomerName"].ToString();
             if (!IsPostBack)
             {
                 if ((Session["serviceType"].ToString()).Equals("Move"))
