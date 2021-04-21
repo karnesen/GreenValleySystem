@@ -49,6 +49,12 @@ namespace Lab2
 
         }
 
+        protected void gvCustomerTickets_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCustomerTickets.PageIndex = e.NewPageIndex;
+            this.DataBind();
+        }
+
         //private void GetData()
         //{
         //    DataTable dt = new DataTable();

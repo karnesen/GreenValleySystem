@@ -89,5 +89,17 @@ namespace GreenValleySystem
         {
             Response.Redirect("requestAppraisal.aspx");
         }
+
+        protected void ddlFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(ddlFilter.SelectedValue=="x")
+                srcNotes.FilterExpression = null;
+
+            else if(ddlFilter.SelectedValue == "e")
+                srcNotes.FilterExpression = "serviceType IS NULL";
+
+            else
+                srcNotes.FilterExpression = "serviceType='" + ddlFilter.SelectedValue + "'";
+        }
     }
 }

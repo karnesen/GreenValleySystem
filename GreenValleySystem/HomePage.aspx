@@ -15,7 +15,10 @@
             AutoGenerateColumns="false"
             OnRowDataBound="gvCustomer_RowDataBound"
             OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged"
-            class="table table-bordered table-condensed table-hover">
+            class="table table-bordered table-condensed table-hover"
+            AllowPaging="true"
+            OnPageIndexChanging="gvCustomerTickets_PageIndexChanging"
+            PageSize="10">
             <Columns>
                 <asp:TemplateField HeaderText="Customer">
                     <ItemTemplate>

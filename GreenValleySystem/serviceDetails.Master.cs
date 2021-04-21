@@ -127,6 +127,17 @@ namespace GreenValleySystem
             fvCurrent.DataBind();
         }
 
+        protected void ddlFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlFilter.SelectedValue == "x")
+                srcNotes.FilterExpression = null;
+            else if (ddlFilter.SelectedValue == "e")
+                srcNotes.FilterExpression = "serviceType IS NULL";
+            else
+                srcNotes.FilterExpression = "serviceType='" + ddlFilter.SelectedValue + "'";
+            state = "collapse show";
+        }
+
         //protected void fvProgress_DataBinding(object sender, EventArgs e)
         //{
         //    DropDownList ddlProgress = (DropDownList)(sender);

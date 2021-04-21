@@ -235,12 +235,12 @@
 
                                         <div class="col-md-4">
                                             <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("zipcode") %>' class="form-control" Placeholder="Zip"></asp:TextBox>
-                                            <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="CustomerProfile" 
-                                                 ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                                            <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="CustomerProfile"
+                                                ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
                                         </div>
                                     </div>
                                 </li>
-                                
+
                                 <li class="list-group-item">
                                     <asp:Label ID="lblInitialContact" runat="server"
                                         Text='<%# "Initial Contact Type: " + Eval("initialContactType") %>'></asp:Label>
@@ -291,12 +291,20 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">New Note</a>
                             </li>
-                        </ul>
+                            </ul>
+                        
                     </div>
 
                     <div class="card-body">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="note" role="tabpanel" aria-labelledby="notes-tab">
+                                <asp:DropDownList ID="ddlFilter" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlFilter_SelectedIndexChanged" class="form-control">
+                            <asp:ListItem Value="x">Show All</asp:ListItem>
+                             <asp:ListItem Value="e">Personal</asp:ListItem>
+                            <asp:ListItem Value="A">Auction</asp:ListItem>
+                            <asp:ListItem Value="P">Appraisal</asp:ListItem>
+                            <asp:ListItem Value="M">Move</asp:ListItem>
+                        </asp:DropDownList>
                                 <asp:ListView
                                     ID="lvNotes"
                                     runat="server"
@@ -339,12 +347,14 @@
 
                                 <asp:SqlDataSource
                                     ID="srcNotes"
+                                    DataSourceMode="DataSet"
                                     ConnectionString="<%$ ConnectionStrings:Connect %>"
-                                    SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
+                                    SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle', service.serviceType
                             FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID Left Join service on ticketNote.serviceID = service.serviceID WHERE TicketNote.customerID = @selectedCustomer OR service.customerID = @selectedCustomer 
                                 order by TICKETNOTE.creationDate desc"
                                     UpdateCommand="Update TicketNote set noteText=@noteText where ticketID=@ticketID"
-                                    runat="server">
+                                    runat="server"
+                                    FilterExpression="">
                                     <SelectParameters>
                                         <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
                                     </SelectParameters>

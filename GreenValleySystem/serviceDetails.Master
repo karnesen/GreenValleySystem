@@ -115,7 +115,7 @@
                             <li class="nav-item">
                                 <a class='<%= state5 %>' id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
                             </li>
-                            <li class="nav-item ml-auto">
+                            <li class="ml-auto">
                                 <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> Expand</asp:LinkButton>
 
                             </li>
@@ -127,6 +127,13 @@
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
                                 <div class='<%= state3 %>' id="note" role="tabpanel" aria-labelledby="notes-tab">
+                                    <asp:DropDownList ID="ddlFilter" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlFilter_SelectedIndexChanged" class="form-control">
+                            <asp:ListItem Value="x">Show All</asp:ListItem>
+                            <asp:ListItem Value="e">Personal</asp:ListItem>
+                            <asp:ListItem Value="A">Auction</asp:ListItem>
+                            <asp:ListItem Value="P">Appraisal</asp:ListItem>
+                            <asp:ListItem Value="M">Move</asp:ListItem>
+                        </asp:DropDownList>
                                     <asp:ListView
                                         ID="lvNotes"
                                         runat="server"
@@ -170,10 +177,11 @@
                                         ID="srcNotes"
                                         ConnectionString="<%$ ConnectionStrings:Connect %>"
                                         UpdateCommand="Update TicketNote set noteText=@noteText where ticketID=@ticketID"
-                                        SelectCommand="SELECT TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
+                                        SelectCommand="SELECT service.serviceType, TicketNote.ticketID, FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate', TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', TICKETNOTE.noteTitle as 'NoteTitle' 
                                 FROM TICKETNOTE INNER JOIN EMPLOYEE on TICKETNOTE.noteCreator = EMPLOYEE.employeeID Left Join service on ticketNote.serviceID = service.serviceID WHERE TicketNote.customerID = @selectedCustomer OR service.customerID = @selectedCustomer 
                                 order by TICKETNOTE.creationDate desc"
-                                        runat="server">
+                                        runat="server"
+                                         FilterExpression="">
                                         <SelectParameters>
                                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                             <asp:SessionParameter Name="selectedCustomer" SessionField="selectedCustomer" />
