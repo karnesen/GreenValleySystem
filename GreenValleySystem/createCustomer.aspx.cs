@@ -96,6 +96,8 @@ namespace Lab1
                     "@mobilePref, @homePref, @emailPref, @textPref, " +
                     "@email, @address, @city, @state, @zip, @initialContact, @hear, '" + DateTime.Now + "', '" + DateTime.Now + "')";
 
+                sqlQuery = "Insert into CustomerAuth Values(select max(customerID) from customer), '1000:0t7km6zSzsP+DOwv9tJoFUztOs2xrZyt:8hzRYmrcVjc1K2IVqot3QyO3ZPk=')";
+
                 sqlQuery += "INSERT INTO TICKETNOTE (creationDate, customerID, noteCreator, noteTitle, noteText)" +
                     " VALUES('" + DateTime.Now + "', (select max(customerID) from customer), " + Session["EmployeeID"].ToString() + ", 'Initial Contact', @notes)";
                

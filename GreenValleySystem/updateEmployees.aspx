@@ -98,8 +98,6 @@
                             </EditItemTemplate>
                         </asp:TemplateField>
 
-
-
                     </Columns>
                 </asp:GridView>
 
@@ -185,12 +183,14 @@
                     ID="srcEmployees"
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
                     SelectCommand="SELECT * from Employee where currentEmployee = 1"
-                    UpdateCommand="UPDATE Employee SET firstName=@firstName, lastName=@lastName, position=@position, email=@email where employeeID=@employeeID"
+                    UpdateCommand="UPDATE Employee SET firstName=@firstName, lastName=@lastName, position=@position, email=@email, password=@password where employeeID=@employeeID"
                     InsertCommand="INSERT into Employee(firstName,lastName,Position, currentEmployee, email, PasswordHash) VALUES(@firstName,@lastName,@Position,1,@email,@password)"
                     DeleteCommand="UPDATE EMPLOYEE set currentEmployee=0 where employeeID=@employeeID"
                     runat="server">
+                    <UpdateParameters>
+                        <asp:Parameter Name="password" />
+                    </UpdateParameters>
                     <InsertParameters>
-
                         <asp:ControlParameter Name="firstName" ControlID="txtFirstName" Type="String" />
                         <asp:ControlParameter Name="lastName" ControlID="txtLastName" Type="String" />
                         <asp:ControlParameter Name="email" ControlID="txtEmail" Type="String" />
