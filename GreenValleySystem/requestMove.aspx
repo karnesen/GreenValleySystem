@@ -20,11 +20,12 @@
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="cityValid"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtServiceCity"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                    runat="server"
+                    ErrorMessage="Only Spaces and letters are valid characters!"
+                    ControlToValidate="txtServiceCity"
+                    ValidationExpression="[a-zA-Z ]*$"
+                    ValidationGroup="CreateCustomer"
+                    ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="col-md-2">
@@ -43,6 +44,7 @@
                 </asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator runat="server"
                     id="rexNumber"
+                    ValidationGroup="CreateCustomer"
                     controltovalidate="txtServiceZip"
                     validationexpression="\d{5}(-\d{4})?"
                     errormessage="Please enter a 5 digit zip code!" />
@@ -66,6 +68,7 @@
                 </asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
                     runat="server"
+                    ValidationGroup="CreateCustomer"
                     ErrorMessage="Only Spaces and letters are valid characters!"
                     ControlToValidate="txtDestinationCity"
                     ValidationExpression="[a-zA-Z ]*$"
@@ -88,6 +91,7 @@
                 </asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator runat="server"
                     id="RegularExpressionValidator2"
+                    ValidationGroup="CreateCustomer"
                     controltovalidate="txtDestinationZip"
                     validationexpression="\d{5}(-\d{4})?"
                     errormessage="Please enter a 5 digit zip code!" />

@@ -21,11 +21,12 @@
                     Text="Please Enter A City." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="cityValid"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtAuctionCity"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                    runat="server"
+                    ErrorMessage="Only Spaces and letters are valid characters!"
+                    ControlToValidate="txtAuctionCity"
+                    ValidationExpression="[a-zA-Z ]*$"
+                    ValidationGroup="CreateCustomer"
+                    ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="col-md-2">
@@ -43,10 +44,11 @@
                     Text="Please Enter Zip Code." ValidationGroup="CreateCustomer">
                 </asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator runat="server"
-                                        id="rexNumber"
-                                        controltovalidate="txtAuctionZip"
-                                        validationexpression="\d{5}(-\d{4})?"
-                                        errormessage="Please enter a 5 digit zip code!" />
+                    id="rexNumber"
+                    ValidationGroup="CreateCustomer"
+                    controltovalidate="txtAuctionZip"
+                    validationexpression="\d{5}(-\d{4})?"
+                    errormessage="Please enter a 5 digit zip code!" />
                                   <script>
                                       var num = document.getElementById('<%=txtAuctionZip.ClientID %>').value;
                                       if (num > 30 || num <= 0)

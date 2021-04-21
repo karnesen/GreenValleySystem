@@ -34,11 +34,12 @@
                                         Text="Please Enter A First Name." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtFirstName"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                                        runat="server"
+                                        ErrorMessage="Only Spaces and letters are valid characters!"
+                                        ControlToValidate="txtFirstName"
+                                        ValidationExpression="[a-zA-Z ]*$"
+                                        ValidationGroup="CreateCustomer"
+                                        ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
 
                                 <div class="col-md-4">
@@ -48,11 +49,12 @@
                                         Text="Please Enter A Last Name." ValidationGroup="CreateCustomer">
                                     </asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtLastName"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                                        runat="server"
+                                        ErrorMessage="Only Spaces and letters are valid characters!"
+                                        ControlToValidate="txtLastName"
+                                        ValidationGroup="CreateCustomer"
+                                        ValidationExpression="[a-zA-Z ]*$"
+                                        ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class=col-md-3>
                                 <asp:Button ID="btnCheckUniqueCombo" runat="server" ValidationGroup="CreateCustomer" Text="Check Unique" class="btn btn-outline-primary" OnClick="btnCheckUniqueCombo_Click"/>
@@ -127,12 +129,13 @@
                                     ErrorMessage="CustomValidator" OnServerValidate="cvCheckUniqueCustomer_ServerValidate"
                                     ValidationGroup="CreateCustomer" Text="This Email is already in use"></asp:CustomValidator>
                                 <asp:RegularExpressionValidator ID="emailValid"
-                                      runat="server"
-                                      ControlToValidate="txtEmail"
-                                      ForeColor="Red"
-                                      ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
-                                      Display = "Dynamic"
-                                      ErrorMessage = "Invalid email address"/>
+                                    runat="server"
+                                    ControlToValidate="txtEmail"
+                                    ForeColor="Red"
+                                    ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                    Display = "Dynamic"
+                                    ValidationGroup="CreateCustomer"
+                                    ErrorMessage = "Invalid email address"/>
                             </div>
 
                             <asp:Label ID="lblContactPreference" runat="server" Class="h6" Text="Contact Preference"></asp:Label>
@@ -167,11 +170,12 @@
                                 Text="Please Enter A City." ValidationGroup="CreateCustomer">
                             </asp:RequiredFieldValidator>--%>
                                     <asp:RegularExpressionValidator ID="cityValid"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtCity"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                                        runat="server"
+                                        ErrorMessage="Only Spaces and letters are valid characters!"
+                                        ControlToValidate="txtCity"
+                                        ValidationExpression="[a-zA-Z ]*$"
+                                        ValidationGroup="CreateCustomer"
+                                        ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
 
                                 <div class="col-md-2">
@@ -194,6 +198,7 @@
                                         id="rexNumber"
                                         controltovalidate="txtZipCode"
                                         validationexpression="\d{5}(-\d{4})?"
+                                        ValidationGroup="CreateCustomer"
                                         errormessage="Please enter a 5 digit zip code!" />
                                    
                                     

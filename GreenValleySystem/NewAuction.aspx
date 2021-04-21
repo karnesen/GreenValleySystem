@@ -55,11 +55,12 @@
                             Text="Please Enter A City." ValidationGroup="CreateService">
                         </asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="cityValid"
-                                         runat="server"
-                                         ErrorMessage="Only Spaces and letters are valid characters!"
-                                         ControlToValidate="txtCity"
-                                         ValidationExpression="[a-zA-Z ]*$"
-                                         ForeColor="Red"></asp:RegularExpressionValidator>
+                            runat="server"
+                            ErrorMessage="Only Spaces and letters are valid characters!"
+                            ControlToValidate="txtCity"
+                            ValidationExpression="[a-zA-Z ]*$"
+                            ValidationGroup="CreateService"
+                            ForeColor="Red"></asp:RegularExpressionValidator>
                     </div>
 
                     <div class="col-md-2">
@@ -77,10 +78,11 @@
                             Text="Please Enter Zip Code." ValidationGroup="CreateService">
                         </asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator runat="server"
-                                        id="rexNumber"
-                                        controltovalidate="txtZipCode"
-                                        validationexpression="\d{5}(-\d{4})?"
-                                        errormessage="Please enter a 5 digit zip code!" />
+                            id="rexNumber"
+                            controltovalidate="txtZipCode"
+                            validationexpression="\d{5}(-\d{4})?"
+                            ValidationGroup="CreateService"
+                            errormessage="Please enter a 5 digit zip code!" />
                                   <script>
                                       var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
                                       if (num > 30 || num <= 0)
