@@ -27,7 +27,7 @@ namespace Lab2
                 Session["InvalidUse"] = "You must first login to view a ticket.";
                 Response.Redirect("login.aspx");
             }
-
+            GenerateDownloadLinks();
         }
 
         protected void btnNewAddress_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Lab2
             string fileName;
             string filePath;
             string folder;
-            folder = Server.MapPath("~/images/");
+            folder = Server.MapPath("~/forms/" + Session["selectedCustomer"].ToString() + "/");
 
             //retrieve name of posted file
             fileName = oFile.PostedFile.FileName;
@@ -58,18 +58,19 @@ namespace Lab2
                 {
                     Directory.CreateDirectory(folder);
                 }
+
                 //save to server
                 filePath = folder + fileName;
                 if (File.Exists(filePath))
                 {
-                    lblResult.Text = fileName + "file already exists in the database!";
+                    lblResult.Text = fileName + " file already exists in the database!";
                     lblResult.ForeColor = System.Drawing.Color.Red;
 
                 }
                 else
                 {
                     oFile.PostedFile.SaveAs(filePath);
-                    lblResult.Text = fileName + "has been successfully uploaded!";
+                    lblResult.Text = fileName + " has been successfully uploaded!";
                     lblResult.ForeColor = System.Drawing.Color.Green;
                 }
             }
@@ -80,5 +81,68 @@ namespace Lab2
             //displayyyyyyyyyy
             panelConfirm.Visible = true;
         }
+
+        private void GenerateDownloadLinks()
+        {
+            string path = Server.MapPath("~/forms/" + Session["selectedCustomer"].ToString() + "/");
+            if (Directory.Exists(path))
+            {
+                DataTable ShowContent = new DataTable();
+                ShowContent.Columns.Add("Icon", typeof(string));
+                ShowContent.Columns.Add("DownloadLink", typeof(string));
+                ShowContent.Columns.Add("FileName", typeof(string));
+                DirectoryInfo di = new DirectoryInfo(path);
+                foreach (FileInfo fi in di.GetFiles())
+                {
+                    DataRow dr = ShowContent.NewRow();
+                    dr["FileName"] = fi.Name;
+                    dr["DownloadLink"] = Server.MapPath("~/forms/" + Session["selectedCustomer"].ToString() + "/") + fi.Name;
+                    string ext = Path.GetExtension(fi.FullName);
+                    //switch (ext)
+                    //{
+                    //    case "png":
+                    //        dr["Icon"] = ResolveUrl("~/images/PdfIcon.png");
+                    //        break;
+                    //    case "doc":
+                    //        dr["Icon"] = ResolveUrl("~/images/DocIcon.png");
+                    //        break;
+                    //    case "xls":
+                    //        dr["Icon"] = ResolveUrl("~/images/ExcelIcon.png");
+                    //        break;
+                    //    case "txt":
+                    //        dr["Icon"] = ResolveUrl("~/images/TxtIcon.png");
+                    //        break;
+                    //    case "zip":
+                    //        dr["Icon"] = ResolveUrl("~/images/ZipIcon.png");
+                    //        break;
+                    //}
+                    DataListContent.DataSource = ShowContent;
+                    DataListContent.DataBind();
+                }
+            }
+        }
+
+        protected void ButtonDownloadContent(object sender, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "Download")
+            {
+                string path = e.CommandArgument.ToString();
+                string name = Path.GetFileName(path);
+                string ext = Path.GetExtension(path);
+                Response.AppendHeader("content-disposition", "attachment; filename=" + name);
+                Response.ContentType = "application/octet-stream";
+                Response.WriteFile(path);
+                Response.End();
+            }
+        }
+
+        protected void DeleteFile(object sender, EventArgs e)
+        {
+            string filePath = (sender as LinkButton).CommandArgument;
+            File.Delete(filePath);
+            GenerateDownloadLinks();
+        }
+
+
     }
 }

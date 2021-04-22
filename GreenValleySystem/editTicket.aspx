@@ -58,7 +58,7 @@
                                     </div>
                                 </EditItemTemplate>
                             </asp:TemplateField>
-                            
+
                         </Fields>
                     </asp:DetailsView>
 
@@ -190,25 +190,24 @@
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtZipCode"
                                             Text="Please Enter Zip Code.">
                                         </asp:RequiredFieldValidator>
-                                       <%-- <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode"
+                                        <%-- <asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode"
                                                  ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
                                         <asp:RegularExpressionValidator runat="server"
-                                            id="rexNumber"
-                                            controltovalidate="txtZipCode"
+                                            ID="rexNumber"
+                                            ControlToValidate="txtZipCode"
                                             ValidationGroup="address"
-                                            validationexpression="\d{5}(-\d{4})?"
-                                            errormessage="Please enter a 5 digit zip code!" />
-                                  <script>
-                                      var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
-                                      if (num > 30 || num <= 0)
-                                      {
-                                          alert('Please Enter Value between 1 to 30');
-                                          document.getElementById('<%=txtZipCode.ClientID %>').value = '';
+                                            ValidationExpression="\d{5}(-\d{4})?"
+                                            ErrorMessage="Please enter a 5 digit zip code!" />
+                                        <script>
+                                            var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
+                                            if (num > 30 || num <= 0) {
+                                                alert('Please Enter Value between 1 to 30');
+                                                document.getElementById('<%=txtZipCode.ClientID %>').value = '';
                                           document.getElementById('<%=txtZipCode.ClientID %>').focus();
-                                          return false;
-                                      }
-                                      return true;
-                                  </script>
+                                                return false;
+                                            }
+                                            return true;
+                                        </script>
 
                                     </div>
                                 </EditItemTemplate>
@@ -328,21 +327,21 @@
                                             <%--<asp:CompareValidator ID="zipCodeValidator" runat="server" ErrorMessage="Invalid Zipcode" ValidationGroup="address" 
                                                  ControlToValidate="txtZipCode" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>--%>
                                             <asp:RegularExpressionValidator runat="server"
-                                                id="rexNumber"
-                                                controltovalidate="txtZipCode"
-                                                validationexpression="\d{5}(-\d{4})?"
+                                                ID="rexNumber"
+                                                ControlToValidate="txtZipCode"
+                                                ValidationExpression="\d{5}(-\d{4})?"
                                                 ValidationGroup="address"
-                                                errormessage="Please enter a 5 digit zip code!" />
-                                  <script>
-                                      var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
-                                      if (num > 30 || num <= 0) {
-                                          alert('Please Enter Value between 1 to 30');
-                                          document.getElementById('<%=txtZipCode.ClientID %>').value = '';
+                                                ErrorMessage="Please enter a 5 digit zip code!" />
+                                            <script>
+                                                var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
+                                                if (num > 30 || num <= 0) {
+                                                    alert('Please Enter Value between 1 to 30');
+                                                    document.getElementById('<%=txtZipCode.ClientID %>').value = '';
                                           document.getElementById('<%=txtZipCode.ClientID %>').focus();
-                                          return false;
-                                      }
-                                      return true;
-                                  </script>
+                                                    return false;
+                                                }
+                                                return true;
+                                            </script>
 
                                         </div>
                                         <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server" ValidationGroup="address">Commit</asp:LinkButton>
@@ -378,11 +377,26 @@
         </div>
     </div>
     <div class="row justify-content-around">
-            <input id="oFile" type="file" runat="server" class="btn btn-primary btn-lg" name="oFile" />
-            <asp:Button ID="btnImageupload" runat="server" class="btn btn-primary btn-lg" Text="Upload Image" type="submit" OnClick="btnImageupload_Click"/>
-            <asp:Panel ID="panelConfirm" runat="server" Visible="false">
+        <input id="oFile" type="file" runat="server" class="btn btn-primary btn-lg" name="oFile" />
+        <asp:Button ID="btnImageupload" runat="server" class="btn btn-primary btn-lg" Text="Upload Image" type="submit" OnClick="btnImageupload_Click" />
+        <asp:Panel ID="panelConfirm" runat="server" Visible="false">
             <asp:Label ID="lblResult" runat="server" class="h6" Text="Label"></asp:Label>
-            </asp:Panel>
+        </asp:Panel>
+
+        <asp:DataList ID="DataListContent" runat="server" OnItemCommand="ButtonDownloadContent"
+            RepeatDirection="Vertical" BorderStyle="None" Style="padding: 0px!important">
+            <ItemTemplate>
+                <div>
+                    <img src='<%# DataBinder.Eval(Container.DataItem,"Icon") %>' id="ImgIcon" />
+                    <asp:LinkButton ID="ButtonDownload" runat="server" Style="padding-left: 5px; text-decoration: none"
+                        ToolTip="Click here to download" CommandName="Download" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"DownLoadLink") %>'
+                        Text=' <%# DataBinder.Eval(Container.DataItem,"FileName") %>'></asp:LinkButton>
+                    <asp:LinkButton ID="lnkDelete" Text="Delete" CommandArgument='<%# Eval("DownLoadLink") %>'
+                        Style="text-decoration: none; font-size: large; color: red;" runat="server" OnClick="DeleteFile" />
+                </div>
+            </ItemTemplate>
+        </asp:DataList>
+
     </div>
 
 </asp:Content>
