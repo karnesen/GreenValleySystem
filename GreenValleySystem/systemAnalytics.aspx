@@ -21,7 +21,7 @@
             
             <div class='tableauPlaceholder' id='viz1618779381606' style='position: relative'>
                             <asp:Button ID="btnHome" runat="server" class="btn btn-primary btn-block mb-3" Text="Return to Home Page" OnClick="btnHome_Click" />
-                            <h2>Hover your cursor over visualizations to see more data</h2>
+                            
                 <noscript>
                     <a href='#'>
                         <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GreenValleyWorkbook&#47;StorageLocations&#47;1_rss.png' style='border: none' />
