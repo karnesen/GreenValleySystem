@@ -69,7 +69,7 @@
 
                                                 <asp:TemplateField HeaderText="Date">
                                                     <ItemTemplate>
-                                                        <asp:Label ID="lblDate" runat="server" Text='<%#Eval("confirmedDate, "{0:d}"")%>'></asp:Label>
+                                                        <asp:Label ID="lblDate" runat="server" Text='<%#Eval("confirmedDate", "{0:d}")%>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
 

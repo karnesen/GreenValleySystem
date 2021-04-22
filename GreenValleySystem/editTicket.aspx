@@ -5,10 +5,6 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
-
-
-
-
     <div class="row justify-content-around">
         <div class=" col-6">
             <div class="card" id="serviceCard">
@@ -380,6 +376,13 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row justify-content-around">
+            <input id="oFile" type="file" runat="server" class="btn btn-primary btn-lg" name="oFile" />
+            <asp:Button ID="btnImageupload" runat="server" class="btn btn-primary btn-lg" Text="Upload Image" type="submit" OnClick="btnImageupload_Click"/>
+            <asp:Panel ID="panelConfirm" runat="server" Visible="false">
+            <asp:Label ID="lblResult" runat="server" class="h6" Text="Label"></asp:Label>
+            </asp:Panel>
     </div>
 
 </asp:Content>

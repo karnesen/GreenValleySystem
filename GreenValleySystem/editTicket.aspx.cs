@@ -1,17 +1,19 @@
-﻿//Kirsi And Josh Coleman 2/15/21
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Diagnostics;
-
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.Configuration;
-
 using System.Web.UI.HtmlControls;
+using System.Web.Configuration;
+using System.Collections;
+using System.ComponentModel;
+using System.Drawing;
+using System.Web.SessionState;
+using System.IO;
+
 
 namespace Lab2
 {
@@ -37,5 +39,46 @@ namespace Lab2
             ddlState.SelectedIndex = -1;
         }
 
+        protected void btnImageupload_Click(object sender, EventArgs e)
+        {
+            string fileName;
+            string filePath;
+            string folder;
+            folder = Server.MapPath("~/images/");
+
+            //retrieve name of posted file
+            fileName = oFile.PostedFile.FileName;
+            fileName = Path.GetFileName(fileName);
+
+
+            if (oFile.Value != "")
+            {
+                //create folderz
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+                //save to server
+                filePath = folder + fileName;
+                if (File.Exists(filePath))
+                {
+                    lblResult.Text = fileName + "file already exists in the database!";
+                    lblResult.ForeColor = System.Drawing.Color.Red;
+
+                }
+                else
+                {
+                    oFile.PostedFile.SaveAs(filePath);
+                    lblResult.Text = fileName + "has been successfully uploaded!";
+                    lblResult.ForeColor = System.Drawing.Color.Green;
+                }
+            }
+            else
+            {
+                lblResult.Text = "Click 'Browse' to select the file to upload.";
+            }
+            //displayyyyyyyyyy
+            panelConfirm.Visible = true;
+        }
     }
 }
