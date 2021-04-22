@@ -80,6 +80,7 @@ namespace Lab2
             }
             //displayyyyyyyyyy
             panelConfirm.Visible = true;
+            DataListContent.DataBind();
         }
 
         private void GenerateDownloadLinks()
@@ -98,27 +99,29 @@ namespace Lab2
                     dr["FileName"] = fi.Name;
                     dr["DownloadLink"] = Server.MapPath("~/forms/" + Session["selectedCustomer"].ToString() + "/") + fi.Name;
                     string ext = Path.GetExtension(fi.FullName);
-                    //switch (ext)
-                    //{
-                    //    case "png":
-                    //        dr["Icon"] = ResolveUrl("~/images/PdfIcon.png");
-                    //        break;
-                    //    case "doc":
-                    //        dr["Icon"] = ResolveUrl("~/images/DocIcon.png");
-                    //        break;
-                    //    case "xls":
-                    //        dr["Icon"] = ResolveUrl("~/images/ExcelIcon.png");
-                    //        break;
-                    //    case "txt":
-                    //        dr["Icon"] = ResolveUrl("~/images/TxtIcon.png");
-                    //        break;
-                    //    case "zip":
-                    //        dr["Icon"] = ResolveUrl("~/images/ZipIcon.png");
-                    //        break;
-                    //}
-                    DataListContent.DataSource = ShowContent;
-                    DataListContent.DataBind();
+                    switch (ext)
+                    {
+                        case "pdf":
+                            dr["Icon"] = ResolveUrl("~/images/PdfIcon.png");
+                            break;
+                        case "doc":
+                            dr["Icon"] = ResolveUrl("~/images/DocIcon.png");
+                            break;
+                        case "xls":
+                            dr["Icon"] = ResolveUrl("~/images/ExcelIcon.png");
+                            break;
+                        case "txt":
+                            dr["Icon"] = ResolveUrl("~/images/TxtIcon.png");
+                            break;
+                        case "zip":
+                            dr["Icon"] = ResolveUrl("~/images/ZipIcon.png");
+                            break;
+                    }
+                    ShowContent.Rows.Add(dr);
+                    
                 }
+                DataListContent.DataSource = ShowContent;
+                DataListContent.DataBind();
             }
         }
 
