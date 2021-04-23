@@ -9,13 +9,8 @@
 
             <div class="col-md-10 col-lg-9 col-xl-8">
 
-                <div class="card border-0">
 
-                    <div class="card-header bg-white">
-
-                        <h4 class="mb-1">Choose a Date</h4>
-
-                    </div>
+                    
 
                     <div class="card-body px-3 px-md-5">
 
@@ -29,11 +24,16 @@
 
                             <div class="card-body">
 
-                                <div class="row px-4 mt-3">
+                                <div class="row px-4">
 
-                                    <div class="col-md-6 pl-0 pr-0 pr-md-2 mb-2">
+<%--                                    <div class="col-md-6 pl-0 pr-0 pr-md-2 mb-2">--%>
+                                        <div class="col-5">
+                                            <asp:TextBox ID="txtStartDate" runat="server" Placeholder="Start Date" class="form-control" TextMode="Date"></asp:TextBox>
+                                        </div>
+                                        <div class="col-3 mt-3">
+                                            <asp:LinkButton ID="btnSearch" runat="server" Text="Search" class="btn btn-primary ml-auto" ValidationGroup="Date">Search <i class="fa fa-search" style="padding-left: 0.5rem;"></i></asp:LinkButton>
+                                        </div>
 
-                                        <asp:TextBox ID="txtStartDate" runat="server" Placeholder="Start Date" class="form-control" TextMode="Date"></asp:TextBox>
                                         <asp:RequiredFieldValidator 
                                             ID="rfvDate" 
                                             ControlToValidate="txtStartDate" 
@@ -43,7 +43,7 @@
                                             ValidationGroup="Date">
                                         </asp:RequiredFieldValidator>
 
-                                         </div>
+<%--                                    </div>--%>
 
                                 </div>
 
@@ -81,9 +81,7 @@
                         </div>
 
                     </div>
-                    <asp:LinkButton ID="btnSearch" runat="server" Text="Search" class="btn btn-primary ml-auto" ValidationGroup="Date"><i class="fa fa-filter"></i></asp:LinkButton>
 
-                </div>
 
             </div>
 
