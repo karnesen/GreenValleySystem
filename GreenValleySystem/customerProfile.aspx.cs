@@ -31,7 +31,7 @@ namespace GreenValleySystem
 
         protected void gvCustomerTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (gvCustomerTickets.SelectedRow.Cells[0].Text == "Service Type")
+            if (gvCustomerTickets.SelectedRow.Cells[2].Text == "Status")
             {
             }
             else

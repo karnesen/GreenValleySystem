@@ -197,24 +197,24 @@
                         </EmptyDataTemplate>
                         <EditItemTemplate>
                             <h4>Trash Removal Service Order</h4>
-                            <div class="row">
+                            <%--<div class="row">
                                 <div class="col">
                                     <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
-                                </div>
+                                </div>--%>
 
-                                <div class="col">
+                                <%--<div class="col">
                                     <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
                                     <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col">
                                     <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
                                     <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
-                                </div>
-                            </div>
+                                </div>--%>
+<%--                            </div>--%>
 
                             <div class="mb-2 form-group form-row">
                                 <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
-                                <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDes")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
                             </div>
                             <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
                         </EditItemTemplate>

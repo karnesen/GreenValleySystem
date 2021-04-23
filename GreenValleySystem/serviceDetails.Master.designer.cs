@@ -15,15 +15,6 @@ namespace GreenValleySystem
     {
 
         /// <summary>
-        /// lnkButtonReturn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkButtonReturn;
-
-        /// <summary>
         /// lblCustomer control.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,15 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCustomer;
+
+        /// <summary>
+        /// lnkButtonReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkButtonReturn;
 
         /// <summary>
         /// lookAt control.

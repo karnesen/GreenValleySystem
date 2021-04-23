@@ -376,32 +376,40 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-around">
-        <div class="card card-body">
-            <div class="row">
-            <input id="oFile" type="file" runat="server" class="btn btn-primary btn-lg" name="oFile" />
-            <asp:Button ID="btnImageupload" runat="server" class="btn btn-primary btn-lg" Text="Upload File" type="submit" OnClick="btnImageupload_Click" />
 
-            <asp:Panel ID="panelConfirm" runat="server" Visible="false">
-                <asp:Label ID="lblResult" runat="server" class="h6" Text="Label"></asp:Label>
-            </asp:Panel>
+    <div class="row mb-3">
+        <div class="col-6">
+            <div class="card card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                <div class="row">
+                    <input id="oFile" type="file" runat="server" class="btn btn-primary" name="oFile" />
+                    <asp:Button ID="btnImageupload" runat="server" class="btn btn-primary ml-2" Text="Upload File" type="submit" OnClick="btnImageupload_Click" />
+
+                    <asp:Panel ID="panelConfirm" runat="server" Visible="false">
+                        <asp:Label ID="lblResult" runat="server" class="h6" Text="Label"></asp:Label>
+                    </asp:Panel>
                 </div>
-            <br />
-
-            <h6>Existing Files</h6>
-            <asp:DataList ID="DataListContent" runat="server" OnItemCommand="ButtonDownloadContent"
-                RepeatDirection="Vertical" BorderStyle="None" Style="padding: 0px!important">
-                <ItemTemplate>
-                    <div>
-                        <img src='<%# DataBinder.Eval(Container.DataItem,"Icon") %>' id="ImgIcon" />
-                        <asp:LinkButton ID="ButtonDownload" runat="server" Style="padding-left: 5px; text-decoration: none"
-                            ToolTip="Click here to download" CommandName="Download" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"DownLoadLink") %>'
-                            Text=' <%# DataBinder.Eval(Container.DataItem,"FileName") %>'></asp:LinkButton>
-                        <asp:LinkButton ID="lnkDelete" Text="Delete" CommandArgument='<%# Eval("DownLoadLink") %>'
-                            Style="text-decoration: none; font-size: large; color: red;" runat="server" OnClick="DeleteFile" />
-                    </div>
-                </ItemTemplate>
-            </asp:DataList>
+                <br />
+                        </li>
+                    <li class="list-group-item">
+                <h6>Existing Files</h6>
+                <asp:DataList ID="DataListContent" runat="server" OnItemCommand="ButtonDownloadContent"
+                    RepeatDirection="Vertical" BorderStyle="None" Style="padding: 0px!important">
+                    <ItemTemplate>
+                        <div>
+                            <img src='<%# DataBinder.Eval(Container.DataItem,"Icon") %>' id="ImgIcon" />
+                            <asp:LinkButton ID="ButtonDownload" runat="server" Style="padding-left: 5px; text-decoration: none"
+                                ToolTip="Click here to download" CommandName="Download" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"DownLoadLink") %>'
+                                Text=' <%# DataBinder.Eval(Container.DataItem,"FileName") %>'></asp:LinkButton>
+                            <asp:LinkButton ID="lnkDelete" Text="Delete" CommandArgument='<%# Eval("DownLoadLink") %>'
+                                Style="text-decoration: none; font-size: large; color: red;" runat="server" OnClick="DeleteFile" />
+                        </div>
+                    </ItemTemplate>
+                </asp:DataList>
+                        </li>
+                    </ul>
+            </div>
         </div>
     </div>
 

@@ -113,7 +113,7 @@
                                 <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
                                 <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
                             </div>
-                            <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
+                            <asp:LinkButton ID="lbtnSave" CommandName="Update" Class="btn btn-outline-primary" runat="server">Save</asp:LinkButton>
                         </EditItemTemplate>
                     </asp:FormView>
 

@@ -5,10 +5,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container col-10">
-        <asp:Label ID="lblHome" runat="server" Text="Welcome!" class="text-center h4"></asp:Label>
-            <div class="card p-3">
+            <div class="card p-3" style="border: 1px solid #bb9739;">
                <asp:GridView
             ID="gvCustomerTickets"
+
+
             runat="server"
             DataKeyNames="customerID"
             DataSourceID="srcServices"
@@ -19,12 +20,10 @@
             AllowPaging="true"
             OnPageIndexChanging="gvCustomerTickets_PageIndexChanging"
             PageSize="10">
+            <HeaderStyle BackColor="#266141" ForeColor="White"/>
             <Columns>
-                <asp:TemplateField HeaderText="Customer">
-                    <ItemTemplate>
-                        <asp:Label ID="lblCustomer" runat="server" Text='<%# Eval("firstName") + " "  + Eval("lastName")%>' ></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                
+                <asp:BoundField DataField="customerName" HeaderText="Customer" />
 
                 <asp:TemplateField HeaderText="Service Type">
                     <ItemTemplate>
@@ -44,7 +43,7 @@
             ID="srcServices"
             runat="server"
             ConnectionString="<%$ ConnectionStrings:Connect %>"
-            SelectCommand="Select customer.customerID, serviceHistory.dateAdded, customer.FirstName, customer.LastName, serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent
+            SelectCommand="Select customer.customerID, serviceHistory.dateAdded, customer.FirstName + ' ' +  customer.LastName as customerName, serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent
                 from Customer inner join Service on customer.customerID = service.customerID
             inner join ServiceHistory on service.serviceID = servicehistory.serviceID
             inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 

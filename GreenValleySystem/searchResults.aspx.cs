@@ -152,7 +152,7 @@ namespace Lab3
         {
             String search = Session["search"].ToString();
             DataTable dt = new DataTable();
-            String sqlQuery = "SELECT customer.customerid, Storage.storageID, CUSTOMER.lastName + ' ' + CUSTOMER.firstName as customerName, STORAGE.storageLocation " +   
+            String sqlQuery = "SELECT customer.customerid, Storage.storageID, CUSTOMER.firstName + ' ' + CUSTOMER.lastName as customerName, STORAGE.storageLocation " +   
                   "FROM CUSTOMER INNER JOIN " + 
                   "CUSTOMER AS CUSTOMER_1 ON CUSTOMER.customerID = CUSTOMER_1.customerID INNER JOIN " +
                   "SERVICE ON CUSTOMER.customerID = SERVICE.customerID AND CUSTOMER_1.customerID = SERVICE.customerID INNER JOIN " + 
