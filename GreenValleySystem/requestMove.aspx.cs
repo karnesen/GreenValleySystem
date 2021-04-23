@@ -51,19 +51,19 @@ namespace GreenValleySystem
                 args.IsValid = Convert.ToDateTime(txtStartDate.Text) <= Convert.ToDateTime(txtEndDate.Text);
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            txtServiceAddress.Text = "";
-            txtServiceCity.Text = "";
-            ddlServiceState.SelectedIndex = -1;
-            txtServiceZip.Text = "";
-            txtDestinationAddress.Text = "";
-            txtDestinationCity.Text = "";
-            ddlDestinationState.SelectedIndex = -1;
-            txtDestinationZip.Text = "";
-            txtStartDate.Text = "";
-            txtEndDate.Text = "";
-        }
+        //protected void btnClear_Click(object sender, EventArgs e)
+        //{
+        //    txtServiceAddress.Text = "";
+        //    txtServiceCity.Text = "";
+        //    ddlServiceState.SelectedIndex = -1;
+        //    txtServiceZip.Text = "";
+        //    txtDestinationAddress.Text = "";
+        //    txtDestinationCity.Text = "";
+        //    ddlDestinationState.SelectedIndex = -1;
+        //    txtDestinationZip.Text = "";
+        //    txtStartDate.Text = "";
+        //    txtEndDate.Text = "";
+        //}
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -136,23 +136,23 @@ namespace GreenValleySystem
 
         }
 
-        protected void btnPopulate_Click(object sender, EventArgs e)
-        {
-            txtServiceAddress.Text = "235 Rose Court";
-            txtServiceCity.Text = "Harrisonburg";
-            txtServiceZip.Text = "23405";
-            ddlServiceState.SelectedIndex = 50;
+        //protected void btnPopulate_Click(object sender, EventArgs e)
+        //{
+        //    txtServiceAddress.Text = "235 Rose Court";
+        //    txtServiceCity.Text = "Harrisonburg";
+        //    txtServiceZip.Text = "23405";
+        //    ddlServiceState.SelectedIndex = 50;
 
-            txtDestinationAddress.Text = "2019 Berry Way";
-            txtDestinationCity.Text = "Harrisonburg";
-            txtDestinationZip.Text = "28192";
-            ddlDestinationState.SelectedIndex = 50;
+        //    txtDestinationAddress.Text = "2019 Berry Way";
+        //    txtDestinationCity.Text = "Harrisonburg";
+        //    txtDestinationZip.Text = "28192";
+        //    ddlDestinationState.SelectedIndex = 50;
 
-            txtStartDate.Text = "2021-03-28T12:35";
-            txtEndDate.Text = "2021-03-30T12:35";
+        //    txtStartDate.Text = "2021-03-28T12:35";
+        //    txtEndDate.Text = "2021-03-30T12:35";
 
-            txtNotes.Text = "Notes!";
-        }
+        //    txtNotes.Text = "Notes!";
+        //}
         //protected void btnImageupload_Click(object sender, EventArgs e)
         //{
         //    string fileName;

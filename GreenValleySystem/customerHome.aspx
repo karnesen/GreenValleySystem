@@ -50,6 +50,5 @@
             <asp:SessionParameter Name="customerID" SessionField="customerID" />
         </SelectParameters>
     </asp:SqlDataSource>
-        <asp:LinkButton ID="lBTNreturnEmployee" runat="server">View Employee Demo</asp:LinkButton>
         </div>
 </asp:Content>
