@@ -198,8 +198,8 @@
                     ID="srcEmployees"
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
                     SelectCommand="SELECT * from Employee where currentEmployee = 1"
-                    UpdateCommand="UPDATE Employee SET firstName=@firstName, lastName=@lastName, position=@position, email=@email, password=@password where employeeID=@employeeID"
-                    InsertCommand="INSERT into Employee(firstName,lastName,Position, currentEmployee, email, PasswordHash) VALUES(@firstName,@lastName,@Position,1,@email,@password)"
+                    UpdateCommand="UPDATE Employee SET firstName=@firstName, lastName=@lastName, position=@position, email=@email where employeeID=@employeeID"
+                    InsertCommand="INSERT into Employee(firstName,lastName,Position, currentEmployee, email) VALUES(@firstName,@lastName,@Position,1)"
                     DeleteCommand="UPDATE EMPLOYEE set currentEmployee=0 where employeeID=@employeeID"
                     runat="server">
                     <UpdateParameters>
