@@ -93,6 +93,7 @@
     <Content Include="customerHome.aspx" />
     <Content Include="customerLogin.aspx" />
     <Content Include="customerProfile.aspx" />
+    <Content Include="customerUpdatePassword.aspx" />
     <Content Include="dateResults.aspx" />
     <Content Include="editTicket.aspx" />
     <Content Include="HomePage.aspx" />
@@ -322,6 +323,13 @@
     </Compile>
     <Compile Include="customerProfile.aspx.designer.cs">
       <DependentUpon>customerProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customerUpdatePassword.aspx.cs">
+      <DependentUpon>customerUpdatePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerUpdatePassword.aspx.designer.cs">
+      <DependentUpon>customerUpdatePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="dateResults.aspx.cs">
       <DependentUpon>dateResults.aspx</DependentUpon>

@@ -13,5 +13,14 @@ namespace GreenValleySystem
         {
             lblMessage.Text = "Welcome, " + Session["UserName"].ToString();
         }
+        protected void btnToLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("customerLogin.aspx?loggedout=true");
+        }
+        protected void btnToUpdatePassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("customerUpdatePassword.aspx");
+        }
     }
 }
