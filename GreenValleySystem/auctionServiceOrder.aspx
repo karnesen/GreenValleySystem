@@ -181,7 +181,7 @@
                                     DataValueField="employeeID">
                                 </asp:DropDownList>
                             </div>
-                            <div class="col">
+                            <div class="col mt-3">
                                 <asp:Button ID="btnAddtoPickup" runat="server" Text="Add" OnClick="btnAddtoPickup_Click" class="btn btn-primary" />
                             </div>
                         </div>
@@ -341,7 +341,7 @@
                                     DataValueField="employeeID">
                                 </asp:DropDownList>
                             </div>
-                            <div class="col">
+                            <div class="col mt-3">
                                 <asp:Button ID="btnEmployee" runat="server" Text="Add" OnClick="btnEmployee_Click" class="btn btn-primary" />
                             </div>
                         </div>
@@ -488,7 +488,7 @@
                                 DataValueField="storageID">
                             </asp:DropDownList>
                         </div>
-                        <div class="col">
+                        <div class="col mt-3">
                             <asp:Button ID="btnStorage" runat="server" Text="Add" OnClick="btnStorage_Click" class="btn btn-primary" />
                         </div>
                     </div>

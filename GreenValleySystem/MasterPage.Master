@@ -54,8 +54,17 @@
 
             <ul class="navbar-nav">
                 <li class="form-inline ">
+                    <asp:RegularExpressionValidator 
+                        id="nameRegex"  
+                        runat="server"
+                        ControlToValidate="txtSearchCustomer" 
+                        ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                        ErrorMessage="Invalid Input" 
+                        ForeColor="Red">
+                    </asp:regularexpressionvalidator>
                     <asp:LinkButton ID="btnDataSearch" PostBackUrl="~/dateResults.aspx" class="form-control-lg mr-2" runat="server"><span class="fa fa-calendar"></span> </asp:LinkButton>
                     <asp:TextBox ID="txtSearchCustomer" class="form-control" Placeholder="Search" runat="server"></asp:TextBox>
+                    
                     <asp:LinkButton ID="btnCustomerSearch" class="form-control-lg mr-2" runat="server" OnClick="btnCustomerSearch_Click"><span class="fa fa-search"></span> </asp:LinkButton>
                 
                 <div class="nav-item dropdown">
