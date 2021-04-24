@@ -48,7 +48,7 @@ namespace Lab1
         }
         protected void btnOutlook_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("outlook.com");
+            System.Diagnostics.Process.Start("http://www.outlook.com");
         }
 
         protected void btnToUpdatePassword_Click(object sender, EventArgs e)
