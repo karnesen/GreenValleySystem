@@ -53,5 +53,10 @@ namespace Lab1
             if (path != null)
                 System.Diagnostics.Process.Start("OUTLOOK.EXE");
         }
+
+        protected void btnToUpdatePassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("employeeChangePassword.aspx");
+        }
     }
 }

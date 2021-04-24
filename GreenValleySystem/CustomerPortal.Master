@@ -33,7 +33,7 @@
             </div>
 
             <div class="nav-item dropdown">
-                <asp:LinkButton class="dropdown-toggle" href="#" ID="navbardrop2" data-toggle="dropdown" runat="server"><i class="fas fa-user-circle fa-2x"></i></span> </asp:LinkButton>
+                <asp:LinkButton class="dropdown-toggle" href="#" ID="navbardrop2" data-toggle="dropdown" runat="server"><i class="fas fa-user-circle fa-2x"></i></asp:LinkButton>
                 <div class="dropdown-menu dropdown-menu-right">
                     <asp:Label ID="lblMessage" class="dropdown-item" runat="server" Text=""></asp:Label>
                     <div class="dropdown-divider"></div>

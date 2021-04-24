@@ -64,6 +64,7 @@
                         <asp:Label ID="lblMessage" class="dropdown-item" runat="server" Text=""></asp:Label>
                         <div class="dropdown-divider"></div>
                         <asp:LinkButton ID="btnOutlook" runat="server" Text="Outlook" OnClick="btnOutlook_Click" class="btn btn-primary dropdown-item" />
+                         <asp:Button ID="btnUpdatePassword" runat="server" Text="Update Password" OnClick="btnToUpdatePassword_Click" class="btn btn-primary dropdown-item" />
                         <asp:Button ID="btnToLogout" runat="server" Text="Log Out" OnClick="btnToLogout_Click" class="btn btn-primary dropdown-item" />
                     </div>
                 </div>

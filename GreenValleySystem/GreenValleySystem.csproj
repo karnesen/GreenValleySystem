@@ -96,6 +96,7 @@
     <Content Include="customerUpdatePassword.aspx" />
     <Content Include="dateResults.aspx" />
     <Content Include="editTicket.aspx" />
+    <Content Include="employeeChangePassword.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="images\bigstock-Packed-household-goods-for-mov-131525006.jpg" />
     <Content Include="images\headerTransparent.png" />
@@ -344,6 +345,13 @@
     </Compile>
     <Compile Include="editTicket.aspx.designer.cs">
       <DependentUpon>editTicket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="employeeChangePassword.aspx.cs">
+      <DependentUpon>employeeChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="employeeChangePassword.aspx.designer.cs">
+      <DependentUpon>employeeChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

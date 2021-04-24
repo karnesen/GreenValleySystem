@@ -6,10 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.Configuration;
-
 namespace GreenValleySystem
 {
-    public partial class customerUpdatePassword : System.Web.UI.Page
+    public partial class employeeChangePassword : System.Web.UI.Page
     {
         string strConnString = WebConfigurationManager.ConnectionStrings["connect"].ConnectionString;
         string str = null;
@@ -20,31 +19,30 @@ namespace GreenValleySystem
         {
 
         }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
             SqlConnection con = new SqlConnection(strConnString);
             con.Open();
-            str = "SELECT customerauth.PasswordHash, customer.customerID, customer.firstName + ' ' + customer.lastName as custName FROM Customer Inner join customerauth on " +
-                    "customer.customerID = customerauth.customerID where customerID = " + Session["customerID"].ToString();
+            str = "SELECT passwordHash, employeeID from employee where employeeID=" + Session["employeeID"].ToString();
             com = new SqlCommand(str, con);
             SqlDataReader reader = com.ExecuteReader();
             while (reader.Read())
             {
-                string storedHash = reader["PasswordHash"].ToString();
+                string storedHash = reader["passwordHash"].ToString();
                 if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                 {
-                    Session["customerID"] = reader["customerID"];
+                    Session["employeeID"] = reader["employeeID"];
                     up = 1;
                 }
             }
-
             reader.Close();
             con.Close();
             if (up == 1)
             {
                 con.Open();
-                str = "UPDATE customerauth set PasswordHash=@PasswordHash where customerID='" + Session["customerID"].ToString() + "'";
+                str = "UPDATE employee set PasswordHash=@PasswordHash where employeeID='" + Session["employeeID"].ToString() + "'";
                 com = new SqlCommand(str, con);
                 com.Parameters.Add(new SqlParameter("@PasswordHash", PasswordHash.HashPassword(txtPassword1.Text)));
                 com.ExecuteNonQuery();
@@ -61,4 +59,3 @@ namespace GreenValleySystem
         }
     }
 }
-

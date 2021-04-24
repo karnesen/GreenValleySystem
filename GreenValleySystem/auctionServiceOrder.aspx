@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col">
                                     <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
-                                    <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtCharge" Text='<%# Bind("trashRemoval")%>' Class="form-control" runat="server"></asp:TextBox>
                                 </div>
                             </div>
 
@@ -122,7 +122,7 @@
                         runat="server"
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
                         SelectCommand="Select * from auctionAssessment  where auctionAssessment.serviceID = @serviceID and auctionAssessment.trashRemoval=1"
-                        UpdateCommand="Update auctionAssessment set dumpster = @dumpster, men=@men trash=@trash, trashdesc=@trashdesc where serviceID=@serviceID">
+                        UpdateCommand="Update auctionAssessment set dumpster = @dumpster, men=@men, trashRemoval=@trashRemoval, trashdesc=@trashdesc where serviceID=@serviceID">
                         <SelectParameters>
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </SelectParameters>

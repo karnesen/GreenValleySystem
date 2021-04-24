@@ -34,6 +34,7 @@ namespace GreenValleySystem
                 {
                     lookAt.NavigateUrl = "";
                     lookAt.Text = "";
+                    serviceOrder.NavigateUrl = "appraisalServiceOrder.aspx";
                 }
                 else
                 {
