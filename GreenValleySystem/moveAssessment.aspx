@@ -99,6 +99,15 @@
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
                                             Text="Please Enter An Address.">
                                         </asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator 
+                                            id="revEquipment"  
+                                            runat="server"
+                                            ValidationGroup="address"
+                                            ControlToValidate="txtAddress" 
+                                            ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                            ErrorMessage="Invalid Input"
+                                            ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
                                     </div>
 
                                     <div class="form-group">

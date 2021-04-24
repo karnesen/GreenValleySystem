@@ -110,6 +110,15 @@
                                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
                                             Text="Please Enter An Address.">
                                         </asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator 
+                                            id="revEquipment"  
+                                            runat="server"
+                                            ControlToValidate="txtAddress" 
+                                            ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                            ErrorMessage="Invalid Input" 
+                                            ValidationGroup="address"
+                                            ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
                                     </div>
 
                                     <div class="form-group">
@@ -197,7 +206,8 @@
                                             ControlToValidate="txtZipCode"
                                             ValidationGroup="address"
                                             ValidationExpression="\d{5}(-\d{4})?"
-                                            ErrorMessage="Please enter a 5 digit zip code!" />
+                                            ErrorMessage="Please enter a 5 digit zip code!" 
+                                            ForeColor="Red"/>
                                         <script>
                                             var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
                                             if (num > 30 || num <= 0) {
@@ -243,6 +253,15 @@
                                                 ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress"
                                                 Text="Please Enter An Address." ValidationGroup="address">
                                             </asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator 
+                                                id="revEquipment"  
+                                                runat="server"
+                                                ControlToValidate="txtAddress" 
+                                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                                ErrorMessage="Invalid Input" 
+                                                ValidationGroup="address"
+                                                ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
 
                                         </div>
 
@@ -331,7 +350,8 @@
                                                 ControlToValidate="txtZipCode"
                                                 ValidationExpression="\d{5}(-\d{4})?"
                                                 ValidationGroup="address"
-                                                ErrorMessage="Please enter a 5 digit zip code!" />
+                                                ErrorMessage="Please enter a 5 digit zip code!" 
+                                                ForeColor="Red"/>
                                             <script>
                                                 var num = document.getElementById('<%=txtZipCode.ClientID %>').value;
                                                 if (num > 30 || num <= 0) {

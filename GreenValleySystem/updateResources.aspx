@@ -27,6 +27,14 @@
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEquipmentName"
                                         Text="Please Enter An Equipment Type.">
                                     </asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator 
+                                        id="revEquipment"  
+                                        runat="server"
+                                        ControlToValidate="txtEquipmentName" 
+                                        ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                        ErrorMessage="Invalid Input" 
+                                        ForeColor="Red">
+                                    </asp:regularexpressionvalidator>
                                 </div>
                             </EditItemTemplate>
                             <ItemTemplate>
