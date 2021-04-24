@@ -342,7 +342,7 @@
                         SelectCommand="Select * from Service Inner Join moveAssessment on service.serviceID = moveAssessment.serviceID where service.serviceID = @serviceID"
                         UpdateCommand="Update service set serviceDeadlineStart=parse(@serviceDeadlineStart as dateTime), serviceDeadlineEnd=parse(@serviceDeadlineEnd as dateTime) where serviceID=@serviceID;
                         Update moveAssessment set
-                        packing=@packing, trash=@trash, sendPhotos=@sendPhotos, mls=@mls where serviceID=@serviceID;">
+                        packing=@packing, trash=@trash, sendPhotos=@sendPhotos, trashDesc=@trashDesc, mls=@mls where serviceID=@serviceID ; ">
                         <SelectParameters>
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </SelectParameters>

@@ -105,13 +105,23 @@
                                 </div>
                                 <div class="col">
                                     <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
-                                    <asp:TextBox ID="txtCharge" Text='<%# Bind("trashRemoval")%>' Class="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtCharge" Text='<%# Bind("trashRemoval")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
+                                   
+                                    
                                 </div>
                             </div>
 
                             <div class="mb-2 form-group form-row">
                                 <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
                                 <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator 
+                                    id="revEquipment"  
+                                    runat="server"
+                                    ControlToValidate="txtTrashDesc" 
+                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                    ErrorMessage="Invalid Input" 
+                                    ForeColor="Red">
+                                </asp:regularexpressionvalidator>
                             </div>
                             <asp:LinkButton ID="lbtnSave" CommandName="Update" Class="btn btn-outline-primary" runat="server">Save</asp:LinkButton>
                         </EditItemTemplate>
@@ -122,7 +132,7 @@
                         runat="server"
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
                         SelectCommand="Select * from auctionAssessment  where auctionAssessment.serviceID = @serviceID and auctionAssessment.trashRemoval=1"
-                        UpdateCommand="Update auctionAssessment set dumpster = @dumpster, men=@men, trashRemoval=@trashRemoval, trashdesc=@trashdesc where serviceID=@serviceID">
+                        UpdateCommand="Update auctionAssessment set dumpster = @dumpster, men=@men, trashRemoval=@trashRemoval, trashDesc=@trashDesc where serviceID=@serviceID">
                         <SelectParameters>
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </SelectParameters>

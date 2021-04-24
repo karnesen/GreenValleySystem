@@ -53,7 +53,16 @@
                                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEquipmentName"
                                     Text="Please Enter An Equipment Type." ValidationGroup="newEquipment">
                                 </asp:RequiredFieldValidator>
-                            </td>
+                                <asp:RegularExpressionValidator 
+                                    id="revEquipment"  
+                                    runat="server"
+                                    ControlToValidate="txtEquipmentName" 
+                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                    ErrorMessage="Invalid Input" 
+                                    ValidationGroup="newEquipment"
+                                    ForeColor="Red">
+                                </asp:regularexpressionvalidator>
+                                        </td>
                             <td>
                                 <asp:TextBox ID="txtDatePurchased" runat="server" Placeholder="Equipment Name" TextMode="DateTimeLocal" class="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"

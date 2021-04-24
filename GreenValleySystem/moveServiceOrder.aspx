@@ -215,6 +215,14 @@
                             <div class="card card-body mb-2 form-group form-row">
                                 <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
                                 <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator 
+                                    id="revEquipment"  
+                                    runat="server"
+                                    ControlToValidate="txtTrashDesc" 
+                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                    ErrorMessage="Invalid Input" 
+                                    ForeColor="Red">
+                                </asp:regularexpressionvalidator>
                             </div>
                             <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
                         </EditItemTemplate>

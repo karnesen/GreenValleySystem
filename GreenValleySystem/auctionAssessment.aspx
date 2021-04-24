@@ -32,6 +32,14 @@
                             <div class="form-group">
                                 <asp:Label ID="lblSell" for="txtBoxSell" runat="server" class="col-sm-2 col-form-label" Text="What to Sell"></asp:Label>
                                 <asp:TextBox ID="txtBoxSell" Text='<%# Bind("whatSell") %>' TextMode="MultiLine" Rows="4" class="form-control" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator 
+	                                id="revSell"  
+                                    runat="server"
+                                    ControlToValidate="txtBoxSell" 
+                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                    ErrorMessage="Invalid Input" 
+                                    ForeColor="Red">
+                                </asp:regularexpressionvalidator>
                             </div>
 
 
@@ -65,6 +73,14 @@
                                 </div>
                             </div>
                             <asp:TextBox ID="txtTrash" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
+                            <asp:RegularExpressionValidator 
+	                            id="RegularExpressionValidator1"  
+                                runat="server"
+                                ControlToValidate="txtTrash" 
+                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                ErrorMessage="Invalid Input" 
+                                ForeColor="Red">
+                            </asp:regularexpressionvalidator>
 
                             <div class="form-group row justify-content-around">
                                 <div class="form-check">

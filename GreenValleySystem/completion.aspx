@@ -93,6 +93,15 @@
                     <EditItemtemplate>
                         <div class="mb-2">
                             <asp:TextBox ID="txtComments" Class="form-control" Text='<%# Bind("comments") %>' Columns="20" TextMode="MultiLine" Placeholder="Comments" runat="server"></asp:TextBox>
+                            <asp:RegularExpressionValidator 
+                                    id="revEquipment"  
+                                    runat="server"
+                                    ControlToValidate="txtComments" 
+                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                    ErrorMessage="Invalid Input"
+                                    ValidationGroup="completion"
+                                    ForeColor="Red">
+                                </asp:regularexpressionvalidator>
                         </div>
                         <div class="mb-2">
                             <asp:DropDownList ID="ddlExperience" runat="server" class="form-control" SelectedValue='<%# Bind("positiveExperience") %>'>
@@ -101,7 +110,7 @@
                             </asp:DropDownList>
                         </div>
 
-                        <asp:LinkButton ID="lbtnSave" runat="server" class="btn btn-outline-primary" CommandName="Update">Save</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnSave" runat="server" class="btn btn-outline-primary" CommandName="Update" ValidationGroup="completion">Save</asp:LinkButton>
                     </EditItemtemplate>
                 </asp:FormView>
 
