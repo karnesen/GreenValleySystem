@@ -127,7 +127,7 @@
                                     DataValueField="employeeID">
                                 </asp:DropDownList>
                             </div>
-                            <div class="col">
+                            <div class="col mt-3">
                                 <asp:Button ID="btnAddtoPickup" runat="server" Text="Add" OnClick="btnAddtoPickup_Click" class="btn btn-primary" />
                             </div>
 
@@ -212,7 +212,7 @@
                                 </div>--%>
 <%--                            </div>--%>
 
-                            <div class="mb-2 form-group form-row">
+                            <div class="card card-body mb-2 form-group form-row">
                                 <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
                                 <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
                             </div>
