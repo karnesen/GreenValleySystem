@@ -48,7 +48,12 @@ namespace Lab1
         }
         protected void btnOutlook_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.outlook.com");
+            string url = "http://www.outlook.com";
+            string script = string.Format("window.open('{0}');", url);
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "newPage" + UniqueID, script, true);
+
         }
 
         protected void btnToUpdatePassword_Click(object sender, EventArgs e)
