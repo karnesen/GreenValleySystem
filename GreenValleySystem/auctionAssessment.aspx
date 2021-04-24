@@ -200,11 +200,27 @@
                                     <div class="form-group">
                                         <asp:Label ID="lblAccessability" for="txtAccessability" runat="server" Text="Truck Accessability"></asp:Label>
                                         <asp:TextBox ID="txtAccessability" TextMode="MultiLine" Text='<%# Bind("truckAccess")%>' runat="server" class="form-control"></asp:TextBox>
+                                        <asp:RegularExpressionValidator 
+	                                        id="revEquipment"  
+                                            runat="server"
+                                            ControlToValidate="txtAccessability" 
+                                            ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                            ErrorMessage="Invalid Input" 
+                                            ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
                                     </div>
 
                                     <div class="form-group">
                                         <asp:Label ID="lblFar" for="txtFarFromLoading" runat="server" Text="Distance from Loading Door"></asp:Label>
                                         <asp:TextBox ID="txtFarFromLoading" TextMode="MultiLine" Text='<%# Bind("howFar")%>' runat="server" class="form-control"></asp:TextBox>
+                                        <asp:RegularExpressionValidator 
+	                                        id="RegularExpressionValidator2"  
+                                            runat="server"
+                                            ControlToValidate="txtFarFromLoading" 
+                                            ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                            ErrorMessage="Invalid Input" 
+                                            ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
                                     </div>
 
                                     <div class="form-group">
@@ -267,7 +283,7 @@
                                                     <asp:Label ID="lblPickUp" For="txtPickUp" runat="server" Text="Pick Up Fee"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txtPickUp" runat="server" Text='<%# Bind("pickUpFee")%>' class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtPickUp" runat="server" Text='<%# Bind("pickUpFee")%>' TextMode="Number" class="form-control"></asp:TextBox>
                                                 </td>
                                             </tr>
 
@@ -276,7 +292,7 @@
                                                     <asp:Label ID="lblConsignment" For="txtConsignment" runat="server" Text="Consignment Rate"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txtConsignment" runat="server" Text='<%# Bind("Consignment")%>' class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtConsignment" runat="server" TextMode="Number" Text='<%# Bind("Consignment")%>' class="form-control"></asp:TextBox>
                                                 </td>
                                             </tr>
 
@@ -285,7 +301,7 @@
                                                     <asp:Label ID="lblTrash" For="txtTrash" runat="server" Text="Trash Removal"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txtTrash" runat="server" Text='<%# Bind("Trash")%>' class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtTrash" TextMode="Number" runat="server" Text='<%# Bind("Trash")%>' class="form-control"></asp:TextBox>
                                                 </td>
                                             </tr>
 
@@ -294,7 +310,7 @@
                                                     <asp:Label ID="lblAdditional" For="txtAdd" runat="server" Text="Additional Fees"></asp:Label>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="txtAdd" runat="server" Text='<%# Bind("additional")%>' class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtAdd" TextMode="Number" runat="server" Text='<%# Bind("additional")%>' class="form-control"></asp:TextBox>
 
                                                 </td>
                                             </tr>
