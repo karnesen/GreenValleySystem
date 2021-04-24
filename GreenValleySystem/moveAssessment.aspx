@@ -61,6 +61,14 @@
                                 </div>
                             </div>
                             <asp:TextBox ID="txtTrash" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
+                            <asp:RegularExpressionValidator 
+	                            id="revEquipment"  
+                                runat="server"
+                                ControlToValidate="txtTrash" 
+                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                ErrorMessage="Invalid Input" 
+                                ForeColor="Red">
+                            </asp:regularexpressionvalidator>
                             <asp:LinkButton ID="lnkButtonSave" CommandName="Update"  runat="server" Class="btn btn-outline-primary">Save</asp:LinkButton>
                         </EditItemTemplate>
                     </asp:FormView>
@@ -416,11 +424,27 @@
                                 <div class="form-group">
                                     <asp:Label ID="lblAccessability" for="txtAccessability" runat="server" Text="Truck Accessability"></asp:Label>
                                     <asp:TextBox ID="txtAccessability" TextMode="MultiLine" Text='<%# Bind("truckAccess")%>' runat="server" class="form-control"></asp:TextBox>
+                                    <asp:RegularExpressionValidator 
+	                                    id="revEquipment"  
+                                        runat="server"
+                                        ControlToValidate="txtAccessability" 
+                                        ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                        ErrorMessage="Invalid Input" 
+                                        ForeColor="Red">
+                                    </asp:regularexpressionvalidator>
                                 </div>
 
                                 <div class="form-group">
                                     <asp:Label ID="lblFar" for="txtFarFromLoading" runat="server" Text="Distance from Loading Door"></asp:Label>
                                     <asp:TextBox ID="txtFarFromLoading" TextMode="MultiLine" Text='<%# Bind("howFar")%>' runat="server" class="form-control"></asp:TextBox>
+                                    <asp:RegularExpressionValidator 
+	                                    id="RegularExpressionValidator1"  
+                                        runat="server"
+                                        ControlToValidate="txtFarFromLoading" 
+                                        ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                        ErrorMessage="Invalid Input" 
+                                        ForeColor="Red">
+                                    </asp:regularexpressionvalidator>
                                 </div>
 
                                 <div class="form-group">
