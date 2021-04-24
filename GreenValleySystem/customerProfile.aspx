@@ -112,9 +112,27 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("firstName") %>' class="form-control"></asp:TextBox>
+                                        <asp:RegularExpressionValidator 
+	                                            id="RegularExpressionValidator4"  
+                                                runat="server"
+                                                ControlToValidate="txtFirstName" 
+                                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                                ErrorMessage="Invalid Input" 
+                                                ValidationGroup="CustomerProfile"
+                                                ForeColor="Red">
+                                            </asp:regularexpressionvalidator>
                                     </div>
                                     <div class="col-6">
                                         <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("lastName") %>' class="form-control"></asp:TextBox>
+                                        <asp:RegularExpressionValidator 
+	                                            id="RegularExpressionValidator3"  
+                                                runat="server"
+                                                ControlToValidate="txtLastName" 
+                                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                                ErrorMessage="Invalid Input" 
+                                                ValidationGroup="CustomerProfile"
+                                                ForeColor="Red">
+                                            </asp:regularexpressionvalidator>
                                     </div>
                                 </div>
 
@@ -125,7 +143,10 @@
                                         <div class="col-md-9">
                                             <asp:TextBox ID="txtphoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("phoneNumber") %>'></asp:TextBox>
                                             <br />
+                                            
                                             <asp:TextBox ID="txtAltPhoneNumber" runat="server" class="form-control phone_us" Text='<%# Bind("altPhoneNumber") %>'></asp:TextBox>
+                                            </script>
+                                            
                                         </div>
                                         <div class="col-md-3">
 
@@ -146,7 +167,14 @@
                                     </div>
 
                                     <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("email") %>' class="form-control" TextMode="Email" Placeholder="Email"></asp:TextBox>
-
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5"
+                                        runat="server"
+                                        ControlToValidate="txtEmail"
+                                        ForeColor="Red"
+                                        ValidationGroup="CustomerProfile"
+                                        ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                        Display = "Dynamic"
+                                        ErrorMessage = "Invalid email address"/>
                                     <br />
 
                                     Contact Preference
@@ -170,11 +198,29 @@
                                     <h6>Customer Address</h6>
                                     <div class="form-group">
                                         <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("streetAddress") %>' class="form-control" Placeholder="Address"></asp:TextBox>
+                                        <asp:RegularExpressionValidator 
+                                            id="revEquipment"  
+                                            runat="server"
+                                            ControlToValidate="txtAddress" 
+                                            ValidationExpression="^[0-9A-Za-z ]+$"
+                                            ErrorMessage="Invalid Input" 
+                                            ValidationGroup="customerProfile"
+                                            ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
                                     </div>
 
                                     <div class="row form-group">
                                         <div class="col-md-6">
                                             <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("city") %>' class="form-control" Placeholder="City"></asp:TextBox>
+                                            <asp:RegularExpressionValidator 
+                                                id="RegularExpressionValidator1"  
+                                                runat="server"
+                                                ControlToValidate="txtCity" 
+                                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                                ErrorMessage="Invalid Input" 
+
+                                                ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
                                         </div>
 
                                         <div class="col-md-2">
@@ -247,6 +293,14 @@
                                     <br />
                                     <div class="row">
                                         <asp:TextBox ID="txtHearAbout" runat="server" Text='<%# Bind("hearAbout") %>' class="form-control" Placeholder="How did they hear about us?"></asp:TextBox>
+                                        <asp:RegularExpressionValidator 
+                                            id="RegularExpressionValidator2"  
+                                            runat="server"
+                                            ControlToValidate="txtHearAbout" 
+                                            ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                            ErrorMessage="Invalid Input" 
+                                            ForeColor="Red">
+                                        </asp:regularexpressionvalidator>
                                     </div>
                                     <br />
                                     <asp:Label ID="lblInitialContactDate" runat="server" Text='<%# "Initial Contact Date: " + (DateTime.Parse(Eval("initialContactDate").ToString())).ToString("MM/dd/yyyy HH:mm") %>'></asp:Label>

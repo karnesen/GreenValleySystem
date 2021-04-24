@@ -27,6 +27,14 @@
         <div class="form-group">
             <asp:TextBox ID="txtNotes" runat="server" Placeholder="Initial Notes"
                 Class="form-control" TextMode="MultiLine"></asp:TextBox>
+            <asp:RegularExpressionValidator 
+                id="revEquipment"  
+                runat="server"
+                ControlToValidate="txtNotes" 
+                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                ErrorMessage="Invalid Input" 
+                ForeColor="Red">
+            </asp:regularexpressionvalidator>
         </div>
 
         <%--<div class="form-group">

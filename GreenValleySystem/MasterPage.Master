@@ -58,7 +58,7 @@
                         id="nameRegex"  
                         runat="server"
                         ControlToValidate="txtSearchCustomer" 
-                        ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                        ValidationExpression="^[0-9A-Za-z ]+$" 
                         ErrorMessage="Invalid Input" 
                         ForeColor="Red">
                     </asp:regularexpressionvalidator>

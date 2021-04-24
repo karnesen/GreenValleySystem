@@ -114,7 +114,7 @@
                                             id="revEquipment"  
                                             runat="server"
                                             ControlToValidate="txtAddress" 
-                                            ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                            ValidationExpression="^[0-9A-Za-z ]+$"
                                             ErrorMessage="Invalid Input" 
                                             ValidationGroup="address"
                                             ForeColor="Red">
@@ -257,7 +257,7 @@
                                                 id="revEquipment"  
                                                 runat="server"
                                                 ControlToValidate="txtAddress" 
-                                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                                ValidationExpression="^[0-9A-Za-z ]+$" 
                                                 ErrorMessage="Invalid Input" 
                                                 ValidationGroup="address"
                                                 ForeColor="Red">
