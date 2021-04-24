@@ -48,10 +48,7 @@ namespace Lab1
         }
         protected void btnOutlook_Click(object sender, EventArgs e)
         {
-            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("Software\\microsoft\\windows\\currentversion\\app paths\\OUTLOOK.EXE");
-            string path = (string)key.GetValue("Path");
-            if (path != null)
-                System.Diagnostics.Process.Start("OUTLOOK.EXE");
+            System.Diagnostics.Process.Start("outlook.com");
         }
 
         protected void btnToUpdatePassword_Click(object sender, EventArgs e)
