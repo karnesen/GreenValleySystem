@@ -69,11 +69,27 @@
                         <div class="form-group">
                             Appraisal Size
                             <asp:TextBox ID="txtAppraisalSize" Class="form-control" Text='<%#Bind("appraisalSize")%>' TextMode="MultiLine" runat="server"></asp:TextBox>
+                            <asp:RegularExpressionValidator 
+	                            id="revEquipment"  
+                                runat="server"
+                                ControlToValidate="txtAppraisalSize" 
+                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                ErrorMessage="Invalid Input" 
+                                ForeColor="Red">
+                            </asp:regularexpressionvalidator>
                         </div>
 
                         <div class="form-group">
                             Inventory
                             <asp:TextBox ID="txtInventory" Class="form-control" Text='<%#Bind("inventory")%>' TextMode="MultiLine" runat="server"></asp:TextBox>
+                            <asp:RegularExpressionValidator 
+	                            id="RegularExpressionValidator1"  
+                                runat="server"
+                                ControlToValidate="txtInventory" 
+                                ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                ErrorMessage="Invalid Input" 
+                                ForeColor="Red">
+                            </asp:regularexpressionvalidator>
                         </div>
 
                         <asp:LinkButton ID="lbtnSave" runat="server" CommandName="Update">Save</asp:LinkButton>
