@@ -17,9 +17,10 @@
 
     
     <form id="form1" runat="server">
-        <div class="card">
-            
-            <div class='tableauPlaceholder' id='viz1618779381606' style='position: relative'>
+        <div class="container col-10">
+            <div class="row">
+          <asp:Button ID="Button1" runat="server" class="btn btn-primary btn-block mb-3" Text="Return to Home Page" OnClick="btnHome_Click" />
+           <%-- <div class='tableauPlaceholder' id='viz1618779381606' style='position: relative'>
                             <asp:Button ID="btnHome" runat="server" class="btn btn-primary btn-block mb-3" Text="Return to Home Page" OnClick="btnHome_Click" />
                             
                 <noscript>
@@ -56,9 +57,41 @@
                 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);                
 
-            </script>
+            </script>--%>
+
+         <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
 
         </div>
+         <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+
+        </div>
+
+                <br />
+
+          <div class="container col-10">
+            <div class="row">
+                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+
+                </div>
+                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+
+                </div>
+                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        </div>
+            </div>
+
+        <asp:SqlDataSource ID="src" runat="server"></asp:SqlDataSource>
+
+
     </form>
 </body>
 </html>
