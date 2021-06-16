@@ -5,6 +5,93 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container col-10">
+      <div class="row">
+        <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+            <p class="text-sm-center #bb9739">Recent Notes</p>
+             <asp:ListView
+                ID="lvNotes"
+                runat="server"
+                DataSourceID="srcNotes"
+                DataKeyNames="ticketID">
+                <LayoutTemplate>
+
+                    <div runat="server" id="lstProducts">
+                        <div runat="server" id="itemPlaceholder" />
+                    </div>
+                    <asp:DataPager runat="server" PageSize="3" ID="dataPager">
+                        <Fields>
+                            <asp:NumericPagerField />
+                        </Fields>
+                    </asp:DataPager>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkNote" Text='<%#Eval("NoteTitle")%>' runat="server" CommandName="Edit">LinkButton</asp:LinkButton>
+                    </br>
+                <asp:Label ID="noteText" runat="server" Text='<%# (Eval("noteText").ToString().Length>=200) ? Eval("noteText").ToString().Substring(0,100) + "..." : Eval("noteText") %>'></asp:Label>
+                    </br>
+                <asp:Label ID="lblCreatedBy" runat="server" Font-Italic="true" Text=' <%#"Created by " + Eval("CreatedBy") + " on " + Eval("CreationDate") %>'></asp:Label>
+                    </br>
+                </br>
+
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:LinkButton ID="lnkNote" Text='<%#Bind("NoteTitle")%>' runat="server" data-toggle="modal" data-target="#exampleModal">LinkButton</asp:LinkButton>
+                    </br>
+                    <asp:TextBox ID="txtNoteText" runat="server" TextMode="MultiLine" Rows="5" Text='<%#Bind("noteText")%>' Class="form-control"></asp:TextBox>
+                    </br>
+                    <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                    <asp:LinkButton ID="btnCancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
+                    <br />
+                    <br />
+                </EditItemTemplate>
+            </asp:ListView>
+            </div>
+          <br />
+             <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+                 <p class="text-sm-center #bb9739">Upcoming Services</p>
+             <asp:ListView
+                ID="ListView1"
+                runat="server"
+                DataSourceID="srcServices"
+                DataKeyNames="customerID">
+                <LayoutTemplate>
+
+                    <div runat="server" id="lstProducts">
+                        <div runat="server" id="itemPlaceholder" />
+                    </div>
+                    <asp:DataPager runat="server" PageSize="3" ID="dataPager">
+                        <Fields>
+                            <asp:NumericPagerField />
+                        </Fields>
+                    </asp:DataPager>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkNote" Text='<%#Eval("customerName")%>' runat="server">LinkButton</asp:LinkButton>
+                    </br>
+                <asp:Label ID="lblLastUpdated" runat="server" Text='<%# "Last Updated: " + (Eval("lastUpdated")) %>'></asp:Label>
+                    </br>
+                <asp:Label ID="lblStartDate" runat="server" Font-Italic="true" Text=' <%#"Deadline Start: " + Eval("serviceDeadlineStart") %>'></asp:Label>
+                    </br>
+                </br>
+
+                </ItemTemplate>
+                <%--<EditItemTemplate>
+                    <asp:LinkButton ID="lnkNote" Text='<%#Bind("NoteTitle")%>' runat="server" data-toggle="modal" data-target="#exampleModal">LinkButton</asp:LinkButton>
+                    </br>
+                    <asp:TextBox ID="txtNoteText" runat="server" TextMode="MultiLine" Rows="5" Text='<%#Bind("noteText")%>' Class="form-control"></asp:TextBox>
+                    </br>
+                    <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                    <asp:LinkButton ID="btnCancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
+                    <br />
+                    <br />
+                </EditItemTemplate>--%>
+            </asp:ListView>
+            
+            </div>
+          </div>
+        <br />
+
+        
         <div class="card p-3 mb-3" style="border: 1px solid #bb9739;">
             <asp:GridView
                 ID="gvCustomerTickets"
@@ -17,19 +104,33 @@
                 class="table table-bordered table-condensed table-hover"
                 AllowPaging="true"
                 OnPageIndexChanging="gvCustomerTickets_PageIndexChanging"
-                PageSize="5">
+                PageSize="5"
+                AllowSorting="true">
                 <HeaderStyle BackColor="#266141" ForeColor="White" />
                 <Columns>
 
-                    <asp:BoundField DataField="customerName" HeaderText="Customer" />
+                    <asp:BoundField DataField="customerName" HeaderText="Customer"
+                         SortExpression="customerName"/>
 
-                    <asp:TemplateField HeaderText="Service Type">
+                    <asp:TemplateField HeaderText="Service Type" SortExpression="serviceType">
                         <ItemTemplate>
                             <asp:Label ID="lblService" runat="server" Text='<%#Eval("serviceType").ToString() == "M" ? "Move" :  Eval("serviceType").ToString() == "A" ? "Auction" : "Appraisal"%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Progress">
+                    <asp:TemplateField HeaderText="Initial Contact" SortExpression="dateAdded">
+                        <ItemTemplate>
+                            <asp:Label ID="lblContact" runat="server" Text='<%#(Eval("dateAdded").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="City" SortExpression="city">
+                        <ItemTemplate>
+                            <asp:Label ID="lblCity" runat="server" Text='<%#(Eval("city").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Progress" SortExpression="serviceEvent">
                         <ItemTemplate>
                             <asp:Label ID="lblProgress" runat="server" Text='<%#(Eval("serviceEvent").ToString())%>'></asp:Label>
                         </ItemTemplate>
@@ -37,8 +138,8 @@
                 </Columns>
             </asp:GridView>
         </div>
-        <div class="card p-3 mb-3" style="border: 1px solid #bb9739;">
-            <div class='tableauPlaceholder' id='viz1619199502141' style='position: relative'>
+       <%-- <div class="card p-3 mb-3" style="border: 1px solid #bb9739;">--%>
+            <%--<div class='tableauPlaceholder' id='viz1619199502141' style='position: relative'>
                 <noscript>
                     <a href='#'>
                         <img alt='Weekly Service Calendar ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ca&#47;calendar_16191456893770&#47;WeeklyServiceCalendar&#47;1_rss.png' style='border: none' />
@@ -64,7 +165,7 @@
 
                 </object>
 
-            </div>
+            </div>--%>
             <script type='text/javascript'>                    
                 var divElement = document.getElementById('viz1619199502141');
                 var vizElement = divElement.getElementsByTagName('object')[0];
@@ -80,7 +181,7 @@
                 ID="srcServices"
                 runat="server"
                 ConnectionString="<%$ ConnectionStrings:Connect %>"
-                SelectCommand="Select customer.customerID, serviceHistory.dateAdded, customer.FirstName + ' ' +  customer.LastName as customerName, serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent
+                SelectCommand="Select customer.customerID, customer.city, serviceHistory.dateAdded, customer.FirstName + ' ' +  customer.LastName as customerName, serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent, FORMAT(service.serviceDeadlineStart,'MM-dd-yy') AS 'serviceDeadlineStart', FORMAT(service.lastUpdated, 'MM-dd-yy') as 'lastUpdated'
                 from Customer inner join Service on customer.customerID = service.customerID
             inner join ServiceHistory on service.serviceID = servicehistory.serviceID
             inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 
@@ -88,6 +189,16 @@
             serviceHistory.stepID IN
             (select max(stepID) from serviceHistory inner join service on serviceHistory.serviceID=service.serviceID group by service.serviceID)  
 			order by serviceHistory.dateAdded"></asp:SqlDataSource>
+
+            <asp:SqlDataSource 
+                 ID="srcNotes"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT TICKETNOTE.ticketID, CUSTOMER.firstName, CUSTOMER.lastName, TICKETNOTE.noteTitle, TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate'
+                         FROM TICKETNOTE INNER JOIN
+                         CUSTOMER ON TICKETNOTE.customerID = CUSTOMER.customerID INNER JOIN
+                         EMPLOYEE ON TICKETNOTE.noteCreator = EMPLOYEE.employeeID
+                         order by TICKETNOTE.creationDate desc"></asp:SqlDataSource>
         </div>
     </div>
     </div>

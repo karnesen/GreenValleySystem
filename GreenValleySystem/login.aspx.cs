@@ -28,7 +28,7 @@ namespace GreenValleySystem
         {
             try
             {
-                System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["connect"].ConnectionString.ToString());
+                System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString.ToString());
 
                 System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
                 findPass.Connection = sc;
