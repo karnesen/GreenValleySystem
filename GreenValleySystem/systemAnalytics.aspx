@@ -17,7 +17,7 @@
 
     
     <form id="form1" runat="server">
-        <div class="container col-10">
+        <div class="container col-11">
             <div class="row">
           <asp:Button ID="Button1" runat="server" class="btn btn-primary btn-block mb-3" Text="Return to Home Page" OnClick="btnHome_Click" />
            <%-- <div class='tableauPlaceholder' id='viz1618779381606' style='position: relative'>
@@ -59,9 +59,10 @@
 
             </script>--%>
 
-         <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+         <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739;">
+             <p>Phonebook</p>
              <asp:GridView
-                ID="gvCustomerTickets"
+                ID="gvPhonebook"
                 runat="server"
                 DataKeyNames="customerID"
                 DataSourceID="srcPhonebook"
@@ -112,7 +113,8 @@
                 </Columns>
             </asp:GridView>
         </div>
-         <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+                
+         <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739;">
 
         </div>
 
@@ -121,6 +123,31 @@
           <div class="container col-10">
             <div class="row">
                  <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+                     <p>Hear About</p>
+
+                    <asp:GridView
+                        ID="gvHearAbout"
+                        runat="server"
+                        DataKeyNames="Hear About"
+                        DataSourceID="srcHearAbout"
+                        AutoGenerateColumns="false"
+                
+                        class="table table-bordered table-condensed table-hover"
+                        AllowPaging="true"
+              
+                        PageSize="5"
+                        AllowSorting="true">
+                        <HeaderStyle BackColor="#266141" ForeColor="White" />
+                        <Columns>
+
+                            <asp:BoundField DataField="Hear About" HeaderText="Hear About"
+                                 SortExpression="Hear About"/>
+                            <asp:BoundField DataField="Frequency" HeaderText="Frequency"
+                                 SortExpression="Frequency"/>
+
+                            
+                        </Columns>
+            </asp:GridView>
 
                 </div>
                  <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
@@ -149,7 +176,7 @@
                  ID="srcHearAbout"
                  runat="server"
                  ConnectionString="<%$ ConnectionStrings:Connect %>"
-                 SelectCommand="SELECT        hearAbout, count(hearAbout)
+                 SelectCommand="SELECT        hearAbout as 'Hear About', count(hearAbout) as 'Frequency'
                  FROM            CUSTOMER
                  GROUP BY	     hearAbout"></asp:SqlDataSource>
         <asp:SqlDataSource 
