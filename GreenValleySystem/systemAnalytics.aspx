@@ -59,7 +59,7 @@
 
             </script>--%>
 
-         <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739;">
+         <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
              <p>Phonebook</p>
              <asp:GridView
                 ID="gvPhonebook"
@@ -69,7 +69,7 @@
                 AutoGenerateColumns="false"
                 
                 class="table table-bordered table-condensed table-hover"
-                AllowPaging="true"
+                AllowPaging="false"
               
                 PageSize="5"
                 AllowSorting="true">
@@ -114,15 +114,14 @@
             </asp:GridView>
         </div>
                 
-         <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739;">
-
+         <div class="card p-3 mb-6 col-12">
         </div>
 
                 <br />
 
-          <div class="container col-10">
+          <div class="container col-12">
             <div class="row">
-                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
                      <p>Hear About</p>
 
                     <asp:GridView
@@ -133,7 +132,7 @@
                         AutoGenerateColumns="false"
                 
                         class="table table-bordered table-condensed table-hover"
-                        AllowPaging="true"
+                        AllowPaging="false"
               
                         PageSize="5"
                         AllowSorting="true">
@@ -150,7 +149,7 @@
             </asp:GridView>
 
                 </div>
-                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
                      <p>Zip Codes</p>
                      <asp:GridView
                         ID="gvZipCodes"
@@ -160,7 +159,7 @@
                         AutoGenerateColumns="false"
                 
                         class="table table-bordered table-condensed table-hover"
-                        AllowPaging="true"
+                        AllowPaging="false"
               
                         PageSize="5"
                         AllowSorting="true">
@@ -180,8 +179,32 @@
             </asp:GridView>
 
                 </div>
-                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+                 <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
+                     <p>Storage Locations</p>
+                     <asp:GridView
+                        ID="gvStorage"
+                        runat="server"
+                        DataKeyNames="Filled Storage Location"
+                        DataSourceID="srcStorage"
+                        AutoGenerateColumns="false"
+                
+                        class="table table-bordered table-condensed table-hover"
+                        AllowPaging="false"
+              
+                        PageSize="5"
+                        AllowSorting="true">
+                        <HeaderStyle BackColor="#266141" ForeColor="White" />
+                        <Columns>
 
+                            <asp:BoundField DataField="Filled Storage Location" HeaderText="Filled Storage Location"
+                                    SortExpression="Filled Storage Location"/>
+                            <asp:BoundField DataField="Customer First Name" HeaderText="Customer First Name"
+                                    SortExpression="Customer First Name"/>
+                            <asp:BoundField DataField="Customer Last Name" HeaderText="Customer Last Name"
+                                    SortExpression="Customer Last Name"/>
+                        </Columns>
+            </asp:GridView>
+                            
                 </div>
             </div>
         </div>
