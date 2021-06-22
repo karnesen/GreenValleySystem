@@ -168,6 +168,24 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.LinkButton btnInsertEmployee;
 
         /// <summary>
+        /// lblInactive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInactive;
+
+        /// <summary>
+        /// gvInactiveEmployees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvInactiveEmployees;
+
+        /// <summary>
         /// srcEmployees control.
         /// </summary>
         /// <remarks>
@@ -175,5 +193,14 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource srcEmployees;
+
+        /// <summary>
+        /// srcInactive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcInactive;
     }
 }

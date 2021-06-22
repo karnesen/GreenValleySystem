@@ -194,12 +194,49 @@
                     </tbody>
                 </table>
 
+            <div class="card">
+                    <div class="card-header text-center">
+                <asp:Label ID="lblInactive" runat="server" Text="Inactive Employees" Class="h3 m-2"></asp:Label>
+            </div>
+
+                     
+                     <asp:GridView
+                        ID="gvInactiveEmployees"
+                        runat="server"
+                        DataKeyNames="employeeID"
+                        DataSourceID="srcInactive"
+                        AutoGenerateColumns="false"
+                        AutoGenerateEditButton="true"
+                
+                        class="table table-bordered table-condensed table-hover"
+                        AllowPaging="false"
+              
+                        PageSize="5"
+                        AllowSorting="true">
+                        <HeaderStyle BackColor="#266141" ForeColor="White" />
+                        <Columns>
+                            
+                            
+                            <asp:BoundField DataField="firstName" HeaderText="First Name"
+                                    SortExpression="firstName"/>
+                            <asp:BoundField DataField="lastName" HeaderText="Last Name"
+                                    SortExpression="Last Name"/>
+                            <asp:BoundField DataField="position" HeaderText="Position"
+                                    SortExpression="position"/>
+                            <asp:BoundField DataField="email" HeaderText="Email"
+                                    SortExpression="email"/>
+                            
+                        </Columns>
+            </asp:GridView>
+                            
+                </div>
+
                 <asp:SqlDataSource
                     ID="srcEmployees"
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
                     SelectCommand="SELECT * from Employee where currentEmployee = 1"
                     UpdateCommand="UPDATE Employee SET firstName=@firstName, lastName=@lastName, position=@position, email=@email where employeeID=@employeeID"
-                    InsertCommand="INSERT into Employee(firstName,lastName,Position, currentEmployee, email) VALUES(@firstName,@lastName,@Position,1)"
+                    InsertCommand="INSERT into Employee(firstName,lastName,Position, currentEmployee, email) VALUES(@firstName,@lastName,@Position,1,@email)"
                     DeleteCommand="UPDATE EMPLOYEE set currentEmployee=0 where employeeID=@employeeID"
                     runat="server">
                     <UpdateParameters>
@@ -213,6 +250,16 @@
                         <asp:Parameter Name="password" />
                     </InsertParameters>
                 </asp:SqlDataSource>
+
+                <asp:SqlDataSource 
+                 ID="srcInactive"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="select * from Employee where currentEmployee=0"
+                 UpdateCommand="UPDATE EMPLOYEE SET currentEmployee=1 where employeeID = @employeeID">
+
+                </asp:SqlDataSource>
+
             </div>
         </div>
     </div>
