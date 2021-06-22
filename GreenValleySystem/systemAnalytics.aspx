@@ -60,7 +60,57 @@
             </script>--%>
 
          <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+             <asp:GridView
+                ID="gvCustomerTickets"
+                runat="server"
+                DataKeyNames="customerID"
+                DataSourceID="srcPhonebook"
+                AutoGenerateColumns="false"
+                
+                class="table table-bordered table-condensed table-hover"
+                AllowPaging="true"
+              
+                PageSize="5"
+                AllowSorting="true">
+                <HeaderStyle BackColor="#266141" ForeColor="White" />
+                <Columns>
 
+                    <asp:BoundField DataField="First Name" HeaderText="First Name"
+                         SortExpression="First Name"/>
+                    <asp:BoundField DataField="Last Name" HeaderText="Last Name"
+                         SortExpression="Last Name"/>
+
+                    <asp:TemplateField HeaderText="Phone" SortExpression="Phone">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPHone" runat="server" Text='<%#(Eval("Phone").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Alternate Phone" SortExpression="Alternate Phone">
+                        <ItemTemplate>
+                            <asp:Label ID="lblAltPhone" runat="server" Text='<%#(Eval("Alternate Phone").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Address" SortExpression="Address">
+                        <ItemTemplate>
+                            <asp:Label ID="lblAddress" runat="server" Text='<%#(Eval("Address").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Email" SortExpression="Email">
+                        <ItemTemplate>
+                            <asp:Label ID="lblEmail" runat="server" Text='<%#(Eval("Email").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Initial Contact" SortExpression="Initial Contact Date">
+                        <ItemTemplate>
+                            <asp:Label ID="lblInitialContact" runat="server" Text='<%#(Eval("Initial Contact Date").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
          <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
 
@@ -89,8 +139,44 @@
         </div>
             </div>
 
-        <asp:SqlDataSource ID="src" runat="server"></asp:SqlDataSource>
-
+        <asp:SqlDataSource 
+                 ID="srcPhonebook"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT customerID,firstName as 'First Name', lastName as 'Last Name', phoneNumber as 'Phone', altPhoneNumber as 'Alternate Phone', email as 'Email', streetAddress as 'Address', format(initialContactDate,'MM/dd/yy') as 'Initial Contact Date'
+                 FROM            CUSTOMER"></asp:SqlDataSource>
+        <asp:SqlDataSource 
+                 ID="srcHearAbout"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT        hearAbout, count(hearAbout)
+                 FROM            CUSTOMER
+                 GROUP BY	     hearAbout"></asp:SqlDataSource>
+        <asp:SqlDataSource 
+                 ID="srcZipCodes"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT        city, state, zipcode, count(zipcode) as 'count'
+                 FROM            ADDRESSES
+                 group by city,state,zipcode"></asp:SqlDataSource>
+        <asp:SqlDataSource 
+                 ID="srcStorage"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT        STORAGE.storageLocation as 'Filled Storage Location', CUSTOMER.firstName as 'Customer First Name', CUSTOMER.lastName as 'Customer Last Name'
+                 FROM            STORAGE INNER JOIN
+                         AUCTIONSTORAGE ON STORAGE.storageID = AUCTIONSTORAGE.storageID INNER JOIN
+                         SERVICE ON AUCTIONSTORAGE.serviceID = SERVICE.serviceID INNER JOIN
+                         CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID"></asp:SqlDataSource>
+        <asp:SqlDataSource 
+                 ID="srcServices"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT        SERVICE.serviceType as 'Type', format(SERVICE.serviceDeadlineStart, 'MM/dd/yy') AS 'Start Date', format(SERVICE.serviceDeadlineEnd, 'MM/dd/yy') AS 'Deadline End Date', CUSTOMER.firstName as 'First Name', CUSTOMER.lastName as 'Last Name', serviceEvents.serviceEvent as 'Progress'
+                 FROM            SERVICE INNER JOIN
+                         CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID INNER JOIN
+                         SERVICEHISTORY ON SERVICE.serviceID = SERVICEHISTORY.serviceID INNER JOIN
+                         serviceEvents ON SERVICEHISTORY.eventID = serviceEvents.eventID"></asp:SqlDataSource>
 
     </form>
 </body>
