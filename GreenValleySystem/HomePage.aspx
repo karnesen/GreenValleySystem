@@ -52,8 +52,8 @@
              <asp:ListView
                 ID="ListView1"
                 runat="server"
-                DataSourceID="srcServices"
-                DataKeyNames="customerID">
+                DataSourceID="srcUpcoming"
+                DataKeyNames="serviceDeadlineStart">
                 <LayoutTemplate>
 
                     <div runat="server" id="lstProducts">
@@ -68,9 +68,8 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="lnkNote" Text='<%#Eval("customerName")%>' runat="server">LinkButton</asp:LinkButton>
                     </br>
-                <asp:Label ID="lblLastUpdated" runat="server" Text='<%# "Last Updated: " + (Eval("lastUpdated")) %>'></asp:Label>
-                    </br>
-                <asp:Label ID="lblStartDate" runat="server" Font-Italic="true" Text=' <%#"Deadline Start: " + Eval("serviceDeadlineStart") %>'></asp:Label>
+                
+                <asp:Label ID="lblStartDate" runat="server"  Text=' <%#"Deadline Start: " + Eval("serviceDeadlineStart") %>'></asp:Label>
                     </br>
                 </br>
 
@@ -92,7 +91,7 @@
         <br />
 
         
-        <div class="card p-3 mb-3" style="border: 1px solid #bb9739;">
+        <div class="card p-3 mb-3" style="border: 1px solid #bb9739; height:500px; overflow:scroll">
             <asp:GridView
                 ID="gvCustomerTickets"
                 runat="server"
@@ -102,15 +101,17 @@
                 OnRowDataBound="gvCustomer_RowDataBound"
                 OnSelectedIndexChanged="gvCustomer_SelectedIndexChanged"
                 class="table table-bordered table-condensed table-hover"
-                AllowPaging="true"
+                AllowPaging="false"
                 OnPageIndexChanging="gvCustomerTickets_PageIndexChanging"
                 PageSize="5"
                 AllowSorting="true">
                 <HeaderStyle BackColor="#266141" ForeColor="White" />
                 <Columns>
 
-                    <asp:BoundField DataField="customerName" HeaderText="Customer"
-                         SortExpression="customerName"/>
+                    <asp:BoundField DataField="FirstName" HeaderText="First Name"
+                         SortExpression="FirstName"/>
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name"
+                         SortExpression="LastName"/>
 
                     <asp:TemplateField HeaderText="Service Type" SortExpression="serviceType">
                         <ItemTemplate>
@@ -181,7 +182,7 @@
                 ID="srcServices"
                 runat="server"
                 ConnectionString="<%$ ConnectionStrings:Connect %>"
-                SelectCommand="Select customer.customerID, customer.city, serviceHistory.dateAdded, customer.FirstName + ' ' +  customer.LastName as customerName, serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent, FORMAT(service.serviceDeadlineStart,'MM-dd-yy') AS 'serviceDeadlineStart', FORMAT(service.lastUpdated, 'MM-dd-yy') as 'lastUpdated'
+                SelectCommand="Select customer.customerID, customer.city, serviceHistory.dateAdded, customer.FirstName as 'FirstName', customer.LastName as 'LastName', customer.FirstName + ' ' + customer.LastName as 'customerName', serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent, FORMAT(service.serviceDeadlineStart,'MM-dd-yy') AS 'serviceDeadlineStart', FORMAT(service.lastUpdated, 'MM-dd-yy') as 'lastUpdated'
                 from Customer inner join Service on customer.customerID = service.customerID
             inner join ServiceHistory on service.serviceID = servicehistory.serviceID
             inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 
@@ -199,6 +200,14 @@
                          CUSTOMER ON TICKETNOTE.customerID = CUSTOMER.customerID INNER JOIN
                          EMPLOYEE ON TICKETNOTE.noteCreator = EMPLOYEE.employeeID
                          order by TICKETNOTE.creationDate desc"></asp:SqlDataSource>
+        <asp:SqlDataSource 
+                 ID="srcUpcoming"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT CUSTOMER.firstName + ' ' + CUSTOMER.lastName as 'customerName', format(SERVICE.serviceDeadlineStart,'MM/dd/yy') as 'serviceDeadlineStart' FROM SERVICE INNER JOIN CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID WHERE service.serviceDeadlineStart > CURRENT_TIMESTAMP">
+
+        </asp:SqlDataSource>
+
         </div>
     </div>
     </div>
