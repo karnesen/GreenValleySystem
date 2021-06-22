@@ -151,6 +151,33 @@
 
                 </div>
                  <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
+                     <p>Zip Codes</p>
+                     <asp:GridView
+                        ID="gvZipCodes"
+                        runat="server"
+                        DataKeyNames="zipcode"
+                        DataSourceID="srcZipCodes"
+                        AutoGenerateColumns="false"
+                
+                        class="table table-bordered table-condensed table-hover"
+                        AllowPaging="true"
+              
+                        PageSize="5"
+                        AllowSorting="true">
+                        <HeaderStyle BackColor="#266141" ForeColor="White" />
+                        <Columns>
+
+                            <asp:BoundField DataField="city" HeaderText="City"
+                                 SortExpression="city"/>
+                            <asp:BoundField DataField="state" HeaderText="State"
+                                 SortExpression="state"/>
+                            <asp:BoundField DataField="zipcode" HeaderText="Zip Code"
+                                 SortExpression="zipcode"/>
+                            <asp:BoundField DataField="count" HeaderText="Frequency"
+                                 SortExpression="count"/>
+
+                     </Columns>
+            </asp:GridView>
 
                 </div>
                  <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739;">
