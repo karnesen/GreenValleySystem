@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/serviceDetails.Master" AutoEventWireup="true" CodeBehind="moveAssessment.aspx.cs" Inherits="GreenValleySystem.moveAssessment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/serviceDetails.Master" AutoEventWireup="true" CodeBehind="moveAssessment.aspx.cs" Inherits="GreenValleySystem.moveAssessment" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderChild" runat="server">
     <div class="card mb-2">
@@ -15,6 +15,9 @@
                 </li>
                 <li class="nav-item">
                     <a class='<%=stateNav3 %>' id="rooms-tab" data-toggle="tab" href="#rooms" role="tab" aria-controls="rooms" aria-selected="false">Room Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class='<%=stateNav4 %>' id="handout-tab" data-toggle="tab" href="#handout" role="tab" aria-controls="handout" aria-selected="false">Hand-Out</a>
                 </li>
             </ul>
         </div>
@@ -446,18 +449,18 @@
                                 <div class="form-group">
                                     <asp:Label ID="lblFar" for="txtFarFromLoading" runat="server" Text="Distance from Loading Door"></asp:Label>
                                     <asp:TextBox ID="txtFarFromLoading" TextMode="MultiLine" Text='<%# Bind("howFar")%>' runat="server" class="form-control"></asp:TextBox>
-                                    <asp:RegularExpressionValidator 
+                                    <%--<asp:RegularExpressionValidator 
 	                                    id="RegularExpressionValidator1"  
                                         runat="server"
                                         ControlToValidate="txtFarFromLoading" 
                                         ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
                                         ErrorMessage="Invalid Input" 
                                         ForeColor="Red">
-                                    </asp:regularexpressionvalidator>
+                                    </asp:regularexpressionvalidator>--%>
                                 </div>
 
                                 <div class="form-group">
-                                    <asp:Label ID="lblSteps" for="txtSteps" runat="server" Text="Steps"></asp:Label>
+                                    <asp:Label ID="lblSteps" for="txtSteps" runat="server" Text="Stairs"></asp:Label>
                                     <asp:TextBox ID="txtSteps" TextMode="Number" runat="server" Text='<%# Bind("steps")%>' class="form-control"></asp:TextBox>
                                 </div>
 
@@ -1508,6 +1511,12 @@
 
                                 </EditItemTemplate>
                             </asp:FormView>
+
+
+
+      
+         
+
                             <asp:SqlDataSource
                                 ID="srcOut"
                                 runat="server"
@@ -1524,13 +1533,44 @@
                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                 </UpdateParameters>
                             </asp:SqlDataSource>
+
+
                         </li>
 
 
                     </ul>
                 </div>
 
+          
+            
+            <div class='<%=stateTab4 %>' id="handout" role="tabpanel" aria-labelledby="assess-tab" style="overflow:scroll">
+               <h2>Service Order Handout</h2>
+                 
+                
+                 <asp:Button ID="btnPrint" runat="server" Text="Print" OnClick="btnPrint_Click" class="btn btn-primary" CausesValidation="false"/>
+           
+                <asp:GridView
+                ID="gvHandout"
+                runat="server"
+                DataKeyNames="serviceID"
+                DataSourceID="srcOut"
+                AutoGenerateColumns="true"
+                
+                class="table table-bordered table-condensed table-hover"
+                AllowPaging="false"
+              
+                PageSize="5"
+                AllowSorting="true"
+                OnSorted="btnHandout_Click">
+                <HeaderStyle BackColor="#266141" ForeColor="White" />
+                <Columns>                </Columns>
+           
+                    </asp:GridView>
+
+              
             </div>
+        </div>
+
         </div>
     </div>
 </asp:Content>
