@@ -60,7 +60,7 @@
             </script>--%>
 
          <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
-             <p>Phonebook</p>
+             <h2 class="text-center">Phonebook</h2>
              <asp:GridView
                 ID="gvPhonebook"
                 runat="server"
@@ -122,7 +122,7 @@
           <div class="container col-12">
             <div class="row">
                  <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
-                     <p>Hear About</p>
+                     <h2 class="text-center">Hear About</h2>
 
                     <asp:GridView
                         ID="gvHearAbout"
@@ -150,7 +150,7 @@
 
                 </div>
                  <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
-                     <p>Zip Codes</p>
+                     <h2 class="text-center">Zip Codes</h2>
                      <asp:GridView
                         ID="gvZipCodes"
                         runat="server"
@@ -180,7 +180,7 @@
 
                 </div>
                  <div class="card p-3 mb-6 col-4" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
-                     <p>Storage Locations</p>
+                     <h2 class="text-center">Storage Locations</h2>
                      <asp:GridView
                         ID="gvStorage"
                         runat="server"

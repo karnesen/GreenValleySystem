@@ -52,6 +52,7 @@
                                 <asp:DropDownList ID="ddlProgress" Class="form-control" runat="server" DataSourceID="srcProgress" DataTextField="serviceEvent"
                                     DataValueField="eventID">
                                     <asp:ListItem Value="Contact Information Gathered" Text="Contact Information Gathered"></asp:ListItem>
+                                    
                                 </asp:DropDownList>
                                 <asp:Button ID="btnSave" OnClick="ddlProgress_SelectedIndexChanged" runat="server" Text="Save" Class="form-control" />
 
@@ -297,6 +298,7 @@
                                                         <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
                                                         <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
                                                         <asp:ListItem>Trash Removal</asp:ListItem>
+                                                        
                                                     </asp:DropDownList>
 
                                                     <div class="row">
@@ -341,6 +343,7 @@
                                                         <asp:ListItem Value="Consignment Shop Pick Up">Consignment Shop Pick Up</asp:ListItem>
                                                         <asp:ListItem Value="Consignment Shop Bring In">Consignment Shop Bring In</asp:ListItem>
                                                         <asp:ListItem Value="Trash Removal">Trash Removal</asp:ListItem>
+                                                        
                                                     </asp:DropDownList>
 
                                                     <div class="row mb-1">

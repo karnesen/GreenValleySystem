@@ -358,6 +358,7 @@
                             <asp:ListItem Value="A">Auction</asp:ListItem>
                             <asp:ListItem Value="P">Appraisal</asp:ListItem>
                             <asp:ListItem Value="M">Move</asp:ListItem>
+                           
                         </asp:DropDownList>
                                 <asp:ListView
                                     ID="lvNotes"
