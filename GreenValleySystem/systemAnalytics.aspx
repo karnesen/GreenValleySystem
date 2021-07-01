@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="systemAnalytics.aspx.cs" Inherits="GreenValleySystem.systemAnalytics" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="systemAnalytics.aspx.cs" Inherits="GreenValleySystem.systemAnalytics"  EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -20,6 +20,7 @@
         <div class="container col-11">
             <div class="row">
           <asp:Button ID="Button1" runat="server" class="btn btn-primary btn-block mb-3" Text="Return to Home Page" OnClick="btnHome_Click" />
+                <asp:Button ID="btnPrint" runat="server" class="btn btn-primary btn-block mb-3" Text="Print All Sheets" OnClick="btnPrint_Click" />
            <%-- <div class='tableauPlaceholder' id='viz1618779381606' style='position: relative'>
                             <asp:Button ID="btnHome" runat="server" class="btn btn-primary btn-block mb-3" Text="Return to Home Page" OnClick="btnHome_Click" />
                             
