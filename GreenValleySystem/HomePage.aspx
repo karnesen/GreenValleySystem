@@ -6,13 +6,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container col-10">
       <div class="row">
-        <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+        <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;height:500px; overflow:scroll">
             <p class="text-sm-center #bb9739">Recent Notes</p>
-             <asp:ListView
+            <%-- <asp:ListView
                 ID="lvNotes"
                 runat="server"
                 DataSourceID="srcNotes"
-                DataKeyNames="ticketID">
+                DataKeyNames="customerID"
+                >
                 <LayoutTemplate>
 
                     <div runat="server" id="lstProducts">
@@ -44,16 +45,69 @@
                     <br />
                     <br />
                 </EditItemTemplate>
-            </asp:ListView>
+            </asp:ListView>--%>
+
+            
+             <asp:GridView
+                ID="gvNotesRecent"
+                runat="server"
+                DataKeyNames="customerID"
+                DataSourceID="srcNotes"
+                AutoGenerateColumns="false"
+                OnRowDataBound="gvNotesRecent_RowDataBound"
+                OnSelectedIndexChanged="gvNotesRecent_SelectedIndexChanged"
+                class="table table-bordered table-condensed table-hover"
+                AllowPaging="false"
+                OnPageIndexChanging="gvNotesRecent_PageIndexChanging"
+                PageSize="5"
+                AllowSorting="true">
+                <HeaderStyle BackColor="#266141" ForeColor="White" />
+                <Columns>
+
+                    <asp:BoundField DataField="FirstName" HeaderText="First Name"
+                         SortExpression="FirstName"/>
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name"
+                         SortExpression="LastName"/>
+
+                    <asp:TemplateField HeaderText="Note Title" SortExpression="noteTitle">
+                        <ItemTemplate>
+                            <asp:Label ID="lblService" runat="server" Text='<%#(Eval("noteTitle").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Note Text" SortExpression="noteText">
+                        <ItemTemplate>
+                            <asp:Label ID="lblContact" runat="server" Text='<%#(Eval("noteText").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Created By" SortExpression="createdBy">
+                        <ItemTemplate>
+                            <asp:Label ID="lblCity" runat="server" Text='<%#(Eval("createdBy").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Date" SortExpression="creationDate">
+                        <ItemTemplate>
+                            <asp:Label ID="lblProgress" runat="server" Text='<%#(Eval("creationDate").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+
+
+
+
             </div>
           <br />
-             <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;">
+             <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;height:500px; overflow:scroll">
                  <p class="text-sm-center #bb9739">Upcoming Services</p>
-             <asp:ListView
+             <%--<asp:ListView
                 ID="ListView1"
                 runat="server"
                 DataSourceID="srcUpcoming"
-                DataKeyNames="serviceDeadlineStart">
+                DataKeyNames="customerID"
+                >
                 <LayoutTemplate>
 
                     <div runat="server" id="lstProducts">
@@ -66,7 +120,7 @@
                     </asp:DataPager>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <asp:LinkButton ID="lnkNote" Text='<%#Eval("customerName")%>' runat="server">LinkButton</asp:LinkButton>
+                    <asp:LinkButton ID="lnkNote" Text='<%#Eval("customerName")%>' runat="server" OnClick="lnkNote_Click">LinkButton</asp:LinkButton>
                     </br>
                 
                 <asp:Label ID="lblStartDate" runat="server"  Text=' <%#"Deadline Start: " + Eval("serviceDeadlineStart") %>'></asp:Label>
@@ -84,7 +138,40 @@
                     <br />
                     <br />
                 </EditItemTemplate>--%>
-            </asp:ListView>
+            <%--</asp:ListView>--%>
+
+
+                  <asp:GridView
+                ID="gvUpcomingServices"
+                runat="server"
+                DataKeyNames="customerID"
+                DataSourceID="srcUpcoming"
+                AutoGenerateColumns="false"
+                OnRowDataBound="gvUpcomingServices_RowDataBound"
+                OnSelectedIndexChanged="gvUpcomingServices_SelectedIndexChanged"
+                class="table table-bordered table-condensed table-hover"
+                AllowPaging="false"
+                OnPageIndexChanging="gvUpcomingServices_PageIndexChanging"
+                PageSize="5"
+                AllowSorting="true">
+                <HeaderStyle BackColor="#266141" ForeColor="White" />
+                <Columns>
+
+                    <asp:BoundField DataField="firstName" HeaderText="First Name"
+                         SortExpression="firstName"/>
+                    <asp:BoundField DataField="lastName" HeaderText="Last Name"
+                         SortExpression="lastName"/>
+
+                    <asp:TemplateField HeaderText="Deadline Start Date" SortExpression="serviceDeadlineStart">
+                        <ItemTemplate>
+                            <asp:Label ID="lblStartDate" runat="server" Text='<%#(Eval("serviceDeadlineStart").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                   
+                </Columns>
+            </asp:GridView>
+
             
             </div>
           </div>
@@ -92,6 +179,7 @@
 
         
         <div class="card p-3 mb-3" style="border: 1px solid #bb9739; height:500px; overflow:scroll">
+            <p class="text-sm-center #bb9739">Active Customers</p>
             <asp:GridView
                 ID="gvCustomerTickets"
                 runat="server"
@@ -139,34 +227,7 @@
                 </Columns>
             </asp:GridView>
         </div>
-       <%-- <div class="card p-3 mb-3" style="border: 1px solid #bb9739;">--%>
-            <%--<div class='tableauPlaceholder' id='viz1619199502141' style='position: relative'>
-                <noscript>
-                    <a href='#'>
-                        <img alt='Weekly Service Calendar ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ca&#47;calendar_16191456893770&#47;WeeklyServiceCalendar&#47;1_rss.png' style='border: none' />
-
-                    </a>
-
-                </noscript>
-                <object class='tableauViz' style='display: none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                    <param name='embed_code_version' value='3' />
-                    <param name='site_root' value='' />
-                    <param name='name' value='calendar_16191456893770&#47;WeeklyServiceCalendar' />
-                    <param name='tabs' value='no' />
-                    <param name='toolbar' value='yes' />
-                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ca&#47;calendar_16191456893770&#47;WeeklyServiceCalendar&#47;1.png' />
-                    <param name='animate_transition' value='yes' />
-                    <param name='display_static_image' value='yes' />
-                    <param name='display_spinner' value='yes' />
-                    <param name='display_overlay' value='yes' />
-                    <param name='display_count' value='yes' />
-                    <param name='language' value='en' />
-                    <param name='filter' value='publish=yes' />
-
-                </object>
-
-            </div>--%>
+ 
             <script type='text/javascript'>                    
                 var divElement = document.getElementById('viz1619199502141');
                 var vizElement = divElement.getElementsByTagName('object')[0];
@@ -195,7 +256,7 @@
                  ID="srcNotes"
                  runat="server"
                  ConnectionString="<%$ ConnectionStrings:Connect %>"
-                 SelectCommand="SELECT TICKETNOTE.ticketID, CUSTOMER.firstName, CUSTOMER.lastName, TICKETNOTE.noteTitle, TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate'
+                 SelectCommand="SELECT customer.customerID, TICKETNOTE.ticketID, CUSTOMER.firstName, CUSTOMER.lastName, TICKETNOTE.noteTitle, TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate'
                          FROM TICKETNOTE INNER JOIN
                          CUSTOMER ON TICKETNOTE.customerID = CUSTOMER.customerID INNER JOIN
                          EMPLOYEE ON TICKETNOTE.noteCreator = EMPLOYEE.employeeID
@@ -204,7 +265,7 @@
                  ID="srcUpcoming"
                  runat="server"
                  ConnectionString="<%$ ConnectionStrings:Connect %>"
-                 SelectCommand="SELECT CUSTOMER.firstName + ' ' + CUSTOMER.lastName as 'customerName', format(SERVICE.serviceDeadlineStart,'MM/dd/yy') as 'serviceDeadlineStart' FROM SERVICE INNER JOIN CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID WHERE service.serviceDeadlineStart > CURRENT_TIMESTAMP">
+                 SelectCommand="SELECT customer.customerID, CUSTOMER.firstName, CUSTOMER.lastName, format(SERVICE.serviceDeadlineStart,'MM/dd/yy') as 'serviceDeadlineStart' FROM SERVICE INNER JOIN CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID WHERE service.serviceDeadlineStart > CURRENT_TIMESTAMP">
 
         </asp:SqlDataSource>
 

@@ -65,6 +65,7 @@
                             <div class="row form-group">
                                 <div class="col-md-6">
                                     <asp:Label ID="Label2" runat="server" Text="Primary Phone" Class="h6"></asp:Label>
+                                    <br />
                                     <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
 
                                     <script type="text/javascript">
