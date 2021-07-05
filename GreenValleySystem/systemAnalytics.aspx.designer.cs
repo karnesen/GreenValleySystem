@@ -42,6 +42,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.Button btnPrint;
 
         /// <summary>
+        /// btnPrintPhonebook control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrintPhonebook;
+
+        /// <summary>
         /// gvPhonebook control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPhonebook;
+
+        /// <summary>
+        /// btnPrintHearAbout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrintHearAbout;
 
         /// <summary>
         /// gvHearAbout control.
@@ -60,6 +78,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.GridView gvHearAbout;
 
         /// <summary>
+        /// btnPrintZipCodes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrintZipCodes;
+
+        /// <summary>
         /// gvZipCodes control.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,15 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvZipCodes;
+
+        /// <summary>
+        /// btnPrintStorage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrintStorage;
 
         /// <summary>
         /// gvStorage control.

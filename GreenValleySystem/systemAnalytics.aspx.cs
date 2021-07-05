@@ -29,6 +29,8 @@ namespace GreenValleySystem
 
             System.IO.StringWriter stringWriter = new System.IO.StringWriter();
             HtmlTextWriter htmlwriter = new HtmlTextWriter(stringWriter);
+
+            //gridviews for printing
             gvHearAbout.RenderControl(htmlwriter);
           
             gvPhonebook.RenderControl(htmlwriter);
@@ -36,6 +38,89 @@ namespace GreenValleySystem
             gvStorage.RenderControl(htmlwriter);
             
             gvZipCodes.RenderControl(htmlwriter);
+
+
+            Response.Output.Write(stringWriter.ToString());
+            Response.End();
+        }
+        protected void btnPrintPhonebook_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "selectedrows"));
+            Response.Charset = "";
+
+            System.IO.StringWriter stringWriter = new System.IO.StringWriter();
+            HtmlTextWriter htmlwriter = new HtmlTextWriter(stringWriter);
+
+            gvPhonebook.RenderControl(htmlwriter);
+
+
+            Response.Output.Write(stringWriter.ToString());
+            Response.End();
+        }
+
+        protected void btnPrintHearAbout_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "selectedrows"));
+            Response.Charset = "";
+
+            System.IO.StringWriter stringWriter = new System.IO.StringWriter();
+            HtmlTextWriter htmlwriter = new HtmlTextWriter(stringWriter);
+
+            //gridviews for printing
+            gvHearAbout.RenderControl(htmlwriter);
+
+           
+
+            Response.Output.Write(stringWriter.ToString());
+            Response.End();
+        }
+
+        protected void btnPrintZipCodes_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "selectedrows"));
+            Response.Charset = "";
+
+            System.IO.StringWriter stringWriter = new System.IO.StringWriter();
+            HtmlTextWriter htmlwriter = new HtmlTextWriter(stringWriter);
+
+            //gridviews for printing
+
+
+            gvZipCodes.RenderControl(htmlwriter);
+
+
+            Response.Output.Write(stringWriter.ToString());
+            Response.End();
+        }
+
+        protected void btnPrintStorage_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "selectedrows"));
+            Response.Charset = "";
+
+            System.IO.StringWriter stringWriter = new System.IO.StringWriter();
+            HtmlTextWriter htmlwriter = new HtmlTextWriter(stringWriter);
+
+            //gridviews for printing
+
+
+            gvStorage.RenderControl(htmlwriter);
+
+          
+
+
             Response.Output.Write(stringWriter.ToString());
             Response.End();
         }
@@ -43,6 +128,8 @@ namespace GreenValleySystem
         {
             //base.VerifyRenderingInServerForm(control);
         }
+
+
     }
 
 }

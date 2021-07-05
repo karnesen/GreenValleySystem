@@ -60,5 +60,10 @@ namespace Lab1
         {
             Response.Redirect("employeeChangePassword.aspx");
         }
+
+        protected void txtSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

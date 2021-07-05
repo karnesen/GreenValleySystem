@@ -64,6 +64,7 @@
 
                             <div class="row form-group">
                                 <div class="col-md-6">
+                                    <asp:Label ID="Label2" runat="server" Text="Primary Phone" Class="h6"></asp:Label>
                                     <asp:TextBox ID="txtPhoneNumber" runat="server" class="form-control" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
 
                                     <script type="text/javascript">
@@ -83,7 +84,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control mb-1">
-                                        <asp:ListItem></asp:ListItem>
+                                        <asp:ListItem>--Please Select--</asp:ListItem>
                                         <asp:ListItem>Home</asp:ListItem>
                                         <asp:ListItem>Cell</asp:ListItem>
                                         <asp:ListItem>Work</asp:ListItem>
@@ -97,6 +98,7 @@
 
                             <div class="row form-group">
                                 <div class="col-md-6">
+                                    <asp:Label ID="Label3" runat="server" Text="Alternate Phone (If Applicable)" Class="h6"></asp:Label>
                                     <asp:TextBox ID="txtPhoneNumber2" runat="server" class="form-control phone_us" PlaceHolder="Phone Number" ClientIDMode="Static"></asp:TextBox>
 
                                     <script type="text/javascript">
@@ -111,7 +113,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control mb-1">
-                                        <asp:ListItem></asp:ListItem>
+                                        <asp:ListItem>--Please Select--</asp:ListItem>
                                         <asp:ListItem>Home</asp:ListItem>
                                         <asp:ListItem>Cell</asp:ListItem>
                                         <asp:ListItem>Work</asp:ListItem>
@@ -233,8 +235,17 @@
                             </div>
 
                             <div class="form-group">
-                                <asp:TextBox ID="txtHear" runat="server" Placeholder="How did they hear about us?"
-                                    Class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                <asp:Label ID="lblHearAbout" runat="server" Class="h6" Text="Where Did You Hear About Us?"></asp:Label>
+                                <asp:DropDownList ID="txtHear" runat="server" class="dropdown form-control mb-1">
+                                    <asp:ListItem>Realtor</asp:ListItem>
+                                    <asp:ListItem>Facebook</asp:ListItem>
+                                    <asp:ListItem>Google</asp:ListItem>
+                                    <asp:ListItem>Website</asp:ListItem>
+                                    <asp:ListItem>Newspaper</asp:ListItem>
+                                    <asp:ListItem>Word Of Mouth</asp:ListItem>
+                                    <asp:ListItem>Mailings</asp:ListItem>
+                                    <asp:ListItem>Other</asp:ListItem>
+                                </asp:DropDownList>
                                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHear"
                             Text="Please Complete this field" ValidationGroup="CreateCustomer"></asp:RequiredFieldValidator>--%>

@@ -63,7 +63,7 @@
                         ForeColor="Red">
                     </asp:regularexpressionvalidator>
                     <asp:LinkButton ID="btnDataSearch" PostBackUrl="~/dateResults.aspx" class="form-control-lg mr-2" runat="server"><span class="fa fa-calendar"></span> </asp:LinkButton>
-                    <asp:TextBox ID="txtSearchCustomer" class="form-control" Placeholder="Search" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtSearchCustomer" class="form-control" Placeholder="Search" runat="server" OnTextChanged="btnCustomerSearch_Click"></asp:TextBox>
                     
                     <asp:LinkButton ID="btnCustomerSearch" class="form-control-lg mr-2" runat="server" OnClick="btnCustomerSearch_Click"><span class="fa fa-search"></span> </asp:LinkButton>
                 

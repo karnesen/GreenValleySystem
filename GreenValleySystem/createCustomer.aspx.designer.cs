@@ -105,6 +105,15 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.Label lblUnique;
 
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
         /// txtPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace Lab1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPhoneNumberType;
+
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// txtPhoneNumber2 control.
@@ -312,13 +330,22 @@ namespace Lab1
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvOther;
 
         /// <summary>
+        /// lblHearAbout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHearAbout;
+
+        /// <summary>
         /// txtHear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHear;
+        protected global::System.Web.UI.WebControls.DropDownList txtHear;
 
         /// <summary>
         /// Label1 control.
