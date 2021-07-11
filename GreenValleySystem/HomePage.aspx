@@ -243,7 +243,7 @@
                 ID="srcServices"
                 runat="server"
                 ConnectionString="<%$ ConnectionStrings:Connect %>"
-                SelectCommand="Select customer.customerID, customer.city, serviceHistory.dateAdded, customer.FirstName as 'FirstName', customer.LastName as 'LastName', customer.FirstName + ' ' + customer.LastName as 'customerName', serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent, FORMAT(service.serviceDeadlineStart,'MM-dd-yy') AS 'serviceDeadlineStart', FORMAT(service.lastUpdated, 'MM-dd-yy') as 'lastUpdated'
+                SelectCommand="Select customer.customerID, customer.city, serviceHistory.dateAdded, customer.FirstName as 'FirstName', customer.LastName as 'LastName', customer.FirstName + ' ' + customer.LastName as 'customerName', serviceStatus, service.serviceType, serviceOpenDate, service.serviceID, serviceEvent, FORMAT(service.serviceDeadlineStart,'MM/dd/yy') AS 'serviceDeadlineStart', FORMAT(service.lastUpdated, 'MM-dd-yy') as 'lastUpdated'
                 from Customer inner join Service on customer.customerID = service.customerID
             inner join ServiceHistory on service.serviceID = servicehistory.serviceID
             inner join serviceEvents on serviceHistory.eventID=serviceEvents.eventID 
@@ -256,7 +256,7 @@
                  ID="srcNotes"
                  runat="server"
                  ConnectionString="<%$ ConnectionStrings:Connect %>"
-                 SelectCommand="SELECT customer.customerID, TICKETNOTE.ticketID, CUSTOMER.firstName, CUSTOMER.lastName, TICKETNOTE.noteTitle, TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', FORMAT(TICKETNOTE.creationDate, 'MM-dd-yy') as 'CreationDate'
+                 SelectCommand="SELECT customer.customerID, TICKETNOTE.ticketID, CUSTOMER.firstName, CUSTOMER.lastName, TICKETNOTE.noteTitle, TICKETNOTE.noteText, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'CreatedBy', FORMAT(TICKETNOTE.creationDate, 'MM/dd/yy') as 'CreationDate'
                          FROM TICKETNOTE INNER JOIN
                          CUSTOMER ON TICKETNOTE.customerID = CUSTOMER.customerID INNER JOIN
                          EMPLOYEE ON TICKETNOTE.noteCreator = EMPLOYEE.employeeID

@@ -1546,8 +1546,12 @@
             <div class='<%=stateTab4 %>' id="handout" role="tabpanel" aria-labelledby="assess-tab" style="overflow:scroll">
                <h2>Service Order Handout</h2>
                  
+
+
+                <iframe width="1200" height="720" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=59E05D1707FDE604%217226&authkey=%21AAatTR3VpdmyJrA&em=2&wdAllowInteractivity=False&AllowTyping=True&Item=cubeSheet.calc&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+
                 
-                 <asp:Button ID="btnPrint" runat="server" Text="Print" OnClick="btnPrint_Click" class="btn btn-primary" CausesValidation="false"/>
+                 <%--<asp:Button ID="btnPrint" runat="server" Text="Print" OnClick="btnPrint_Click" class="btn btn-primary" CausesValidation="false"/>
            
                 <asp:GridView
                 ID="gvHandout"
@@ -1565,7 +1569,7 @@
                 <HeaderStyle BackColor="#266141" ForeColor="White" />
                 <Columns>                </Columns>
            
-                    </asp:GridView>
+                    </asp:GridView>--%>
 
               
             </div>

@@ -109,6 +109,28 @@
                                 <asp:ListItem Value="1">Negative</asp:ListItem>
                             </asp:DropDownList>
                         </div>
+                        <div class="mb-2">
+                            <h5>Payment Received?</h5>
+                            <asp:DropDownList ID="ddlPayment" runat="server" class="form-control" SelectedValue='<%# Bind("paymentReceived") %>'>
+                                <asp:ListItem Value="0">No</asp:ListItem>
+                                <asp:ListItem Value="1">Yes</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="mb-2">
+                            <h5>Amount</h5>
+                            <asp:TextBox ID="txtPayment" Class="form-control" Text='<%# Bind("amount") %>' Columns="20" TextMode="MultiLine" Placeholder="Comments" runat="server"></asp:TextBox>
+                            <%--<asp:RegularExpressionValidator 
+                                    id="RegularExpressionValidator1"  
+                                    runat="server"
+                                    ControlToValidate="txtPayment" 
+                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                    ErrorMessage="Invalid Input"
+                                    ValidationGroup="completion"
+                                    ForeColor="Red">
+                                </asp:regularexpressionvalidator>--%>
+                        </div>
+                        
+
 
                         <asp:LinkButton ID="lbtnSave" runat="server" class="btn btn-outline-primary" CommandName="Update" ValidationGroup="completion">Save</asp:LinkButton>
                     </EditItemtemplate>
@@ -118,7 +140,7 @@
                 ID="srcCompletion"
                 ConnectionString="<%$ ConnectionStrings:Connect %>"
                 SelectCommand="SELECT * from completion inner join service on completion.serviceID = service.serviceID where service.serviceID = @serviceID"
-                UpdateCommand="Update completion set comments=@comments, positiveExperience=@positiveExperience where serviceID = @serviceID; UPDATE service set serviceStatus=0 where serviceID = @serviceID"
+                UpdateCommand="Update completion set comments=@comments, positiveExperience=@positiveExperience, paymentReceived=@paymentReceived, amount=@amount where serviceID = @serviceID; UPDATE service set serviceStatus=0 where serviceID = @serviceID"
                 runat="server">
                 <SelectParameters>
                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />

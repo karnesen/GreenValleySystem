@@ -19,6 +19,11 @@ namespace GreenValleySystem
             {
                 GetData();
             }
+            if (Session["username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to view the Date Search Engine.";
+                Response.Redirect("login.aspx");
+            }
         }
 
         private void GetData()

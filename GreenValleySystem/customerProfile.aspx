@@ -46,9 +46,11 @@
 
 
 
-                                    <i class="fas fa-envelope-square"></i>
+                                 <a href="mailto:<%#Eval("email") %>"><i class="fas fa-envelope-square"></i></a>
                                     <asp:Label ID="lblEmail" runat="server"
                                         Text='<%# Bind("email") %>'></asp:Label>
+                                    
+                                   
 
                                     <br />
                                     <br />
