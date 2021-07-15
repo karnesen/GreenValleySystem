@@ -7,7 +7,7 @@
 
         <div class="row d-flex justify-content-center">
 
-            <div class="col-md-10 col-lg-9 col-xl-8">
+            <div class="col-md-11 col-lg-11 col-xl-11">
 
 
                     
@@ -22,7 +22,7 @@
 
                             </div>
 
-                            <div class="card-body">
+                            <div class="card-body ">
 
                                 <div class="row px-4">
 
