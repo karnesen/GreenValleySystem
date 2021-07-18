@@ -56,6 +56,8 @@ namespace Lab1
                 String zip = txtZipCode.Text;
 
                 String initialContact;
+                
+
                 if (rdoContact.SelectedIndex > 0)
                 {
                     initialContact = rdoContact.SelectedItem.ToString();
@@ -68,7 +70,7 @@ namespace Lab1
                 if (initialContact == "Other" && txtOther.Text!="")
                     initialContact = txtOther.Text;
 
-                String hear = txtHear.Text;
+                String hear = txtHear.SelectedItem.ToString();
 
                 String serviceStartDate;
                 if (String.IsNullOrEmpty(txtStartDate.Text))

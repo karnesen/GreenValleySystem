@@ -24,8 +24,8 @@
           
 
          <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
-             <h2 class="text-center">Phonebook</h2>
-             <asp:Button ID="btnPrintPhonebook" runat="server" Text="Print PhoneBook" OnClick="btnPrintPhonebook_Click" Class="btn btn-secondary" />
+             <h2 class="text-center">Customers</h2>
+             <asp:Button ID="btnPrintPhonebook" runat="server" Text="Print Customer List" OnClick="btnPrintPhonebook_Click" Class="btn btn-secondary" />
              <asp:GridView
                 ID="gvPhonebook"
                 runat="server"
@@ -35,6 +35,8 @@
                 
                 class="table table-bordered table-condensed table-hover"
                 AllowPaging="false"
+                OnSelectedIndexChanged="gvPhonebook_SelectedIndexChanged"
+                OnRowDataBound="gvPhonebook_RowDataBound"
               
                 PageSize="5"
                 AllowSorting="true">

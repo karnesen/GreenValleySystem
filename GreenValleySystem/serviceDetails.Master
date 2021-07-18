@@ -33,7 +33,7 @@
                                     DataSourceID="srcStep"
                                     runat="server">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblCurrentStep" runat="server" Text='<%# Bind("serviceEvent") %>' Class="h3"></asp:Label>
+                                        <asp:Label ID="lblCurrentStep" runat="server" Text='<%# Bind("serviceEvent") %>' Class="h3" style="color:#ff0000"></asp:Label>
                                     </ItemTemplate>
                                 </asp:FormView>
                                 <asp:SqlDataSource
@@ -72,7 +72,7 @@
 
                                 </asp:SqlDataSource>
 
-                                <h5>Progress History</h5>
+                                <%--<h5>Progress History</h5>
                                 <asp:ListView
                                     ID="lvHistory"
                                     runat="server"
@@ -84,7 +84,7 @@
                                         <asp:Label ID="lblHistory" runat="server" Text='<%# Bind("serviceEvent") %>' class="fw-lighter"></asp:Label>
                                         <br />
                                     </ItemTemplate>
-                                </asp:ListView>
+                                </asp:ListView>--%>
                                 <asp:SqlDataSource
                                     ID="srcHistory"
                                     runat="server"

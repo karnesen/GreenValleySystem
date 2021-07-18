@@ -238,14 +238,14 @@
                             <div class="form-group">
                                 <asp:Label ID="lblHearAbout" runat="server" Class="h6" Text="Where Did You Hear About Us?"></asp:Label>
                                 <asp:DropDownList ID="txtHear" runat="server" class="dropdown form-control mb-1">
-                                    <asp:ListItem>Realtor</asp:ListItem>
-                                    <asp:ListItem>Facebook</asp:ListItem>
-                                    <asp:ListItem>Google</asp:ListItem>
-                                    <asp:ListItem>Website</asp:ListItem>
-                                    <asp:ListItem>Newspaper</asp:ListItem>
-                                    <asp:ListItem>Word Of Mouth</asp:ListItem>
-                                    <asp:ListItem>Mailings</asp:ListItem>
-                                    <asp:ListItem>Other</asp:ListItem>
+                                    <asp:ListItem Value="Realtor">Realtor</asp:ListItem>
+                                    <asp:ListItem Value="Facebook">Facebook</asp:ListItem>
+                                    <asp:ListItem Value="Google">Google</asp:ListItem>
+                                    <asp:ListItem Value="Website">Website</asp:ListItem>
+                                    <asp:ListItem Value="Newspaper">Newspaper</asp:ListItem>
+                                    <asp:ListItem Value="Word Of Mouth">Word Of Mouth</asp:ListItem>
+                                    <asp:ListItem Value="Mailings">Mailings</asp:ListItem>
+                                    <asp:ListItem Value="Other">Other</asp:ListItem>
                                 </asp:DropDownList>
                                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                             ErrorMessage="RequiredFieldValidator" ControlToValidate="txtHear"

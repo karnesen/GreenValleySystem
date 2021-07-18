@@ -154,14 +154,14 @@
                                         <div class="col-md-3">
 
                                             <asp:DropDownList ID="ddlPhoneNumberType" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType") %>'>
-                                                <asp:ListItem></asp:ListItem>
+                                                <asp:ListItem>--Please Select--</asp:ListItem>
                                                 <asp:ListItem>Home</asp:ListItem>
                                                 <asp:ListItem>Cell</asp:ListItem>
                                                 <asp:ListItem>Work</asp:ListItem>
                                             </asp:DropDownList>
                                             <br />
                                             <asp:DropDownList ID="ddlPhoneNumberType2" runat="server" class="dropdown form-control" SelectedValue='<%# Bind("phoneType2") %>'>
-                                                <asp:ListItem></asp:ListItem>
+                                                <asp:ListItem>--Please Select--</asp:ListItem>
                                                 <asp:ListItem>Home</asp:ListItem>
                                                 <asp:ListItem>Cell</asp:ListItem>
                                                 <asp:ListItem>Work</asp:ListItem>

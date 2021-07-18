@@ -20,6 +20,7 @@ namespace Lab3
                 Session["InvalidUse"] = "You must first login to search for a customer.";
                 Response.Redirect("login.aspx");
             }
+
             //GetData();
             GetData2();
             GetData3();

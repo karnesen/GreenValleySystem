@@ -96,15 +96,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.SqlDataSource srcProgress;
 
         /// <summary>
-        /// lvHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvHistory;
-
-        /// <summary>
         /// srcHistory control.
         /// </summary>
         /// <remarks>

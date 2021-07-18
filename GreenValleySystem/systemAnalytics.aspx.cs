@@ -133,7 +133,27 @@ namespace GreenValleySystem
             //base.VerifyRenderingInServerForm(control);
         }
 
+        protected void gvPhonebook_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (gvPhonebook.SelectedRow.Cells[0].Text == "Customer")
+            {
+            }
+            else
+            {
+                Session["selectedCustomer"] = gvPhonebook.SelectedValue.ToString();
+                Session["selectedCustomerName"] = gvPhonebook.SelectedRow.Cells[0].Text;
+                Response.Redirect("customerProfile.aspx");
+            }
+        }
 
+        protected void gvPhonebook_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvPhonebook, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["style"] = "cursor:pointer";
+            }
+        }
     }
 
 }

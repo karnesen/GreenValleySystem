@@ -126,7 +126,7 @@ namespace GreenValleySystem
         protected void ddlProgress_SelectedIndexChanged(object sender, EventArgs e)
         {
             srcProgress.Insert();
-            lvHistory.DataBind();
+           
             fvCurrent.DataBind();
         }
 
