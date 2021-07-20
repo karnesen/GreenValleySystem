@@ -29,7 +29,7 @@
                                             <i class="fas fa-phone"></i>
                                             <asp:Label ID="lblPhoneType" runat="server" Text='<%# Bind("phoneType") %>'></asp:Label>
                                             <br />
-                                            <asp:Label ID="lblPhoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>'></asp:Label>
+                                            <a href="tel:<%#Eval("phoneNumber") %>"><asp:Label ID="lblPhoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>'></asp:Label></a>
                                             <br />
                                             <br />
                                         </div>
@@ -37,7 +37,7 @@
                                             <i class="fas fa-phone"></i>
                                             <asp:Label ID="lblPhoneType2" runat="server" Text='<%# Bind("phoneType2") %>'></asp:Label>
                                             <br />
-                                            <asp:Label ID="lbllblPhoneNumber2" runat="server" Text='<%# Bind("altPhoneNumber") %>'></asp:Label>
+                                            <a href="tel:<%#Eval("altPhoneNumber") %>"><asp:Label ID="lbllblPhoneNumber2" runat="server" Text='<%# Bind("altPhoneNumber") %>'></asp:Label></a>
                                             <br />
                                             <br />
                                         </div>
@@ -46,9 +46,9 @@
 
 
 
-                                 <a href="mailto:<%#Eval("email") %>"><i class="fas fa-envelope-square" runat="server"></i></a>
+                                 <a href="mailto:<%#Eval("email") %>"><i class="fas fa-envelope-square" runat="server"></i>
                                     <asp:Label ID="lblEmail" runat="server"
-                                        Text='<%# Bind("email") %>'></asp:Label>
+                                        Text='<%# Bind("email") %>'></asp:Label></a>
 
                                     
                                    
