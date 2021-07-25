@@ -118,7 +118,43 @@
                         </div>
                         <div class="mb-2">
                             <h5>Amount</h5>
-                            <asp:TextBox ID="txtPayment" Class="form-control" Text='<%# Bind("amount") %>' Columns="20" TextMode="MultiLine" Placeholder="Comments" runat="server"></asp:TextBox>
+                            <script>
+                                function Comma(Num) { //function to add commas to textboxes
+                                    
+                                    Num += '';
+                                    Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+                                    Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+                                    x = Num.split('.');
+                                    x1 = x[0];
+                                    
+                                    x2 = x.length > 1 ? '.' + x[1] : '';
+                                    var rgx = /(\d+)(\d{3})/;
+                                    while (rgx.test(x1))
+                                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                                    return x1 + x2;
+                                }
+                            </script>
+                            <script>
+                                function DollarSign(Num) { //function to add dollar sign to beginning of textbox to textboxes
+
+                                    Num = "$";
+                                    return Num;
+                                }
+                            </script>
+                            <asp:TextBox ID="txtPayment" Class="form-control" Text='<%#Bind("amount") %>' Columns="20" TextMode="MultiLine" Placeholder='<%# Eval("amount") %>' runat="server" onkeyup="javascript:this.value=Comma(this.value);" onselect="javascript:this.value=DollarSign(this.value);" onclick="javascript:this.value=DollarSign(this.value);"></asp:TextBox>
+                            <h5>Payment Type</h5>
+                            <asp:DropDownList ID="ddlPaymentType" CssClass="form-control" runat="server" SelectedValue='<%# Bind("paymentType") %>'>
+                                <asp:ListItem></asp:ListItem>
+                                <asp:ListItem Value="cash">Cash</asp:ListItem>
+                                <asp:ListItem Value="check">Check</asp:ListItem>
+                                <asp:ListItem Value="credit">Credit</asp:ListItem>
+                          
+                            </asp:DropDownList>
+                            <h5>Set Date</h5>
+                            <asp:TextBox ID="txtStartDate" runat="server" Text='<%#Bind("paymentDate") %>' Placeholder="Date Received" class="form-control" TextMode="Date"></asp:TextBox>
+                            <h6 style="color:crimson">Date Received: <%#Eval("paymentDate") %></h6>
+
+
                             <%--<asp:RegularExpressionValidator 
                                     id="RegularExpressionValidator1"  
                                     runat="server"
@@ -140,7 +176,7 @@
                 ID="srcCompletion"
                 ConnectionString="<%$ ConnectionStrings:Connect %>"
                 SelectCommand="SELECT * from completion inner join service on completion.serviceID = service.serviceID where service.serviceID = @serviceID"
-                UpdateCommand="Update completion set comments=@comments, positiveExperience=@positiveExperience, paymentReceived=@paymentReceived, amount=@amount where serviceID = @serviceID; UPDATE service set serviceStatus=0 where serviceID = @serviceID"
+                UpdateCommand="Update completion set comments=@comments, positiveExperience=@positiveExperience, paymentReceived=@paymentReceived, amount=@amount,paymentType=@paymentType,paymentDate=@paymentDate where serviceID = @serviceID; UPDATE service set serviceStatus=0 where serviceID = @serviceID"
                 runat="server">
                 <SelectParameters>
                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
