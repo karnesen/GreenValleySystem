@@ -54,9 +54,9 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Alternate Phone" SortExpression="Alternate Phone">
+                    <asp:TemplateField HeaderText="Email" SortExpression="Email">
                         <ItemTemplate>
-                            <asp:Label ID="lblAltPhone" runat="server" Text='<%#(Eval("Alternate Phone").ToString())%>'></asp:Label>
+                            <asp:Label ID="lblEmail" runat="server" Text='<%#(Eval("Email").ToString())%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -66,9 +66,21 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Email" SortExpression="Email">
+                    <asp:TemplateField HeaderText="City" SortExpression="City">
                         <ItemTemplate>
-                            <asp:Label ID="lblEmail" runat="server" Text='<%#(Eval("Email").ToString())%>'></asp:Label>
+                            <asp:Label ID="lblCity" runat="server" Text='<%#(Eval("City").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="State" SortExpression="State">
+                        <ItemTemplate>
+                            <asp:Label ID="lblState" runat="server" Text='<%#(Eval("State").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Zip Code" SortExpression="ZipCode">
+                        <ItemTemplate>
+                            <asp:Label ID="lblZipCode" runat="server" Text='<%#(Eval("ZipCode").ToString())%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -189,8 +201,9 @@
                  ID="srcPhonebook"
                  runat="server"
                  ConnectionString="<%$ ConnectionStrings:Connect %>"
-                 SelectCommand="SELECT customerID,firstName as 'First Name', lastName as 'Last Name', phoneNumber as 'Phone', altPhoneNumber as 'Alternate Phone', email as 'Email', streetAddress as 'Address', format(initialContactDate,'MM/dd/yy') as 'Initial Contact Date'
-                 FROM            CUSTOMER"></asp:SqlDataSource>
+                 SelectCommand="SELECT customerID,firstName as 'First Name', lastName as 'Last Name', phoneNumber as 'Phone', altPhoneNumber as 'Alternate Phone', email as 'Email', streetAddress as 'Address',city as 'City',state as 'State',zipcode as 'ZipCode', format(initialContactDate,'MM/dd/yy') as 'Initial Contact Date', completion.positiveExperience as 'Positive Expereince'
+                 FROM            completion CROSS JOIN
+                         CUSTOMER"></asp:SqlDataSource>
         <asp:SqlDataSource 
                  ID="srcHearAbout"
                  runat="server"
