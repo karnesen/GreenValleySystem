@@ -58,7 +58,7 @@
                                 </div>
                                 <div class=col-md-3>
                                 <asp:Button ID="btnCheckUniqueCombo" runat="server" ValidationGroup="CreateCustomer" Text="Check Unique" class="btn btn-outline-primary" OnClick="btnCheckUniqueCombo_Click"/>
-                                    <asp:Label ID="lblUnique" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblUnique" runat="server" style="color:red" Text=""></asp:Label>
                                     </div>
                             </div>
 
