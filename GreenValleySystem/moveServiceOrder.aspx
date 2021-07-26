@@ -91,10 +91,10 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td>Packing Materials
+                                            <td><%--Packing Materials--%>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label1" runat="server"
+                                                <%--<asp:Label ID="Label1" runat="server"
                                                     Text='<%# (Eval("smallamt").ToString() == "0") ? "" : "Small " + Eval("smallamt").ToString() +  "<br>" %>'></asp:Label>
                                                 <asp:Label ID="Label2" runat="server"
                                                     Text='<%# (Eval("medamt").ToString() == "0") ? "" : " Medium " + Eval("medamt").ToString() +  "<br>"  %>'></asp:Label>
@@ -103,7 +103,7 @@
                                                 <asp:Label ID="Label4" runat="server"
                                                     Text='<%# (Eval("smallPadsamt").ToString() == "0") ? "" : " Small Pads " + Eval("smallPadsamt").ToString() +  "<br>" %>'></asp:Label>
                                                 <asp:Label ID="Label5" runat="server"
-                                                    Text='<%# (Eval("largePadsamt").ToString() == "0") ? "" : " Large Pads " + Eval("largePadsamt").ToString() +  "<br>"  %>'></asp:Label>
+                                                    Text='<%# (Eval("largePadsamt").ToString() == "0") ? "" : " Large Pads " + Eval("largePadsamt").ToString() +  "<br>"  %>'></asp:Label>--%>
 
                                             </td>
                                         </tr>
@@ -170,14 +170,14 @@
                             runat="server"
                             ConnectionString="<%$ ConnectionStrings:Connect %>"
                             SelectCommand="Select * from employee inner join assignment on employee.employeeID = assignment.employeeID where assignment.serviceID = @serviceID and employeeRole='packing'"
-                            InsertCommand="Insert into assignment values(@employeeId, @serviceID, 'packing')"
+                            InsertCommand="Insert into assignment values(@employeeID, @serviceID, 'packing')"
                             DeleteCommand="Delete from assignment where employeeID=@employeeID and serviceID=@serviceID">
                             <SelectParameters>
                                 <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                             </SelectParameters>
                             <InsertParameters>
                                 <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                                <asp:ControlParameter Name="employeeID" ControlID="ddlEmployees" />
+                                <asp:ControlParameter Name="employeeID" ControlID="ddlCrew" />
                             </InsertParameters>
                             <DeleteParameters>
                                 <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
