@@ -430,7 +430,15 @@
 
                             <div class="tab-pane fade" id="newNote" role="tabpanel" aria-labelledby="newNote-tab">
                                 <div class=" form-group">
-                                    <asp:TextBox ID="txtNoteTitle" runat="server" Placeholder="Note Title" class="form-control"></asp:TextBox>
+                                    <%--<asp:TextBox ID="txtNoteTitle" runat="server" Placeholder="Note Title" class="form-control"></asp:TextBox>--%>
+                                    <asp:DropDownList ID="txtNoteTitle" runat="server" Class="form-control">
+                                        <asp:ListItem>Move</asp:ListItem>
+                                        <asp:ListItem>Auction</asp:ListItem>
+                                        <asp:ListItem>Consignment Shop</asp:ListItem>
+                                        <asp:ListItem>Appraisal</asp:ListItem>
+                                        <asp:ListItem>Personal</asp:ListItem>
+                                        <asp:ListItem>Miscellaneous</asp:ListItem>
+                                    </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="rfvNoteTitle" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteTitle" Text="Please create a title."></asp:RequiredFieldValidator>
 
                                     <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" class="form-control"></asp:TextBox>
