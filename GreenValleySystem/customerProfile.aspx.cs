@@ -92,6 +92,7 @@ namespace GreenValleySystem
 
         protected void ddlFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if(ddlFilter.SelectedValue=="x")
                 srcNotes.FilterExpression = null;
 
@@ -100,6 +101,36 @@ namespace GreenValleySystem
 
             else
                 srcNotes.FilterExpression = "serviceType='" + ddlFilter.SelectedValue + "'";
+        }
+
+        protected void btnMap_Click(object sender, EventArgs e)
+        {
+            string sqlQuery = "Select * from Customer where customerID =" + Session["selectedCustomer"];
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            // Create the SQL Command object which will send the query:
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+            // Open your connection, send the query, retrieve the results:
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+            while (queryResults.Read())
+            {
+                string address = queryResults["streetAddress"].ToString();
+                string city = queryResults["city"].ToString();
+                string state = queryResults["state"].ToString();
+                string zipcode = queryResults["zipcode"].ToString();
+
+                string url = "https://www.google.com/maps/place/"+address+"+"+city+"+"+state+"+"+zipcode;
+
+                string script = string.Format("window.open('{0}');", url);
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                    "newPage" + UniqueID, script, true);
+            }
+            sqlConnect.Close();
+
         }
     }
 }

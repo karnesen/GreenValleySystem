@@ -64,10 +64,19 @@
 
                                 <li class="list-group-item">
                                     <h5>Customer Address</h5>
+
+
                                     <asp:Label ID="lblAddress" runat="server" Text='<%# Bind("streetAddress") %>'></asp:Label>, 
-                                <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
+                                    <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>
                                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
                                     <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
+
+                                    <br />
+
+                                    <asp:Button ID="btnMap" runat="server" Text="Verify Address" OnClick="btnMap_Click" class="btn btn-primary col-3" />
+
+                              
+                                
                                 </li>
 
                                 <asp:LinkButton ID="lnbtnMore" runat="server" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">More Information</asp:LinkButton>
