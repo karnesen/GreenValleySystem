@@ -14,7 +14,7 @@ namespace GreenValleySystem
 {
     public partial class serviceDetails : System.Web.UI.MasterPage
     {
-        public string state = "collapse show";
+        public string state = "collapse";
         public string state2 = "tab-pane fade";
         public string state3 = "tab-pane fade show active";
         public string state4 = "nav-link active";
