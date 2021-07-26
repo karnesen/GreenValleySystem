@@ -141,22 +141,6 @@
                                     ErrorMessage = "Invalid email address"/>
                             </div>
 
-                            <asp:Label ID="lblContactPreference" runat="server" Class="h6" Text="Contact Preference"></asp:Label>
-                            <div class="row form-group justify-content-around">
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chHome" runat="server" Text="Home"  />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chMobile" Text="Mobile" runat="server" TextAlign="Right" />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chText" Text="Text" runat="server" />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chEmail" Text="Email" runat="server" />
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <asp:TextBox ID="txtAddress" runat="server" Placeholder="Address" class="form-control"></asp:TextBox>
                                 <%--<asp:RequiredFieldValidator ID="rfvAddress" runat="server"
@@ -164,6 +148,10 @@
                             Text="Please Enter An Address." ValidationGroup="CreateCustomer">
                         </asp:RequiredFieldValidator>--%>
                             </div>
+
+                           
+
+                            
 
                             <div class="row form-group">
                                 <div class="col-md-6">
@@ -206,6 +194,22 @@
                                    
                                     
 
+                                </div>
+                            </div>
+
+                            <asp:Label ID="lblContactPreference" runat="server" Class="h6" Text="Contact Preference"></asp:Label>
+                            <div class="row form-group justify-content-around">
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chHome" runat="server" Text="Home"  />
+                                </div>
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chMobile" Text="Mobile" runat="server" TextAlign="Right" />
+                                </div>
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chText" Text="Text" runat="server" />
+                                </div>
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chEmail" Text="Email" runat="server" />
                                 </div>
                             </div>
                         </li>
