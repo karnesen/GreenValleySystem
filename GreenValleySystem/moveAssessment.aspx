@@ -578,7 +578,25 @@
                     </asp:SqlDataSource>
                 </div>
                 <div class='<%=stateTab3 %>' id="rooms" role="tabpanel" aria-labelledby="rooms-tab">
+                    <br />
                     <ul class="list-group list-group-flush">
+                        <%-- button and label for calculating and presenting cube sheet totals --%>
+
+                        
+
+                        <asp:Button ID="btnCubeCalc" runat="server" Text="Calculate" Class="btn-primary col-2 rounded" OnClick="btnCubeCalc_Click" />
+                        
+                        <br />
+
+                        <asp:Label ID="lblCubeTotal" runat="server" class="col-form-label" Text="Total Cubic Feet: "></asp:Label>
+                        <asp:Label ID="lblColumnOne" runat="server" class="col-form-label" Text="Living Room, Dining Room, and Kitchen: "></asp:Label>
+                        <asp:Label ID="lblColumnTwo" runat="server" class="col-form-label" Text="Bedrooms, Nursery, and Porch/Outdoors: "></asp:Label>
+                        <asp:Label ID="lblColumnThree" runat="server" class="col-form-label" Text="Appliances and Misc: "></asp:Label>
+                        <asp:Label ID="lblPacking" runat="server" class="col-form-label" Text="Total Cartons: "></asp:Label>
+
+                        <br />
+
+
 
                         <%-- Living Room --%>
                         <asp:LinkButton ID="btnCollapseLivingRoom" runat="server" href="#collapseLivingRoom" class="nav-link h6" data-toggle="collapse" aria-expanded="false" aria-controls="collapseLivingRoom">

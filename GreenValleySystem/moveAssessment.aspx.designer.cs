@@ -231,6 +231,60 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.SqlDataSource srcTrucks;
 
         /// <summary>
+        /// btnCubeCalc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCubeCalc;
+
+        /// <summary>
+        /// lblCubeTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCubeTotal;
+
+        /// <summary>
+        /// lblColumnOne control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblColumnOne;
+
+        /// <summary>
+        /// lblColumnTwo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblColumnTwo;
+
+        /// <summary>
+        /// lblColumnThree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblColumnThree;
+
+        /// <summary>
+        /// lblPacking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPacking;
+
+        /// <summary>
         /// btnCollapseLivingRoom control.
         /// </summary>
         /// <remarks>
