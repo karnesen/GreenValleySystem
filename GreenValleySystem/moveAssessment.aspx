@@ -17,7 +17,7 @@
                     <a class='<%=stateNav3 %>' id="rooms-tab" data-toggle="tab" href="#rooms" role="tab" aria-controls="rooms" aria-selected="false">Cube Sheet</a>
                 </li>
                 <li class="nav-item">
-                    <a class='<%=stateNav4 %>' id="handout-tab" data-toggle="tab" href="#handout" role="tab" aria-controls="handout" aria-selected="false">Hand-Out</a>
+                    <a class='<%=stateNav4 %>' id="handout-tab" data-toggle="tab" href="#handout" role="tab" aria-controls="handout" aria-selected="false">C.S. Excel</a>
                 </li>
             </ul>
         </div>
@@ -582,7 +582,7 @@
                     <ul class="list-group list-group-flush">
                         <%-- button and label for calculating and presenting cube sheet totals --%>
 
-                        
+                        <h6>USE WHOLE NUMBERS</h6>
 
                         <asp:Button ID="btnCubeCalc" runat="server" Text="Calculate" Class="btn-primary col-2 rounded" OnClick="btnCubeCalc_Click" />
                         
@@ -1740,6 +1740,12 @@
                                                 <td>Trash Compactor</td>
                                                 <td>
                                                     <asp:TextBox ID="txtTrashCompactor" runat="server" Text='<%# Bind("trashCompactor") %>' class="form-control" TextMode="Number"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vacuum Cleaner</td>
+                                                <td>
+                                                    <asp:TextBox ID="txtVacuumCleaner" runat="server" Text='<%# Bind("vacuumCleaner") %>' class="form-control" TextMode="Number"></asp:TextBox>
                                                 </td>
                                             </tr>
                                             <tr>
