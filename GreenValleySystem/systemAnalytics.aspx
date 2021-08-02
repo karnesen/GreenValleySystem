@@ -203,7 +203,7 @@
                  ConnectionString="<%$ ConnectionStrings:Connect %>"
                  SelectCommand="SELECT customerID,firstName as 'First Name', lastName as 'Last Name', phoneNumber as 'Phone', altPhoneNumber as 'Alternate Phone', email as 'Email', streetAddress as 'Address',city as 'City',state as 'State',zipcode as 'ZipCode', format(initialContactDate,'MM/dd/yy') as 'Initial Contact Date', completion.positiveExperience as 'Positive Expereince'
                  FROM            completion CROSS JOIN
-                         CUSTOMER"></asp:SqlDataSource>
+                         CUSTOMER group by customerID, firstName, lastName,phoneNumber,altPhoneNumber,email,streetAddress,city,state,zipcode,initialContactDate, positiveExperience"></asp:SqlDataSource>
         <asp:SqlDataSource 
                  ID="srcHearAbout"
                  runat="server"

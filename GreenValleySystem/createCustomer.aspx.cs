@@ -254,15 +254,29 @@ namespace Lab1
             // Open your connection, send the query, retrieve the results:
             sqlConnect.Open();
             SqlDataReader queryResults = sqlCommand.ExecuteReader();
-            if (queryResults.HasRows)
+            while (queryResults.Read())
             {
-                lblUnique.Text = "Not Unique.";
-            }
+                if (queryResults.HasRows)
+                {
+                    lblUnique.Text = "Not Unique.";
 
-            else
-            {
-                lblUnique.Text = "Unique.";
+                    string id = queryResults["customerID"].ToString();
+                    string name = queryResults["firstName"].ToString() + queryResults["lastName"].ToString();
+
+                    Session["selectedCustomer"] = id;
+                    Session["selectedCustomerName"] = name;
+                
+                    Response.Redirect("customerProfile.aspx");
+                }
+
+                else
+                {
+                    lblUnique.Text = "Unique.";
+                }
             }
+            lblUnique.Text = "Unique.";
+
+
             sqlConnect.Close();
         }
 

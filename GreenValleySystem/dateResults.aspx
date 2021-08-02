@@ -30,7 +30,7 @@
 
 
 <%--                                    <div class="col-md-6 pl-0 pr-0 pr-md-2 mb-2">--%>
-                                        <div class="col-5">
+                               <%--         <div class="col-5">
                                             <asp:TextBox ID="txtStartDate" runat="server" Placeholder="Start Date" class="form-control" TextMode="Date"></asp:TextBox>
                                         </div>
                                         <div class="col-3 mt-3">
@@ -44,7 +44,7 @@
                                             Text="Please Enter a Date"
                                             ErrorMessage="RequiredFieldValidator"
                                             ValidationGroup="Date">
-                                        </asp:RequiredFieldValidator>
+                                        </asp:RequiredFieldValidator>--%>
 
 <%--                                    </div>--%>
 

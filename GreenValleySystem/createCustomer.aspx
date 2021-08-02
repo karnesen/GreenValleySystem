@@ -31,7 +31,7 @@
                                     <asp:TextBox ID="txtFirstName" runat="server" Placeholder="First Name" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvFirstName" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtFirstName"
-                                        Text="Please Enter A First Name." ValidationGroup="CreateCustomer">
+                                        Text="Please Enter A First Name." ValidationGroup="CreateCustomer" ForeColor="Red">
                                     </asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
                                         runat="server"
@@ -46,7 +46,7 @@
                                     <asp:TextBox ID="txtLastName" runat="server" Placeholder="Last Name" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvLastName" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtLastName"
-                                        Text="Please Enter A Last Name." ValidationGroup="CreateCustomer">
+                                        Text="Please Enter A Last Name." ValidationGroup="CreateCustomer" ForeColor="Red">
                                     </asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
                                         runat="server"
@@ -79,7 +79,7 @@
                                     
                                     <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
-                                        Text="Phone Required." ValidationGroup="CreateCustomer">
+                                        Text="Phone Required." ValidationGroup="CreateCustomer" ForeColor="Red">
                                     </asp:RequiredFieldValidator>
 
                                 </div>
