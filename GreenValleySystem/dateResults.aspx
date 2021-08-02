@@ -18,7 +18,7 @@
 
                             <div class="card-header">
 
-                                <h6><span class="fa fa-calendar mr-3"></span>Date</h6>
+                                <h6><span class="fa fa-calendar mr-3"></span>Calendar</h6>
 
                             </div>
 

@@ -15,10 +15,10 @@ namespace GreenValleySystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                GetData();
-            }
+            //if (IsPostBack)
+            //{
+            //    GetData();
+            //}
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to view the Date Search Engine.";
@@ -28,7 +28,10 @@ namespace GreenValleySystem
 
         private void GetData()
         {
-               String search = (DateTime.Parse(txtStartDate.Text)).ToString("yyyy-MM-dd");
+            // removed becasue date search engine was removed
+
+
+               // String search = (DateTime.Parse(txtStartDate.Text)).ToString("yyyy-MM-dd");
 
                 DataTable dt = new DataTable();
                 String sqlQuery = "SELECT Customer.customerID, CUSTOMER.firstName + ' ' + CUSTOMER.lastName as customerName, Schedule.description, Schedule.confirmedDate, SERVICE.serviceType, SERVICE.serviceStatus " +
@@ -41,7 +44,7 @@ namespace GreenValleySystem
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
                 // Create the SQL Command object which will send the query:
                 SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Parameters.Add(new SqlParameter("@search",  search ));
+                // sqlCommand.Parameters.Add(new SqlParameter("@search",  search ));
                 sqlCommand.Connection = sqlConnect;
                 sqlCommand.CommandType = CommandType.Text;
                 sqlCommand.CommandText = sqlQuery;
