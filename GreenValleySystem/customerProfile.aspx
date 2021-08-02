@@ -438,6 +438,7 @@
                                         <asp:ListItem>Appraisal</asp:ListItem>
                                         <asp:ListItem>Personal</asp:ListItem>
                                         <asp:ListItem>Miscellaneous</asp:ListItem>
+                                        <asp:ListItem>Storage</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="rfvNoteTitle" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteTitle" Text="Please create a title."></asp:RequiredFieldValidator>
 
