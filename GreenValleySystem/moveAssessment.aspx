@@ -564,7 +564,7 @@
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
                         SelectCommand="Select * from utilizeEquipment Inner Join Equipment on utilizeEquipment.equipmentID = Equipment.equipmentID where serviceID=@serviceID"
                         InsertCommand="Insert into utilizeEquipment values(@equipmentId, @serviceID)"
-                        DeleteCommand="Delete from utilizeEquipment where equipemntID=@equipmentID and serviceID=@serviceID">
+                        DeleteCommand="Delete from utilizeEquipment where equipmentID=@equipmentID and serviceID=@serviceID">
                         <SelectParameters>
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </SelectParameters>

@@ -224,7 +224,7 @@
                                     ForeColor="Red">
                                 </asp:regularexpressionvalidator>
                             </div>
-                            <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>
+<%--                            <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>--%>
                         </EditItemTemplate>
                     </asp:FormView>
 
@@ -241,6 +241,111 @@
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
+                </li>
+
+                <%-- Move Service Order --%>
+                <li class="list-group-item">
+                  <h4>Move Service Order</h4>
+                    <div class="card card-body mb-2 form-group form-row">
+                                
+                        <h6>Building Type</h6>
+                        <asp:FormView
+                        ID="fvAssessment"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcAssessment"
+                        runat="server">
+                        <ItemTemplate>
+                            <div class="form-group row justify-content-around">
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chApt" Checked='<%# Bind("apartment")%>' Text="Apartment" runat="server" data-toggle="collapse" href="#collapseApt" role="button" aria-expanded="false" aria-controls="collapseApt" />
+                                </div>
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chHouse" Checked='<%# Bind("house")%>' Text="House" runat="server" />
+                                </div>
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chStorage" Checked='<%# Bind("storageUnit")%>' Text="Storage Unit" runat="server" data-toggle="collapse" href="#collapseStor" role="button" aria-expanded="false" aria-controls="collapseStor" />
+                                </div>
+                                <div class="form-check">
+                                    <asp:CheckBox ID="chBusiness" Checked='<%# Bind("business")%>' Text="Place of Business" runat="server" data-toggle="collapse" href="#collapseBus" role="button" aria-expanded="false" aria-controls="collapseBus" />
+                                </div>
+                            </div> 
+
+                            <br />
+
+                            <h6>Location Information</h6>
+
+                            <div class="form-group row justify-content-around">
+                                <div class="form-check">
+                                            <asp:CheckBox ID="chElevator" Checked='<%# Bind("elevator")%>' Text="Elevator?" runat="server" />
+                                </div>
+                                <div class="form-check">
+                                    <p>Walk from Elevator:</p>
+                                    <asp:Label ID="lblWalk" runat="server" Text='<%# Eval("elevatorWalk") %>'></asp:Label>
+                                </div>
+                                
+
+                            </div>
+
+                          
+                             </ItemTemplate>
+                    </asp:FormView>
+                        
+                        <h6>Assigned Equipment</h6>
+                        <asp:FormView
+                        ID="FormView1"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcTrucks"
+                        DataKeyNames="equipmentType"
+                        runat="server">
+                        <ItemTemplate>
+                        <div class="form-check">
+                           <asp:BulletedList ID="lstTrucks" runat="server" DataSourceID="srcTrucks" DataValueField="equipmentType">
+                               <asp:ListItem></asp:ListItem>
+                           </asp:BulletedList>
+                        </div>
+                            </ItemTemplate>
+                            </asp:FormView>
+
+                        <asp:SqlDataSource
+                        ID="srcAssessment"
+                        runat="server"
+                        SelectCommand="Select * from moveAssessment where serviceID=@serviceID"
+                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                        UpdateCommand="Update moveAssessment set
+                            apartment=@apartment, floor=@floor, elevator=@elevator, elevatorWalk=@elevatorWalk, house=@house, storageUnit=@storageUnit, indoor=@indoor, outdoor=@outdoor,
+                            business=@business, businessText=@businessText, truckAccess=@truckAccess, howFar=@howFar, steps=@steps, appCart=@appCart, pianoDolly=@pianoDolly,
+                            pianoboard=@pianoboard, gunSafe=@gunSafe, blankets=@blankets
+                            where serviceID=@serviceID">
+                        <UpdateParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </UpdateParameters>
+                        <SelectParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+
+                        <asp:SqlDataSource
+                        ID="srcTrucks"
+                        runat="server"
+                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                        SelectCommand="Select * from utilizeEquipment Inner Join Equipment on utilizeEquipment.equipmentID = Equipment.equipmentID where serviceID=@serviceID"
+                        InsertCommand="Insert into utilizeEquipment values(@equipmentId, @serviceID)"
+                        DeleteCommand="Delete from utilizeEquipment where equipemntID=@equipmentID and serviceID=@serviceID">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </SelectParameters>
+                        <InsertParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            <asp:ControlParameter Name="equipmentID" ControlID="ddlTrucks" />
+                        </InsertParameters>
+                        <DeleteParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </DeleteParameters>
+                    </asp:SqlDataSource>
+
+
+                    </div>
+                
                 </li>
 
             </ul>
