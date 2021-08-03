@@ -460,7 +460,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <asp:Label ID="lblSteps" for="txtSteps" runat="server" Text="Stairs"></asp:Label>
+                                    <asp:Label ID="lblSteps" for="txtSteps" runat="server" Text="Flights of Stairs"></asp:Label>
                                     <asp:TextBox ID="txtSteps" TextMode="Number" runat="server" Text='<%# Bind("steps")%>' class="form-control"></asp:TextBox>
                                 </div>
 

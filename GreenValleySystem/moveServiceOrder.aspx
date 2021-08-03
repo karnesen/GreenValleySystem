@@ -280,7 +280,12 @@
                                 </div>
                                 <div class="form-check">
                                     <p>Walk from Elevator:</p>
-                                    <asp:Label ID="lblWalk" runat="server" Text='<%# Eval("elevatorWalk") %>'></asp:Label>
+                                    <asp:Label ID="lblWalk" runat="server" style="font:bold" Text='<%# Eval("elevatorWalk") %>' class="form-control"></asp:Label>
+                                </div>
+
+                                <div class="form-check">
+                                    <p>Flights of Stairs:</p>
+                                    <asp:Label ID="lblStairs" style="font:bold" runat="server" Text='<%# Eval("steps") %>' class="form-control"></asp:Label>
                                 </div>
                                 
 
@@ -296,7 +301,8 @@
                         DefaultMode="ReadOnly"
                         DataSourceID="srcTrucks"
                         DataKeyNames="equipmentType"
-                        runat="server">
+                        runat="server"
+                        >
                         <ItemTemplate>
                         <div class="form-check">
                            <asp:BulletedList ID="lstTrucks" runat="server" DataSourceID="srcTrucks" DataValueField="equipmentType">
@@ -304,7 +310,35 @@
                            </asp:BulletedList>
                         </div>
                             </ItemTemplate>
+                          </asp:FormView>
+
+                        <br /> 
+
+                        <asp:FormView
+                        ID="fvTruck"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcAssessment"
+                     
+                        runat="server">
+                        <ItemTemplate>
+
+                        <h6>Truck Accessibility</h6>
+                        <div class="form-group row justify-content-around">
+                            
+                            <asp:Label ID="lblTruckAccess" runat="server" Text='<%# Bind("truckAccess")%>' class="form-control"></asp:Label> 
+                        </div>
+
+                        <h6>Distance From Loading Door</h6>
+                        <div class="form-group row justify-content-around">
+                            <asp:Label ID="lblLoadingDist" runat="server" Text='<%# Bind("howFar")%>' class="form-control"></asp:Label> 
+                        </div>
+                            </ItemTemplate>
                             </asp:FormView>
+
+                       
+
+
+
 
                         <asp:SqlDataSource
                         ID="srcAssessment"
