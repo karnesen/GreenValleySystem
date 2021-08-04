@@ -150,6 +150,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.FormView fvTruck;
 
         /// <summary>
+        /// fvPackingCartons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvPackingCartons;
+
+        /// <summary>
         /// srcAssessment control.
         /// </summary>
         /// <remarks>
@@ -166,5 +175,14 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource srcTrucks;
+
+        /// <summary>
+        /// srcCube control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcCube;
     }
 }

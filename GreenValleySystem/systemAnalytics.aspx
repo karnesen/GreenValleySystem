@@ -188,6 +188,33 @@
                             
                 </div>
             </div>
+
+              <div class="card p-3 mb-6 col-12">
+        </div>
+
+                <br />
+
+              <div class="row">
+                  <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739; height:420px; overflow:scroll">
+                      <h2 class="text-center">Cube Sheets</h2>
+                      <asp:Button ID="btnPrintCubes" runat="server" Text="Print Cube Sheets" OnClick="btnPrintCubes_Click" Class="btn btn-secondary" />
+                      <asp:GridView
+                          ID="gvCubeSheet"
+                          runat="server"
+                          DataKeyNames="serviceID"
+                          AutoGenerateColumns="true"
+                          AllowSorting="true"
+                          AllowPaging="false"
+                          DataSourceID="srcCubeSheet"
+                          class="table table-bordered table-condensed table-hover">
+                          <HeaderStyle BackColor="#266141" ForeColor="White" />
+
+                      </asp:GridView>
+                  </div>
+              </div>
+
+
+
         </div>
 
 
@@ -196,6 +223,11 @@
 
         </div>
             </div>
+
+        <div class="card p-3 mb-6 col-12">
+        </div>
+
+                <br />
 
         <asp:SqlDataSource 
                  ID="srcPhonebook"
@@ -236,6 +268,14 @@
                          CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID INNER JOIN
                          SERVICEHISTORY ON SERVICE.serviceID = SERVICEHISTORY.serviceID INNER JOIN
                          serviceEvents ON SERVICEHISTORY.eventID = serviceEvents.eventID"></asp:SqlDataSource>
+        <asp:SqlDataSource 
+            ID="srcCubeSheet"
+            runat="server"
+            ConnectionString="<%$ ConnectionStrings:Connect %>"
+            SelectCommand="SELECT        CUSTOMER.firstName, CUSTOMER.lastName, cubeSheet.*
+            FROM            cubeSheet INNER JOIN
+                         SERVICE ON cubeSheet.serviceID = SERVICE.serviceID INNER JOIN
+                         CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID"></asp:SqlDataSource>
 
     </form>
 </body>

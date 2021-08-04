@@ -198,19 +198,19 @@
                         <EditItemTemplate>
                             <h4>Trash Removal Service Order</h4>
                             <%--<div class="row">
-                                <div class="col">
+                                <%--<div class="col">
                                     <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
                                 </div>--%>
 
                                 <%--<div class="col">
                                     <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
                                     <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
-                                </div>
-                                <div class="col">
+                                </div>--%>
+                                <%--<div class="col">
                                     <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
                                     <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
-                                </div>--%>
-<%--                            </div>--%>
+                                </div>
+                            </div>--%>
 
                             <div class="card card-body mb-2 form-group form-row">
                                 <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
@@ -242,33 +242,38 @@
                         </UpdateParameters>
                     </asp:SqlDataSource>
                 </li>
-
+                
                 <%-- Move Service Order --%>
                 <li class="list-group-item">
                   <h4>Move Service Order</h4>
                     <div class="card card-body mb-2 form-group form-row">
-                                
+                                 
                         <h6>Building Type</h6>
                         <asp:FormView
                         ID="fvAssessment"
                         DefaultMode="ReadOnly"
                         DataSourceID="srcAssessment"
                         runat="server">
+                            <EmptyDataTemplate>
+                                No Building Type Selected
+                            </EmptyDataTemplate>
                         <ItemTemplate>
                             <div class="form-group row justify-content-around">
                                 <div class="form-check">
-                                    <asp:CheckBox ID="chApt" Checked='<%# Bind("apartment")%>' Text="Apartment" runat="server" data-toggle="collapse" href="#collapseApt" role="button" aria-expanded="false" aria-controls="collapseApt" />
+                                    <asp:CheckBox ID="chApt" Checked='<%# Bind("apartment")%>' Text="Apartment" runat="server" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseApt" />
+                                    
                                 </div>
                                 <div class="form-check">
                                     <asp:CheckBox ID="chHouse" Checked='<%# Bind("house")%>' Text="House" runat="server" />
                                 </div>
                                 <div class="form-check">
-                                    <asp:CheckBox ID="chStorage" Checked='<%# Bind("storageUnit")%>' Text="Storage Unit" runat="server" data-toggle="collapse" href="#collapseStor" role="button" aria-expanded="false" aria-controls="collapseStor" />
+                                    <asp:CheckBox ID="chStorage" Checked='<%# Bind("storageUnit")%>' Text="Storage Unit" runat="server" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseStor" />
                                 </div>
                                 <div class="form-check">
-                                    <asp:CheckBox ID="chBusiness" Checked='<%# Bind("business")%>' Text="Place of Business" runat="server" data-toggle="collapse" href="#collapseBus" role="button" aria-expanded="false" aria-controls="collapseBus" />
+                                    <asp:CheckBox ID="chBusiness" Checked='<%# Bind("business")%>' Text="Place of Business" runat="server" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseBus" />
                                 </div>
                             </div> 
+                           
 
                             <br />
 
@@ -276,7 +281,8 @@
 
                             <div class="form-group row justify-content-around">
                                 <div class="form-check">
-                                            <asp:CheckBox ID="chElevator" Checked='<%# Bind("elevator")%>' Text="Elevator?" runat="server" />
+                                    <p>Elevator?</p>
+                                    <asp:Label ID="lblElevator" runat="server" Text='<%# Bind("elevator") %>' style="font:bold" class="form-control"></asp:Label>
                                 </div>
                                 <div class="form-check">
                                     <p>Walk from Elevator:</p>
@@ -287,6 +293,15 @@
                                     <p>Flights of Stairs:</p>
                                     <asp:Label ID="lblStairs" style="font:bold" runat="server" Text='<%# Eval("steps") %>' class="form-control"></asp:Label>
                                 </div>
+                                <div class="form-check">
+                                    <p>Indoor Storage</p>
+                                    <asp:Label ID="lblIn" runat="server" Text='<%# Eval("indoor") %>' style="font:bold" class="form-control"></asp:Label>
+                                </div>
+                                <div class="form-check">
+                                    <p>Outdoor Storage</p>
+                                    <asp:Label ID="lblOut" runat="server" Text='<%# Eval("outdoor") %>' style="font:bold" class="form-control"></asp:Label>
+                                </div>
+
                                 
 
                             </div>
@@ -322,16 +337,72 @@
                         runat="server">
                         <ItemTemplate>
 
-                        <h6>Truck Accessibility</h6>
-                        <div class="form-group row justify-content-around">
-                            
+                     <div class="row">
+                        <div class="form-group row justify-content-around col-6">
+                            <h6>Truck Accessibility</h6>
                             <asp:Label ID="lblTruckAccess" runat="server" Text='<%# Bind("truckAccess")%>' class="form-control"></asp:Label> 
                         </div>
 
-                        <h6>Distance From Loading Door</h6>
-                        <div class="form-group row justify-content-around">
+                        
+                        <div class="form-group row justify-content-around col-6">
+                            <h6>Distance From Loading Door</h6>
                             <asp:Label ID="lblLoadingDist" runat="server" Text='<%# Bind("howFar")%>' class="form-control"></asp:Label> 
                         </div>
+
+                     </div>
+                            </ItemTemplate>
+                            </asp:FormView>
+
+                  
+
+         
+
+                        <asp:FormView
+                        ID="fvPackingCartons"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcCube"
+                     
+                        runat="server">
+                        <ItemTemplate>
+
+                    <div class="row">
+                        <div class="form-group row justify-content-around col-2">
+                            <h6>Small Book Cartons</h6>
+                            <asp:Label ID="lblBookCarton" runat="server" Text='<%# Bind("smallBooks")%>' class="form-control"></asp:Label> 
+                        </div>
+
+                        
+                        <div class="form-group row justify-content-around col-2">
+                            <h6>Small Cartons</h6>
+                            <asp:Label ID="lblSmallCarton" runat="server" Text='<%# Bind("smallCartons")%>' class="form-control"></asp:Label> 
+                        </div>
+
+                            
+                        <div class="form-group row justify-content-around col-2">
+                            <h6>Medium Cartons</h6>
+                            <asp:Label ID="lblMedCarton" runat="server" Text='<%# Bind("mediumCartons")%>' class="form-control"></asp:Label> 
+                        </div>
+
+                             
+                        <div class="form-group row justify-content-around col-2">
+                            <h6>Large Cartons</h6>
+                            <asp:Label ID="lblLargeCarton" runat="server" Text='<%# Bind("largeCartons")%>' class="form-control"></asp:Label> 
+                        </div>
+
+                            
+                        <div class="form-group row justify-content-around col-2">
+                            <h6>XL Cartons</h6>
+                            <asp:Label ID="lblXLCarton" runat="server" Text='<%# Bind("XLCartons")%>' class="form-control"></asp:Label> 
+                        </div>
+
+                             
+                        <div class="form-group row justify-content-around col-2">
+                            <h6>Mirror Cartons</h6>
+                            <asp:Label ID="lblMirrorCarton" runat="server" Text='<%# Bind("mirrorCarton")%>' class="form-control"></asp:Label> 
+                        </div>
+                     </div>
+
+
                             </ItemTemplate>
                             </asp:FormView>
 
@@ -376,6 +447,20 @@
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </DeleteParameters>
                     </asp:SqlDataSource>
+
+                        <asp:SqlDataSource
+                                ID="srcCube"
+                                runat="server"
+                                ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                SelectCommand="Select * from cubeSheet where serviceID=@serviceID"
+                                UpdateCommand="Update cubeSheet set dishPack=@dishPack,wardrobeLayFlat=@wardrobeLayFlat,wardrobeStandup=@wardrobeStandup,smallBooks=@smallBooks,smallCartons=@smallCartons,mediumCartons=@mediumCartons,largeCartons=@largeCartons,XLCartons=@XLCartons,mirrorCarton=@mirrorCarton where serviceID=@serviceID">
+                                <SelectParameters>
+                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                </SelectParameters>
+                                <UpdateParameters>
+                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                </UpdateParameters>
+                            </asp:SqlDataSource>
 
 
                     </div>

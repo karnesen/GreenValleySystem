@@ -1664,12 +1664,12 @@
                                                     <asp:TextBox ID="txtLargeAircon" runat="server" Text='<%# Bind("airconLarge") %>' class="form-control" TextMode="Number"></asp:TextBox>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <%--<tr>
                                                 <td>Baby Carriage</td>
                                                 <td>
                                                     <asp:TextBox ID="txtBabyCarriageAppliances" runat="server" Text='<%# Bind("babyCarriage") %>' class="form-control" TextMode="Number"></asp:TextBox>
                                                 </td>
-                                            </tr>
+                                            </tr>--%>
                                             <tr>
                                                 <td>Dehumidifier</td>
                                                 <td>
@@ -1730,18 +1730,18 @@
                                                     <asp:TextBox ID="txtSewingWCAB" runat="server" Text='<%# Bind("sewingWithCAB") %>' class="form-control" TextMode="Number"></asp:TextBox>
                                                 </td>
                                             </tr>
-                                             <tr>
+                                             <%--<tr>
                                                 <td>Steam Cleaner</td>
                                                 <td>
                                                     <asp:TextBox ID="txtSteamCleaner" runat="server" Text='<%# Bind("steamCleaner") %>' class="form-control" TextMode="Number"></asp:TextBox>
                                                 </td>
-                                            </tr>
-                                            <tr>
+                                            </tr>--%>
+                                            <%--<tr>
                                                 <td>Trash Compactor</td>
                                                 <td>
                                                     <asp:TextBox ID="txtTrashCompactor" runat="server" Text='<%# Bind("trashCompactor") %>' class="form-control" TextMode="Number"></asp:TextBox>
                                                 </td>
-                                            </tr>
+                                            </tr>--%>
                                             <tr>
                                                 <td>Vacuum Cleaner</td>
                                                 <td>
@@ -1935,12 +1935,12 @@
                                                 <td>
                                                     <asp:TextBox ID="txtFishingPole" runat="server" Text='<%# Bind("fishingPole") %>' class="form-control" TextMode="Number"></asp:TextBox></td>
                                             </tr>
-                                            <tr>
+                                            <%--<tr>
                                                 <td>Firearms</td>
                                                 <td>
                                                     <asp:TextBox ID="txtFireArms" runat="server" Text='<%# Bind("fireArms") %>' class="form-control" TextMode="Number"></asp:TextBox>
                                                 </td>
-                                            </tr>
+                                            </tr>--%>
                                             <tr>
                                                 <td>Folding Chair</td>
                                                 <td>
@@ -2268,7 +2268,7 @@
                                 runat="server"
                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
                                 SelectCommand="Select * from cubeSheet where serviceID=@serviceID"
-                                UpdateCommand="Update cubeSheet set airconSmall=@airconSmall,airconLarge=@airconLarge,babyCarriage=@babyCarriage,dehumid=@dehumid,dishWasher=@dishWasher,freezerTen=@freezerTen,freezerFifteen=@freezerFifteen,freezerOver=@freezerOver,rangeWide=@rangeWide,refrigeratorSix=@refrigeratorSix,refrigeratorTen=@refrigeratorTen,refrigeratorOver=@refrigeratorOver,sewingMachine=@sewingMachine,sewingWithCAB=@sewingWithCAB,steamCleaner=@steamCleaner,trashCompactor=@trashCompactor,humid=@humid,airPurifier=@airPurifier,shopVac=@shopVac,washer=@washer,dryer=@dryer where serviceID=@serviceID">
+                                UpdateCommand="Update cubeSheet set airconSmall=@airconSmall,airconLarge=@airconLarge,dehumid=@dehumid,dishWasher=@dishWasher,freezerTen=@freezerTen,freezerFifteen=@freezerFifteen,freezerOver=@freezerOver,rangeWide=@rangeWide,refrigeratorSix=@refrigeratorSix,refrigeratorTen=@refrigeratorTen,refrigeratorOver=@refrigeratorOver,sewingMachine=@sewingMachine,sewingWithCAB=@sewingWithCAB,humid=@humid,airPurifier=@airPurifier,shopVac=@shopVac,washer=@washer,dryer=@dryer where serviceID=@serviceID">
                                 <SelectParameters>
                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                 </SelectParameters>
@@ -2282,7 +2282,7 @@
                                 runat="server"
                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
                                 SelectCommand="Select * from cubeSheet where serviceID=@serviceID"
-                                UpdateCommand="Update cubeSheet set fakeTree=@fakeTree,barbellWeights=@barbellWeights,clothesBasket=@clothesBasket,bike=@bike,bowlingBall=@bowlingBall,cardTable=@cardTable,clothesHamper=@clothesHamper,cooler=@cooler,foldingCot=@foldingCot,officeDeskLarge=@officeDeskLarge,computerDesk=@computerDesk,studentDesk=@studentDesk,officeChair=@officeChair,secretaryChair=@secretaryChair,printerStand=@printerStand,exerciseEquip=@exerciseEquip,miscFan=@miscFan,fernPlantStand=@fernPlantStand,cardboardCabinet=@cardboardCabinet,twoDrawerCabinet=@twoDrawerCabinet,fourDrwaerCabinet=@fourDrwaerCabinet,fishingPole=@fishingPole,fireArms=@fireArms,foldingChair=@foldingChair,wineRack=@wineRack,footLocker=@footLocker,cardTableLarge=@cardTableLarge,golfEquip=@golfEquip,spaceHeater=@spaceHeater,metalShelves=@metalShelves,pingpongTable=@pingpongTable,poolTableComp=@poolTableComp,poolTableSlate=@poolTableSlate,hottubFour=@hottubFour,hottubSix=@hottubSix,hottubEight=@hottubEight,powerTool=@powerTool,powerToolStand=@powerToolStand,skis=@skis,sled=@sled,suitCase=@suitCase,tackleBox=@tackleBox,tire=@tire,tireAndRims=@tireAndRims,toolChestSmall=@toolChestSmall,toolChestMed=@toolChestMed,toolChestLarge=@toolChestLarge,toolChestXL=@toolChestXL,trashCan=@trashCan,trampoline=@trampoline,treadmill=@treadmill,tricycle=@tricycle,workBench=@workBench,sewingCabinet=@sewingCabinet,largeSafe=@largeSafe,medSafe=@medSafe,smallSage=@smallSage,gunSafe=@gunSafe,statue=@statue,smallMotorcycle=@smallMotorcycle,medMotorcycle=@medMotorcycle,largeMotorcycle=@largeMotorcycle,fourWheeler=@fourWheeler where serviceID=@serviceID">
+                                UpdateCommand="Update cubeSheet set fakeTree=@fakeTree,barbellWeights=@barbellWeights,clothesBasket=@clothesBasket,bike=@bike,bowlingBall=@bowlingBall,cardTable=@cardTable,clothesHamper=@clothesHamper,cooler=@cooler,foldingCot=@foldingCot,officeDeskLarge=@officeDeskLarge,computerDesk=@computerDesk,studentDesk=@studentDesk,officeChair=@officeChair,secretaryChair=@secretaryChair,printerStand=@printerStand,exerciseEquip=@exerciseEquip,miscFan=@miscFan,fernPlantStand=@fernPlantStand,cardboardCabinet=@cardboardCabinet,twoDrawerCabinet=@twoDrawerCabinet,fourDrwaerCabinet=@fourDrwaerCabinet,fishingPole=@fishingPole,foldingChair=@foldingChair,wineRack=@wineRack,footLocker=@footLocker,cardTableLarge=@cardTableLarge,golfEquip=@golfEquip,spaceHeater=@spaceHeater,metalShelves=@metalShelves,pingpongTable=@pingpongTable,poolTableComp=@poolTableComp,poolTableSlate=@poolTableSlate,hottubFour=@hottubFour,hottubSix=@hottubSix,hottubEight=@hottubEight,powerTool=@powerTool,powerToolStand=@powerToolStand,skis=@skis,sled=@sled,suitCase=@suitCase,tackleBox=@tackleBox,tire=@tire,tireAndRims=@tireAndRims,toolChestSmall=@toolChestSmall,toolChestMed=@toolChestMed,toolChestLarge=@toolChestLarge,toolChestXL=@toolChestXL,trashCan=@trashCan,trampoline=@trampoline,treadmill=@treadmill,tricycle=@tricycle,workBench=@workBench,sewingCabinet=@sewingCabinet,largeSafe=@largeSafe,medSafe=@medSafe,smallSage=@smallSage,gunSafe=@gunSafe,statue=@statue,smallMotorcycle=@smallMotorcycle,medMotorcycle=@medMotorcycle,largeMotorcycle=@largeMotorcycle,fourWheeler=@fourWheeler where serviceID=@serviceID">
                                 <SelectParameters>
                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                 </SelectParameters>

@@ -114,6 +114,24 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.GridView gvStorage;
 
         /// <summary>
+        /// btnPrintCubes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrintCubes;
+
+        /// <summary>
+        /// gvCubeSheet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCubeSheet;
+
+        /// <summary>
         /// srcPhonebook control.
         /// </summary>
         /// <remarks>
@@ -157,5 +175,14 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource srcServices;
+
+        /// <summary>
+        /// srcCubeSheet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcCubeSheet;
     }
 }
