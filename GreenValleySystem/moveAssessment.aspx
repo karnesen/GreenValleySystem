@@ -16,9 +16,9 @@
                 <li class="nav-item">
                     <a class='<%=stateNav3 %>' id="rooms-tab" data-toggle="tab" href="#rooms" role="tab" aria-controls="rooms" aria-selected="false">Cube Sheet</a>
                 </li>
-                <li class="nav-item">
+                <%--<li class="nav-item">
                     <a class='<%=stateNav4 %>' id="handout-tab" data-toggle="tab" href="#handout" role="tab" aria-controls="handout" aria-selected="false">C.S. Excel</a>
-                </li>
+                </li>--%>
             </ul>
         </div>
 
