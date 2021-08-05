@@ -132,15 +132,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.ListView lvNotes;
 
         /// <summary>
-        /// srcNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource srcNotes;
-
-        /// <summary>
         /// txtNoteTitle control.
         /// </summary>
         /// <remarks>
@@ -150,13 +141,13 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.DropDownList txtNoteTitle;
 
         /// <summary>
-        /// rfvNoteTitle control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNoteTitle;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// txtNoteBody control.
@@ -168,13 +159,13 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.TextBox txtNoteBody;
 
         /// <summary>
-        /// rfvNoteBody control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNoteBody;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// btnCreateNote control.
@@ -184,6 +175,33 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateNote;
+
+        /// <summary>
+        /// srcNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcNotes;
+
+        /// <summary>
+        /// rfvNoteTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNoteTitle;
+
+        /// <summary>
+        /// rfvNoteBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNoteBody;
 
         /// <summary>
         /// lvSchedules control.
