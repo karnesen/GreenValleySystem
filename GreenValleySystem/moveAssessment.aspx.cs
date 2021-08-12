@@ -145,7 +145,9 @@ namespace GreenValleySystem
 
 
 
-            string sqlQuery = "SELECT cubeSheet.* FROM cubeSheet INNER JOIN SERVICE ON cubeSheet.serviceID = SERVICE.serviceID INNER JOIN CUSTOMER ON SERVICE.customerID ="+ Session["selectedCustomer"];
+            //string sqlQuery = "SELECT cubeSheet.* FROM cubeSheet INNER JOIN SERVICE ON cubeSheet.serviceID = SERVICE.serviceID INNER JOIN CUSTOMER ON SERVICE.customerID ="+ Session["selectedCustomer"];
+
+            string sqlQuery = "SELECT CUSTOMER.customerID, CUSTOMER.firstName, CUSTOMER.lastName, cubeSheet.*, SERVICE.serviceID AS Expr1 FROM cubeSheet INNER JOIN SERVICE ON cubeSheet.serviceID ="+ Session["SelectedService"]+" INNER JOIN CUSTOMER ON SERVICE.customerID =" + Session["selectedCustomer"].ToString();
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
             // Create the SQL Command object which will send the query:
