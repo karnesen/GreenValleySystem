@@ -105,15 +105,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.SqlDataSource srcHistory;
 
         /// <summary>
-        /// lbtnCollapse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnCollapse;
-
-        /// <summary>
         /// ddlFilter control.
         /// </summary>
         /// <remarks>
@@ -247,5 +238,14 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderChild;
+
+        /// <summary>
+        /// lbtnCollapse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnCollapse;
     }
 }
