@@ -195,8 +195,11 @@ namespace GreenValleySystem
             else
             {
                 Session["selectedCustomer"] = gvCubeSheet.SelectedValue.ToString();
-                Session["selectedCustomerName"] = gvCubeSheet.SelectedRow.Cells[0].Text + gvCubeSheet.SelectedRow.Cells[1].Text;
+                Session["selectedCustomerName"] = gvCubeSheet.SelectedRow.Cells[2].Text + " " + gvCubeSheet.SelectedRow.Cells[3].Text;
+                
+
                 Response.Redirect("customerProfile.aspx");
+                //Response.Redirect("customerProfile.aspx");
             }
         }
     }
