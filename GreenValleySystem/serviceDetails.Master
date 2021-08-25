@@ -113,7 +113,12 @@
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
                                 <div class='<%= state3 %>' id="note" role="tabpanel" aria-labelledby="notes-tab">
-                                    <asp:DropDownList ID="ddlFilter" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlFilter_SelectedIndexChanged" class="form-control col-6">
+
+                                    <div style="display:flex;justify-content:center">
+
+                                        <div style="width:50%;float:left">
+
+                                    <asp:DropDownList ID="ddlFilter" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlFilter_SelectedIndexChanged" class="form-control col-4">
                             <asp:ListItem Value="x">Show All</asp:ListItem>
                             <asp:ListItem Value="e">Personal</asp:ListItem>
                             <asp:ListItem Value="A">Auction</asp:ListItem>
@@ -130,7 +135,7 @@
                                             <div runat="server" id="lstProducts">
                                                 <div runat="server" id="itemPlaceholder" />
                                             </div>
-                                            <asp:DataPager runat="server" PageSize="3" ID="dataPager">
+                                            <asp:DataPager runat="server" PageSize="2" ID="dataPager">
                                                 <Fields>
                                                     <asp:NumericPagerField />
                                                 </Fields>
@@ -138,18 +143,26 @@
                                         </LayoutTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkNote" Text='<%#Eval("NoteTitle")%>' runat="server" CommandName="Edit">LinkButton</asp:LinkButton>
+                                            <br>
                                             </br>
                                     <asp:Label ID="noteText" runat="server" Text='<%# (Eval("noteText").ToString().Length>=100) ? Eval("noteText").ToString().Substring(0,100) + "..." : Eval("noteText") %>'></asp:Label>
+                                          <br>
                                             </br>
                                     <asp:Label ID="lblCreatedBy" runat="server" Font-Italic="true" Text=' <%#"Created by " + Eval("CreatedBy") + " on " + Eval("CreationDate") %>'></asp:Label>
+                                          <br>
                                             </br>
-                                    </br>
-
+                             
+                                                
                                         </ItemTemplate>
+
+                                        
+
                                         <EditItemTemplate>
-                                            <asp:LinkButton ID="lnkNote" Text='<%#Bind("NoteTitle")%>' runat="server" data-toggle="modal" data-target="#exampleModal">LinkButton</asp:LinkButton>
+                                            <asp:LinkButton ID="lnkNote" Text='<%#Bind("NoteTitle")%>' runat="server" class="col-4" data-toggle="modal" data-target="#exampleModal">LinkButton</asp:LinkButton>
+                                            <br>
                                             </br>
-                                        <asp:TextBox ID="txtNoteText" runat="server" TextMode="MultiLine" Rows="5" Text='<%#Bind("noteText")%>' Class="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtNoteText" runat="server" TextMode="MultiLine" Rows="5" Text='<%#Bind("noteText")%>' Class="form-control col-4"></asp:TextBox>
+                                            <br>
                                             </br>
                                         <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
                                             <asp:LinkButton ID="btnCancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
@@ -158,7 +171,13 @@
                                         </EditItemTemplate>
                                     </asp:ListView>
                                      <br /> 
-                                    <asp:DropDownList ID="txtNoteTitle" runat="server" CssClass="form-control col-6">
+
+                                        </div>
+
+                                        <div style="width:50%;float:right">
+
+
+                                    <asp:DropDownList ID="txtNoteTitle" runat="server" CssClass="form-control col-4">
                                             <asp:ListItem>Move</asp:ListItem>
                                             <asp:ListItem>Auction</asp:ListItem>
                                             <asp:ListItem>Consignment Shop</asp:ListItem>
@@ -170,12 +189,16 @@
 
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteTitle" Text="Please create a title." style="color:red"></asp:RequiredFieldValidator>
 
-                                        <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" class="form-control col-8"></asp:TextBox>
+                                        <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" class="form-control col-4" Rows="5"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteBody" Text="Please enter note body." style="color:red"></asp:RequiredFieldValidator>
                                     
                                     <div class="form-group">
                                         <asp:Button ID="btnCreateNote" runat="server" Text="Create" OnClick="btnCreateNote_Click" ValidationGroup="newNote" class="btn btn-outline-secondary" />
                                     </div>
+
+                                    </div>
+
+                                        </div>
 
 
                                     <asp:SqlDataSource
