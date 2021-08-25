@@ -222,16 +222,70 @@
 
                                 <div class="tab-pane fade" id="newNote" role="tabpanel" aria-labelledby="newNote-tab">
                                     <div class=" form-group">
-                                        <%--<asp:TextBox ID="txtNoteTitle" runat="server" Placeholder="Note Title" class="form-control"></asp:TextBox>--%>
-                                        <%--<asp:DropDownList ID="txtNoteTitle" runat="server" CssClass="form-control">
-                                            <asp:ListItem>Move</asp:ListItem>
-                                            <asp:ListItem>Auction</asp:ListItem>
-                                            <asp:ListItem>Consignment Shop</asp:ListItem>
-                                            <asp:ListItem>Appraisal</asp:ListItem>
-                                            <asp:ListItem>Personal</asp:ListItem>
-                                            <asp:ListItem>Miscellaneous</asp:ListItem>
-                                            <asp:ListItem>Storage</asp:ListItem>
-                                        </asp:DropDownList>--%>
+                                        <asp:TextBox ID="txtInvtitle" runat="server" Placeholder="Inventory Name" class="form-control"></asp:TextBox>
+                                            <br />
+                                        <br>
+                                        <asp:TextBox ID="txtInvDesc" runat="server" Placeholder="Inventory Desc" class="form-control" TextMode="MultiLine"></asp:TextBox>
+                                            <br />
+                                        <br>
+
+                                        <asp:Button ID="btnAddInv" runat="server" Text="Add Inventory"  class="btn btn-outline-secondary" />
+
+                                        <br />
+                                        <br>
+                                        
+
+                                        <asp:ListView
+                                        ID="ListView1"
+                                        runat="server"
+                                        DataSourceID="srcNotes"
+                                        DataKeyNames="ticketID"
+                                        OnPagePropertiesChanging="lvNotes_PagePropertiesChanging">
+                                        <LayoutTemplate>
+                                            <div runat="server" id="lstProducts">
+                                                <div runat="server" id="itemPlaceholder" />
+                                            </div>
+                                            <asp:DataPager runat="server" PageSize="2" ID="dataPager">
+                                                <Fields>
+                                                    <asp:NumericPagerField />
+                                                </Fields>
+                                            </asp:DataPager>
+                                        </LayoutTemplate>
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="invID" Text="" runat="server" CommandName="Edit">Catalog #</asp:LinkButton>
+                                            <br>
+                                            </br>
+                                    <asp:Label ID="invTitle" runat="server" Text="Title"></asp:Label>
+                                          <br>
+                                            </br>
+                                    <asp:Label ID="invDesc" runat="server" Font-Italic="true" Text="Desc"></asp:Label>
+                                          <br>
+                                            </br>
+                             
+                                                
+                                        </ItemTemplate>
+
+                                        
+
+                                        <EditItemTemplate>
+                                            <asp:LinkButton ID="invTitleLnk" Text="sample" runat="server" class="col-4" data-toggle="modal" data-target="#exampleModal">Catalog #</asp:LinkButton>
+                                            <br>
+                                            </br>
+                                        <asp:TextBox ID="invText" runat="server" TextMode="MultiLine" Rows="5" Text="Inv Title" Class="form-control col-4"></asp:TextBox>
+                                            <br>
+                                            </br>
+                                            <asp:TextBox ID="TextBox4" runat="server" TextMode="MultiLine" Rows="5" Text="Inv Title" Class="form-control col-4"></asp:TextBox>
+                                            <br>
+                                            </br>
+                                        <asp:LinkButton ID="btnUpdate" runat="server" CommandName="Update">Update</asp:LinkButton>
+                                            <asp:LinkButton ID="btnCancel" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
+                                            <br />
+                                            <br />
+                                        </EditItemTemplate>
+                                    </asp:ListView>
+                                        
+
+
 
 
                                         <asp:RequiredFieldValidator ID="rfvNoteTitle" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteTitle" Text="Please create a title."></asp:RequiredFieldValidator>
@@ -472,9 +526,9 @@
                             <li class="nav-item">
                                 <a class='<%= state4 %>' style="font-size:small" id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
                             </li>
-                            <%--<li class="nav-item">
-                                <a class="nav-link" style="font-size:small" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">New Note</a>
-                            </li>--%>
+                            <li class="nav-item">
+                                <a class="nav-link" style="font-size:small" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">Add Inventory</a>
+                            </li>
                             <li class="nav-item">
                                 <a class='<%= state5 %>' style="font-size:small" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
                             </li>

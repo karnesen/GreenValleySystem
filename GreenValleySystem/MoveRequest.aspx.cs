@@ -15,7 +15,7 @@ namespace GreenValleySystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblCustomer.Text = Session["selectedCustomerName"].ToString() + " Move Request";
+            
             if (Session["username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to create a new service.";
@@ -26,6 +26,11 @@ namespace GreenValleySystem
             {
                 fillStates();
             }
+            
+            
+            
+            
+            lblCustomer.Text = Session["selectedCustomerName"].ToString() + " Move Request";
         }
 
         protected void fillStates()
