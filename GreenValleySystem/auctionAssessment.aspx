@@ -319,11 +319,38 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <asp:TextBox ID="txtInventory" TextMode="MultiLine" Rows="20"  Class="form-control  fixed-bottom w-25" PlaceHolder="Inventory" Text='<%# Bind("Inventory") %>' runat="server"></asp:TextBox>
+                                    <%--<asp:TextBox ID="txtInventory" TextMode="MultiLine" Rows="20"  Class="form-control  fixed-bottom w-25" PlaceHolder="Inventory" Text='<%# Bind("invDesc") %>' runat="server"></asp:TextBox>--%>
                                     <asp:Button ID="btnSaveChanges" Text="Save" runat="server" CommandName="Update" Class="btn btn-outline-primary" />
 
                                 </EditItemTemplate>
                             </asp:FormView>
+
+
+                            <div class="form-control fixed-bottom w-25 h-25" style="overflow:scroll">
+                                <h6>Add Inventory</h6>
+                                <asp:TextBox ID="txtInvDesc" class="form-control" runat="server" placeholder="Description"></asp:TextBox>
+                                
+                                <asp:Button ID="btnAddInventory" runat="server" Text="Add To Catalog" OnClick="btnAddInventory_Click" Class="btn btn-outline-primary"/>
+                                <br />
+                                <h6>Catalogged Inventory</h6>
+                                <asp:GridView ID="gvInvCatalog"
+                                    runat="server" 
+                                    class="table table-bordered table-condensed table-hover" 
+                                    DataSourceID="srcInvCatalog" 
+                                    DataKeyNames="serviceID" 
+                                    AutoGenerateColumns="false"
+                                    AllowPaging="false">
+                                    <HeaderStyle BackColor="#266141" ForeColor="White" />
+                                    <Columns>
+
+                            <asp:BoundField DataField="catalogID" HeaderText="Catalog Number"
+                                 SortExpression="catalogID"/>
+                            <asp:BoundField DataField="invDesc" HeaderText="Description"
+                                 SortExpression="Description"/>
+                                        </Columns>
+                                        </asp:GridView>
+
+                            </div>
 
 
                             <asp:SqlDataSource
@@ -331,13 +358,30 @@
                                 runat="server"
                                 SelectCommand="Select * from auctionAssessment where serviceID=@serviceID"
                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
-                                UpdateCommand="Update auctionAssessment set inventory=@inventory,
+                                UpdateCommand="Update auctionAssessment set 
                             apartment=@apartment, floor=@floor, elevator=@elevator, elevatorWalk=@elevatorWalk, house=@house, storageUnit=@storageUnit, indoor=@indoor, outdoor=@outdoor,
                             business=@business, businessText=@businessText, truckAccess=@truckAccess, howFar=@howFar, steps=@steps, appCart=@appCart, pianoDolly=@pianoDolly,
                             pianoboard=@pianoboard, gunSafe=@gunSafe, blankets=@blankets, small=@small, large=@large, med=@med, smallPads=@smallPads, largePads=@largePads,
                             smallamt=@small, largeamt=@large, medamt=@medamt, smallPadsamt=@smallPads, largePadsamt=@largePads, pickUpFee=@pickUpFee, consignment=@consignment,
                             trash=@trash, additional=@additional 
                         where serviceID=@serviceID">
+                                <UpdateParameters>
+                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                </UpdateParameters>
+                                <SelectParameters>
+                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+
+                            <asp:SqlDataSource
+                                ID="srcInvCatalog"
+                                runat="server"
+                                SelectCommand="Select * from inventoryCatalog where serviceID=@serviceID"
+                                ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                UpdateCommand="Update auctionAssessment set invDesc=@invDesc
+                        where serviceID=@serviceID"
+                                InsertCommand="Insert into inventoryCatalog(serviceID,invDesc) values(@serviceID,@invDesc)"
+                                DeleteCommand="Delete from inventoryCatalog where catalogID=@catalogID and serviceID=@serviceID">
                                 <UpdateParameters>
                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                 </UpdateParameters>

@@ -42,6 +42,33 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.FormView fvAssessment;
 
         /// <summary>
+        /// txtInvDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInvDesc;
+
+        /// <summary>
+        /// btnAddInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddInventory;
+
+        /// <summary>
+        /// gvInvCatalog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvInvCatalog;
+
+        /// <summary>
         /// srcAssessment control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource srcAssessment;
+
+        /// <summary>
+        /// srcInvCatalog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcInvCatalog;
 
         /// <summary>
         /// ddlTrucks control.

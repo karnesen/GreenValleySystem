@@ -1122,5 +1122,28 @@ namespace GreenValleySystem
             state6 = "nav-link active";
             state7 = "tab-pane fade show active";
         }
+
+        protected void btnAddInventory_Click(object sender, EventArgs e)
+        {
+            string serviceID = Session["SelectedService"].ToString();
+            string sqlQuery = "Insert into inventoryCatalog(serviceID,invDesc) values("+serviceID+","+"'"+txtInvDesc.Text.ToString()+"'"+")";
+
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            // Create the SQL Command object which will send the query:
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+            // Open your connection, send the query, retrieve the results:
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+            
+            Response.Redirect("auctionAssessment.aspx");
+
+            
+            sqlConnect.Close();
+            
+            keepOpen();
+        }
     }
 }

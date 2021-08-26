@@ -526,9 +526,9 @@
                             <li class="nav-item">
                                 <a class='<%= state4 %>' style="font-size:small" id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
                             </li>
-                            <li class="nav-item">
+                            <%--<li class="nav-item">
                                 <a class="nav-link" style="font-size:small" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">Add Inventory</a>
-                            </li>
+                            </li>--%>
                             <li class="nav-item">
                                 <a class='<%= state5 %>' style="font-size:small" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
                             </li>
