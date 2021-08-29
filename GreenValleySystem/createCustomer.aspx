@@ -190,7 +190,8 @@
                                         controltovalidate="txtZipCode"
                                         validationexpression="\d{5}(-\d{4})?"
                                         ValidationGroup="CreateCustomer"
-                                        errormessage="Please enter a 5 digit zip code!" />
+                                        errormessage="Please enter a 5 digit zip code!"
+                                        ForeColor="Red"/>
                                    
                                     
 
@@ -288,7 +289,7 @@
                                     <asp:Label ID="lblEndDate" runat="server" Text="End Date" for="txtEndDate"></asp:Label>
                                     <asp:TextBox ID="txtEndDate" runat="server" Placeholder="End Date" class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
                                     <asp:CustomValidator ID="dateValidation" runat="server" Text="Start Date Must Be Before End Date" ErrorMessage="CustomValidator"
-                                        OnServerValidate="dateValidation_ServerValidate" ValidationGroup="CreateCustomer"></asp:CustomValidator>
+                                        OnServerValidate="dateValidation_ServerValidate" ValidationGroup="CreateCustomer" ForeColor="Red"></asp:CustomValidator>
                                 </div>
                             </div>
                         </li>

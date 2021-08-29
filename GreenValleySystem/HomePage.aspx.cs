@@ -43,7 +43,7 @@ namespace Lab2
             else
             {
                 Session["selectedCustomer"] = gvCustomerTickets.SelectedValue.ToString();
-                Session["selectedCustomerName"] = gvCustomerTickets.SelectedRow.Cells[0].Text;
+                Session["selectedCustomerName"] = gvCustomerTickets.SelectedRow.Cells[0].Text + " " + gvCustomerTickets.SelectedRow.Cells[1].Text;
                 Response.Redirect("customerProfile.aspx");
             }
 
@@ -77,7 +77,7 @@ namespace Lab2
             else
             {
                 Session["selectedCustomer"] = gvNotesRecent.SelectedValue.ToString();
-                Session["selectedCustomerName"] = gvNotesRecent.SelectedRow.Cells[0].Text;
+                Session["selectedCustomerName"] = gvNotesRecent.SelectedRow.Cells[0].Text + " " + gvNotesRecent.SelectedRow.Cells[1].Text;
                 Response.Redirect("customerProfile.aspx");
             }
         }
@@ -102,7 +102,7 @@ namespace Lab2
             else
             {
                 Session["selectedCustomer"] = gvUpcomingServices.SelectedValue.ToString();
-                Session["selectedCustomerName"] = gvUpcomingServices.SelectedRow.Cells[0].Text;
+                Session["selectedCustomerName"] = gvUpcomingServices.SelectedRow.Cells[0].Text + " " + gvUpcomingServices.SelectedRow.Cells[1].Text;
                 Response.Redirect("customerProfile.aspx");
             }
         }

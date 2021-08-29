@@ -42,6 +42,8 @@
                             </div>
                             <div class="form-group col ">
                                 <asp:TextBox ID="txtAuctionEndDate" runat="server" Text='<%#Bind("serviceDeadlineEnd", "{0:yyyy-MM-ddTHH:mm}")%>' class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
+                                <asp:Label ID="dateVal" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                
                             </div>
                                 </div>
 

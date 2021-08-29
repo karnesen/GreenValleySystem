@@ -22,7 +22,8 @@ namespace GreenValleySystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblCustomer.Text = Session["selectedCustomerName"].ToString();
+            //lblCustomer.Text = Session["selectedCustomerName"].ToString();
+            lnkButtonReturn.Text = Session["selectedCustomerName"].ToString();
             if (!IsPostBack)
             {
                 if ((Session["serviceType"].ToString()).Equals("Move"))
@@ -77,6 +78,7 @@ namespace GreenValleySystem
                 sqlCommand.ExecuteReader();
                 sqlConnect.Close();
                 lvNotes.DataBind();
+                state = "collapse-show";
             }
         }
 
@@ -173,5 +175,9 @@ namespace GreenValleySystem
 
         //    ddlProgress.SelectedValue = Bind("currentStep");
         //}
+
+        
+
+
     }
 }

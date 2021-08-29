@@ -8,9 +8,9 @@
                 <div class="card card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <asp:Label ID="lblCustomer" runat="server" Class="h5" ></asp:Label>
-                            <br />
-                            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" Class="btn btn-outline-primary"
+                            <%--<asp:Label ID="lblCustomer" runat="server" Class="h5" ></asp:Label>--%>
+                            <%--<br />--%>
+                            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" Class="btn btn-outline-primary" Font-Size="X-Large"
                                 CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
                             
                         </li>
@@ -22,6 +22,10 @@
                                 <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Assessment Form</asp:HyperLink>
                                 <asp:HyperLink ID="serviceOrder" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
                                 <a class="nav-link" href="completion.aspx">Completion Form</a>
+                                <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="true" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> Expand Notes/Scheduler</asp:LinkButton>
+                                <a class='<%= state5 %>' id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
+                                <a class='<%= state4 %>' id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
+
                             </nav>
                         </li>
                         <li class="list-group-item">
@@ -418,6 +422,8 @@
                                                     <div class="row mb-1">
                                                         <div class="col">
                                                             <asp:Button ID="btnInsert" CommandName="Insert" runat="server" Text="Save" class="form-control" OnClick="keepOpen_Click" />
+                                                           
+                                                        
                                                         </div>
                                                         <div class="col">
                                                             <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" class="form-control" OnClick="keepOpen_Click" />
@@ -519,21 +525,21 @@
                 </asp:ContentPlaceHolder>
             </div>
 
-            <div class="col-1 card mb-2 sticky-top">
+            <%--<div class="col-1 card mb-2 sticky-top">
                 <div style="width:100%;position:sticky;top:200px;left:0px">
                     <div class="card-header rounded sticky-top" style="float:right;width:100px;height:300px">
                         <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class='<%= state4 %>' style="font-size:small" id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
                             </li>
-                            <%--<li class="nav-item">
+                            <li class="nav-item">
                                 <a class="nav-link" style="font-size:small" id="newNote-tab" data-toggle="tab" href="#newNote" role="tab" aria-controls="newNotes" aria-selected="false">Add Inventory</a>
-                            </li>--%>
+                            </li>
                             <li class="nav-item">
                                 <a class='<%= state5 %>' style="font-size:small" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
                             </li>
                             <li class="ml-auto">
-                                <asp:LinkButton ID="lbtnCollapse" style="font-size:small" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="true" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> Collapse</asp:LinkButton>
+                               <asp:LinkButton ID="lbtnCollapse" style="font-size:small" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="true" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> Collapse</asp:LinkButton>
 
                             </li>
                         </ul>
@@ -541,7 +547,7 @@
 
                 </div>
 
-              </div>
+              </div>--%>
 
 
         </div>
