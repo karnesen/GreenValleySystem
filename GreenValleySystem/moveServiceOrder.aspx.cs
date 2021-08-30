@@ -54,5 +54,15 @@ namespace GreenValleySystem
         {
             srcPacking.Insert();
         }
+
+        protected void btnAddToTrashCrew_Click(object sender, EventArgs e)
+        {
+            srcTrashCrew.Insert();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            srcMoveCrew.Insert();
+        }
     }
 }

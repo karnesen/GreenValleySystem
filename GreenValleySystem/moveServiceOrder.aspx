@@ -171,7 +171,7 @@
                             ConnectionString="<%$ ConnectionStrings:Connect %>"
                             SelectCommand="Select * from employee inner join assignment on employee.employeeID = assignment.employeeID where assignment.serviceID = @serviceID and employeeRole='packing'"
                             InsertCommand="Insert into assignment values(@employeeID, @serviceID, 'packing')"
-                            DeleteCommand="Delete from assignment where employeeID=@employeeID and serviceID=@serviceID">
+                            DeleteCommand="Delete from assignment where employeeID=@employeeID and serviceID=@serviceID and employeeRole='packing'">
                             <SelectParameters>
                                 <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                             </SelectParameters>
@@ -186,69 +186,14 @@
                     </div>
                 </li>
 
-                <%-- Trash Service Order --%>
-                <li class="list-group-item">
-                    <asp:FormView
-                        ID="fvTrash"
-                        runat="server"
-                        DefaultMode="Edit"
-                        DataSourceID="srcService">
-                        <EmptyDataTemplate>
-                        </EmptyDataTemplate>
-                        <EditItemTemplate>
-                            <h4>Trash Removal Service Order</h4>
-                            <%--<div class="row">
-                                <%--<div class="col">
-                                    <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
-                                </div>--%>
-
-                                <%--<div class="col">
-                                    <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
-                                    <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
-                                </div>--%>
-                                <%--<div class="col">
-                                    <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
-                                    <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
-                                </div>
-                            </div>--%>
-
-                            <div class="card card-body mb-2 form-group form-row">
-                                <asp:Label ID="lblTrash" For="txtTrashDesc" runat="server" Text="Trash Description"></asp:Label>
-                                <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
-                                <asp:RegularExpressionValidator 
-                                    id="revEquipment"  
-                                    runat="server"
-                                    ControlToValidate="txtTrashDesc" 
-                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
-                                    ErrorMessage="Invalid Input" 
-                                    ForeColor="Red">
-                                </asp:regularexpressionvalidator>
-                            </div>
-<%--                            <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>--%>
-                        </EditItemTemplate>
-                    </asp:FormView>
-
-                    <asp:SqlDataSource
-                        ID="srcService"
-                        runat="server"
-                        ConnectionString="<%$ ConnectionStrings:Connect %>"
-                        SelectCommand="Select * from moveAssessment  where moveAssessment.serviceID = @serviceID and moveAssessment.trash=1"
-                        UpdateCommand="Update moveAssessment set dumpster = @dumpster, men=@men trash=@trash, trashdesc=@trashdesc where serviceID=@serviceID">
-                        <SelectParameters>
-                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                        </SelectParameters>
-                        <UpdateParameters>
-                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                        </UpdateParameters>
-                    </asp:SqlDataSource>
-                </li>
+                
                 
                 <%-- Move Service Order --%>
                 <li class="list-group-item">
                   <h4>Move Service Order</h4>
                     <div class="card card-body mb-2 form-group form-row">
                                  
-                        <h6>Building Type</h6>
+                        
                         <asp:FormView
                         ID="fvAssessment"
                         DefaultMode="ReadOnly"
@@ -259,58 +204,73 @@
                             </EmptyDataTemplate>
                         <ItemTemplate>
                             <div class="form-group row justify-content-around">
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chApt" Checked='<%# Bind("apartment")%>' Text="Apartment" runat="server" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseApt" />
+                                <div class="mb-2">
+                                    <h6>Building Type</h6>
+                                <asp:Label ID="lblApartment" runat="server" Text="Apartment: "></asp:Label>
+
+                                <asp:Label ID="lblApartmentStatus" runat="server" Text='<%# Bind("apartment") %>'></asp:Label>
+                            
+                               
+                                <br />
                                     
+                                    <asp:Label ID="lblHouse" runat="server" Text="House: "></asp:Label>
+
+                                    <asp:Label ID="lblHouseStatus" runat="server" Text='<%# Bind("house") %>'></asp:Label>
+                                <br />
+
+                                    <asp:Label ID="lblStorageUnit" runat="server" Text="Sorage Unit: "></asp:Label>
+
+                                    <asp:Label ID="lblStorageUnitStatus" runat="server" Text='<%# Bind("storageUnit") %>'></asp:Label>
+                                <br />
+                                
+                                    <asp:Label ID="lblBusiness" runat="server" Text="Place Of Business: "></asp:Label>
+
+                                    <asp:Label ID="lbBusinessStatus" runat="server" Text='<%# Bind("business") %>'></asp:Label>
                                 </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chHouse" Checked='<%# Bind("house")%>' Text="House" runat="server" />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chStorage" Checked='<%# Bind("storageUnit")%>' Text="Storage Unit" runat="server" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseStor" />
-                                </div>
-                                <div class="form-check">
-                                    <asp:CheckBox ID="chBusiness" Checked='<%# Bind("business")%>' Text="Place of Business" runat="server" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseBus" />
-                                </div>
-                            </div> 
+                            
                            
 
-                            <br />
+                            
 
-                            <h6>Location Information</h6>
+                           
 
-                            <div class="form-group row justify-content-around">
-                                <div class="form-check">
-                                    <p>Elevator?</p>
-                                    <asp:Label ID="lblElevator" runat="server" Text='<%# Bind("elevator") %>' style="font:bold" class="form-control"></asp:Label>
-                                </div>
-                                <div class="form-check">
-                                    <p>Walk from Elevator:</p>
-                                    <asp:Label ID="lblWalk" runat="server" style="font:bold" Text='<%# Eval("elevatorWalk") %>' class="form-control"></asp:Label>
-                                </div>
+                            
+                                <div class="mb-2">
+                                     <h6>Location Information</h6>
+                                    <asp:Label ID="lblElevator1" runat="server" Text="Elevator: "></asp:Label>
+                                    <asp:Label ID="lblElevator" runat="server" Text='<%# Bind("elevator") %>' style="font:bold"></asp:Label>
+                                <br />
+                                    <asp:Label ID="lblWalk1" runat="server" Text="Walk From Elevator: "></asp:Label>
+                                    
+                                    <asp:Label ID="lblWalk" runat="server" style="font:bold" Text='<%# (Eval("elevatorWalk").ToString() == "") ? "N/A" : Eval("elevatorWalk") %>'></asp:Label>
 
-                                <div class="form-check">
-                                    <p>Flights of Stairs:</p>
-                                    <asp:Label ID="lblStairs" style="font:bold" runat="server" Text='<%# Eval("steps") %>' class="form-control"></asp:Label>
+                                    <br />
+                                
+                                    <asp:Label ID="lblStairs1" runat="server" Text="Flights of Stairs: "></asp:Label>
+                                    
+                                    <asp:Label ID="lblStairs" style="font:bold" runat="server" Text='<%# (Eval("steps").ToString() == "") ? "N/A" : Eval("steps") %>'></asp:Label>
+                                
+                              <br />
+                                    <asp:Label ID="lblIn1" runat="server" Text="Indoor Storage: "></asp:Label>
+                                    
+                                    <asp:Label ID="lblIn" runat="server" Text='<%# Eval("indoor") %>' style="font:bold"></asp:Label>
+                                <br />
+                                    
+                                    <asp:Label ID="lblOut1" runat="server" Text="Outdoor Storage: "></asp:Label>
+                                    
+                                    <asp:Label ID="lblOut" runat="server" Text='<%# Eval("outdoor") %>' style="font:bold"></asp:Label>
                                 </div>
-                                <div class="form-check">
-                                    <p>Indoor Storage</p>
-                                    <asp:Label ID="lblIn" runat="server" Text='<%# Eval("indoor") %>' style="font:bold" class="form-control"></asp:Label>
-                                </div>
-                                <div class="form-check">
-                                    <p>Outdoor Storage</p>
-                                    <asp:Label ID="lblOut" runat="server" Text='<%# Eval("outdoor") %>' style="font:bold" class="form-control"></asp:Label>
                                 </div>
 
                                 
 
-                            </div>
+                            
 
                           
                              </ItemTemplate>
                     </asp:FormView>
                         
-                        <h6>Assigned Equipment</h6>
+                         <div class="form-group row justify-content-around">
                         <asp:FormView
                         ID="FormView1"
                         DefaultMode="ReadOnly"
@@ -318,8 +278,14 @@
                         DataKeyNames="equipmentType"
                         runat="server"
                         >
+                            <EmptyDataTemplate>
+                                <h6>Assigned Equipment</h6>
+                                N/A
+                            </EmptyDataTemplate>
                         <ItemTemplate>
-                        <div class="form-check">
+                  
+                        <div class="mb-2">
+                          <h6>Assigned Equipment</h6>
                            <asp:BulletedList ID="lstTrucks" runat="server" DataSourceID="srcTrucks" DataValueField="equipmentType">
                                <asp:ListItem></asp:ListItem>
                            </asp:BulletedList>
@@ -327,9 +293,9 @@
                             </ItemTemplate>
                           </asp:FormView>
 
-                        <br /> 
+                     
 
-                        <asp:FormView
+                        <%--<asp:FormView
                         ID="fvTruck"
                         DefaultMode="ReadOnly"
                         DataSourceID="srcAssessment"
@@ -337,21 +303,27 @@
                         runat="server">
                         <ItemTemplate>
 
-                     <div class="row">
-                        <div class="form-group row justify-content-around col-6">
-                            <h6>Truck Accessibility</h6>
-                            <asp:Label ID="lblTruckAccess" runat="server" Text='<%# Bind("truckAccess")%>' class="form-control"></asp:Label> 
-                        </div>
+                     <div class="mb-2">
+
+                         <h6>Loading Information</h6>
+                        
+                         <asp:Label ID="lblTruckAccess1" runat="server" Text="Truck Accessibility: " style="font:bold"></asp:Label>
+                            
+                          <asp:Label ID="lblTruckAccess" runat="server" Text='<%# Bind("truckAccess")%>'></asp:Label> 
+                        <br />
 
                         
-                        <div class="form-group row justify-content-around col-6">
-                            <h6>Distance From Loading Door</h6>
-                            <asp:Label ID="lblLoadingDist" runat="server" Text='<%# Bind("howFar")%>' class="form-control"></asp:Label> 
-                        </div>
+                            <asp:Label ID="lblLoadingDist1" runat="server" Text="Distance From Loading Door: " style="font:bold"></asp:Label> 
+                            
+                            <asp:Label ID="lblLoadingDist" runat="server" Text='<%# Bind("howFar")%>'></asp:Label> 
+                        
 
                      </div>
+               
                             </ItemTemplate>
-                            </asp:FormView>
+                            </asp:FormView>--%>
+
+                      
 
                   
 
@@ -365,47 +337,155 @@
                         runat="server">
                         <ItemTemplate>
 
-                    <div class="row">
-                        <div class="form-group row justify-content-around col-2">
-                            <h6>Small Book Cartons</h6>
-                            <asp:Label ID="lblBookCarton" runat="server" Text='<%# Bind("smallBooks")%>' class="form-control"></asp:Label> 
-                        </div>
+                 
 
+                        <div class="mb-2">
                         
-                        <div class="form-group row justify-content-around col-2">
-                            <h6>Small Cartons</h6>
-                            <asp:Label ID="lblSmallCarton" runat="server" Text='<%# Bind("smallCartons")%>' class="form-control"></asp:Label> 
-                        </div>
+                            <h6>Cartons / Packing</h6>
+                            <asp:Label ID="lblBookCarton1" runat="server" Text="Small Book Cartons: "></asp:Label> 
+                            <asp:Label ID="lblBookCarton" runat="server" Text='<%# Bind("smallBooks")%>'></asp:Label> 
+                      
+                            <br />
+                    
+                          
+                            <asp:Label ID="lblSmallCarton1" runat="server" Text="Small Cartons"></asp:Label> 
+                            <asp:Label ID="lblSmallCarton" runat="server" Text='<%# Bind("smallCartons")%>'></asp:Label> 
+                     
 
-                            
-                        <div class="form-group row justify-content-around col-2">
-                            <h6>Medium Cartons</h6>
-                            <asp:Label ID="lblMedCarton" runat="server" Text='<%# Bind("mediumCartons")%>' class="form-control"></asp:Label> 
-                        </div>
-
+                            <br />
+                    
+                          
+                            <asp:Label ID="lblMedCarton1" runat="server" Text="Medium Cartons: "></asp:Label> 
+                            <asp:Label ID="lblMedCarton" runat="server" Text='<%# Bind("mediumCartons")%>'></asp:Label> 
+                
+                            <br />
                              
-                        <div class="form-group row justify-content-around col-2">
-                            <h6>Large Cartons</h6>
-                            <asp:Label ID="lblLargeCarton" runat="server" Text='<%# Bind("largeCartons")%>' class="form-control"></asp:Label> 
-                        </div>
-
+               
                             
-                        <div class="form-group row justify-content-around col-2">
-                            <h6>XL Cartons</h6>
-                            <asp:Label ID="lblXLCarton" runat="server" Text='<%# Bind("XLCartons")%>' class="form-control"></asp:Label> 
-                        </div>
+                            <asp:Label ID="lblLargeCarton1" runat="server" Text="Large Cartons: "></asp:Label> 
+                            <asp:Label ID="lblLargeCarton" runat="server" Text='<%# Bind("largeCartons")%>'></asp:Label> 
+                  
 
+                            <br />
+                 
+                           
+                            <asp:Label ID="lblXLCarton1" runat="server" Text="XL Cartons: "></asp:Label> 
+                            <asp:Label ID="lblXLCarton" runat="server" Text='<%# Bind("XLCartons")%>'></asp:Label> 
+                   
+                            <br />
                              
-                        <div class="form-group row justify-content-around col-2">
-                            <h6>Mirror Cartons</h6>
-                            <asp:Label ID="lblMirrorCarton" runat="server" Text='<%# Bind("mirrorCarton")%>' class="form-control"></asp:Label> 
+                   
+                            
+                            <asp:Label ID="lblMirrorCarton1" runat="server" Text="Mirror Cartons: "></asp:Label> 
+                            <asp:Label ID="lblMirrorCarton" runat="server" Text='<%# Bind("mirrorCarton")%>'></asp:Label> 
                         </div>
-                     </div>
+                  
 
 
                             </ItemTemplate>
                             </asp:FormView>
 
+
+                             <asp:FormView
+                        ID="fvTruck"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcAssessment"
+                     
+                        runat="server">
+                        <ItemTemplate>
+
+                     <div class="mb-2">
+
+                         <h6>Loading Information</h6>
+                        
+                         <asp:Label ID="lblTruckAccess1" runat="server" Text="Truck Accessibility: " style="font:bold"></asp:Label>
+                            
+                          <asp:Label ID="lblTruckAccess" runat="server" Text='<%# (Eval("truckAccess").ToString() == "") ? "N/A" : Eval("truckAccess") %>'></asp:Label> 
+                        <br />
+
+                        
+                            <asp:Label ID="lblLoadingDist1" runat="server" Text="Distance From Loading Door: " style="font:bold"></asp:Label> 
+                            
+                            <asp:Label ID="lblLoadingDist" runat="server" Text='<%# (Eval("howFar").ToString() == "") ? "N/A" : Eval("howFar")%>'></asp:Label> 
+                        
+
+                     </div>
+               
+                            </ItemTemplate>
+                            </asp:FormView>
+
+
+                         </div>
+
+                       <div class="form-group row justify-content-around">
+                        <div class="card card-body mb-2 col-6">
+                        <h5>Move Crew Assignments</h5>
+                        <%-- Assign Crew --%>
+                        <div class="row">
+                            <div class="col">
+                                <asp:DropDownList
+                                    ID="ddlMoveCrew"
+                                    runat="server"
+                                    class="form-control"
+                                    DataSourceID="srcAllEmployees"
+                                    DataTextField="employeeName"
+                                    DataValueField="employeeID">
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col mt-3">
+                                <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" class="btn btn-primary" />
+                            </div>
+
+                            
+
+                        </div>
+
+                        <div class="row col-6">
+                            <asp:ListView
+                                ID="ListView1"
+                                runat="server"
+                                DataKeyNames="employeeID"
+                                DataSourceID="srcMoveCrew">
+                                <LayoutTemplate>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr id="itemPlaceholder" runat="server"></tr>
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblEmployee" runat="server" Text='<%# Eval("firstName") + " " + Eval("lastName")  %>'></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete"><i class="fas fa-times"></i></asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
+
+                        <asp:SqlDataSource
+                            ID="srcMoveCrew"
+                            runat="server"
+                            ConnectionString="<%$ ConnectionStrings:Connect %>"
+                            SelectCommand="Select * from employee inner join assignment on employee.employeeID = assignment.employeeID where assignment.serviceID = @serviceID and employeeRole='move'"
+                            InsertCommand="Insert into assignment values(@employeeID, @serviceID, 'move')"
+                            DeleteCommand="Delete from assignment where employeeID=@employeeID and serviceID=@serviceID and employeeRole='move'">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            </SelectParameters>
+                            <InsertParameters>
+                                <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                <asp:ControlParameter Name="employeeID" ControlID="ddlMoveCrew" />
+                            </InsertParameters>
+                            <DeleteParameters>
+                                <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            </DeleteParameters>
+                        </asp:SqlDataSource>
+                    </div>
+                             </div>
                        
 
 
@@ -465,9 +545,147 @@
 
                     </div>
                 
-                </li>
+                </li> <%--end move service order--%>
+<%-- Trash Service Order --%>
+                <li class="list-group-item">
+                    <h4>Trash Removal Service Order</h4>
+                    <div class="form-group row justify-content-around">
+                    
 
+                    <div class="card card-body mb-2 col-6">
+                        <h5>Trash Crew Assignments</h5>
+                        <%-- Assign Crew --%>
+                        <div class="row">
+                            <div class="col">
+                                <asp:DropDownList
+                                    ID="ddlTrashCrew"
+                                    runat="server"
+                                    class="form-control"
+                                    DataSourceID="srcAllEmployees"
+                                    DataTextField="employeeName"
+                                    DataValueField="employeeID">
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col mt-3">
+                                <asp:Button ID="btnAddToTrashCrew" runat="server" Text="Add" OnClick="btnAddToTrashCrew_Click" class="btn btn-primary" />
+                            </div>
+
+                            
+
+                        </div>
+
+                        <div class="row col-6">
+                            <asp:ListView
+                                ID="lvTrashCrew"
+                                runat="server"
+                                DataKeyNames="employeeID"
+                                DataSourceID="srcTrashCrew">
+                                <LayoutTemplate>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr id="itemPlaceholder" runat="server"></tr>
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblEmployee" runat="server" Text='<%# Eval("firstName") + " " + Eval("lastName")  %>'></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete"><i class="fas fa-times"></i></asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
+
+                        <asp:SqlDataSource
+                            ID="srcTrashCrew"
+                            runat="server"
+                            ConnectionString="<%$ ConnectionStrings:Connect %>"
+                            SelectCommand="Select * from employee inner join assignment on employee.employeeID = assignment.employeeID where assignment.serviceID = @serviceID and employeeRole='trash'"
+                            InsertCommand="Insert into assignment values(@employeeID, @serviceID, 'trash')"
+                            DeleteCommand="Delete from assignment where employeeID=@employeeID and serviceID=@serviceID and employeeRole='trash'">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            </SelectParameters>
+                            <InsertParameters>
+                                <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                <asp:ControlParameter Name="employeeID" ControlID="ddlTrashCrew" />
+                            </InsertParameters>
+                            <DeleteParameters>
+                                <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                            </DeleteParameters>
+                        </asp:SqlDataSource>
+                    </div>
+
+
+                    <asp:SqlDataSource
+                        ID="srcService"
+                        runat="server"
+                        ConnectionString="<%$ ConnectionStrings:Connect %>"
+                        SelectCommand="Select * from moveAssessment  where moveAssessment.serviceID = @serviceID and moveAssessment.trash=1"
+                        UpdateCommand="Update moveAssessment set dumpster = @dumpster, men=@men trash=@trash, trashdesc=@trashdesc where serviceID=@serviceID">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </SelectParameters>
+                        <UpdateParameters>
+                            <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                        </UpdateParameters>
+                    </asp:SqlDataSource>
+
+                    <asp:FormView
+                        ID="fvTrash"
+                        runat="server"
+                        DefaultMode="Edit"
+                        DataSourceID="srcService">
+                        <EmptyDataTemplate>
+                        </EmptyDataTemplate>
+                        <EditItemTemplate>
+                            
+                            <%--<div class="row">
+                                <%--<div class="col">
+                                    <asp:CheckBox ID="chDumpster" Checked='<%# Bind("dumpster")%>' Text="Need Dumpster?" runat="server" />
+                                </div>--%>
+
+                                <%--<div class="col">
+                                    <asp:Label ID="lblMen" For="txtMen" runat="server" Text="Men Needed"></asp:Label>
+                                    <asp:TextBox ID="txtMen" Text='<%# Bind("men")%>' TextMode="Number" Class="form-control" runat="server"></asp:TextBox>
+                                </div>--%>
+                                <%--<div class="col">
+                                    <asp:Label ID="lblCharge" For="txtCharge" runat="server" Text="Cost"></asp:Label>
+                                    <asp:TextBox ID="txtCharge" Text='<%# Bind("trash")%>' Class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>--%>
+
+                            <div class="card card-body mb-2">
+                                <h5>Trash Description</h5>
+                                <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator 
+                                    id="revEquipment"  
+                                    runat="server"
+                                    ControlToValidate="txtTrashDesc" 
+                                    ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
+                                    ErrorMessage="Invalid Input" 
+                                    ForeColor="Red">
+                                </asp:regularexpressionvalidator>
+                            </div>
+<%--                            <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>--%>
+                        </EditItemTemplate>
+                    </asp:FormView>
+
+
+
+
+
+                </li>
+                
             </ul>
+
         </div>
+
+        </div>
+
     </div>
 </asp:Content>

@@ -33,9 +33,8 @@ namespace GreenValleySystem
                 Session["InvalidUse"] = "You must be logged in to view this page.";
                 Response.Redirect("login.aspx");
             }
-
-            
-            
+           
+  
         }
 
         protected void btnNewAddress_Click(object sender, EventArgs e)

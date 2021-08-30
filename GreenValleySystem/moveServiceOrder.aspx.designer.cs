@@ -105,24 +105,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.SqlDataSource srcPacking;
 
         /// <summary>
-        /// fvTrash control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvTrash;
-
-        /// <summary>
-        /// srcService control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource srcService;
-
-        /// <summary>
         /// fvAssessment control.
         /// </summary>
         /// <remarks>
@@ -141,6 +123,15 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.FormView FormView1;
 
         /// <summary>
+        /// fvPackingCartons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvPackingCartons;
+
+        /// <summary>
         /// fvTruck control.
         /// </summary>
         /// <remarks>
@@ -150,13 +141,40 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.FormView fvTruck;
 
         /// <summary>
-        /// fvPackingCartons control.
+        /// ddlMoveCrew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvPackingCartons;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMoveCrew;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// ListView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListView1;
+
+        /// <summary>
+        /// srcMoveCrew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcMoveCrew;
 
         /// <summary>
         /// srcAssessment control.
@@ -184,5 +202,59 @@ namespace GreenValleySystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource srcCube;
+
+        /// <summary>
+        /// ddlTrashCrew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTrashCrew;
+
+        /// <summary>
+        /// btnAddToTrashCrew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddToTrashCrew;
+
+        /// <summary>
+        /// lvTrashCrew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvTrashCrew;
+
+        /// <summary>
+        /// srcTrashCrew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcTrashCrew;
+
+        /// <summary>
+        /// srcService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource srcService;
+
+        /// <summary>
+        /// fvTrash control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvTrash;
     }
 }
