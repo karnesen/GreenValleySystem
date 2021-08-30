@@ -611,7 +611,8 @@
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
                                     
-                                    
+                           <asp:LinkButton ID="LinkButton1" CommandName="Update" runat="server" class="mb-2" OnClick="btnSaveTab3_Click">Save</asp:LinkButton>
+
 
                                     
                                     <table class="table table-condensed">
@@ -919,7 +920,7 @@
                                 DataSourceID="srcCubeSheetDiningRoom"
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
-                                   
+                                   <asp:LinkButton ID="LinkButton2" CommandName="Update" runat="server" class="mb-2" OnClick="btnSaveTab3_Click">Save</asp:LinkButton>
                                     
                                     <table class="table table-condensed">
                                         <tbody>
@@ -1021,7 +1022,7 @@
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
                                   
-                                    
+                                    <asp:LinkButton ID="LinkButton3" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
 
                                     <table class="table table-condensed">
                                         <tbody>
@@ -1121,7 +1122,7 @@
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
                                     
-                                    
+                                    <asp:LinkButton ID="LinkButton4" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
 
                                     <table class="table table-condensed">
                                         <tbody>
@@ -1303,7 +1304,7 @@
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
                                     
-                                   
+                                   <asp:LinkButton ID="LinkButton5" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
 
                                     <table class="table table-condensed">
                                         <tbody>
@@ -1413,6 +1414,7 @@
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
                                    
+                                    <asp:LinkButton ID="LinkButton6" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                    
 
                                     <table class="table table-condensed">
@@ -1650,7 +1652,7 @@
                                 <EditItemTemplate>
                                     
                                    
-
+                                    <asp:LinkButton ID="LinkButton7" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                               
 
                                     <table class="table table-condensed">
@@ -1815,7 +1817,7 @@
                                 <EditItemTemplate>
                                     
                                    
-
+                                    <asp:LinkButton ID="LinkButton8" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                  
 
                                     <table class="table table-condensed">
@@ -2322,6 +2324,7 @@
                                 DefaultMode="Edit">
                                 <EditItemTemplate>
                                    
+                                    <asp:LinkButton ID="LinkButton9" CommandName="Update" runat="server" OnClick="btnSaveTab3_Click" class="mb-2">Save</asp:LinkButton>
                                    
 
                                     <table class="table table-condensed">
