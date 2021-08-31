@@ -1125,25 +1125,50 @@ namespace GreenValleySystem
 
         protected void btnAddInventory_Click(object sender, EventArgs e)
         {
-            string serviceID = Session["SelectedService"].ToString();
-            string sqlQuery = "Insert into inventoryCatalog(serviceID,invDesc) values("+serviceID+","+"'"+txtInvDesc.Text.ToString()+"'"+")";
+            //string serviceID = Session["SelectedService"].ToString();
+            //string sqlQuery = "Insert into inventoryCatalog(serviceID,invDesc) values("+serviceID+","+"'"+txtInvDesc.Text.ToString()+"'"+")";
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
-            // Create the SQL Command object which will send the query:
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = sqlConnect;
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = sqlQuery;
-            // Open your connection, send the query, retrieve the results:
-            sqlConnect.Open();
-            SqlDataReader queryResults = sqlCommand.ExecuteReader();
-            
-            Response.Redirect("auctionAssessment.aspx");
+            //SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            //// Create the SQL Command object which will send the query:
+            //SqlCommand sqlCommand = new SqlCommand();
+            //sqlCommand.Connection = sqlConnect;
+            //sqlCommand.CommandType = CommandType.Text;
+            //sqlCommand.CommandText = sqlQuery;
+            //// Open your connection, send the query, retrieve the results:
+            //sqlConnect.Open();
+            //SqlDataReader queryResults = sqlCommand.ExecuteReader();
 
-            
-            sqlConnect.Close();
+
+
+
+            //sqlConnect.Close();
+
+            srcInvCatalog.Insert();
             
             keepOpen();
+        }
+
+        protected void btnPrintInventory_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "selectedrows"));
+            Response.Charset = "";
+
+            System.IO.StringWriter stringWriter = new System.IO.StringWriter();
+            HtmlTextWriter htmlwriter = new HtmlTextWriter(stringWriter);
+
+            gvInvCatalog.RenderControl(htmlwriter);
+
+
+            Response.Output.Write(stringWriter.ToString());
+            Response.End();
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
         }
     }
 }
