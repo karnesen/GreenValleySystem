@@ -208,12 +208,17 @@
                           DataSourceID="srcCubeSheet"
                           class="table table-bordered table-condensed table-hover"
                           OnSelectedIndexChanged="gvCubeSheet_SelectedIndexChanged"
-                          AutoGenerateSelectButton="true">
+                          AutoGenerateSelectButton="true"
+                          UseAccessibleHeaderText="true">
                           <HeaderStyle BackColor="#266141" ForeColor="White" />
-
+                         
+                             
+                        
                       </asp:GridView>
                   </div>
               </div>
+
+             
 
 
 

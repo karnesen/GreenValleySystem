@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Web.UI.HtmlControls;
+using System.Web.Configuration;
 
 namespace GreenValleySystem
 {
@@ -189,18 +194,134 @@ namespace GreenValleySystem
 
         protected void gvCubeSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (gvCubeSheet.SelectedRow.Cells[0].Text == "Customer")
+            //if (gvCubeSheet.SelectedRow.Cells[0].Text == "Customer")
+            //{
+            //}
+            //else
+            //{
+            //    Session["selectedCustomer"] = gvCubeSheet.SelectedValue.ToString();
+            //    Session["selectedCustomerName"] = gvCubeSheet.SelectedRow.Cells[2].Text + " " + gvCubeSheet.SelectedRow.Cells[3].Text;
+
+
+            //    Response.Redirect("customerProfile.aspx");
+            //    //Response.Redirect("customerProfile.aspx");
+            //}
+
+            //testing
+            //print
+            String sqlQuery = "select COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'cubeSheet'";
+
+            // Define the connection to the Database:
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
+            // Create the SQL Command object which will send the query:
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+            // Open your connection, send the query, retrieve the results:
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+            string headersString = "";
+            while (queryResults.Read())
             {
-            }
-            else
-            {
-                Session["selectedCustomer"] = gvCubeSheet.SelectedValue.ToString();
-                Session["selectedCustomerName"] = gvCubeSheet.SelectedRow.Cells[2].Text + " " + gvCubeSheet.SelectedRow.Cells[3].Text;
                 
 
-                Response.Redirect("customerProfile.aspx");
-                //Response.Redirect("customerProfile.aspx");
+                headersString += queryResults["COLUMN_NAME"]+" 69 ";
+
+               
+
             }
+            // Close all related connections
+            queryResults.Close();
+            sqlConnect.Close();
+
+
+
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "selectedrows"));
+            Response.Charset = "";
+            //gridviews for printing
+
+
+            using (System.IO.StringWriter stringWriter = new System.IO.StringWriter())
+            {
+                HtmlTextWriter htmlwriter = new HtmlTextWriter(stringWriter);
+                gvCubeSheet.AllowPaging = false;
+                gvCubeSheet.HeaderRow.BackColor = gvCubeSheet.HeaderRow.BackColor;
+               
+                
+
+                foreach(TableCell cell in gvCubeSheet.HeaderRow.Cells)
+                {
+                    
+                    cell.BackColor = gvCubeSheet.HeaderStyle.BackColor;
+                    
+                }
+                foreach(GridViewRow row in gvCubeSheet.Rows)
+                {
+                    row.BackColor = gvCubeSheet.RowStyle.BackColor;
+                    
+                    foreach(TableCell cell in row.Cells)
+                    {
+                        if(row.RowIndex % 2 == 0)
+                        {
+                            cell.BackColor = gvCubeSheet.AlternatingRowStyle.BackColor;
+                        }
+                        else
+                        {
+                            cell.BackColor = gvCubeSheet.RowStyle.BackColor;
+                        }
+                        cell.CssClass = "textmode";
+                    }
+
+
+                    //format header string for printing
+                    List<string> headersArray = new List<string>(
+                        headersString.Split(new string[] { "69" }, StringSplitOptions.None));
+
+
+                    Response.Write("<table>");
+                    string style = @"<style> .textmode{mso-number-format:\@;}</style>";
+                    Response.Write(style);
+                    Response.Write("<td></td>");
+                    Response.Write("<td>Customer ID</td>");
+                    Response.Write("<td>First Name</td>");
+                    Response.Write("<td>Last Name</td>");
+                    for (int i = 0; i < headersArray.Count; i++)
+                    {
+                        Response.Write("<td>");
+                        Response.Write(headersArray[i]);
+                        Response.Write("</td>");
+
+                    }
+                    gvCubeSheet.SelectedRow.RenderControl(htmlwriter);
+                   
+
+                    Response.Output.Write(stringWriter.ToString());
+                    Response.Write("</table>");
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+            
+
+            
+
+
+
+            
+
+
+
+
+            
+            
+
+
+
         }
     }
 
