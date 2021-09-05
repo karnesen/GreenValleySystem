@@ -226,6 +226,7 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="searchResults.aspx" />
     <Content Include="systemAnalytics.aspx" />
+    <Content Include="updateCrewList.aspx" />
     <Content Include="updateEmployees.aspx" />
     <Content Include="updateResources.aspx" />
     <Content Include="Web.config" />
@@ -452,6 +453,13 @@
     </Compile>
     <Compile Include="systemAnalytics.aspx.designer.cs">
       <DependentUpon>systemAnalytics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateCrewList.aspx.cs">
+      <DependentUpon>updateCrewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateCrewList.aspx.designer.cs">
+      <DependentUpon>updateCrewList.aspx</DependentUpon>
     </Compile>
     <Compile Include="updateEmployees.aspx.cs">
       <DependentUpon>updateEmployees.aspx</DependentUpon>
