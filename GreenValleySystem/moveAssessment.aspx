@@ -487,7 +487,55 @@
                                     </div>
                                 </div>
                             </div>
+                                <%-- Assign Trucks --%>
+                            <div class="card card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <asp:DropDownList
+                                            ID="ddlTrucks"
+                                            runat="server"
+                                            class="form-control"
+                                            DataSourceID="srcAllTrucks"
+                                            DataTextField="equipmentType"
+                                            DataValueField="equipmentID">
+                                        </asp:DropDownList>
+                                    </div>
+                                    <div class="col">
+                                        <asp:Button ID="btnEquipment" runat="server" Text="Add" OnClick="btnEquipment_Click" class="btn btn-primary"/>
+                                    </div>
+                                </div>
+                                <asp:SqlDataSource
+                                    ID="srcAllTrucks"
+                                    runat="server"
+                                    ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                    SelectCommand="Select * from Equipment where active=1"></asp:SqlDataSource>
 
+                                <div class="row col-6">
+                                    <asp:ListView
+                                        ID="lvTrucks"
+                                        runat="server"
+                                        DataKeyNames="equipmentID"
+                                        DataSourceID="srcTrucks">
+                                        <LayoutTemplate>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr id="itemPlaceholder" runat="server"></tr>
+                                                </tbody>
+                                            </table>
+                                        </LayoutTemplate>
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="lblTruck" runat="server" Text='<%# Bind("equipmentType") %>'></asp:Label>
+                                                </td>
+                                                <td>
+                                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete"><i class="fas fa-times"></i></asp:LinkButton>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                            </div>
                             <asp:LinkButton ID="lnkButtonSave" CommandName="Update" OnClick="lnkButtonSave_Click" runat="server" Class="btn btn-outline-primary">Save</asp:LinkButton>
 
                         </EditItemTemplate>
@@ -511,55 +559,7 @@
                         </SelectParameters>
                     </asp:SqlDataSource>
 
-                    <%-- Assign Trucks --%>
-                    <div class="card card-body">
-                        <div class="row">
-                            <div class="col">
-                                <asp:DropDownList
-                                    ID="ddlTrucks"
-                                    runat="server"
-                                    class="form-control"
-                                    DataSourceID="srcAllTrucks"
-                                    DataTextField="equipmentType"
-                                    DataValueField="equipmentID">
-                                </asp:DropDownList>
-                            </div>
-                            <div class="col">
-                                <asp:Button ID="btnEquipment" runat="server" Text="Add" OnClick="btnEquipment_Click" class="btn btn-primary"/>
-                            </div>
-                        </div>
-                        <asp:SqlDataSource
-                            ID="srcAllTrucks"
-                            runat="server"
-                            ConnectionString="<%$ ConnectionStrings:Connect %>"
-                            SelectCommand="Select * from Equipment where active=1"></asp:SqlDataSource>
-
-                        <div class="row col-6">
-                            <asp:ListView
-                                ID="lvTrucks"
-                                runat="server"
-                                DataKeyNames="equipmentID"
-                                DataSourceID="srcTrucks">
-                                <LayoutTemplate>
-                                    <table class="table">
-                                        <tbody>
-                                            <tr id="itemPlaceholder" runat="server"></tr>
-                                        </tbody>
-                                    </table>
-                                </LayoutTemplate>
-                                <ItemTemplate>
-                                    <tr>
-                                        <td>
-                                            <asp:Label ID="lblTruck" runat="server" Text='<%# Bind("equipmentType") %>'></asp:Label>
-                                        </td>
-                                        <td>
-                                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete"><i class="fas fa-times"></i></asp:LinkButton>
-                                        </td>
-                                    </tr>
-                                </ItemTemplate>
-                            </asp:ListView>
-                        </div>
-                    </div>
+                    
 
                     <asp:SqlDataSource
                         ID="srcTrucks"

@@ -13,6 +13,10 @@
                             <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" Class="btn btn-outline-primary" Font-Size="X-Large"
                                 CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
                             
+
+
+                            
+                            
                         </li>
 
                         <li class="list-group-item">
@@ -181,7 +185,7 @@
                                         <div style="width:50%;float:right">
 
 
-                                    <asp:DropDownList ID="txtNoteTitle" runat="server" CssClass="form-control col-4">
+                                    <asp:DropDownList ID="txtNoteTitle" runat="server" CssClass="form-control col-6">
                                             <asp:ListItem>Move</asp:ListItem>
                                             <asp:ListItem>Auction</asp:ListItem>
                                             <asp:ListItem>Consignment Shop</asp:ListItem>
@@ -193,7 +197,7 @@
 
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteTitle" Text="Please create a title." style="color:red"></asp:RequiredFieldValidator>
 
-                                        <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" class="form-control col-4" Rows="5"></asp:TextBox>
+                                        <asp:TextBox ID="txtNoteBody" runat="server" TextMode="MultiLine" Placeholder="Note Body" class="form-control col-6" Rows="5"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="newNote" ControlToValidate="txtNoteBody" Text="Please enter note body." style="color:red"></asp:RequiredFieldValidator>
                                     
                                     <div class="form-group">
@@ -471,6 +475,9 @@
                                                         <div class="col">
                                                             <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" class="form-control" OnClick="keepOpen_Click" />
                                                         </div>
+                                                        <div class="col">
+                                                            <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete" class="form-control" OnClick="keepOpen_Click" />
+                                                        </div>
                                                     </div>
                                                 </EditItemTemplate>
                                             </asp:FormView>
@@ -487,7 +494,8 @@
                                         values(@serviceID, @description, parse(@custDateOption1 as dateTime), parse(@custDateOption2 as dateTime), parse(@custDateOption3 as dateTime),  parse(@empDateOption1 as dateTime), parse(@empDateOption2 as dateTime), parse(@empDateOption3 as dateTime), parse(@confirmedDate as dateTime))"
                                                 UpdateCommand="Update schedule set
                                             custDateOption1=parse(@custDateOption1 as dateTime), custDateOption2=parse(@custDateOption2 as dateTime) , custDateOption3=parse(@custDateOption3 as dateTime), empDateOption1=parse(@empDateOption1 as dateTime),  empDateOption2= parse(@empDateOption2 as dateTime), empDateOption3= parse(@empDateOption3 as dateTime),  confirmedDate= parse(@confirmedDate as dateTime)  
-                                            where serviceID=@serviceID and description=@description">
+                                            where serviceID=@serviceID and description=@description"
+                                                DeleteCommand="delete from Schedule where serviceID=@serviceID and description=@description">
                                                 <SelectParameters>
                                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                                     <asp:SessionParameter Name="description" SessionField="selectedDescription" />
@@ -513,6 +521,10 @@
                                                     <asp:Parameter Name="empDateOption3" ConvertEmptyStringToNull="true" />
                                                     <asp:Parameter Name="confirmedDate" ConvertEmptyStringToNull="true" />
                                                 </UpdateParameters>
+                                                <DeleteParameters>
+                                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                                    <asp:SessionParameter Name="description" SessionField="selectedDescription" />
+                                                </DeleteParameters>
                                             </asp:SqlDataSource>
                                         </div>
                                     </div>

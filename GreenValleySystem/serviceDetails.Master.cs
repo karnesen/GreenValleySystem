@@ -19,7 +19,7 @@ namespace GreenValleySystem
         public string state3 = "tab-pane fade show active";
         public string state4 = "nav-link active";
         public string state5 = "nav-link";
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             //lblCustomer.Text = Session["selectedCustomerName"].ToString();
@@ -80,10 +80,13 @@ namespace GreenValleySystem
                 lvNotes.DataBind();
                 state = "collapse-show";
             }
+            
+         
         }
 
         protected void keepOpen_Click(object sender, EventArgs e)
         {
+            
             state = "collapse show";
             state2 = "tab-pane fade show active";
             state3 = "tab-pane fade";

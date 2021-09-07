@@ -186,42 +186,6 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.SqlDataSource srcAssessment;
 
         /// <summary>
-        /// ddlTrucks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTrucks;
-
-        /// <summary>
-        /// btnEquipment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEquipment;
-
-        /// <summary>
-        /// srcAllTrucks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource srcAllTrucks;
-
-        /// <summary>
-        /// lvTrucks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvTrucks;
-
-        /// <summary>
         /// srcTrucks control.
         /// </summary>
         /// <remarks>

@@ -130,10 +130,10 @@
             <div class="form-group col-5">
                 <asp:Label ID="lblStartDate" runat="server" Text="Start Date" for="txtStartDate"></asp:Label>
                 <asp:TextBox ID="txtStartDate" runat="server" Placeholder="Start Date" class="form-control" TextMode="DateTimeLocal"></asp:TextBox>
-                <%--<asp:RequiredFieldValidator ID="rfvStartDate" runat="server"
+                <asp:RequiredFieldValidator ID="rfvStartDate" runat="server"
                     ErrorMessage="RequiredFieldValidator" ControlToValidate="txtStartDate"
-                    Text="Please Select a Start Date" ValidationGroup="CreateCustomer">
-                </asp:RequiredFieldValidator>--%>
+                    Text="Please Select a Start Date" ValidationGroup="MoveRequest">
+                </asp:RequiredFieldValidator>
             </div>
 
             <div class="form-group col-5">
