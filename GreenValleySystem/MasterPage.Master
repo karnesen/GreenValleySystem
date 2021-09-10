@@ -48,7 +48,7 @@
                             <%--<a class="dropdown-item" href="newAuction.aspx">Schedule Auction</a>--%>
                             <a class="dropdown-item" href="updateResources.aspx">Update Equipment</a>
                             <a class="dropdown-item" href="updateEmployees.aspx">Update Employees</a>
-                            <a class="dropdown-item" href="updateCrewList.aspx">Update Crews</a>
+                            <%--<a class="dropdown-item" href="updateCrewList.aspx">Update Crews</a>--%>
                         </div>
                     </li>
                 </ul>

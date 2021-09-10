@@ -206,26 +206,26 @@
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                     <h6>Building Type</h6>
-                                <asp:Label ID="lblApartment" runat="server" Text="Apartment: "></asp:Label>
+                                
 
-                                <asp:Label ID="lblApartmentStatus" runat="server" Text='<%# Bind("apartment") %>'></asp:Label>
+                                <asp:Label ID="lblApartmentStatus" runat="server" Text='<%#(Eval("apartment").ToString() == "True") ? "Apartment Selected" : " " %>'></asp:Label>
                             
                                
                                 <br />
                                     
-                                    <asp:Label ID="lblHouse" runat="server" Text="House: "></asp:Label>
+                              
 
-                                    <asp:Label ID="lblHouseStatus" runat="server" Text='<%# Bind("house") %>'></asp:Label>
+                                    <asp:Label ID="lblHouseStatus" runat="server" Text='<%#(Eval("house").ToString() == "True") ? "House Selected" : " " %>'></asp:Label>
                                 <br />
 
-                                    <asp:Label ID="lblStorageUnit" runat="server" Text="Sorage Unit: "></asp:Label>
+                               
 
-                                    <asp:Label ID="lblStorageUnitStatus" runat="server" Text='<%# Bind("storageUnit") %>'></asp:Label>
+                                    <asp:Label ID="lblStorageUnitStatus" runat="server" Text='<%#(Eval("storageUnit").ToString() == "True") ? "Storage Unit Selected" : " " %>'></asp:Label>
                                 <br />
                                 
-                                    <asp:Label ID="lblBusiness" runat="server" Text="Place Of Business: "></asp:Label>
+                                   
 
-                                    <asp:Label ID="lbBusinessStatus" runat="server" Text='<%# Bind("business") %>'></asp:Label>
+                                    <asp:Label ID="lbBusinessStatus" runat="server" Text='<%#(Eval("business").ToString() == "True") ? "Business Selected" : " " %>'></asp:Label>
                                 </div>
                             
                            
@@ -260,6 +260,61 @@
                                     
                                     <asp:Label ID="lblOut" runat="server" Text='<%# Eval("outdoor") %>' style="font:bold"></asp:Label>
                                 </div>
+                        <asp:FormView
+                        ID="fvPackingCartons"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcCube"
+                     
+                        runat="server">
+                        <ItemTemplate>
+
+                 
+
+                        <div class="mb-2">
+                        
+                            <h6>Cartons / Packing</h6>
+                            <asp:Label ID="lblBookCarton1" runat="server" Text="Small Book Cartons: "></asp:Label> 
+                            <asp:Label ID="lblBookCarton" runat="server" Text='<%# Bind("smallBooks")%>'></asp:Label> 
+                      
+                            <br />
+                    
+                          
+                            <asp:Label ID="lblSmallCarton1" runat="server" Text="Small Cartons"></asp:Label> 
+                            <asp:Label ID="lblSmallCarton" runat="server" Text='<%# Bind("smallCartons")%>'></asp:Label> 
+                     
+
+                            <br />
+                    
+                          
+                            <asp:Label ID="lblMedCarton1" runat="server" Text="Medium Cartons: "></asp:Label> 
+                            <asp:Label ID="lblMedCarton" runat="server" Text='<%# Bind("mediumCartons")%>'></asp:Label> 
+                
+                            <br />
+                             
+               
+                            
+                            <asp:Label ID="lblLargeCarton1" runat="server" Text="Large Cartons: "></asp:Label> 
+                            <asp:Label ID="lblLargeCarton" runat="server" Text='<%# Bind("largeCartons")%>'></asp:Label> 
+                  
+
+                            <br />
+                 
+                           
+                            <asp:Label ID="lblXLCarton1" runat="server" Text="XL Cartons: "></asp:Label> 
+                            <asp:Label ID="lblXLCarton" runat="server" Text='<%# Bind("XLCartons")%>'></asp:Label> 
+                   
+                            <br />
+                             
+                   
+                            
+                            <asp:Label ID="lblMirrorCarton1" runat="server" Text="Mirror Cartons: "></asp:Label> 
+                            <asp:Label ID="lblMirrorCarton" runat="server" Text='<%# Bind("mirrorCarton")%>'></asp:Label> 
+                        </div>
+                  
+
+
+                            </ItemTemplate>
+                            </asp:FormView>
                                 </div>
 
                                 
@@ -329,61 +384,7 @@
 
          
 
-                        <asp:FormView
-                        ID="fvPackingCartons"
-                        DefaultMode="ReadOnly"
-                        DataSourceID="srcCube"
-                     
-                        runat="server">
-                        <ItemTemplate>
-
-                 
-
-                        <div class="mb-2">
                         
-                            <h6>Cartons / Packing</h6>
-                            <asp:Label ID="lblBookCarton1" runat="server" Text="Small Book Cartons: "></asp:Label> 
-                            <asp:Label ID="lblBookCarton" runat="server" Text='<%# Bind("smallBooks")%>'></asp:Label> 
-                      
-                            <br />
-                    
-                          
-                            <asp:Label ID="lblSmallCarton1" runat="server" Text="Small Cartons"></asp:Label> 
-                            <asp:Label ID="lblSmallCarton" runat="server" Text='<%# Bind("smallCartons")%>'></asp:Label> 
-                     
-
-                            <br />
-                    
-                          
-                            <asp:Label ID="lblMedCarton1" runat="server" Text="Medium Cartons: "></asp:Label> 
-                            <asp:Label ID="lblMedCarton" runat="server" Text='<%# Bind("mediumCartons")%>'></asp:Label> 
-                
-                            <br />
-                             
-               
-                            
-                            <asp:Label ID="lblLargeCarton1" runat="server" Text="Large Cartons: "></asp:Label> 
-                            <asp:Label ID="lblLargeCarton" runat="server" Text='<%# Bind("largeCartons")%>'></asp:Label> 
-                  
-
-                            <br />
-                 
-                           
-                            <asp:Label ID="lblXLCarton1" runat="server" Text="XL Cartons: "></asp:Label> 
-                            <asp:Label ID="lblXLCarton" runat="server" Text='<%# Bind("XLCartons")%>'></asp:Label> 
-                   
-                            <br />
-                             
-                   
-                            
-                            <asp:Label ID="lblMirrorCarton1" runat="server" Text="Mirror Cartons: "></asp:Label> 
-                            <asp:Label ID="lblMirrorCarton" runat="server" Text='<%# Bind("mirrorCarton")%>'></asp:Label> 
-                        </div>
-                  
-
-
-                            </ItemTemplate>
-                            </asp:FormView>
 
 
                              <asp:FormView
@@ -546,8 +547,9 @@
                     </div>
                 
                 </li> <%--end move service order--%>
-<%-- Trash Service Order --%>
-                <li class="list-group-item">
+
+                <%-- Trash Service Order --%>
+                <li class='<%= trashCollapse %>'>
                     <h4>Trash Removal Service Order</h4>
                     <div class="form-group row justify-content-around">
                     
@@ -675,7 +677,7 @@
                         </EditItemTemplate>
                     </asp:FormView>
 
-
+                    </div>
 
 
 

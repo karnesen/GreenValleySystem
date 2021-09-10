@@ -14,6 +14,7 @@ namespace GreenValleySystem
     public partial class moveServiceOrder : System.Web.UI.Page
     {
         public string packingCollapse = "list-group-item collapse";
+        public string trashCollapse = "list-group-item collapse";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +24,7 @@ namespace GreenValleySystem
                 Response.Redirect("login.aspx");
             }
 
-            String sqlQuery = "Select packing from moveAssessment where serviceID = " + Session["selectedService"].ToString();
+            String sqlQuery = "Select packing, trash from moveAssessment where serviceID = " + Session["selectedService"].ToString();
 
             // Define the connection to the Database:
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -37,14 +38,21 @@ namespace GreenValleySystem
             SqlDataReader queryResults = sqlCommand.ExecuteReader();
             while (queryResults.Read())
             {
-                if (queryResults.GetBoolean(0))
+                if (queryResults["packing"].ToString()=="True")
                     packingCollapse = "list-group-item";
+                if (queryResults["trash"].ToString() == "True")
+                    trashCollapse = "list-group-item";
             }
             // Close all related connections
             queryResults.Close();
             sqlConnect.Close();
 
+
+
            
+            
+
+
 
 
 
