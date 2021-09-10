@@ -135,7 +135,7 @@
                                 ID="srcAllEmployees"
                                 runat="server"
                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
-                                SelectCommand="Select employeeID, firstName + ' ' + lastName as employeeName from Employee where currentEmployee=1"></asp:SqlDataSource>
+                                SelectCommand="Select employeeID, firstName + ' ' + lastName as employeeName from Employee where position = 'Mover'"></asp:SqlDataSource>
 
                         </div>
 
@@ -628,7 +628,7 @@
                         runat="server"
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
                         SelectCommand="Select * from moveAssessment  where moveAssessment.serviceID = @serviceID and moveAssessment.trash=1"
-                        UpdateCommand="Update moveAssessment set dumpster = @dumpster, men=@men trash=@trash, trashdesc=@trashdesc where serviceID=@serviceID">
+                        UpdateCommand="Update moveAssessment set dumpster = @dumpster, men=@men trash=@trash where serviceID=@serviceID">
                         <SelectParameters>
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </SelectParameters>
@@ -661,7 +661,7 @@
                                 </div>
                             </div>--%>
 
-                            <div class="card card-body mb-2">
+                            <%--<div class="card card-body mb-2">
                                 <h5>Trash Description</h5>
                                 <asp:TextBox ID="txtTrashDesc" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" Class="form-control" runat="server"></asp:TextBox>
                                 <asp:RegularExpressionValidator 
@@ -672,7 +672,7 @@
                                     ErrorMessage="Invalid Input" 
                                     ForeColor="Red">
                                 </asp:regularexpressionvalidator>
-                            </div>
+                            </div>--%>
 <%--                            <asp:LinkButton ID="lbtnSave" CommandName="Update" runat="server">Save</asp:LinkButton>--%>
                         </EditItemTemplate>
                     </asp:FormView>

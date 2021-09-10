@@ -66,7 +66,7 @@
 
                                 </div>
                             </div>
-                            <asp:TextBox ID="txtTrash" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
+                            <%--<asp:TextBox ID="txtTrash" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
                             <asp:RegularExpressionValidator 
 	                            id="revEquipment"  
                                 runat="server"
@@ -74,7 +74,7 @@
                                 ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
                                 ErrorMessage="Invalid Input" 
                                 ForeColor="Red">
-                            </asp:regularexpressionvalidator>
+                            </asp:regularexpressionvalidator>--%>
                             <asp:LinkButton ID="lnkButtonSave" CommandName="Update"  runat="server" Class="btn btn-outline-primary">Save</asp:LinkButton>
                         </EditItemTemplate>
                     </asp:FormView>
@@ -365,7 +365,7 @@
                         SelectCommand="Select * from Service Inner Join moveAssessment on service.serviceID = moveAssessment.serviceID where service.serviceID = @serviceID"
                         UpdateCommand="Update service set serviceDeadlineStart=parse(@serviceDeadlineStart as dateTime), serviceDeadlineEnd=parse(@serviceDeadlineEnd as dateTime) where serviceID=@serviceID;
                         Update moveAssessment set
-                        packing=@packing, trash=@trash, sendPhotos=@sendPhotos, trashDesc=@trashDesc, mls=@mls where serviceID=@serviceID ; ">
+                        packing=@packing, trash=@trash, sendPhotos=@sendPhotos, mls=@mls where serviceID=@serviceID ; ">
                         <SelectParameters>
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </SelectParameters>
