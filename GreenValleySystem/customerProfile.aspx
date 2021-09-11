@@ -27,7 +27,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <i class="fas fa-phone"></i>
-                                            <asp:Label ID="lblPhoneType" runat="server" Text='<%# Bind("phoneType") %>'></asp:Label>
+                                            <asp:Label ID="lblPhoneType" runat="server" Text='<%# Eval("phoneType").ToString()=="--Please Select--" ? "N/A" : Eval("phoneType")%>'></asp:Label>
                                             <br />
                                             <a href="tel:<%#Eval("phoneNumber") %>"><asp:Label ID="lblPhoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>'></asp:Label></a>
                                             <br />
@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="col">
                                             <i class="fas fa-phone"></i>
-                                            <asp:Label ID="lblPhoneType2" runat="server" Text='<%# Bind("phoneType2") %>'></asp:Label>
+                                            <asp:Label ID="lblPhoneType2" runat="server" Text='<%# Eval("phoneType2").ToString()=="--Please Select--" ? "N/A" : Eval("phoneType2") %>'></asp:Label>
                                             <br />
                                             <a href="tel:<%#Eval("altPhoneNumber") %>"><asp:Label ID="lbllblPhoneNumber2" runat="server" Text='<%# Bind("altPhoneNumber") %>'></asp:Label></a>
                                             <br />

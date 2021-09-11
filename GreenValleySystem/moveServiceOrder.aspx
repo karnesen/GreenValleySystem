@@ -18,10 +18,10 @@
                                 <asp:Label ID="lblName" runat="server" Text='<%# Bind("customerName") %>'></asp:Label>
                             </div>
                             <div class="mb-2">
-                                <asp:Label ID="lblPhone1" runat="server" Text='<%# Bind("phone1") %>'></asp:Label>
+                                <asp:Label ID="lblPhone1" runat="server" Text='<%# Eval("phoneType").ToString()=="--Please Select--" ? Eval("phoneNumber")+" Type N/A" : Eval("phoneNumber")+" "+Eval("phoneType") %>'></asp:Label>
                             </div>
                             <div class="mb-2">
-                                <asp:Label ID="lblPhone2" runat="server" Text='<%# Bind("phone2") %>'></asp:Label>
+                                <asp:Label ID="lblPhone2" runat="server" Text='<%# Eval("phoneType2").ToString()=="--Please Select--" ? Eval("altphoneNumber")+" Type N/A" : Eval("altphoneNumber")+" "+Eval("phoneType2") %>'></asp:Label>
                             </div>
                             <div class="mb-2">
                                 <asp:Label ID="lblCurrentAddress" runat="server" Text='<%# Bind("custAddress") %>'></asp:Label>
@@ -34,7 +34,7 @@
                         ID="srcCustomerInfo"
                         runat="server"
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
-                        SelectCommand="Select firstName + ' ' + lastName as customerName, phoneNumber + ' ' + phoneType as phone1, altphoneNumber + ' ' + phoneType2 as phone2
+                        SelectCommand="Select firstName + ' ' + lastName as customerName, phoneNumber, phoneType, altphoneNumber,phoneType2
             , streetAddress + ', ' + city + ' ' + state + ' ' + zipcode as custAddress from Customer Inner Join service on customer.customerID = service.customerID
             where service.serviceID=@serviceID">
                         <SelectParameters>
