@@ -205,7 +205,7 @@
                         <ItemTemplate>
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
-                                    <h6>Building Type</h6>
+                                    <h6 style="text-decoration:underline">Building Type</h6>
                                 
 
                                 <asp:Label ID="lblApartmentStatus" runat="server" Text='<%#(Eval("apartment").ToString() == "True") ? "Apartment Selected" : " " %>'></asp:Label>
@@ -236,7 +236,7 @@
 
                             
                                 <div class="mb-2">
-                                     <h6>Location Information</h6>
+                                     <h6 style="text-decoration:underline">Location Information</h6>
                                     <asp:Label ID="lblElevator1" runat="server" Text="Elevator: "></asp:Label>
                                     <asp:Label ID="lblElevator" runat="server" Text='<%# Bind("elevator") %>' style="font:bold"></asp:Label>
                                 <br />
@@ -272,7 +272,7 @@
 
                         <div class="mb-2">
                         
-                            <h6>Cartons / Packing</h6>
+                            <h6 style="text-decoration:underline">Cartons / Packing</h6>
                             <asp:Label ID="lblBookCarton1" runat="server" Text="Small Book Cartons: "></asp:Label> 
                             <asp:Label ID="lblBookCarton" runat="server" Text='<%# Bind("smallBooks")%>'></asp:Label> 
                       
@@ -334,13 +334,13 @@
                         runat="server"
                         >
                             <EmptyDataTemplate>
-                                <h6>Assigned Equipment</h6>
+                                <h6 style="text-decoration:underline">Assigned Equipment</h6>
                                 N/A
                             </EmptyDataTemplate>
                         <ItemTemplate>
                   
                         <div class="mb-2">
-                          <h6>Assigned Equipment</h6>
+                          <h6 style="text-decoration:underline">Assigned Equipment</h6>
                            <asp:BulletedList ID="lstTrucks" runat="server" DataSourceID="srcTrucks" DataValueField="equipmentType">
                                <asp:ListItem></asp:ListItem>
                            </asp:BulletedList>
@@ -397,7 +397,7 @@
 
                      <div class="mb-2">
 
-                         <h6>Loading Information</h6>
+                         <h6 style="text-decoration:underline">Loading Information</h6>
                         
                          <asp:Label ID="lblTruckAccess1" runat="server" Text="Truck Accessibility: " style="font:bold"></asp:Label>
                             
@@ -431,7 +431,7 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center">Living Room</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Living Room Information</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
