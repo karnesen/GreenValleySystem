@@ -10,9 +10,11 @@
                         <li class="list-group-item">
                             <%--<asp:Label ID="lblCustomer" runat="server" Class="h5" ></asp:Label>--%>
                             <%--<br />--%>
-                            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" Class="btn btn-outline-primary" Font-Size="X-Large"
+                            <asp:LinkButton ID="lnkButtonReturn" PostBackUrl="customerProfile.aspx" Class="btn btn-outline-primary" Font-Size="Larger"
                                 CausesValidation="false" runat="server">Back to Customer</asp:LinkButton>
-                            
+                            <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="btn btn-outline-primary" data-toggle="collapse" aria-expanded="true" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> Expand Notes/Scheduler</asp:LinkButton>
+                                <a class='<%= state5 %>' id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
+                                <a class='<%= state4 %>' id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
 
 
                             
@@ -26,9 +28,7 @@
                                 <asp:HyperLink ID="lookAt" CssClass="nav-link" runat="server">Assessment Form</asp:HyperLink>
                                 <asp:HyperLink ID="serviceOrder" CssClass="nav-link" runat="server">Service Order Form</asp:HyperLink>
                                 <a class="nav-link" href="completion.aspx">Completion Form</a>
-                                <asp:LinkButton ID="lbtnCollapse" href="#collapseExample" class="nav-link" data-toggle="collapse" aria-expanded="true" aria-controls="collapseExample" runat="server" Text="Button"><i class="fas fa-caret-down"></i> Expand Notes/Scheduler</asp:LinkButton>
-                                <a class='<%= state5 %>' id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false">Schedule</a>
-                                <a class='<%= state4 %>' id="notes-tab" data-toggle="tab" href="#note" role="tab" aria-controls="Notes" aria-selected="true">Notes</a>
+                                
 
                             </nav>
                         </li>

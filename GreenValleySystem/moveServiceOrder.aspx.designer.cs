@@ -132,13 +132,58 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.FormView fvTruck;
 
         /// <summary>
-        /// FormView2 control.
+        /// fvLivingRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FormView2;
+        protected global::System.Web.UI.WebControls.FormView fvLivingRoom;
+
+        /// <summary>
+        /// fvDiningRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvDiningRoom;
+
+        /// <summary>
+        /// fvKitchen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvKitchen;
+
+        /// <summary>
+        /// fvBedroom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvBedroom;
+
+        /// <summary>
+        /// fvNursery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvNursery;
+
+        /// <summary>
+        /// fvPorchOutdoor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvPorchOutdoor;
 
         /// <summary>
         /// srcCubeSheet control.
