@@ -419,7 +419,7 @@
                          </div>
 
                         <%--cube sheet in service order--%>
-                     <div class="form-group row justify-content-around">
+                     <div class="form-group row justify-content-around" style="text-align:center">
                         
                            
                             <asp:FormView
@@ -1194,6 +1194,441 @@
 
 
                                
+
+                                </div>
+
+                             </div>
+                                  </div>
+                         
+
+                            </ItemTemplate>
+                            </asp:FormView>
+
+
+
+                         <asp:FormView
+                        ID="fvAppliances"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcCubeSheet"
+                        runat="server">
+                            <EmptyDataTemplate>
+                                No Building Type Selected
+                            </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <h6 style="text-align:center;text-decoration:underline">Appliance Information</h6>  
+                            <div class="form-group row justify-content-around">
+                                <div class="mb-2">
+                                   
+                                
+                        <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                <asp:Label ID="lblAirconSmall" runat="server" Text='<%#(Eval("airconSmall").ToString() == "0") ? " " : "Small Air Conditioner: "+Eval("airconSmall")  %>'></asp:Label>
+                            
+                               
+                                <br />
+                                    
+                                <asp:Label ID="lblAirconLarge" runat="server" Text='<%#(Eval("airconLarge").ToString() == "0") ? " " : "Large Air Conditioner: "+Eval("airconLarge")  %>'></asp:Label>
+
+
+                                <br />
+
+                              
+                                
+                                    <asp:Label ID="lblDehumid" runat="server" Text='<%#(Eval("dehumid").ToString() == "0") ? " " : "Dehumidifier: "+Eval("dehumid")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblDishwasher" runat="server" Text='<%#(Eval("dishWasher").ToString() == "0") ? " " : "Dish Washer: "+Eval("dishWasher")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblFreezerTen" runat="server" Text='<%#(Eval("freezerTen").ToString() == "0") ? " " : "Freezer - 10: "+Eval("freezerTen")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblFreezerFifteen" runat="server" Text='<%#(Eval("freezerFifteen").ToString() == "0") ? " " : "Freezer - 15: "+Eval("freezerFifteen")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblFreezerOver" runat="server" Text='<%#(Eval("freezerOver").ToString() == "0") ? " " : "Freezer - Over: "+Eval("freezerOver")  %>'></asp:Label>
+
+                                     </div>
+                                <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblRangeWide" runat="server" Text='<%#(Eval("rangeWide").ToString() == "0") ? " " : "Range, Wide: "+Eval("rangeWide")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblRefrigeratorSix" runat="server" Text='<%#(Eval("refrigeratorSix").ToString() == "0") ? " " : "Refrigerator - 6: "+Eval("refrigeratorSix")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblRefrigeratorTen" runat="server" Text='<%#(Eval("refrigeratorTen").ToString() == "0") ? " " : "Refrigerator - 10: "+Eval("refrigeratorTen")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblRefrigeratorOver" runat="server" Text='<%#(Eval("refrigeratorOver").ToString() == "0") ? " " : "Rerfigerator - Over: "+Eval("refrigeratorOver")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSewingMachine" runat="server" Text='<%#(Eval("sewingMachine").ToString() == "0") ? " " : "Sewing Machine: "+Eval("sewingMachine")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSewingWithCAB" runat="server" Text='<%#(Eval("sewingWithCAB").ToString() == "0") ? " " : "Sewing W/CAB: "+Eval("sewingWithCAB")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblVaccuumCleaner" runat="server" Text='<%#(Eval("vacuumCleaner").ToString() == "0") ? " " : "Vacuum Cleaner: "+Eval("vacuumCleaner")  %>'></asp:Label>
+
+
+                           
+
+                                     </div>
+                               <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblHuimd" runat="server" Text='<%#(Eval("humid").ToString() == "0") ? " " : "Humidifier: "+Eval("humid")  %>'></asp:Label>
+                                    
+                                <br />
+
+                                     <asp:Label ID="lblAirPurifier" runat="server" Text='<%#(Eval("airPurifier").ToString() == "0") ? " " : "Air Purifier: "+Eval("airPurifier")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblShopVac" runat="server" Text='<%#(Eval("shopVac").ToString() == "0") ? " " : "Shop Vac: "+Eval("shopVac")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblWasher" runat="server" Text='<%#(Eval("washer").ToString() == "0") ? " " : "Washer: "+Eval("washer")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblDryer" runat="server" Text='<%#(Eval("dryer").ToString() == "0") ? " " : "Dryer: "+Eval("dryer")  %>'></asp:Label>
+
+
+                               
+
+                                </div>
+
+                             </div>
+                                  </div>
+                         
+
+                            </ItemTemplate>
+                            </asp:FormView>
+
+
+
+                         <asp:FormView
+                        ID="fvMisc"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcCubeSheet"
+                        runat="server">
+                            <EmptyDataTemplate>
+                                No Building Type Selected
+                            </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <h6 style="text-align:center;text-decoration:underline">Miscellaneous Information</h6>  
+                            <div class="form-group row justify-content-around">
+                                <div class="mb-2">
+                                   
+                                
+                        <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                <asp:Label ID="lblArtificalTree" runat="server" Text='<%#(Eval("fakeTree").ToString() == "0") ? " " : "Artificial Tree: "+Eval("fakeTree")  %>'></asp:Label>
+                            
+                               
+                                <br />
+                                    
+                                <asp:Label ID="lblBarbellWeights" runat="server" Text='<%#(Eval("barbellWeights").ToString() == "0") ? " " : "Weights: "+Eval("barbellWeights")  %>'></asp:Label>
+
+
+                                <br />
+
+                              <asp:Label ID="lblClothesBasket" runat="server" Text='<%#(Eval("clothesBasket").ToString() == "0") ? " " : "Clothes Basket: "+Eval("clothesBasket")  %>'></asp:Label>
+
+
+                                <br />
+                                
+                                    <asp:Label ID="lblBike" runat="server" Text='<%#(Eval("bike").ToString() == "0") ? " " : "Bike: "+Eval("bike")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblBowlingBall" runat="server" Text='<%#(Eval("bowlingBall").ToString() == "0") ? " " : "Bowling Set: "+Eval("bowlingBall")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblCardTable" runat="server" Text='<%#(Eval("cardTable").ToString() == "0") ? " " : "Card Table: "+Eval("cardTable")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblClothesHamper" runat="server" Text='<%#(Eval("clothesHamper").ToString() == "0") ? " " : "Clothes Hamper: "+Eval("clothesHamper")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblCooler" runat="server" Text='<%#(Eval("cooler").ToString() == "0") ? " " : "Cooler: "+Eval("cooler")  %>'></asp:Label>
+
+                                     </div>
+                                <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblFoldingcot" runat="server" Text='<%#(Eval("foldingCot").ToString() == "0") ? " " : "Folding Cot: "+Eval("foldingCot")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblOfficeDeskLarge" runat="server" Text='<%#(Eval("officeDeskLarge").ToString() == "0") ? " " : "Large Office Desk: "+Eval("officeDeskLarge")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblComputerDesk" runat="server" Text='<%#(Eval("computerDesk").ToString() == "0") ? " " : "Computer Desk: "+Eval("computerDesk")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblStudentDesk" runat="server" Text='<%#(Eval("studentDesk").ToString() == "0") ? " " : "Student Desk: "+Eval("studentDesk")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblOfficeChair" runat="server" Text='<%#(Eval("officeChair").ToString() == "0") ? " " : "Office Chair: "+Eval("officeChair")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSecretaryChair" runat="server" Text='<%#(Eval("secretaryChair").ToString() == "0") ? " " : "Secretary Chair: "+Eval("secretaryChair")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblPrinterStand" runat="server" Text='<%#(Eval("printerStand").ToString() == "0") ? " " : "Printer Stand: "+Eval("printerStand")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblExerciseEquipment" runat="server" Text='<%#(Eval("exerciseEquip").ToString() == "0") ? " " : "Exercise Equipment: "+Eval("exerciseEquip")  %>'></asp:Label>
+
+                                     </div>
+                               <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblFan" runat="server" Text='<%#(Eval("miscFan").ToString() == "0") ? " " : "Fan: "+Eval("miscFan")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblFernPlantStand" runat="server" Text='<%#(Eval("fernPlantStand").ToString() == "0") ? " " : "Fern Plant Stand: "+Eval("fernPlantStand")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblcardboardCabinet" runat="server" Text='<%#(Eval("cardboardCabinet").ToString() == "0") ? " " : "Cardboard Cabinet: "+Eval("cardboardCabinet")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblTwoDrawerCabinet" runat="server" Text='<%#(Eval("twoDrawerCabinet").ToString() == "0") ? " " : "Two Drawer Cabinet: "+Eval("twoDrawerCabinet")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblFourDrawerCabinet" runat="server" Text='<%#(Eval("fourDrwaerCabinet").ToString() == "0") ? " " : "Four Drawer Cabinet: "+Eval("fourDrwaerCabinet")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblfishingPole" runat="server" Text='<%#(Eval("fishingPole").ToString() == "0") ? " " : "Fishing Pole: "+Eval("fishingPole")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblFoldingChair" runat="server" Text='<%#(Eval("foldingChair").ToString() == "0") ? " " : "Folding Chair: "+Eval("foldingChair")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblwineRack" runat="server" Text='<%#(Eval("wineRack").ToString() == "0") ? " " : "Wine Rack: "+Eval("wineRack")  %>'></asp:Label>
+
+                                    </div>
+                                <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblfootLocker" runat="server" Text='<%#(Eval("footLocker").ToString() == "0") ? " " : "Foot Locker: "+Eval("footLocker")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblLargeCardTable" runat="server" Text='<%#(Eval("cardTableLarge").ToString() == "0") ? " " : "Large Card Table: "+Eval("cardTableLarge")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblGolfEquip" runat="server" Text='<%#(Eval("golfEquip").ToString() == "0") ? " " : "Golf Equipment: "+Eval("golfEquip")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSpaceHeater" runat="server" Text='<%#(Eval("spaceHeater").ToString() == "0") ? " " : "Space Heater: "+Eval("spaceHeater")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblPingPongTable" runat="server" Text='<%#(Eval("pingpongTable").ToString() == "0") ? " " : "Ping Pong Table: "+Eval("pingpongTable")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblPoolTablecomp" runat="server" Text='<%#(Eval("poolTablecomp").ToString() == "0") ? " " : "Pool Table Comp: "+Eval("poolTableComp")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblPoolTableSlate" runat="server" Text='<%#(Eval("poolTableSlate").ToString() == "0") ? " " : "Pool Table Slate: "+Eval("poolTableSlate")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblPowerTool" runat="server" Text='<%#(Eval("powerTool").ToString() == "0") ? " " : "Power Tool: "+Eval("powerTool")  %>'></asp:Label>
+
+                                     </div>
+                                <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblPowerToolStand" runat="server" Text='<%#(Eval("powerToolStand").ToString() == "0") ? " " : "Power Tool Stand: "+Eval("powerToolStand")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSkis" runat="server" Text='<%#(Eval("skis").ToString() == "0") ? " " : "Skis: "+Eval("skis")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSled" runat="server" Text='<%#(Eval("sled").ToString() == "0") ? " " : "Sled: "+Eval("sled")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSuitCase" runat="server" Text='<%#(Eval("suitCase").ToString() == "0") ? " " : "Suitcase: "+Eval("suitCase")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblTackleBox" runat="server" Text='<%#(Eval("tackleBox").ToString() == "0") ? " " : "Tackle Box: "+Eval("tackleBox")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lbltire" runat="server" Text='<%#(Eval("tire").ToString() == "0") ? " " : "Tire: "+Eval("tire")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblTireAndRims" runat="server" Text='<%#(Eval("tireAndRims").ToString() == "0") ? " " : "Tire and Rims: "+Eval("tireAndRims")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSmallToolchest" runat="server" Text='<%#(Eval("toolChestSmall").ToString() == "0") ? " " : "Small Tool Chest: "+Eval("toolChestSmall")  %>'></asp:Label>
+
+                                     </div>
+                               <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblMedToolChest" runat="server" Text='<%#(Eval("toolChestMed").ToString() == "0") ? " " : "Med Tool Chest: "+Eval("toolChestMed")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblLargeToolChest" runat="server" Text='<%#(Eval("toolChestLarge").ToString() == "0") ? " " : "Large Tool Chest: "+Eval("toolChestLarge")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lbltoolChestXL" runat="server" Text='<%#(Eval("toolChestXL").ToString() == "0") ? " " : "XL Tool Chest: "+Eval("toolChestXL")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblTrashCan" runat="server" Text='<%#(Eval("trashCan").ToString() == "0") ? " " : "Trash Can: "+Eval("trashCan")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblTrampoline" runat="server" Text='<%#(Eval("trampoline").ToString() == "0") ? " " : "Trampoline: "+Eval("trampoline")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblTreadmill" runat="server" Text='<%#(Eval("treadmill").ToString() == "0") ? " " : "Treadmill: "+Eval("treadmill")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblTricycle" runat="server" Text='<%#(Eval("tricycle").ToString() == "0") ? " " : "Tricycle: "+Eval("tricycle")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblWorkBench" runat="server" Text='<%#(Eval("workBench").ToString() == "0") ? " " : "Workbench: "+Eval("workBench")  %>'></asp:Label>
+
+                                    </div>
+                              <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:Label ID="lblSewingCabinet" runat="server" Text='<%#(Eval("sewingCabinet").ToString() == "0") ? " " : "Sewing Cabinet: "+Eval("sewingCabinet")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblLargeSafe" runat="server" Text='<%#(Eval("largeSafe").ToString() == "0") ? " " : "Large Safe: "+Eval("largeSafe")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblMedSafe" runat="server" Text='<%#(Eval("medSafe").ToString() == "0") ? " " : "Med Safe: "+Eval("medSafe")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblSmallSafe" runat="server" Text='<%#(Eval("smallSage").ToString() == "0") ? " " : "Small Safe: "+Eval("smallSage")  %>'></asp:Label>
+                               
+                                <br />
+
+                                     <asp:Label ID="lblgunSafe" runat="server" Text='<%#(Eval("gunSafe").ToString() == "0") ? " " : "Gun Safe: "+Eval("gunSafe")  %>'></asp:Label>
+                               
+                                <br />
+
+                                     <asp:Label ID="lblStatue" runat="server" Text='<%#(Eval("statue").ToString() == "0") ? " " : "Statue: "+Eval("statue")  %>'></asp:Label>
+                               
+
+                              
+
+                                </div>
+
+                             </div>
+                                  </div>
+                         
+
+                            </ItemTemplate>
+                            </asp:FormView>
+
+
+
+
+                         <asp:FormView
+                        ID="fvPackingOrder"
+                        DefaultMode="ReadOnly"
+                        DataSourceID="srcCubeSheet"
+                        runat="server">
+                            <EmptyDataTemplate>
+                                No Building Type Selected
+                            </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <h6 style="text-align:center;text-decoration:underline">Packing Information</h6>  
+                            <div class="form-group row justify-content-around">
+                                <div class="mb-2">
+                                   
+                                
+                        <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                <asp:Label ID="lblBar" runat="server" Text='<%#(Eval("dishPack").ToString() == "0") ? " " : "Dish Pack: "+Eval("dishPack")  %>'></asp:Label>
+                            
+                               
+                                <br />
+                                    
+                                <asp:Label ID="lblWardrobeLayFlat" runat="server" Text='<%#(Eval("wardrobeLayFlat").ToString() == "0") ? " " : "Wardrobe Lay Flat: "+Eval("wardrobeLayFlat")  %>'></asp:Label>
+
+
+                                <br />
+
+                              <asp:Label ID="lblWardrobeStandup" runat="server" Text='<%#(Eval("wardrobeStandup").ToString() == "0") ? " " : "Wardrobe Standup: "+Eval("wardrobeStandup")  %>'></asp:Label>
+
+
+                                <br />
+                                
+                                    <asp:Label ID="lblsmallBooks" runat="server" Text='<%#(Eval("smallBooks").ToString() == "0") ? " " : "Small Books: "+Eval("smallBooks")  %>'></asp:Label>
+                               
+                        </div>
+                            
+                                    <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+                           
+                                     <asp:Label ID="lblSmallCartons" runat="server" Text='<%#(Eval("smallCartons").ToString() == "0") ? " " : "Small Cartons: "+Eval("smallCartons")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblMedCartons" runat="server" Text='<%#(Eval("mediumCartons").ToString() == "0") ? " " : "Medium Cartons: "+Eval("mediumCartons")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblLargeCartons" runat="server" Text='<%#(Eval("largeCartons").ToString() == "0") ? " " : "Large Cartons: "+Eval("largeCartons")  %>'></asp:Label>
+
+
+                                <br />
+                                     <asp:Label ID="lblXLCarton" runat="server" Text='<%#(Eval("XLCartons").ToString() == "0") ? " " : "XL Cartons: "+Eval("XLCartons")  %>'></asp:Label>
+
+                                   <br />
+
+                                     <asp:Label ID="lblMirrorCarton" runat="server" Text='<%#(Eval("mirrorCarton").ToString() == "0") ? " " : "Mirror Cartons: "+Eval("mirrorCarton")  %>'></asp:Label>
+                                     
+                            
 
                                 </div>
 

@@ -186,6 +186,33 @@ namespace GreenValleySystem
         protected global::System.Web.UI.WebControls.FormView fvPorchOutdoor;
 
         /// <summary>
+        /// fvAppliances control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvAppliances;
+
+        /// <summary>
+        /// fvMisc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvMisc;
+
+        /// <summary>
+        /// fvPackingOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView fvPackingOrder;
+
+        /// <summary>
         /// srcCubeSheet control.
         /// </summary>
         /// <remarks>

@@ -58,8 +58,8 @@
 
                                 
                                 <asp:DropDownList ID="ddlProgress" Class="form-control" runat="server" DataSourceID="srcProgress" DataTextField="serviceEvent"
-                                    DataValueField="eventID">
-                                    <asp:ListItem Value="Contact Information Gathered" Text="Contact Information Gathered"></asp:ListItem>
+                                    DataValueField="eventID" AppendDataBoundItems="true">
+                                    <asp:ListItem Value="--Please Select--" Text="--Please Select--" disabled="disabled" Selected="True"></asp:ListItem>
                                     
                                 </asp:DropDownList>
                                 <asp:Button ID="btnSave" OnClick="ddlProgress_SelectedIndexChanged" runat="server" Text="Save" Class="form-control" />
