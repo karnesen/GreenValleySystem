@@ -219,6 +219,12 @@
                                             return true;
                                         </script>
 
+                                        <h6>Location Details</h6>
+                                        <asp:TextBox ID="txtAddressDetails" runat="server" Text='<%# Bind("details") %>' class="form-control" TextMode="MultiLine" Rows="4"></asp:TextBox>
+
+
+
+
                                     </div>
                                 </EditItemTemplate>
                                 <ItemTemplate>
@@ -229,6 +235,8 @@
                                     <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>,
                                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
                                     <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
+<%--                                    <asp:Button ID="btnAddress" onclick="btnAddress_Click" class="form-control-lg mr-2" runat="server" CausesValidation="true" Text="Verify"></asp:Button>--%>
+                                    
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -363,6 +371,11 @@
                                                 return true;
                                             </script>
 
+                                            <h6>Location Details</h6>
+                                            <asp:TextBox ID="txtAddressDetails" runat="server" Text='<%# Bind("details") %>' class="form-control" TextMode="MultiLine" Rows="4"></asp:TextBox>
+
+
+
                                         </div>
                                         <asp:LinkButton ID="btnInsertAddress" OnClick="btnNewAddress_Click" runat="server" ValidationGroup="address">Commit</asp:LinkButton>
                                     </td>
@@ -374,10 +387,10 @@
                     <asp:SqlDataSource
                         ID="srcServiceAddresses"
                         ConnectionString="<%$ ConnectionStrings:Connect %>"
-                        SelectCommand="SELECT ADDRESSES.addressID, ADDRESSES.streetAddress, ADDRESSES.city, ADDRESSES.state, ADDRESSES.zipcode, ADDRESSES.addressType, ADDRESSES.serviceID
+                        SelectCommand="SELECT ADDRESSES.addressID, ADDRESSES.streetAddress, ADDRESSES.city, ADDRESSES.state, ADDRESSES.zipcode, ADDRESSES.addressType, ADDRESSES.serviceID, ADDRESSES.details
                                     FROM ADDRESSES WHERE ADDRESSES.serviceID = @serviceID"
-                        UpdateCommand="UPDATE ADDRESSES SET streetAddress=@streetAddress, city=@city, state=@state, zipcode=@zipcode where addressID=@addressID"
-                        InsertCommand="INSERT into ADDRESSES(streetAddress, city, state, zipcode, addressType, serviceID) VALUES(@streetAddress, @city, @state, @zipcode,@addressType,@serviceID)"
+                        UpdateCommand="UPDATE ADDRESSES SET streetAddress=@streetAddress, city=@city, state=@state, zipcode=@zipcode, details=@details where addressID=@addressID"
+                        InsertCommand="INSERT into ADDRESSES(streetAddress, city, state, zipcode, addressType, serviceID, details) VALUES(@streetAddress, @city, @state, @zipcode,@addressType,@serviceID,@details)"
                         DeleteCommand="Delete from Addresses WHERE addressID = @addressID"
                         runat="server">
                         <SelectParameters>
@@ -389,6 +402,7 @@
                             <asp:ControlParameter Name="state" ControlID="ddlState" Type="String" />
                             <asp:ControlParameter Name="zipcode" ControlID="txtZipCode" />
                             <asp:ControlParameter Name="addressType" ControlID="ddlAddressType" Type="String" />
+                            <asp:ControlParameter Name="details" ControlID="txtAddressDetails" Type="String" />
                             <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                         </InsertParameters>
                     </asp:SqlDataSource>

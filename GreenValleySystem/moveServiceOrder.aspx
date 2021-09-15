@@ -64,6 +64,7 @@
                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
                         <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
                         <br />
+
                     </ItemTemplate>
                 </asp:ListView>
 
@@ -225,7 +226,7 @@
                                 
                                    
 
-                                    <asp:Label ID="lbBusinessStatus" runat="server" Text='<%#(Eval("business").ToString() == "True") ? "Business Selected" : " " %>'></asp:Label>
+                                    <asp:Label ID="lbBusinessStatus" runat="server" Text='<%#(Eval("business").ToString() == "True") ? "Business Selected"+" "+Eval("businessText") : " " %>'></asp:Label>
                                 </div>
                             
                            
