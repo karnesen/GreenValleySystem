@@ -235,6 +235,9 @@
                                     <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>,
                                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
                                     <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
+                                    <br />
+                                    <asp:Label ID="details" runat="server" style="text-decoration:underline" Text="Location Details:"></asp:Label>
+                                    <asp:Label ID="lblDetails" runat="server" Text='<%# Bind("details") %>'></asp:Label>
 <%--                                    <asp:Button ID="btnAddress" onclick="btnAddress_Click" class="form-control-lg mr-2" runat="server" CausesValidation="true" Text="Verify"></asp:Button>--%>
                                     
                                 </ItemTemplate>
