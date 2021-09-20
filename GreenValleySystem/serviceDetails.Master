@@ -436,6 +436,8 @@
                                                 </InsertItemTemplate>
 
                                                 <EditItemTemplate>
+                                                    <div class="text-center">Note ID</div>
+                                                    <asp:TextBox ID="txtID" Text='<%#Bind("dateID") %>' runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
                                                     <div class="text-center">Edit Event</div>
                                                     <asp:DropDownList ID="ddlEvents" runat="server" class="form-control" SelectedValue='<%#Bind("description") %>'>
                                                         <asp:ListItem Value="Move Assessment">Move Assessment</asp:ListItem>
@@ -444,6 +446,7 @@
                                                         <asp:ListItem Value="Move">Move</asp:ListItem>
                                                         <asp:ListItem Value="Auction Pick Up">Auction Pick Up</asp:ListItem>
                                                         <asp:ListItem Value="Auction Bring In">Auction Bring In</asp:ListItem>
+                                                        <asp:ListItem Value="Auction Bring In">Auction</asp:ListItem>
                                                         <asp:ListItem Value="Appraisal">Appraisal</asp:ListItem>
                                                         <asp:ListItem Value="Consignment Shop Pick Up">Consignment Shop Pick Up</asp:ListItem>
                                                         <asp:ListItem Value="Consignment Shop Bring In">Consignment Shop Bring In</asp:ListItem>
@@ -476,7 +479,7 @@
                                                             <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" class="form-control" OnClick="keepOpen_Click" />
                                                         </div>
                                                         <div class="col">
-                                                            <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete" class="form-control" OnClick="keepOpen_Click" />
+                                                            <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete All Events" class="form-control" OnClick="keepOpen_Click" />
                                                         </div>
                                                     </div>
                                                 </EditItemTemplate>
@@ -488,6 +491,7 @@
                                                 runat="server"
                                                 OnInserted="srcDates_Inserted"
                                                 OnUpdated="srcDates_Updated"
+                                                OnDeleted="srcDates_Deleted"
                                                 ConnectionString="<%$ ConnectionStrings:Connect %>"
                                                 SelectCommand="Select * from Schedule where serviceID=@serviceID and description=@description"
                                                 InsertCommand="Insert into Schedule (serviceID,description,custDateOption1, custDateOption2, custDateOption3, empDateOption1,  empDateOption2, empDateOption3, confirmedDate) 
@@ -495,7 +499,7 @@
                                                 UpdateCommand="Update schedule set
                                             custDateOption1=parse(@custDateOption1 as dateTime), custDateOption2=parse(@custDateOption2 as dateTime) , custDateOption3=parse(@custDateOption3 as dateTime), empDateOption1=parse(@empDateOption1 as dateTime),  empDateOption2= parse(@empDateOption2 as dateTime), empDateOption3= parse(@empDateOption3 as dateTime),  confirmedDate= parse(@confirmedDate as dateTime)  
                                             where serviceID=@serviceID and description=@description"
-                                                DeleteCommand="delete from Schedule where serviceID=@serviceID and description=@description">
+                                                DeleteCommand="delete from Schedule where dateID=dateID">
                                                 <SelectParameters>
                                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                                     <asp:SessionParameter Name="description" SessionField="selectedDescription" />
@@ -522,8 +526,7 @@
                                                     <asp:Parameter Name="confirmedDate" ConvertEmptyStringToNull="true" />
                                                 </UpdateParameters>
                                                 <DeleteParameters>
-                                                    <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
-                                                    <asp:SessionParameter Name="description" SessionField="selectedDescription" />
+                                                    <asp:Parameter Name="dateID"/>
                                                 </DeleteParameters>
                                             </asp:SqlDataSource>
                                         </div>

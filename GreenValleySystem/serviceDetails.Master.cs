@@ -146,6 +146,11 @@ namespace GreenValleySystem
             state = "collapse show";
         }
 
+        protected void srcDates_Deleted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            lvSchedules.DataBind();
+        }
+
         //protected void fvProgress_DataBinding(object sender, EventArgs e)
         //{
         //    DropDownList ddlProgress = (DropDownList)(sender);
@@ -179,7 +184,7 @@ namespace GreenValleySystem
         //    ddlProgress.SelectedValue = Bind("currentStep");
         //}
 
-        
+
 
 
     }
