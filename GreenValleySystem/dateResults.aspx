@@ -26,7 +26,7 @@
 
                                 <div class="row px-4">
 
-                                     <iframe width="1200" height="720" frameborder="0" scrolling="no" src="https://outlook.office365.com/owa/calendar/e6384652771943f585750dd158bf52ef@dukes.jmu.edu/7b21e8ea4aa04a32963a962da782b92d10068210577837726992/calendar.html"></iframe>
+                                     <iframe width="1200" height="720" frameborder="0" scrolling="no" src="https://urldefense.proofpoint.com/v2/url?u=https-3A__west.exch091.serverdata.net_owa_calendar_7dc5b07bc1204552a753df4e678d8717-40greenvalleyauctions.com_2ce734f932434028bb9b657d65110a957453967498004208049_calendar.html&d=DwMFAg&c=RWKzQL7PIkYKzsYSjZn54yrN72ooGPhHwUXdJ0S2Irw&r=UkVwp2H7_RKh_bMdy3Sdk0uCV6kXg4dR9mhZ7gU1ozU&m=ZgzXc5dNCTL8cxE7Wkqu2TlJbvifQpFZ8kiQKNrtoYQ&s=PHgDHS00gp0w8PPcZCqbU-4C9d3V8WW1fCdI8U4_YIg&e="></iframe>
 
 
 <%--                                    <div class="col-md-6 pl-0 pr-0 pr-md-2 mb-2">--%>
