@@ -73,6 +73,7 @@ namespace GreenValleySystem
                 String ServiceZipA = txtAuctionZip.Text;
 
                 String serviceStartDate;
+                String details = "";
                 if (String.IsNullOrEmpty(txtAuctionStartDate.Text))
                 {
                     serviceStartDate = "";
@@ -96,7 +97,7 @@ namespace GreenValleySystem
                 String sqlQuery = "INSERT INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID) " +
                     "VALUES('"+ DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'A', " + customerID + " )";
                 sqlQuery += " INSERT INTO Auction(serviceID) VALUES((select max(serviceID) from service))";
-                sqlQuery += " INSERT INTO ADDRESSES VALUES(@AserviceAddress, @AserviceCity, @AserviceState, @AserviceState, 'P', (select max(serviceID) from service))";
+                sqlQuery += " INSERT INTO ADDRESSES VALUES(@AserviceAddress, @AserviceCity, @AserviceState, @AserviceState, 'P', (select max(serviceID) from service), '"+details.ToString()+"')";
                 sqlQuery += " INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
                     "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), " + Session["EmployeeID"] + ", 'Initial Request', @notes)";
 

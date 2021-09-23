@@ -78,6 +78,7 @@ namespace GreenValleySystem
             String destCity = txtDestinationCity.Text;
             String destState = ddlDestinationState.SelectedValue;
             String destZip = txtDestinationZip.Text;
+            String details = "";
 
             String serviceStartDate;
             if (String.IsNullOrEmpty(txtStartDate.Text))
@@ -105,8 +106,8 @@ namespace GreenValleySystem
                     "VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'M'," + customerID + " )";
             sqlQuery += "INSERT INTO MOVE(serviceID) VALUES((select max(serviceID) from service))";
 
-            sqlQuery += " INSERT INTO ADDRESSES VALUES(@serviceAddress, @serviceCity, @serviceState, @serviceState, 'P', (select max(serviceID) from service))";
-            sqlQuery += " INSERT INTO ADDRESSES VALUES(@destAddress, @destCity, @destState, @destState, 'D', (select max(serviceID) from service))";
+            sqlQuery += " INSERT INTO ADDRESSES VALUES(@serviceAddress, @serviceCity, @serviceState, @serviceState, 'P', (select max(serviceID) from service), '"+details.ToString()+"')";
+            sqlQuery += " INSERT INTO ADDRESSES VALUES(@destAddress, @destCity, @destState, @destState, 'D', (select max(serviceID) from service), '" + details.ToString() + "')";
             sqlQuery += "INSERT INTO TICKETNOTE (creationDate, serviceID, noteCreator, noteTitle, noteText)" +
                 "VALUES('" + DateTime.Now + "',  (select max(serviceID) from service), " + Session["EmployeeID"] + ", 'Initial Request', @notes)";
 
