@@ -60,33 +60,33 @@ namespace Lab2
           
         }
 
-        protected void gvNotesRecent_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvNotesRecent, "Select$" + e.Row.RowIndex);
-                e.Row.Attributes["style"] = "cursor:pointer";
-            }
-        }
+        //protected void gvNotesRecent_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvNotesRecent, "Select$" + e.Row.RowIndex);
+        //        e.Row.Attributes["style"] = "cursor:pointer";
+        //    }
+        //}
 
-        protected void gvNotesRecent_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (gvNotesRecent.SelectedRow.Cells[0].Text == "Customer")
-            {
-            }
-            else
-            {
-                Session["selectedCustomer"] = gvNotesRecent.SelectedValue.ToString();
-                Session["selectedCustomerName"] = gvNotesRecent.SelectedRow.Cells[0].Text + " " + gvNotesRecent.SelectedRow.Cells[1].Text;
-                Response.Redirect("customerProfile.aspx");
-            }
-        }
+        //protected void gvNotesRecent_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (gvNotesRecent.SelectedRow.Cells[0].Text == "Customer")
+        //    {
+        //    }
+        //    else
+        //    {
+        //        Session["selectedCustomer"] = gvNotesRecent.SelectedValue.ToString();
+        //        Session["selectedCustomerName"] = gvNotesRecent.SelectedRow.Cells[0].Text + " " + gvNotesRecent.SelectedRow.Cells[1].Text;
+        //        Response.Redirect("customerProfile.aspx");
+        //    }
+        //}
 
-        protected void gvNotesRecent_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvNotesRecent.PageIndex = e.NewPageIndex;
-            this.DataBind();
-        }
+        //protected void gvNotesRecent_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        //{
+        //    gvNotesRecent.PageIndex = e.NewPageIndex;
+        //    this.DataBind();
+        //}
 
         protected void gvUpcomingServices_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
