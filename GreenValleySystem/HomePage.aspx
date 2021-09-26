@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container col-10">
       <div class="row">
-        <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;height:500px; overflow:scroll">
+        <%--<div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;height:500px; overflow:scroll">
             <p class="text-sm-center #bb9739">Recent Notes</p>
             <%-- <asp:ListView
                 ID="lvNotes"
@@ -45,7 +45,7 @@
                     <br />
                     <br />
                 </EditItemTemplate>
-            </asp:ListView>--%>
+            </asp:ListView>
 
             
              <asp:GridView
@@ -98,10 +98,11 @@
 
 
 
-            </div>
+            </div>--%>
           <br />
-             <div class="card p-3 mb-6 col-6" style="border: 1px solid #bb9739;height:500px; overflow:scroll">
-                 <p class="text-sm-center #bb9739">Upcoming Services</p>
+             <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739;height:500px; overflow:scroll">
+                 <p class="text-sm-center #bb9739">Global Notes</p>
+                 <asp:Button ID="btnNewGlobalNote" runat="server" Text="New Global Note" OnClick="btnNewGlobalNote_Click" Class="btn btn-secondary" />
              <%--<asp:ListView
                 ID="ListView1"
                 runat="server"
@@ -144,32 +145,81 @@
                   <asp:GridView
                 ID="gvUpcomingServices"
                 runat="server"
-                DataKeyNames="customerID"
-                DataSourceID="srcUpcoming"
-                AutoGenerateColumns="false"
-                OnRowDataBound="gvUpcomingServices_RowDataBound"
-                OnSelectedIndexChanged="gvUpcomingServices_SelectedIndexChanged"
+                DataKeyNames="employeeID"
+                DataSourceID="srcGlobals"
+                AutoGenerateColumns="false" 
                 class="table table-bordered table-condensed table-hover"
                 AllowPaging="false"
                 OnPageIndexChanging="gvUpcomingServices_PageIndexChanging"
                 PageSize="5"
-                AllowSorting="true">
+                AllowSorting="true"
+                AutoGenerateEditButton="true">
                 <HeaderStyle BackColor="#266141" ForeColor="White" />
                 <Columns>
+                    
 
-                    <asp:BoundField DataField="firstName" HeaderText="First Name"
-                         SortExpression="firstName"/>
-                    <asp:BoundField DataField="lastName" HeaderText="Last Name"
-                         SortExpression="lastName"/>
+                    <asp:BoundField DataField="authorName" HeaderText="Author Name"
+                         SortExpression="authorName" ReadOnly="true"/>
+                    
 
-                    <asp:TemplateField HeaderText="Deadline Start Date" SortExpression="serviceDeadlineStart">
+                    <asp:TemplateField HeaderText="Creation Date" SortExpression="creationDate">
                         <ItemTemplate>
-                            <asp:Label ID="lblStartDate" runat="server" Text='<%#(Eval("serviceDeadlineStart").ToString())%>'></asp:Label>
+                            <asp:Label ID="creationDate" runat="server" Text='<%#(Eval("creationDate").ToString())%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
 
+                    <asp:TemplateField HeaderText="Note Title" SortExpression="noteTitle">
+                        <ItemTemplate>
+                            <asp:Label ID="noteTitle" runat="server" Text='<%#(Eval("noteTitle").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Note Text" SortExpression="noteText">
+                        <ItemTemplate>
+                            <asp:Label ID="noteText" runat="server" Text='<%#(Eval("noteText").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Addressed To" SortExpression="noteReciever">
+                        <ItemTemplate>
+                            <asp:Label ID="noteReciever" runat="server" Text='<%#(Eval("noteReciever").ToString())%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Completed" SortExpression="completed">
+                        
+                        <ItemTemplate>
+                            <asp:Label ID="lblCompleted" runat="server" Enabled="false" Text='<%# Eval("completed").ToString() == "0" ? "No" : "Yes" %>'></asp:Label>
+                        </ItemTemplate>
+                    
+
+               
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddlCompleted" runat="server" CssClass="form-control" DataValueField="completed" selectedvalue='<%#Bind("completed") %>'>
+                                    <asp:ListItem Value="0">No</asp:ListItem>
+                                    <asp:ListItem Value="1">Yes</asp:ListItem>
+
+                            </asp:DropDownList>
+                
+                
+                            
+                        </EditItemTemplate>
+                   
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Note ID" SortExpression="noteID">
+                        <ItemTemplate>
+                            <asp:Label ID="lblID" runat="server" Text='<%# (Eval("noteID").ToString()) %>'></asp:Label>
+                            
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="lblID" runat="server" Text='<%#Bind("noteID") %>'></asp:Label>
+
+                        </EditItemTemplate>
+                    </asp:TemplateField>
                    
                 </Columns>
+                      
             </asp:GridView>
 
             
@@ -266,6 +316,16 @@
                  runat="server"
                  ConnectionString="<%$ ConnectionStrings:Connect %>"
                  SelectCommand="SELECT customer.customerID, CUSTOMER.firstName, CUSTOMER.lastName, format(SERVICE.serviceDeadlineStart,'MM/dd/yy') as 'serviceDeadlineStart' FROM SERVICE INNER JOIN CUSTOMER ON SERVICE.customerID = CUSTOMER.customerID WHERE service.serviceDeadlineStart > CURRENT_TIMESTAMP">
+
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource 
+                 ID="srcGlobals"
+                 runat="server"
+                 ConnectionString="<%$ ConnectionStrings:Connect %>"
+                 SelectCommand="SELECT globalNotes.noteID, globalNotes.noteTitle, globalNotes.noteText, globalNotes.noteAuthor, globalNotes.noteReciever, globalNotes.creationDate as 'creationDate', globalNotes.completed, EMPLOYEE.employeeID, EMPLOYEE.firstName + ' ' + EMPLOYEE.lastName as 'authorName' FROM EMPLOYEE INNER JOIN globalNotes ON EMPLOYEE.employeeID = globalNotes.noteAuthor order by creationDate desc"
+                 UpdateCommand="Update globalNotes set completed=@completed where noteID=@noteID">
+            
 
         </asp:SqlDataSource>
 

@@ -116,6 +116,11 @@ namespace Lab2
             }
         }
 
+        protected void btnNewGlobalNote_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("setGlobalNotes.aspx");
+        }
+
         //private void GetData()
         //{
         //    DataTable dt = new DataTable();

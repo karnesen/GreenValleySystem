@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="CustomerPortal.Master" />
+    <Content Include="setGlobalNotes.aspx" />
     <Content Include="style\style.css" />
     <Content Include="style\UIkit1.css" />
     <Content Include="style\UIkit2.css" />
@@ -446,6 +447,13 @@
     </Compile>
     <Compile Include="serviceDetails.Master.designer.cs">
       <DependentUpon>serviceDetails.Master</DependentUpon>
+    </Compile>
+    <Compile Include="setGlobalNotes.aspx.cs">
+      <DependentUpon>setGlobalNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="setGlobalNotes.aspx.designer.cs">
+      <DependentUpon>setGlobalNotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="systemAnalytics.aspx.cs">
       <DependentUpon>systemAnalytics.aspx</DependentUpon>
