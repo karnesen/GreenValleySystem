@@ -35,14 +35,14 @@
                             <div class="form-group">
                                 <asp:Label ID="lblSell" for="txtBoxSell" runat="server" class="col-sm-2 col-form-label" Text="What to Sell"></asp:Label>
                                 <asp:TextBox ID="txtBoxSell" Text='<%# Bind("whatSell") %>' TextMode="MultiLine" Rows="4" class="form-control" runat="server"></asp:TextBox>
-                                <asp:RegularExpressionValidator 
+                                <%--<asp:RegularExpressionValidator 
 	                                id="revSell"  
                                     runat="server"
                                     ControlToValidate="txtBoxSell" 
                                     ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
                                     ErrorMessage="Invalid Input" 
                                     ForeColor="Red">
-                                </asp:regularexpressionvalidator>
+                                </asp:regularexpressionvalidator>--%>
                             </div>
 
 
@@ -76,14 +76,14 @@
                                 </div>
                             </div>
                             <asp:TextBox ID="txtTrash" Text='<%# Bind("trashDesc")%>' TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>
-                            <asp:RegularExpressionValidator 
+                            <%--<asp:RegularExpressionValidator 
 	                            id="RegularExpressionValidator1"  
                                 runat="server"
                                 ControlToValidate="txtTrash" 
                                 ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
                                 ErrorMessage="Invalid Input" 
                                 ForeColor="Red">
-                            </asp:regularexpressionvalidator>
+                            </asp:regularexpressionvalidator>--%>
 
                             <div class="form-group row justify-content-around">
                                 <div class="form-check">
@@ -203,27 +203,27 @@
                                     <div class="form-group">
                                         <asp:Label ID="lblAccessability" for="txtAccessability" runat="server" Text="Truck Accessability"></asp:Label>
                                         <asp:TextBox ID="txtAccessability" TextMode="MultiLine" Text='<%# Bind("truckAccess")%>' runat="server" class="form-control"></asp:TextBox>
-                                        <asp:RegularExpressionValidator 
+                                        <%--<asp:RegularExpressionValidator 
 	                                        id="revEquipment"  
                                             runat="server"
                                             ControlToValidate="txtAccessability" 
                                             ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
                                             ErrorMessage="Invalid Input" 
                                             ForeColor="Red">
-                                        </asp:regularexpressionvalidator>
+                                        </asp:regularexpressionvalidator>--%>
                                     </div>
 
                                     <div class="form-group">
                                         <asp:Label ID="lblFar" for="txtFarFromLoading" runat="server" Text="Distance from Loading Door"></asp:Label>
                                         <asp:TextBox ID="txtFarFromLoading" TextMode="MultiLine" Text='<%# Bind("howFar")%>' runat="server" class="form-control"></asp:TextBox>
-                                        <asp:RegularExpressionValidator 
+                                        <%--<asp:RegularExpressionValidator 
 	                                        id="RegularExpressionValidator2"  
                                             runat="server"
                                             ControlToValidate="txtFarFromLoading" 
                                             ValidationExpression="^[a-zA-Z'.\s]{1,40}$" 
                                             ErrorMessage="Invalid Input" 
                                             ForeColor="Red">
-                                        </asp:regularexpressionvalidator>
+                                        </asp:regularexpressionvalidator>--%>
                                     </div>
 
                                     <div class="form-group">
