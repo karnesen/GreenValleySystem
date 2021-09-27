@@ -30,6 +30,7 @@
                         </ItemTemplate>
                     </asp:FormView>
 
+
                     <asp:SqlDataSource
                         ID="srcCustomerInfo"
                         runat="server"
@@ -78,6 +79,8 @@
                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                     </SelectParameters>
                 </asp:SqlDataSource>
+
+
 
                 <%-- Packing Service Order --%>
                 <li class='<%= packingCollapse %>'>
@@ -208,6 +211,11 @@
                                 <div class="mb-2">
                                     <h6 style="text-decoration:underline">Building Type</h6>
                                 
+
+                                 <asp:Label ID="lblNothing" runat="server" Text='<%#(Eval("apartment").ToString() == "False")  & Eval("house").ToString() == "False" & Eval("storageUnit").ToString() == "False" & Eval("business").ToString() == "False" ? "No Building Type Selected" : " " %>'></asp:Label>
+                            
+                               
+                                <br />
 
                                 <asp:Label ID="lblApartmentStatus" runat="server" Text='<%#(Eval("apartment").ToString() == "True") ? "Apartment Selected" : " " %>'></asp:Label>
                             
@@ -432,12 +440,29 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Living Room Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Living Room</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
                                 
                         <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+                            
+<%--                            <asp:FormView
+                                    ID="fvLivingRoom"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcLivingTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("LivingRoom").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                            <br />--%>
+
 
                                 <asp:Label ID="lblBar" runat="server" Text='<%#(Eval("bar").ToString() == "0") ? " " : "Bar: "+Eval("bar")  %>'></asp:Label>
                             
@@ -507,6 +532,22 @@
 
                                      </div>
                                <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                <asp:FormView
+                                    ID="fvLivingRoom"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcLivingTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("LivingRoom").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                            <br />
 
                                      <asp:Label ID="lblFireplaceEquipment" runat="server" Text='<%#(Eval("fireplaceEquipment").ToString() == "0") ? " " : "Fireplace Equipment: "+Eval("fireplaceEquipment")  %>'></asp:Label>
 
@@ -653,20 +694,35 @@
 
                                 <br />
                                      <asp:Label ID="lblHeavyClockLamp" runat="server" Text='<%#(Eval("heavyClockLamp").ToString() == "0") ? " " : "Heavy Clock/Lamp: "+Eval("heavyClockLamp")  %>'></asp:Label>
-                               
+                         
+                                    
 
-                              
+                                  
+                                  
 
                                 </div>
-
+                                
                              </div>
+                                
+
                                   </div>
                          
 
                             </ItemTemplate>
                             </asp:FormView>
 
-                    
+                    <asp:SqlDataSource ID="srcLivingTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(bar + pianoBench + largeBookcase + bookShelves + cabinet + straightChair + armChair + rockerChair + occasionalChair + overStuffedChair + cedarChest
+			+ computer + smallDesk + ottoman + secretaryDesk + ETcetner + fireplaceEquipment + footStool + grandClock + coatRack + coatRackLarge
+			+ floorLamp + magazineRack + musicCabinet + pianoBabyGrUpr + pianoParlorGrd + pianoSpinet + radiotTable
+			+ recordPlayerPortable + rugPadSmall + rugPadLarge + sofaRattanWicker + sofaSectional + loveSeat + threeCushion + fourCushion
+			+ futon + stereoComponent + console + speakerPair + tableStandard + tableCoffee + tableEnd + phoneStand + flatScreenSmall + flatScreenLarge + bookCaseSmall + recliner + floorLampLarge
+			+ tableLamp + heavyClockLamp) as 'LivingRoom' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
 
                         <asp:FormView
                         ID="fvDiningRoom"
@@ -677,12 +733,28 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Dining Room Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Dining Room</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
                                 
                         <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                            <asp:FormView
+                                    ID="fvDiningRoomTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcDiningTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("DiningRoom").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+                            <br />
+
 
                                 <asp:Label ID="lblBench" runat="server" Text='<%#(Eval("bench").ToString() == "0") ? " " : "Bench: "+Eval("bench")  %>'></asp:Label>
                             
@@ -736,7 +808,14 @@
 
                              </div>
                                   </div>
-                         
+                         <asp:SqlDataSource ID="srcDiningTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(bench + buffestBase + hutchTop + cornerCabinet + diningTable + diningTableChair
+			+ diningTableLeaf + bakingRack + serverCart + teaCart + smallRugPad) as 'DiningRoom' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
 
                             </ItemTemplate>
                             </asp:FormView>
@@ -752,12 +831,29 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Kitchen Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Kitchen</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
                                 
                         <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                            <asp:FormView
+                                    ID="fvKitchenTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcKitchenTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("Kitchen").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                            <br />    
+
 
                                 <asp:Label ID="lblSuiteChairs" runat="server" Text='<%#(Eval("suiteChairs").ToString() == "0") ? " " : "Suite Chairs: "+Eval("suiteChairs")  %>'></asp:Label>
                             
@@ -816,6 +912,15 @@
                                       </div>
                                   </div>
                          
+                            <asp:SqlDataSource ID="srcKitchenTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(suiteChairs + largeTable + smallTable + highChair + ironingBoard
+			+ kitchenCabinet + microwave + servingCart + waterCooler + stool
+			+ microwaveStand + kitchenBench) as 'Kitchen' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
 
                             </ItemTemplate>
                             </asp:FormView>
@@ -830,12 +935,27 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Bedroom Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Bedroom</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
                                 
                         <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+<%--                            <asp:FormView
+                                    ID="fvBedroomTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcBedroomTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("Bedroom").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+                            <br />--%>
 
                                 <asp:Label ID="lblKingBedSet" runat="server" Text='<%#(Eval("kingBedSet").ToString() == "0") ? " " : "King Bed Set: "+Eval("kingBedSet")  %>'></asp:Label>
                             
@@ -872,6 +992,21 @@
 
                                      </div>
                                 <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                            <asp:FormView
+                                    ID="fvBedroomTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcBedroomTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("Bedroom").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+                            <br />
 
                                      <asp:Label ID="lblBedroomChair" runat="server" Text='<%#(Eval("bedroomChair").ToString() == "0") ? " " : "Bedroom Chair: "+Eval("bedroomChair")  %>'></asp:Label>
 
@@ -956,6 +1091,18 @@
                                   </div>
                                 </div>
                          
+                            <asp:SqlDataSource ID="srcBedroomTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(kingBedSet + queenBedSet + doubleBedSet + singleBedSet + bunkBedSet + dayBedSet
+			+ rollawayBedSet + bookShelvesBedroom + bedroomChair + rockerChairBedroom
+			+ loungeChair + armoireSmall + armoireLarge + chestSmall + chestLarge + vanityBench
+			+ bedroomBench + singleDresser + doubleDresser + tripleDresser + vanityDresser
+			+ floorLampBedroom + nightTable + smallWardrobe + largeWardrobe + jewleryArmoire
+			+ tableLampBedroom) as 'Bedroom' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
 
                             </ItemTemplate>
                             </asp:FormView>
@@ -969,12 +1116,28 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Nursery Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Nursery</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
                                 
                         <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                            <asp:FormView
+                                    ID="fvNurseryTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcNurseryTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("Nursery").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                            <br />    
 
                                 <asp:Label ID="lblBabyCarriage" runat="server" Text='<%#(Eval("babyCarriageNursery").ToString() == "0") ? " " : "Baby Carriage: "+Eval("babyCarriageNursery")  %>'></asp:Label>
                             
@@ -1041,6 +1204,16 @@
 
                              </div>
                                   </div>
+
+                            <asp:SqlDataSource ID="srcNurseryTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(babyCarriageNursery + bassinette + youthBed + childChair + highChairNursery
+			+ chestNursery + toyChest + babyCrib + playpen + plasticToySmall + plasticToyLarge
+			+ childTable + draftingTable + largeGlass) as 'Nursery' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
                          
 
                             </ItemTemplate>
@@ -1058,12 +1231,27 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Porch/Outdoor Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Porch/Outdoor</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
                                 
                         <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+<%--                            <asp:FormView
+                                    ID="fvPorchOutdoortot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcPorchOutdoorTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("porchOutdoor").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>--%>
+                            
 
                                 <asp:Label ID="lblGrillSmall" runat="server" Text='<%#(Eval("grillSmall").ToString() == "0") ? " " : "Small Grill: "+Eval("grillSmall")  %>'></asp:Label>
                             
@@ -1134,6 +1322,23 @@
                                      </div>
                                <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
 
+                            <asp:FormView
+                                    ID="fvPorchOutdoortot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcPorchOutdoorTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("porchOutdoor").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                                   <br />
+
+
                                      <asp:Label ID="lblOutdoorBench" runat="server" Text='<%#(Eval("outdoorBench").ToString() == "0") ? " " : "Outdoor Bench: "+Eval("outdoorBench")  %>'></asp:Label>
 
 
@@ -1200,6 +1405,20 @@
 
                              </div>
                                   </div>
+
+                            <asp:SqlDataSource ID="srcPorchOutdoorTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="
+select sum(grillSmall + grillLarge + chairalumPlast + chairMetal + chairWood + hoseAndTools
+			+ glider + ladderSixFoot + ladderEightFoot + ladderExtension + lawnEdger + lawnMowerHand
+			+ lawnMowerPower + lawnMowerRide + leafSweeper + childSlide + childGym + childSwingMed
+			+ childSwingLarge + picnicTable + outdoorBench + plasticTote + lawnRoller + sandBox
+			+ spreader + snowBlower + smallTableOutdoor + largeTableOutdoor + umbrella + childWagon
+			+ whellBarrow + smallAirCompressor + largeAirCompressor + gorillaRack + utilityCabinet) as 'porchOutdoor' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
                          
 
                             </ItemTemplate>
@@ -1216,7 +1435,7 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Appliance Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Appliance</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
@@ -1255,6 +1474,22 @@
 
                                      </div>
                                 <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                            <asp:FormView
+                                    ID="fvAppliancesTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcAppliancesTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("Appliances").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                                   <br />
 
                                      <asp:Label ID="lblRangeWide" runat="server" Text='<%#(Eval("rangeWide").ToString() == "0") ? " " : "Range, Wide: "+Eval("rangeWide")  %>'></asp:Label>
 
@@ -1313,6 +1548,17 @@
 
                              </div>
                                   </div>
+
+                    <asp:SqlDataSource ID="srcAppliancesTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(airconSmall + airconLarge + babyCarriage + dehumid + dishWasher + freezerTen
+			+ freezerFifteen + freezerOver + rangeWide + refrigeratorSix + refrigeratorTen + refrigeratorOver + sewingMachine
+			+ sewingWithCAB + steamCleaner + trashCompactor + vacuumCleaner + humid
+			+ airPurifier + shopVac + washer + dryer) as 'Appliances' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
                          
 
                             </ItemTemplate>
@@ -1329,7 +1575,7 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Miscellaneous Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Miscellaneous</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
@@ -1437,6 +1683,22 @@
 
                                     </div>
                                 <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                                     <asp:FormView
+                                    ID="fvMiscTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcMisctot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("Misc").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                                   <br />
 
                                      <asp:Label ID="lblfootLocker" runat="server" Text='<%#(Eval("footLocker").ToString() == "0") ? " " : "Foot Locker: "+Eval("footLocker")  %>'></asp:Label>
 
@@ -1566,6 +1828,23 @@
 
                              </div>
                                   </div>
+
+                            <asp:SqlDataSource ID="srcMiscTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(fakeTree+barbellWeights+clothesBasket+bike+bowlingBall+cardTable+clothesHamper
+			+ cooler + foldingCot + officeDeskLarge + computerDesk + studentDesk 
+			+ officeChair + secretaryChair + printerStand + exerciseEquip + miscFan 
+			+ fernPlantStand + cardboardCabinet + twoDrawerCabinet + fourDrwaerCabinet
+			+ fishingPole + fireArms + foldingChair + wineRack + footLocker + cardTableLarge
+			+ golfEquip + spaceHeater + metalShelves + pingpongTable + poolTableComp + poolTableSlate + hottubFour
+			+ hottubSix + hottubEight + powerTool + powerToolStand + skis + sled + suitCase + tackleBox
+			+ tire + tireAndRims + toolChestSmall + toolChestMed + toolChestLarge + toolChestXL
+			+ trashCan + trampoline + treadmill + tricycle + workBench + sewingCabinet + largeSafe
+			+ medSafe + smallSage + gunSafe + statue) as 'Misc' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
                          
 
                             </ItemTemplate>
@@ -1583,12 +1862,28 @@
                                 No Building Type Selected
                             </EmptyDataTemplate>
                         <ItemTemplate>
-                            <h6 style="text-align:center;text-decoration:underline">Packing Information</h6>  
+                            <h6 style="text-align:center;text-decoration:underline">Packing</h6>  
                             <div class="form-group row justify-content-around">
                                 <div class="mb-2">
                                    
                                 
                         <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
+
+                            <asp:FormView
+                                    ID="fvPackingTot"
+                                    DefaultMode="ReadOnly"
+                                    DataSourceID="srcPackingTot"
+                                    runat="server">
+                                      <ItemTemplate>
+                                    
+                                          <asp:Label ID="lblTotal" runat="server" Text='<%#(Eval("Packing").ToString() == "0") ? "No Items Selected!" : " "  %>'></asp:Label>
+
+                                      </ItemTemplate>
+
+
+                                  </asp:FormView>
+
+                                   <br />
 
                                 <asp:Label ID="lblBar" runat="server" Text='<%#(Eval("dishPack").ToString() == "0") ? " " : "Dish Pack: "+Eval("dishPack")  %>'></asp:Label>
                             
@@ -1606,7 +1901,9 @@
                                 <br />
                                 
                                     <asp:Label ID="lblsmallBooks" runat="server" Text='<%#(Eval("smallBooks").ToString() == "0") ? " " : "Small Books: "+Eval("smallBooks")  %>'></asp:Label>
-                               
+                                <br />
+                                        <br />
+                                   
                         </div>
                             
                                     <div class="form-group justify-content-around p-3" style="display:inline-block;vertical-align:middle;float:left">
@@ -1628,13 +1925,25 @@
                                    <br />
 
                                      <asp:Label ID="lblMirrorCarton" runat="server" Text='<%#(Eval("mirrorCarton").ToString() == "0") ? " " : "Mirror Cartons: "+Eval("mirrorCarton")  %>'></asp:Label>
-                                     
+                                     <br />
+                                        <br />
+                                        <br />
+
                             
 
                                 </div>
 
                              </div>
                                   </div>
+
+                            <asp:SqlDataSource ID="srcPackingTot" runat="server"
+                                       ConnectionString="<%$ ConnectionStrings:Connect %>"
+                                       SelectCommand="select sum(dishPack + wardrobeLayFlat + wardrobeStandup + smallBooks + smallCartons
+			+ mediumCartons + largeCartons + XLCartons + mirrorCarton) as 'Packing' from cubeSheet where serviceID=@serviceID">
+                                     <SelectParameters>
+                                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
+                                     </SelectParameters>
+                                  </asp:SqlDataSource>
                          
 
                             </ItemTemplate>
