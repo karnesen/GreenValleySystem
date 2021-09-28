@@ -103,24 +103,24 @@ namespace Lab1
                 sqlQuery += "INSERT INTO TICKETNOTE (creationDate, customerID, noteCreator, noteTitle, noteText)" +
                     " VALUES('" + DateTime.Now + "', (select max(customerID) from customer), " + Session["EmployeeID"].ToString() + ", 'Initial Contact', @notes)";
                
-                if(chAppraisal.Checked)
-                {
-                    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
-                    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'P', (select max(customerID) from customer), '" + DateTime.Now + "')";
-                    sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '0', '')";
-                }
-                if (chMove.Checked)
-                {
-                    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
-                    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'M', (select max(customerID) from customer), '" + DateTime.Now + "')";
-                    sqlQuery += " INSERT INTO MOVE(serviceID) VALUES((select max(serviceID) from service))";
-                }
-                if (chAuction.Checked)
-                {
-                    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
-                    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'A', (select max(customerID) from customer), '" + DateTime.Now + "')";
-                    sqlQuery += " INSERT INTO AUCTION(serviceID) VALUES((select max(serviceID) from service))";
-                }
+                //if(chAppraisal.Checked)
+                //{
+                //    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
+                //    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'P', (select max(customerID) from customer), '" + DateTime.Now + "')";
+                //    sqlQuery += " INSERT INTO Appraisal(serviceID, appraisalSize, appraisalPurpose, inventory) VALUES((select max(serviceID) from service), '', '0', '')";
+                //}
+                //if (chMove.Checked)
+                //{
+                //    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
+                //    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'M', (select max(customerID) from customer), '" + DateTime.Now + "')";
+                //    sqlQuery += " INSERT INTO MOVE(serviceID) VALUES((select max(serviceID) from service))";
+                //}
+                //if (chAuction.Checked)
+                //{
+                //    sqlQuery += " Insert INTO SERVICE(serviceOpenDate, serviceStatus, serviceDeadlineStart, serviceDeadlineEnd, serviceType, customerID, lastUpdated)"
+                //    + " VALUES('" + DateTime.Now + "', 1,'" + serviceStartDate + "', '" + completionDate + "', 'A', (select max(customerID) from customer), '" + DateTime.Now + "')";
+                //    sqlQuery += " INSERT INTO AUCTION(serviceID) VALUES((select max(serviceID) from service))";
+                //}
 
 
                 sqlQuery += " Select customerID as selected, firstName, lastName from customer where customerID = (select max(customerID) from customer)";
