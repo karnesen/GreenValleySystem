@@ -63,17 +63,27 @@
                         <br />
                         <asp:Label ID="lblCity" runat="server" Text='<%# Bind("city") %>'></asp:Label>,
                     <asp:Label ID="lblState" runat="server" Text='<%# Bind("state") %>'></asp:Label>
-                        <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>
+                        <asp:Label ID="lblZip" runat="server" Text='<%# Bind("zipcode") %>'></asp:Label>,
+                        <br />
+                        <asp:Label ID="lblPhotos" Font-Bold="true" runat="server" Text='<%#Eval("addressType").ToString() == "P" ? "Photos Sent: " : "" %>'></asp:Label>
+                        <asp:Label ID="lblSendPhotos" runat="server" Text='<%# (Eval("addressType").ToString() == "P" & Eval("sendPhotos").ToString() == "True") ? "Yes" : "" %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="lblMLS" Font-Bold="true" runat="server" Text='<%#Eval("addressType").ToString() == "P" ? "MLS Listing: " : "" %>'></asp:Label>
+                        <asp:Label ID="lblMLSlisting" runat="server" Text='<%# (Eval("addressType").ToString() == "P" & Eval("mls").ToString() == "True") ? "Yes" : "" %>'></asp:Label>
+                        <br />
                         <br />
 
                     </ItemTemplate>
+
                 </asp:ListView>
 
                 <asp:SqlDataSource
                     ID="srcServiceAddresses"
                     ConnectionString="<%$ ConnectionStrings:Connect %>"
-                    SelectCommand="SELECT ADDRESSES.addressID, ADDRESSES.streetAddress, ADDRESSES.city, ADDRESSES.state, ADDRESSES.zipcode, ADDRESSES.addressType, ADDRESSES.serviceID
-                                    FROM ADDRESSES WHERE ADDRESSES.serviceID = @serviceID"
+                    SelectCommand="SELECT        ADDRESSES.addressID, ADDRESSES.streetAddress, ADDRESSES.city, ADDRESSES.state, ADDRESSES.zipcode, ADDRESSES.addressType, ADDRESSES.serviceID, MOVEASSESSMENT.mls, 
+                         MOVEASSESSMENT.sendPhotos
+                         FROM            ADDRESSES INNER JOIN
+                         MOVEASSESSMENT ON ADDRESSES.serviceID = MOVEASSESSMENT.serviceID WHERE ADDRESSES.serviceID = @serviceID"
                     runat="server">
                     <SelectParameters>
                         <asp:SessionParameter Name="serviceID" SessionField="selectedService" />

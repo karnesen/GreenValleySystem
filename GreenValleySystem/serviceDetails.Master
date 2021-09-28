@@ -405,6 +405,7 @@
                                                         <asp:ListItem>Consignment Shop Pick Up</asp:ListItem>
                                                         <asp:ListItem>Consignment Shop Bring In</asp:ListItem>
                                                         <asp:ListItem>Trash Removal</asp:ListItem>
+                                                        <asp:ListItem>Canceled</asp:ListItem>
                                                         
                                                     </asp:DropDownList>
 
@@ -455,6 +456,7 @@
                                                         <asp:ListItem Value="Consignment Shop Pick Up">Consignment Shop Pick Up</asp:ListItem>
                                                         <asp:ListItem Value="Consignment Shop Bring In">Consignment Shop Bring In</asp:ListItem>
                                                         <asp:ListItem Value="Trash Removal">Trash Removal</asp:ListItem>
+                                                        <asp:ListItem Value="Canceled">Canceled</asp:ListItem>
                                                         
                                                     </asp:DropDownList>
 
@@ -483,7 +485,7 @@
                                                             <asp:Button ID="btnCancel" runat="server" CommandName="Cancel" Text="Cancel" class="form-control" OnClick="keepOpen_Click" />
                                                         </div>
                                                         <div class="col">
-                                                            <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete All Events" class="form-control" OnClick="keepOpen_Click" />
+                                                            <asp:Button ID="btnDelete" runat="server" CommandName="Delete" Text="Delete Event" class="form-control" OnClick="keepOpen_Click" />
                                                         </div>
                                                     </div>
                                                 </EditItemTemplate>
@@ -501,9 +503,9 @@
                                                 InsertCommand="Insert into Schedule (serviceID,description,custDateOption1, custDateOption2, custDateOption3, empDateOption1,  empDateOption2, empDateOption3, confirmedDate) 
                                         values(@serviceID, @description, parse(@custDateOption1 as dateTime), parse(@custDateOption2 as dateTime), parse(@custDateOption3 as dateTime),  parse(@empDateOption1 as dateTime), parse(@empDateOption2 as dateTime), parse(@empDateOption3 as dateTime), parse(@confirmedDate as dateTime))"
                                                 UpdateCommand="Update schedule set
-                                            custDateOption1=parse(@custDateOption1 as dateTime), custDateOption2=parse(@custDateOption2 as dateTime) , custDateOption3=parse(@custDateOption3 as dateTime), empDateOption1=parse(@empDateOption1 as dateTime),  empDateOption2= parse(@empDateOption2 as dateTime), empDateOption3= parse(@empDateOption3 as dateTime),  confirmedDate= parse(@confirmedDate as dateTime)  
-                                            where serviceID=@serviceID and description=@description"
-                                                DeleteCommand="delete from Schedule where dateID=dateID">
+                                            description=@description, custDateOption1=parse(@custDateOption1 as dateTime), custDateOption2=parse(@custDateOption2 as dateTime) , custDateOption3=parse(@custDateOption3 as dateTime), empDateOption1=parse(@empDateOption1 as dateTime),  empDateOption2= parse(@empDateOption2 as dateTime), empDateOption3= parse(@empDateOption3 as dateTime),  confirmedDate= parse(@confirmedDate as dateTime) 
+                                            where serviceID=@serviceID and description=@selectedDescription and dateID=@dateID"
+                                                DeleteCommand="delete from Schedule where dateID=dateID and description=@selectedDescription">
                                                 <SelectParameters>
                                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
                                                     <asp:SessionParameter Name="description" SessionField="selectedDescription" />
@@ -518,6 +520,7 @@
                                                     <asp:Parameter Name="empDateOption2" ConvertEmptyStringToNull="true" />
                                                     <asp:Parameter Name="empDateOption3" ConvertEmptyStringToNull="true" />
                                                     <asp:Parameter Name="confirmedDate" ConvertEmptyStringToNull="true" />
+                                               
                                                 </InsertParameters>
                                                 <UpdateParameters>
                                                     <asp:SessionParameter Name="serviceID" SessionField="selectedService" />
@@ -528,9 +531,13 @@
                                                     <asp:Parameter Name="empDateOption2" ConvertEmptyStringToNull="true" />
                                                     <asp:Parameter Name="empDateOption3" ConvertEmptyStringToNull="true" />
                                                     <asp:Parameter Name="confirmedDate" ConvertEmptyStringToNull="true" />
+                                                    <asp:Parameter Name="dateID"/>
+                                                    <asp:SessionParameter Name="selectedDescription" SessionField="selectedDescription" />
+                                                  
                                                 </UpdateParameters>
                                                 <DeleteParameters>
                                                     <asp:Parameter Name="dateID"/>
+                                                    <asp:SessionParameter Name="selectedDescription" SessionField="selectedDescription" />
                                                 </DeleteParameters>
                                             </asp:SqlDataSource>
                                         </div>

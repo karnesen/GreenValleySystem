@@ -152,7 +152,7 @@
                             </asp:DropDownList>
                             <h5>Set Date</h5>
                             <asp:TextBox ID="txtStartDate" runat="server" Text='<%#Bind("paymentDate") %>' Placeholder="Date Received" class="form-control" TextMode="Date"></asp:TextBox>
-                            <h6 style="color:crimson">Date Received: <%#Eval("paymentDate") %></h6>
+                            <h6 style="color:crimson"><%#Eval("paymentDate").ToString() == "1/1/1900 12:00:00 AM" ? " " : "Date Recieved: "+Eval("paymentDate") %></h6>
 
 
                             <%--<asp:RegularExpressionValidator 
