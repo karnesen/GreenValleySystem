@@ -239,7 +239,7 @@ namespace Lab1
             String firstName = txtFirstName.Text;
             String lastNAme = txtLastName.Text;
 
-            String sqlQuery = "Select * from CUSTOMER where firstName=@firstName and lastName=@lastName and phoneNumber=@phone" ;
+            String sqlQuery = "Select * from CUSTOMER where firstName=@firstName and lastName=@lastName" ;
            
             // Define the connection to the Database:
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Connect"].ConnectionString);
@@ -250,7 +250,7 @@ namespace Lab1
             sqlCommand.CommandText = sqlQuery;
             sqlCommand.Parameters.Add(new SqlParameter("@firstName", firstName));
             sqlCommand.Parameters.Add(new SqlParameter("@lastName", lastNAme));
-            sqlCommand.Parameters.Add(new SqlParameter("@phone", phone));
+            //sqlCommand.Parameters.Add(new SqlParameter("@phone", phone));
             // Open your connection, send the query, retrieve the results:
             sqlConnect.Open();
             SqlDataReader queryResults = sqlCommand.ExecuteReader();

@@ -77,10 +77,10 @@
                                         });
                                     </script>
                                     
-                                    <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
+                                    <%--<asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
                                         ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPhoneNumber"
                                         Text="Phone Required." ValidationGroup="CreateCustomer" ForeColor="Red">
-                                    </asp:RequiredFieldValidator>
+                                    </asp:RequiredFieldValidator>--%>
 
                                 </div>
                                 <div class="col-md-6">
@@ -259,7 +259,7 @@
                         </li>
 
                         <li class="list-group-item">
-                            <asp:Label ID="Label1" runat="server" Class="h6" Text="Requested Services"></asp:Label>
+                            <%--<asp:Label ID="Label1" runat="server" Class="h6" Text="Requested Services"></asp:Label>
                             <div class="row form-group justify-content-around">
                                 <div class="form-check">
                                     <asp:CheckBox ID="chAuction" Text="Auction" runat="server" />
@@ -270,7 +270,7 @@
                                 <div class="form-check">
                                     <asp:CheckBox ID="chAppraisal" Text="Appraisal" runat="server" />
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="row">
                                 <div class="col-2">
