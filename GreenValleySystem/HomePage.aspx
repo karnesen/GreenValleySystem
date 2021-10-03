@@ -100,6 +100,7 @@
 
             </div>--%>
           <br />
+          
              <div class="card p-3 mb-6 col-12" style="border: 1px solid #bb9739;height:500px; overflow:scroll">
                  <p class="text-sm-center #bb9739">Global Notes</p>
                  <asp:Button ID="btnNewGlobalNote" runat="server" Text="New Global Note" OnClick="btnNewGlobalNote_Click" Class="btn btn-secondary" />
@@ -141,7 +142,7 @@
                 </EditItemTemplate>--%>
             <%--</asp:ListView>--%>
 
-
+            <div style="border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; overflow:hidden">
                   <asp:GridView
                 ID="gvUpcomingServices"
                 runat="server"
@@ -155,9 +156,10 @@
                 AllowSorting="true"
                 AutoGenerateEditButton="true">
                 <HeaderStyle BackColor="#266141" ForeColor="White" />
-                <Columns>
+                
                     
-
+            
+                      <Columns>
                     <asp:BoundField DataField="authorName" HeaderText="Author Name"
                          SortExpression="authorName" ReadOnly="true"/>
                     
@@ -222,6 +224,8 @@
                       
             </asp:GridView>
 
+             </div>
+
             
             </div>
           </div>
@@ -230,6 +234,8 @@
         
         <div class="card p-3 mb-3" style="border: 1px solid #bb9739; height:500px; overflow:scroll">
             <p class="text-sm-center #bb9739">Active Customers</p>
+
+            <div style="border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; overflow:hidden">
             <asp:GridView
                 ID="gvCustomerTickets"
                 runat="server"
@@ -276,6 +282,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+                </div>
         </div>
  
             <script type='text/javascript'>                    

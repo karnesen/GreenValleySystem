@@ -13,12 +13,16 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Web.SessionState;
 using System.IO;
+using Amazon;
+using Amazon.S3;
+using Amazon.S3.Transfer;
 
 
 namespace Lab2
 {
     public partial class editTicket : System.Web.UI.Page
     {
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
